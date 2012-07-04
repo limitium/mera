@@ -3,14 +3,14 @@ Actor Manager
 participant Collector
 participant Generator
 participant Mailserver
-
+== Add new auditor ==
 activate Manager #FFBBBB
 	Manager -> Collector: New auditor
 	Collector -->> Mailserver: Invite
 	Mailserver -->> Auditor: Send mail
 	Collector -> Manager: ok
 deactivate Manager
-
+== Collect data ==
 activate Auditor
 Auditor -> Collector: Login
 Collector -> Auditor: ok
@@ -25,9 +25,9 @@ Auditor -> Collector: Done
 Collector -> Collector: Lock last changes
 Collector -->> Mailserver: Collect done
 Mailserver -->> Manager: Send Mail
-deactivate Auditor
+destroy Auditor
 
-
+== Check data ==
 activate Manager #FFBBBB
 	Manager -> Collector: Get data
     Collector -> Manager: Data
@@ -39,15 +39,13 @@ activate Manager #FFBBBB
 	end
 deactivate Manager
 
+== Generate reports ==
 Generator -> Generator: Make report
 Generator -->> Mailserver: Reports done
-Mailserver -->> Auditor: Send mail
+Mailserver -->> Manager: Send mail
 
-activate Auditor
-	Auditor -> Generator: Login
-	Generator -> Auditor: ok
-    Auditor -> Generator: Get reports
-    Generator -> Auditor: Reports
-deactivate Auditor
-
-
+activate Manager #FFBBBB
+	Manager -> Generator: Get reports
+    Generator -> Manager: Reports
+	Manager -> Manager: Send reports via Mail
+deactivate Manager
