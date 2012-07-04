@@ -1,0 +1,53 @@
+Actor Auditor
+Actor Manager
+participant Collector
+participant Generator
+participant Mailserver
+
+activate Manager #FFBBBB
+	Manager -> Collector: New auditor
+	Collector -->> Mailserver: Invite
+	Mailserver -->> Auditor: Send mail
+	Collector -> Manager: ok
+deactivate Manager
+
+activate Auditor
+Auditor -> Collector: Login
+Collector -> Auditor: ok
+
+loop until data availabe
+    Auditor -> Collector: Send data
+    Collector -> Collector: New version
+    Collector -> Auditor: ok
+end
+
+Auditor -> Collector: Done
+Collector -> Collector: Lock last changes
+Collector -->> Mailserver: Collect done
+Mailserver -->> Manager: Send Mail
+deactivate Auditor
+
+
+activate Manager #FFBBBB
+	Manager -> Collector: Get data
+    Collector -> Manager: Data
+    Manager -> Manager: Check data
+    alt Success
+    	Manager -->> Generator: Make repotrs
+    else failed
+    	Manager -> Manager: Realy need?
+	end
+deactivate Manager
+
+Generator -> Generator: Make report
+Generator -->> Mailserver: Reports done
+Mailserver -->> Auditor: Send mail
+
+activate Auditor
+	Auditor -> Generator: Login
+	Generator -> Auditor: ok
+    Auditor -> Generator: Get reports
+    Generator -> Auditor: Reports
+deactivate Auditor
+
+
