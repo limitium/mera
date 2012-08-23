@@ -1,5 +1,5 @@
 {
-    "hash": "edaa3d361ee9a1e81e9c2031a00b2c93",
+    "hash": "57ffa36b5098504070dc24eb5b22e800",
     "packages": [
         {
             "package": "doctrine/common",
@@ -160,6 +160,12 @@
             "version": "dev-master",
             "source-reference": "11e91f63e94a4fce9e65ddbda44ed00ba22a2171",
             "commit-date": "1345724338"
+        },
+        {
+            "package": "twitter/bootstrap",
+            "version": "master",
+            "source-reference": "master",
+            "commit-date": "1345529623"
         }
     ],
     "packages-dev": null,
@@ -176,6 +182,7 @@
         "sensio/distribution-bundle": 20,
         "sensio/framework-extra-bundle": 20,
         "sensio/generator-bundle": 20,
-        "limitium/ormd-fixer": 20
+        "limitium/ormd-fixer": 20,
+        "twitter/bootstrap": 20
     }
 }
