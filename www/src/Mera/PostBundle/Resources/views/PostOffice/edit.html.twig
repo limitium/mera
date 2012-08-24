@@ -1,25 +1,20 @@
 {% extends 'MeraPostBundle:PostOffice:post.html.twig' %}
 {% block post %}
-    <h1>PostOffice edit</h1>
+    <h1>Редактирование почтового отделения</h1>
+    <div class="btn-toolbar">
+        <div class="btn-group">
+            <a class="btn" href="{{ path('postoffice') }}"><i class="icon-th-list"></i> К
+                списку</a>
+            <a class="btn" href="{{ path('postoffice_delete', { 'id': entity.id }) }}"><i class="icon-remove""></i>
+                Удалить</a>
+        </div>
+    </div>
 
     <form action="{{ path('postoffice_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
         {{ form_widget(edit_form) }}
         <p>
-            <button type="submit">Edit</button>
+            <button class="btn btn-primary" type="submit"><i class="icon-ok icon-white"></i> Сохранить</button>
         </p>
     </form>
 
-    <ul class="record_actions">
-        <li>
-            <a href="{{ path('postoffice') }}">
-                Back to the list
-            </a>
-        </li>
-        <li>
-            <form action="{{ path('postoffice_delete', { 'id': entity.id }) }}" method="post">
-                {{ form_widget(delete_form) }}
-                <button type="submit">Delete</button>
-            </form>
-        </li>
-    </ul>
 {% endblock %}
