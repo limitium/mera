@@ -1,6 +1,6 @@
 {% extends 'MeraPostBundle:PostOffice:post.html.twig' %}
 {% block post %}
-    <h1>Почтовое отделение</h1>
+    <h2>Почтовое отделение ({{ entity.name }})</h2>
 
     <div class="btn-toolbar">
         <div class="btn-group">
@@ -13,21 +13,12 @@
         </div>
     </div>
 
-    <table class="record_properties">
-        <tbody>
-        <tr>
-            <th>Id</th>
-            <td>{{ entity.id }}</td>
-        </tr>
-        <tr>
-            <th>Name</th>
-            <td>{{ entity.name }}</td>
-        </tr>
-        <tr>
-            <th>Email</th>
-            <td>{{ entity.email }}</td>
-        </tr>
-        </tbody>
-    </table>
-
+    <div>
+        <dl class="dl-horizontal">
+            <dt>Email:</dt>
+            <dd>{{ entity.email }}</dd>
+            <dt>Пароль:</dt>
+            <dd>sn784ns0fs</dd>
+        </dl>
+    </div>
 {% endblock %}

@@ -1,0 +1,43 @@
+Mera\PostBundle\Entity\Common:
+    type: entity
+    fields:
+        post_office_id:
+            id: true
+            type: integer
+        address_legal:
+            type: string
+            nullable: true
+        adress_actual:
+            type: string
+            nullable: true
+        tin:
+            type: string
+            nullable: true
+        cat:
+            type: string
+            nullable: true
+        settlement_account:
+            type: string
+            nullable: true
+        bic:
+            type: string
+            nullable: true
+        bank_name:
+            type: string
+            nullable: true
+        agrn:
+            type: string
+            nullable: true
+        okved:
+            type: string
+            nullable: true
+        okp:
+            type: string
+            nullable: true
+    oneToOne:
+        PostOffice:
+            targetEntity: Mera\PostBundle\Entity\PostOffice
+            inversedBy: Common
+            joinColumns:
+                post_office_id:
+                    referencedColumnName: id

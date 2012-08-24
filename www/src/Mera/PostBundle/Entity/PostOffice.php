@@ -80,4 +80,77 @@ class PostOffice
     {
         return $this->email;
     }
+    /**
+     * @var Mera\PostBundle\Entity\Common
+     */
+    private $Common;
+
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     */
+    private $Buildings;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->Buildings = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Set Common
+     *
+     * @param Mera\PostBundle\Entity\Common $common
+     * @return PostOffice
+     */
+    public function setCommon(\Mera\PostBundle\Entity\Common $common = null)
+    {
+        $this->Common = $common;
+    
+        return $this;
+    }
+
+    /**
+     * Get Common
+     *
+     * @return Mera\PostBundle\Entity\Common 
+     */
+    public function getCommon()
+    {
+        return $this->Common;
+    }
+
+    /**
+     * Add Buildings
+     *
+     * @param Mera\PostBundle\Entity\Building $buildings
+     * @return PostOffice
+     */
+    public function addBuilding(\Mera\PostBundle\Entity\Building $buildings)
+    {
+        $this->Buildings[] = $buildings;
+    
+        return $this;
+    }
+
+    /**
+     * Remove Buildings
+     *
+     * @param Mera\PostBundle\Entity\Building $buildings
+     */
+    public function removeBuilding(\Mera\PostBundle\Entity\Building $buildings)
+    {
+        $this->Buildings->removeElement($buildings);
+    }
+
+    /**
+     * Get Buildings
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getBuildings()
+    {
+        return $this->Buildings;
+    }
 }

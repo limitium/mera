@@ -13,3 +13,11 @@ Mera\PostBundle\Entity\PostOffice:
         email:
             type: string
             nullable: false
+    oneToOne:
+        Common:
+            targetEntity: Mera\PostBundle\Entity\Common
+            mappedBy: PostOffice
+    oneToMany:
+        Buildings:
+            targetEntity: Mera\PostBundle\Entity\Building
+            mappedBy: PostOffice
