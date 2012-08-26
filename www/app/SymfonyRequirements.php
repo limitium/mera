@@ -26,6 +26,7 @@
  * ************** CAUTION **************
  *
  * @author Tobias Schultze <http://tobion.de>
+ * @author Fabien Potencier <fabien@symfony.com>
  */
 class Requirement
 {
@@ -490,6 +491,12 @@ class SymfonyRequirements extends RequirementCollection
             'Upgrade your <strong>PCRE</strong> extension (8.0+)'
         );
 
+        $this->addRequirement(
+            version_compare($installedPhpVersion, '5.3.16', '!='),
+            'Symfony won\'t work properly with PHP 5.3.16',
+            'Install PHP 5.3.17 or newer'
+        );
+
         /* optional recommendations follow */
 
         $this->addRecommendation(
@@ -508,6 +515,12 @@ class SymfonyRequirements extends RequirementCollection
             version_compare($installedPhpVersion, '5.3.8', '>='),
             sprintf('Annotations might not work properly due to the PHP bug #55156 before PHP 5.3.8 (%s installed)', $installedPhpVersion),
             'Install PHP 5.3.8 or newer if your project uses annotations'
+        );
+
+        $this->addRecommendation(
+            !(extension_loaded('intl') && null === new Collator('fr_FR')),
+            'intl extension should be correctly configured',
+            'The intl extension does not behave properly. This problem is typical on PHP 5.3.X x64 WIN builds'
         );
 
         $this->addRecommendation(

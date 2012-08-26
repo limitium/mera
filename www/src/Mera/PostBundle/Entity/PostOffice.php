@@ -153,4 +153,8 @@ class PostOffice
     {
         return $this->Buildings;
     }
+
+    public function __toString(){
+        return $this->getName();
+    }
 }

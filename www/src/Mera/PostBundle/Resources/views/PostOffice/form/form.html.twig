@@ -1,0 +1,33 @@
+<form action="{% spaceless %}
+{% if facility.id %}
+{{ path('postoffice_update', { 'id': facility.id }) }}
+{% else %}
+{{ path('postoffice_create') }}
+{% endif %}
+{% endspaceless %}" method="post" {{ form_enctype(form) }}>
+    <div class="embedded">
+        <h4>3.Технические характеристики зданий (для каждого здания)</h4>
+        {{ form_errors(form.Buildings) }}
+        <div>
+            {% for building in form.Buildings %}
+            <div>
+                Здание №{{form_label(building)+1}}
+                {{ form_row(building.name) }}
+                {{ form_row(building.year) }}
+                {{ form_row(building.floors) }}
+                {{ form_row(building.height_ceilings) }}
+                {{ form_row(building.height_building) }}
+                {{ form_row(building.volume_building) }}
+                {{ form_row(building.volume_heated) }}
+                {{ form_row(building.area_total) }}
+                {{ form_row(building.area_glazing) }}
+                {{ form_row(building.perimeter_building) }}
+                {{ form_row(building.depreciation_actual) }}
+                {{ form_row(building.depreciation_physical) }}
+                {{ form_row(building.PostOffice) }}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {{ form_rest(form) }}
+</form>

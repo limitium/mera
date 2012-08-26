@@ -13,6 +13,10 @@ class PostOfficeType extends AbstractType
         $builder
             ->add('name')
             ->add('email')
+            ->add('Buildings', 'collection', array('type' => new BuildingType(),
+            'allow_add' => true,
+            'allow_delete' => true));
+
         ;
     }
 
