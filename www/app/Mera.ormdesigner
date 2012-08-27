@@ -53,8 +53,6 @@
     </table>
     <table name="User" visPositionX="57" visPositionY="19" visSizeX="0" visSizeX2="99" visSizeY="0" visSizeY2="73">
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
-      <column name="username" required="true" type="string" unique="true"/>
-      <column name="password" required="true" type="string"/>
       <column name="role_id" required="true" type="integer" unique="true"/>
     </table>
     <table name="Role" visPositionX="10" visPositionY="157" visSizeX="0" visSizeX2="83" visSizeY="0" visSizeY2="45">

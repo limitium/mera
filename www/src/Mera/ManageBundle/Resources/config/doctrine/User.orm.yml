@@ -6,13 +6,6 @@ Mera\ManageBundle\Entity\User:
             type: integer
             generator:
                 strategy: AUTO
-        username:
-            type: string
-            unique: true
-            nullable: false
-        password:
-            type: string
-            nullable: false
     oneToOne:
         Role:
             targetEntity: Mera\ManageBundle\Entity\Role

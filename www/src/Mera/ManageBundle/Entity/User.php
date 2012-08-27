@@ -11,21 +11,6 @@ use FOS\UserBundle\Entity\User as BaseUser;
 class User extends BaseUser
 {
     /**
-     * @var integer $id
-     */
-    protected $id;
-
-    /**
-     * @var string $username
-     */
-    protected $username;
-
-    /**
-     * @var string $password
-     */
-    protected $password;
-
-    /**
      * @var Mera\ManageBundle\Entity\Role
      */
     private $Role;
@@ -34,14 +19,11 @@ class User extends BaseUser
      * @var \Doctrine\Common\Collections\ArrayCollection
      */
     private $Facility;
-
     /**
-     * Constructor
+     * @var integer $id
      */
-    public function __construct()
-    {
-        $this->Facility = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+    protected $id;
+
 
     /**
      * Get id
@@ -54,49 +36,11 @@ class User extends BaseUser
     }
 
     /**
-     * Set username
-     *
-     * @param string $username
-     * @return User
+     * Constructor
      */
-    public function setUsername($username)
+    public function __construct()
     {
-        $this->username = $username;
-
-        return $this;
-    }
-
-    /**
-     * Get username
-     *
-     * @return string
-     */
-    public function getUsername()
-    {
-        return $this->username;
-    }
-
-    /**
-     * Set password
-     *
-     * @param string $password
-     * @return User
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    /**
-     * Get password
-     *
-     * @return string
-     */
-    public function getPassword()
-    {
-        return $this->password;
+        $this->Facility = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -154,4 +98,5 @@ class User extends BaseUser
     {
         return $this->Facility;
     }
+
 }
