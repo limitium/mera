@@ -19,8 +19,11 @@ class AppKernel extends Kernel
             new JMS\AopBundle\JMSAopBundle(),
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
-            new Mera\PostBundle\MeraPostBundle(),
-            new FOS\UserBundle\FOSUserBundle(),
+//            new FOS\UserBundle\FOSUserBundle(),
+
+
+            new Mera\ManageBundle\MeraManageBundle(),
+            new Mera\AuditBundle\MeraAuditBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

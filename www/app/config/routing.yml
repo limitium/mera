@@ -1,3 +1,18 @@
+MeraAuditBundle:
+    resource: "@MeraAuditBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+MeraFacilityBundle:
+    resource: "@MeraFacilityBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+MeraManageBundle:
+    resource: "@MeraManageBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 MeraPostBundle:
   resource: "@MeraPostBundle/Controller/"
   type:     annotation

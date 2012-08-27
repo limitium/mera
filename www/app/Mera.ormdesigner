@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <orm-designer version="1.4.7.491">
 
-  <project code-name="Mera" framework="Without Framework" name="mera" orm="Doctrine2" visSizeX="0" visSizeX2="1040" visSizeY="0" visSizeY2="696">
-    <module-position name="PostBundle" visPositionX="22" visPositionY="17"/>
+  <project code-name="Mera" framework="Without Framework" name="mera" orm="Doctrine2" visSizeX="28" visSizeX2="1213" visSizeY="98" visSizeY2="853">
+    <module-position name="AuditBundle" visPositionX="394" visPositionY="-61"/>
+    <module-position name="ManageBundle" visPositionX="-17" visPositionY="-88"/>
   </project>
 
-  <module import-format="Doctrine2Yml" import-path="..\src\Mera\PostBundle\Resources\config\doctrine\" name="PostBundle" visBkColor="16380404" visSizeX="0" visSizeX2="1010" visSizeY="0" visSizeY2="491">
-    <table name="PostOffice" visPositionX="14" visPositionY="21" visSizeX="0" visSizeX2="83" visSizeY="0" visSizeY2="59">
+  <module import-format="Doctrine2Yml" import-path="..\src\Mera\AuditBundle\Resources\config\doctrine\" name="AuditBundle" visBkColor="16380404" visSizeX="0" visSizeX2="660" visSizeY="32" visSizeY2="490">
+    <table description="1.Общие сведения по предприятию (учреждению)" name="Common" visPositionX="29" visPositionY="-8" visSizeX="0" visSizeX2="142" visSizeY="0" visSizeY2="185">
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
-      <column name="name" required="true" type="string" unique="true"/>
-      <column name="email" required="true" type="string"/>
-    </table>
-    <table description="1.Общие сведения по предприятию (учреждению)" name="Common" visPositionX="11" visPositionY="174" visSizeX="0" visSizeX2="142" visSizeY="0" visSizeY2="171">
       <column name="address_legal" type="string"/>
       <column name="adress_actual" type="string"/>
       <column name="tin" type="string"/>
@@ -22,9 +19,9 @@
       <column name="agrn" type="string"/>
       <column name="okved" type="string"/>
       <column name="okp" type="string"/>
-      <column name="post_office_id" primary="true" required="true" type="integer" unique="true"/>
+      <column name="facility_id" required="true" type="integer" unique="true"/>
     </table>
-    <table description="3.Технические характеристики зданий (для каждого здания)" name="Building" visPositionX="162" visPositionY="165" visSizeX="0" visSizeX2="155" visSizeY="0" visSizeY2="213">
+    <table description="3.Технические характеристики зданий (для каждого здания)" name="Building" visPositionX="29" visPositionY="261" visSizeX="0" visSizeX2="155" visSizeY="0" visSizeY2="213">
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
       <column name="name" type="string"/>
       <column name="year" type="integer"/>
@@ -38,13 +35,37 @@
       <column name="perimeter_building" type="integer"/>
       <column name="depreciation_actual" type="integer"/>
       <column name="depreciation_physical" type="integer"/>
-      <column name="post_office_id" required="true" type="integer"/>
+      <column name="common_id" required="true" type="integer"/>
     </table>
-    <foreign-key caption="PostOffice Common" from="Common" inverse-alias="PostOffice" name="FK_Common_PostOffice_id" owning-alias="Common" to="PostOffice" visCaption1X="-2" visCaption1Y="-1" visCenterX="0" visCenterY="0">
-      <foreign-key-column from="post_office_id" to="id"/>
+    <foreign-key caption="Facility Common" from="Common" inverse-alias="Facility" name="FK_Common_Facility_id" owning-alias="Common" to="Facility">
+      <foreign-key-column from="facility_id" to="id"/>
     </foreign-key>
-    <foreign-key caption="PostOffice Building" from="Building" inverse-alias="PostOffice" name="FK_Building_PostOffice_id" owning-alias="Buildings" to="PostOffice">
-      <foreign-key-column from="post_office_id" to="id"/>
+    <foreign-key caption="Common Building" from="Building" inverse-alias="Common" name="FK_Building_Common_id" owning-alias="Buildings" to="Common">
+      <foreign-key-column from="common_id" to="id"/>
+    </foreign-key>
+  </module>
+
+  <module import-format="Doctrine2Yml" import-path="..\src\Mera\ManageBundle\Resources\config\doctrine\" name="ManageBundle" visBkColor="16317694" visSizeX="0" visSizeX2="404" visSizeY="6" visSizeY2="259">
+    <table name="Facility" visPositionX="203" visPositionY="162" visSizeX="0" visSizeX2="95" visSizeY="0" visSizeY2="59">
+      <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
+      <column name="name" required="true" type="string" unique="true"/>
+      <column name="user_id" required="true" type="integer"/>
+    </table>
+    <table name="User" visPositionX="57" visPositionY="19" visSizeX="0" visSizeX2="99" visSizeY="0" visSizeY2="73">
+      <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
+      <column name="username" required="true" type="string" unique="true"/>
+      <column name="password" required="true" type="string"/>
+      <column name="role_id" required="true" type="integer" unique="true"/>
+    </table>
+    <table name="Role" visPositionX="10" visPositionY="157" visSizeX="0" visSizeX2="83" visSizeY="0" visSizeY2="45">
+      <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
+      <column name="name" required="true" type="string" unique="true"/>
+    </table>
+    <foreign-key caption="User Facility" from="Facility" inverse-alias="User" name="FK_Facility_User_id" owning-alias="Facility" to="User" visCaption1X="0" visCaption1Y="0" visCenterX="0" visCenterY="0">
+      <foreign-key-column from="user_id" to="id"/>
+    </foreign-key>
+    <foreign-key caption="Role User" from="User" inverse-alias="Role" name="FK_User_Role_id" owning-alias="User" to="Role">
+      <foreign-key-column from="role_id" to="id"/>
     </foreign-key>
   </module>
 

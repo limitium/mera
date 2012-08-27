@@ -1,0 +1,49 @@
+Mera\AuditBundle\Entity\Common:
+    type: entity
+    fields:
+        id:
+            id: true
+            type: integer
+            generator:
+                strategy: AUTO
+        address_legal:
+            type: string
+            nullable: true
+        adress_actual:
+            type: string
+            nullable: true
+        tin:
+            type: string
+            nullable: true
+        cat:
+            type: string
+            nullable: true
+        settlement_account:
+            type: string
+            nullable: true
+        bic:
+            type: string
+            nullable: true
+        bank_name:
+            type: string
+            nullable: true
+        agrn:
+            type: string
+            nullable: true
+        okved:
+            type: string
+            nullable: true
+        okp:
+            type: string
+            nullable: true
+    oneToOne:
+        Facility:
+            targetEntity: Mera\ManageBundle\Entity\Facility
+            inversedBy: Common
+            joinColumns:
+                facility_id:
+                    referencedColumnName: id
+    oneToMany:
+        Buildings:
+            targetEntity: Mera\AuditBundle\Entity\Building
+            mappedBy: Common

@@ -1,0 +1,23 @@
+Mera\ManageBundle\Entity\Facility:
+    type: entity
+    fields:
+        id:
+            id: true
+            type: integer
+            generator:
+                strategy: AUTO
+        name:
+            type: string
+            unique: true
+            nullable: false
+    oneToOne:
+        Common:
+            targetEntity: Mera\AuditBundle\Entity\Common
+            mappedBy: Facility
+    manyToOne:
+        User:
+            targetEntity: Mera\ManageBundle\Entity\User
+            inversedBy: Facility
+            joinColumns:
+                user_id:
+                    referencedColumnName: id
