@@ -3,6 +3,7 @@
 namespace Mera\ManageBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Mera\ManageBundle\Entity\Facility
@@ -16,6 +17,8 @@ class Facility
 
     /**
      * @var string $name
+     * @Assert\NotBlank()
+     * @Assert\MinLength(limit=6)
      */
     private $name;
 
@@ -33,7 +36,7 @@ class Facility
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -49,14 +52,14 @@ class Facility
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
 
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -72,14 +75,14 @@ class Facility
     public function setCommon(\Mera\AuditBundle\Entity\Common $common = null)
     {
         $this->Common = $common;
-    
+
         return $this;
     }
 
     /**
      * Get Common
      *
-     * @return Mera\AuditBundle\Entity\Common 
+     * @return Mera\AuditBundle\Entity\Common
      */
     public function getCommon()
     {
@@ -95,14 +98,14 @@ class Facility
     public function setUser(\Mera\ManageBundle\Entity\User $user = null)
     {
         $this->User = $user;
-    
+
         return $this;
     }
 
     /**
      * Get User
      *
-     * @return Mera\ManageBundle\Entity\User 
+     * @return Mera\ManageBundle\Entity\User
      */
     public function getUser()
     {

@@ -40,10 +40,16 @@ Mera\AuditBundle\Entity\Common:
         Facility:
             targetEntity: Mera\ManageBundle\Entity\Facility
             inversedBy: Common
+            cascade:
+                - all
             joinColumns:
                 facility_id:
                     referencedColumnName: id
+                    onDelete: CASCADE
+                    onUpdate: CASCADE
     oneToMany:
         Buildings:
             targetEntity: Mera\AuditBundle\Entity\Building
             mappedBy: Common
+            cascade:
+                - all

@@ -6,7 +6,7 @@
     <module-position name="ManageBundle" visPositionX="-17" visPositionY="-88"/>
   </project>
 
-  <module import-format="Doctrine2Yml" import-path="..\src\Mera\AuditBundle\Resources\config\doctrine\" name="AuditBundle" visBkColor="16380404" visSizeX="0" visSizeX2="660" visSizeY="32" visSizeY2="490">
+  <module import-format="Doctrine2Yml" import-path="..\src\Mera\AuditBundle\Resources\config\doctrine\" name="AuditBundle" visBkColor="16380404" visSizeX="0" visSizeX2="374" visSizeY="32" visSizeY2="495">
     <table description="1.Общие сведения по предприятию (учреждению)" name="Common" visPositionX="29" visPositionY="-8" visSizeX="0" visSizeX2="142" visSizeY="0" visSizeY2="185">
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
       <column name="address_legal" type="string"/>
@@ -39,9 +39,37 @@
     </table>
     <foreign-key caption="Facility Common" from="Common" inverse-alias="Facility" name="FK_Common_Facility_id" owning-alias="Common" to="Facility">
       <foreign-key-column from="facility_id" to="id"/>
+      <orm-properties>
+        <attribute name="side-inverse">
+          <attribute name="cascade">
+            <attribute name="cascade-all">true</attribute>
+          </attribute>
+        </attribute>
+        <attribute name="side-owning">
+          <attribute name="cascade">
+            <attribute name="cascade-all">true</attribute>
+          </attribute>
+        </attribute>
+        <attribute name="on-delete">CASCADE</attribute>
+        <attribute name="on-update">CASCADE</attribute>
+      </orm-properties>
     </foreign-key>
     <foreign-key caption="Common Building" from="Building" inverse-alias="Common" name="FK_Building_Common_id" owning-alias="Buildings" to="Common">
       <foreign-key-column from="common_id" to="id"/>
+      <orm-properties>
+        <attribute name="on-delete">CASCADE</attribute>
+        <attribute name="on-update">CASCADE</attribute>
+        <attribute name="side-owning">
+          <attribute name="cascade">
+            <attribute name="cascade-all">true</attribute>
+          </attribute>
+        </attribute>
+        <attribute name="side-inverse">
+          <attribute name="cascade">
+            <attribute name="cascade-all">true</attribute>
+          </attribute>
+        </attribute>
+      </orm-properties>
     </foreign-key>
   </module>
 
@@ -51,19 +79,25 @@
       <column name="name" required="true" type="string" unique="true"/>
       <column name="user_id" required="true" type="integer"/>
     </table>
-    <table name="User" visPositionX="57" visPositionY="19" visSizeX="0" visSizeX2="99" visSizeY="0" visSizeY2="73">
+    <table name="User" visPositionX="57" visPositionY="20" visSizeX="0" visSizeX2="92" visSizeY="0" visSizeY2="45">
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
-      <column name="role_id" required="true" type="integer" unique="true"/>
-    </table>
-    <table name="Role" visPositionX="10" visPositionY="157" visSizeX="0" visSizeX2="83" visSizeY="0" visSizeY2="45">
-      <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
-      <column name="name" required="true" type="string" unique="true"/>
     </table>
     <foreign-key caption="User Facility" from="Facility" inverse-alias="User" name="FK_Facility_User_id" owning-alias="Facility" to="User" visCaption1X="0" visCaption1Y="0" visCenterX="0" visCenterY="0">
       <foreign-key-column from="user_id" to="id"/>
-    </foreign-key>
-    <foreign-key caption="Role User" from="User" inverse-alias="Role" name="FK_User_Role_id" owning-alias="User" to="Role">
-      <foreign-key-column from="role_id" to="id"/>
+      <orm-properties>
+        <attribute name="on-delete">CASCADE</attribute>
+        <attribute name="on-update">CASCADE</attribute>
+        <attribute name="side-inverse">
+          <attribute name="cascade">
+            <attribute name="cascade-all">true</attribute>
+          </attribute>
+        </attribute>
+        <attribute name="side-owning">
+          <attribute name="cascade">
+            <attribute name="cascade-all">true</attribute>
+          </attribute>
+        </attribute>
+      </orm-properties>
     </foreign-key>
   </module>
 

@@ -6,14 +6,9 @@ Mera\ManageBundle\Entity\User:
             type: integer
             generator:
                 strategy: AUTO
-    oneToOne:
-        Role:
-            targetEntity: Mera\ManageBundle\Entity\Role
-            inversedBy: User
-            joinColumns:
-                role_id:
-                    referencedColumnName: id
     oneToMany:
         Facility:
             targetEntity: Mera\ManageBundle\Entity\Facility
             mappedBy: User
+            cascade:
+                - all

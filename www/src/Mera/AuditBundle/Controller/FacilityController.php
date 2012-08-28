@@ -1,35 +1,34 @@
 <?php
 
-namespace Mera\PostBundle\Controller;
+namespace Mera\AuditBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Mera\PostBundle\Entity\PostOffice;
-use Mera\PostBundle\Entity\Building;
-use Mera\PostBundle\Form\PostOfficeType;
-use Mera\PostBundle\Form\CommonType;
+use Mera\ManageBundle\Entity\Facility;
+use Mera\AuditBundle\Entity\Building;
+use Mera\ManageBundle\Form\FacilityType;
 
 /**
- * PostOffice controller.
+ * Facility controller.
  *
- * @Route("/postoffice")
+ * @Route("/facility")
  */
-class PostOfficeController extends Controller
+class FacilityController extends Controller
 {
     /**
-     * Lists all PostOffice entities.
+     * Lists all Facility entities.
      *
-     * @Route("/", name="postoffice")
+     * @Route("/", name="facility")
      * @Template()
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('MeraPostBundle:PostOffice')->findAll();
+        $entities = $em->getRepository('MeraAuditBundle:Facility')->findAll();
 
         return array(
             'entities' => $entities,
@@ -38,23 +37,23 @@ class PostOfficeController extends Controller
 
 
     /**
-     * Finds and displays a PostOffice facility.
+     * Finds and displays a Facility facility.
      *
-     * @Route("/{id}/audit", name="postoffice_audit")
+     * @Route("/{id}/audit", name="facility_audit")
      * @Template()
      */
     public function auditAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $facility = $em->getRepository('MeraPostBundle:PostOffice')->find($id);
+        $facility = $em->getRepository('MeraAuditBundle:Facility')->find($id);
 
         if (!$facility) {
-            throw $this->createNotFoundException('Unable to find PostOffice facility.');
+            throw $this->createNotFoundException('Unable to find Facility facility.');
         }
         $facility->addBuilding(new Building());
 
-        $form = $this->createForm(new PostOfficeType(), $facility);
+        $form = $this->createForm(new FacilityType(), $facility);
 
         return array(
             'facility' => $facility,
@@ -63,19 +62,19 @@ class PostOfficeController extends Controller
     }
 
     /**
-     * Finds and displays a PostOffice facility.
+     * Finds and displays a Facility facility.
      *
-     * @Route("/{id}/show", name="postoffice_show")
+     * @Route("/{id}/show", name="facility_show")
      * @Template()
      */
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $facility = $em->getRepository('MeraPostBundle:PostOffice')->find($id);
+        $facility = $em->getRepository('MeraAuditBundle:Facility')->find($id);
 
         if (!$facility) {
-            throw $this->createNotFoundException('Unable to find PostOffice facility.');
+            throw $this->createNotFoundException('Unable to find Facility facility.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -87,15 +86,15 @@ class PostOfficeController extends Controller
     }
 
     /**
-     * Displays a form to create a new PostOffice facility.
+     * Displays a form to create a new Facility facility.
      *
-     * @Route("/new", name="postoffice_new")
+     * @Route("/new", name="facility_new")
      * @Template()
      */
     public function newAction()
     {
-        $facility = new PostOffice();
-        $form = $this->createForm(new PostOfficeType(), $facility);
+        $facility = new Facility();
+        $form = $this->createForm(new FacilityType(), $facility);
 
         return array(
             'facility' => $facility,
@@ -104,16 +103,16 @@ class PostOfficeController extends Controller
     }
 
     /**
-     * Creates a new PostOffice facility.
+     * Creates a new Facility facility.
      *
-     * @Route("/create", name="postoffice_create")
+     * @Route("/create", name="facility_create")
      * @Method("POST")
-     * @Template("MeraPostBundle:PostOffice:new.html.twig")
+     * @Template("MeraAuditBundle:Facility:new.html.twig")
      */
     public function createAction(Request $request)
     {
-        $facility = new PostOffice();
-        $form = $this->createForm(new PostOfficeType(), $facility);
+        $facility = new Facility();
+        $form = $this->createForm(new FacilityType(), $facility);
         $form->bind($request);
 
         if ($form->isValid()) {
@@ -121,7 +120,7 @@ class PostOfficeController extends Controller
             $em->persist($facility);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('postoffice_show', array('id' => $facility->getId())));
+            return $this->redirect($this->generateUrl('facility_show', array('id' => $facility->getId())));
         }
 
         return array(
@@ -131,22 +130,22 @@ class PostOfficeController extends Controller
     }
 
     /**
-     * Displays a form to edit an existing PostOffice facility.
+     * Displays a form to edit an existing Facility facility.
      *
-     * @Route("/{id}/edit", name="postoffice_edit")
+     * @Route("/{id}/edit", name="facility_edit")
      * @Template()
      */
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $facility = $em->getRepository('MeraPostBundle:PostOffice')->find($id);
+        $facility = $em->getRepository('MeraAuditBundle:Facility')->find($id);
 
         if (!$facility) {
-            throw $this->createNotFoundException('Unable to find PostOffice facility.');
+            throw $this->createNotFoundException('Unable to find Facility facility.');
         }
 
-        $editForm = $this->createForm(new PostOfficeType(), $facility);
+        $editForm = $this->createForm(new FacilityType(), $facility);
         $deleteForm = $this->createDeleteForm($id);
 
         return array(
@@ -157,31 +156,31 @@ class PostOfficeController extends Controller
     }
 
     /**
-     * Edits an existing PostOffice facility.
+     * Edits an existing Facility facility.
      *
-     * @Route("/{id}/update", name="postoffice_update")
+     * @Route("/{id}/update", name="facility_update")
      * @Method("POST")
-     * @Template("MeraPostBundle:PostOffice:edit.html.twig")
+     * @Template("MeraAuditBundle:Facility:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $facility = $em->getRepository('MeraPostBundle:PostOffice')->find($id);
+        $facility = $em->getRepository('MeraAuditBundle:Facility')->find($id);
 
         if (!$facility) {
-            throw $this->createNotFoundException('Unable to find PostOffice facility.');
+            throw $this->createNotFoundException('Unable to find Facility facility.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createForm(new PostOfficeType(), $facility);
+        $editForm = $this->createForm(new FacilityType(), $facility);
         $editForm->bind($request);
 
         if ($editForm->isValid()) {
             $em->persist($facility);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('postoffice_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('facility_edit', array('id' => $id)));
         }
 
         return array(
@@ -192,9 +191,9 @@ class PostOfficeController extends Controller
     }
 
     /**
-     * Deletes a PostOffice facility.
+     * Deletes a Facility facility.
      *
-     * @Route("/{id}/delete", name="postoffice_delete")
+     * @Route("/{id}/delete", name="facility_delete")
      * @Method("POST")
      */
     public function deleteAction(Request $request, $id)
@@ -204,17 +203,17 @@ class PostOfficeController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $facility = $em->getRepository('MeraPostBundle:PostOffice')->find($id);
+            $facility = $em->getRepository('MeraAuditBundle:Facility')->find($id);
 
             if (!$facility) {
-                throw $this->createNotFoundException('Unable to find PostOffice facility.');
+                throw $this->createNotFoundException('Unable to find Facility facility.');
             }
 
             $em->remove($facility);
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('postoffice'));
+        return $this->redirect($this->generateUrl('facility'));
     }
 
     private function createDeleteForm($id)

@@ -1,0 +1,17 @@
+{% extends 'MeraManageBundle::layout.html.twig' %}
+{% block body %}
+    <h2>Добавить объект</h2>
+    <div class="btn-toolbar">
+        <div class="btn-group">
+            <a class="btn" href="{{ path('facility') }}"><i class="icon-th-list"></i> К
+                списку</a>
+        </div>
+    </div>
+    <form action="{{ path('facility_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <p>
+            <button class="btn btn-primary" type="submit"><i class="icon-ok icon-white"></i> Создать</button>
+        </p>
+    </form>
+
+{% endblock %}

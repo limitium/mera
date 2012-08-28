@@ -3,6 +3,7 @@
 namespace Mera\ManageBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 use FOS\UserBundle\Entity\User as BaseUser;
 
 /**
@@ -10,11 +11,6 @@ use FOS\UserBundle\Entity\User as BaseUser;
  */
 class User extends BaseUser
 {
-    /**
-     * @var Mera\ManageBundle\Entity\Role
-     */
-    private $Role;
-
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
      */
@@ -24,6 +20,17 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Email()
+     */
+    protected $email;
+
+    /**
+     * @Assert\NotBlank()
+     * @Assert\MinLength(limit=8)
+     */
+    protected $password;
 
     /**
      * Get id
@@ -35,35 +42,13 @@ class User extends BaseUser
         return $this->id;
     }
 
+
     /**
      * Constructor
      */
     public function __construct()
     {
         $this->Facility = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Set Role
-     *
-     * @param Mera\ManageBundle\Entity\Role $role
-     * @return User
-     */
-    public function setRole(\Mera\ManageBundle\Entity\Role $role = null)
-    {
-        $this->Role = $role;
-
-        return $this;
-    }
-
-    /**
-     * Get Role
-     *
-     * @return Mera\ManageBundle\Entity\Role
-     */
-    public function getRole()
-    {
-        return $this->Role;
     }
 
     /**
@@ -99,4 +84,11 @@ class User extends BaseUser
         return $this->Facility;
     }
 
+    /**
+     * @param string $salt
+     */
+    public function setSalt($salt)
+    {
+        $this->salt = $salt;
+    }
 }

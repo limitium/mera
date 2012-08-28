@@ -14,10 +14,16 @@ Mera\ManageBundle\Entity\Facility:
         Common:
             targetEntity: Mera\AuditBundle\Entity\Common
             mappedBy: Facility
+            cascade:
+                - all
     manyToOne:
         User:
             targetEntity: Mera\ManageBundle\Entity\User
             inversedBy: Facility
+            cascade:
+                - all
             joinColumns:
                 user_id:
                     referencedColumnName: id
+                    onDelete: CASCADE
+                    onUpdate: CASCADE
