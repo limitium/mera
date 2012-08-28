@@ -1,35 +1,35 @@
 {% extends 'MeraManageBundle::layout.html.twig' %}
 {% block body %}
 
-    <h2>Объекты</h2>
+<h2>Объекты</h2>
 
 
-    <div class="btn-toolbar">
-        <div class="btn-group">
-            <a class="btn" href="{{ path('facility_new') }}"><i class="icon-plus"></i> Добавить</a>
-        </div>
+<div class="btn-toolbar">
+    <div class="btn-group">
+        <a class="btn" href="{{ path('facility_new') }}"><i class="icon-plus"></i> Добавить</a>
     </div>
+</div>
 
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>Название</th>
-            <th>Email</th>
-            <th>Создан</th>
-            <th>Изменен</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('facility_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
-                <td>{{ entity.user.email }}</td>
-                <td></td>
-                <td></td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Название</th>
+        <th>Email</th>
+        <th>Создан</th>
+        <th>Изменен</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+    <tr>
+        <td><a href="{{ path('facility_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
+        <td>{{ entity.user.email }}</td>
+        <td>{{ entity.common.created|date("d.m.Y")}}</td>
+        <td>{{ entity.common.updated|date("d.m.Y")}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
 
 
 {% endblock %}

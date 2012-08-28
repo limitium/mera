@@ -3,6 +3,7 @@
 namespace Mera\ManageBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Mera\AuditBundle\Entity\Common;
 use Mera\ManageBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -94,14 +95,18 @@ class FacilityController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $user = $facility->getUser();
 
+            $user = $facility->getUser();
             $user->setUsername($user->getEmail());
             $user->setEnabled(true);
             $user->setLocked(false);
             $user->setExpired(false);
             $user->setCredentialsExpired(false);
             $user->setSalt("");
+
+            $common = new Common();
+            $common->setFacility($facility);
+            $facility->setCommon($common);
 
             $em->persist($facility);
             $em->flush();

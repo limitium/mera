@@ -1,7 +1,7 @@
 <?php
 
 namespace Mera\AuditBundle\Entity;
-
+use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -73,7 +73,15 @@ class Common
      * @var \Doctrine\Common\Collections\ArrayCollection
      */
     private $Buildings;
+    /**
+     * @var datetime $created
+     */
+    private $created;
 
+    /**
+     * @var datetime $updated
+     */
+    private $updated;
     /**
      * Constructor
      */
@@ -81,11 +89,11 @@ class Common
     {
         $this->Buildings = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -101,14 +109,14 @@ class Common
     public function setAddressLegal($addressLegal)
     {
         $this->address_legal = $addressLegal;
-    
+
         return $this;
     }
 
     /**
      * Get address_legal
      *
-     * @return string 
+     * @return string
      */
     public function getAddressLegal()
     {
@@ -124,14 +132,14 @@ class Common
     public function setAdressActual($adressActual)
     {
         $this->adress_actual = $adressActual;
-    
+
         return $this;
     }
 
     /**
      * Get adress_actual
      *
-     * @return string 
+     * @return string
      */
     public function getAdressActual()
     {
@@ -147,14 +155,14 @@ class Common
     public function setTin($tin)
     {
         $this->tin = $tin;
-    
+
         return $this;
     }
 
     /**
      * Get tin
      *
-     * @return string 
+     * @return string
      */
     public function getTin()
     {
@@ -170,14 +178,14 @@ class Common
     public function setCat($cat)
     {
         $this->cat = $cat;
-    
+
         return $this;
     }
 
     /**
      * Get cat
      *
-     * @return string 
+     * @return string
      */
     public function getCat()
     {
@@ -193,14 +201,14 @@ class Common
     public function setSettlementAccount($settlementAccount)
     {
         $this->settlement_account = $settlementAccount;
-    
+
         return $this;
     }
 
     /**
      * Get settlement_account
      *
-     * @return string 
+     * @return string
      */
     public function getSettlementAccount()
     {
@@ -216,14 +224,14 @@ class Common
     public function setBic($bic)
     {
         $this->bic = $bic;
-    
+
         return $this;
     }
 
     /**
      * Get bic
      *
-     * @return string 
+     * @return string
      */
     public function getBic()
     {
@@ -239,14 +247,14 @@ class Common
     public function setBankName($bankName)
     {
         $this->bank_name = $bankName;
-    
+
         return $this;
     }
 
     /**
      * Get bank_name
      *
-     * @return string 
+     * @return string
      */
     public function getBankName()
     {
@@ -262,14 +270,14 @@ class Common
     public function setAgrn($agrn)
     {
         $this->agrn = $agrn;
-    
+
         return $this;
     }
 
     /**
      * Get agrn
      *
-     * @return string 
+     * @return string
      */
     public function getAgrn()
     {
@@ -285,14 +293,14 @@ class Common
     public function setOkved($okved)
     {
         $this->okved = $okved;
-    
+
         return $this;
     }
 
     /**
      * Get okved
      *
-     * @return string 
+     * @return string
      */
     public function getOkved()
     {
@@ -308,14 +316,14 @@ class Common
     public function setOkp($okp)
     {
         $this->okp = $okp;
-    
+
         return $this;
     }
 
     /**
      * Get okp
      *
-     * @return string 
+     * @return string
      */
     public function getOkp()
     {
@@ -331,14 +339,14 @@ class Common
     public function setFacility(\Mera\ManageBundle\Entity\Facility $facility = null)
     {
         $this->Facility = $facility;
-    
+
         return $this;
     }
 
     /**
      * Get Facility
      *
-     * @return Mera\ManageBundle\Entity\Facility 
+     * @return Mera\ManageBundle\Entity\Facility
      */
     public function getFacility()
     {
@@ -354,7 +362,7 @@ class Common
     public function addBuilding(\Mera\AuditBundle\Entity\Building $buildings)
     {
         $this->Buildings[] = $buildings;
-    
+
         return $this;
     }
 
@@ -371,10 +379,56 @@ class Common
     /**
      * Get Buildings
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return Doctrine\Common\Collections\Collection
      */
     public function getBuildings()
     {
         return $this->Buildings;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return Common
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     * @return Common
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
     }
 }
