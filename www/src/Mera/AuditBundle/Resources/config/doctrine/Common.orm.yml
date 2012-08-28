@@ -36,6 +36,12 @@ Mera\AuditBundle\Entity\Common:
         okp:
             type: string
             nullable: true
+        created:
+            type: date
+            nullable: true
+        updated:
+            type: date
+            nullable: true
     oneToOne:
         Facility:
             targetEntity: Mera\ManageBundle\Entity\Facility

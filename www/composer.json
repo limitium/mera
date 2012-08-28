@@ -21,7 +21,8 @@
         "jms/security-extra-bundle":"1.2.*",
         "jms/di-extra-bundle":"1.1.*",
         "limitium/ormd-fixer":"dev-master",
-        "friendsofsymfony/user-bundle":"*"
+        "friendsofsymfony/user-bundle":"dev-master",
+        "stof/doctrine-extensions-bundle":"dev-master"
     },
     "scripts":{
         "post-install-cmd":[

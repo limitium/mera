@@ -20,8 +20,10 @@
       <column name="okved" type="string"/>
       <column name="okp" type="string"/>
       <column name="facility_id" required="true" type="integer" unique="true"/>
+      <column name="created" type="date"/>
+      <column name="updated" type="date"/>
     </table>
-    <table description="3.Технические характеристики зданий (для каждого здания)" name="Building" visPositionX="29" visPositionY="261" visSizeX="0" visSizeX2="155" visSizeY="0" visSizeY2="213">
+    <table description="3.Технические характеристики зданий (для каждого здания)" name="Building" visPositionX="29" visPositionY="248" visSizeX="0" visSizeX2="155" visSizeY="0" visSizeY2="213">
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
       <column name="name" type="string"/>
       <column name="year" type="integer"/>
