@@ -106,6 +106,8 @@ class FacilityController extends Controller
 
             $common = new Common();
             $common->setFacility($facility);
+            $common->setCreated(new \DateTime('now'));
+            $common->setUpdated(new \DateTime('now'));
             $facility->setCommon($common);
 
             $em->persist($facility);

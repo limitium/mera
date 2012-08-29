@@ -20,8 +20,8 @@
       <column name="okved" type="string"/>
       <column name="okp" type="string"/>
       <column name="facility_id" required="true" type="integer" unique="true"/>
-      <column name="created" required="true" type="date"/>
-      <column name="updated" type="date"/>
+      <column name="created" required="true" type="datetime"/>
+      <column name="updated" required="true" type="datetime"/>
     </table>
     <table description="3.Технические характеристики зданий (для каждого здания)" name="Building" visPositionX="29" visPositionY="248" visSizeX="0" visSizeX2="155" visSizeY="0" visSizeY2="213">
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
@@ -56,7 +56,7 @@
         <attribute name="on-update">CASCADE</attribute>
       </orm-properties>
     </foreign-key>
-    <foreign-key caption="Common Building" from="Building" inverse-alias="Common" name="FK_Building_Common_id" owning-alias="Buildings" to="Common">
+    <foreign-key caption="Common Building" from="Building" inverse-alias="Common" name="FK_Building_Common_id" owning-alias="Buildings" to="Common" visCaption1X="-1" visCaption1Y="0" visCenterX="0" visCenterY="0">
       <foreign-key-column from="common_id" to="id"/>
       <orm-properties>
         <attribute name="on-delete">CASCADE</attribute>

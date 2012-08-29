@@ -37,17 +37,11 @@ Mera\AuditBundle\Entity\Common:
             type: string
             nullable: true
         created:
-            type: date
+            type: datetime
             nullable: false
-            gedmo:
-                timestampable:
-                    on: create
         updated:
-            type: date
+            type: datetime
             nullable: false
-            gedmo:
-                timestampable:
-                    on: create
     oneToOne:
         Facility:
             targetEntity: Mera\ManageBundle\Entity\Facility
