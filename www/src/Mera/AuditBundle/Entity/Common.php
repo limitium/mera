@@ -430,4 +430,10 @@ class Common
     {
         return $this->updated;
     }
+
+    function __toString()
+    {
+     return $this->getFacility()->getName();
+    }
+
 }

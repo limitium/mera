@@ -111,4 +111,10 @@ class Facility
     {
         return $this->User;
     }
+
+    function __toString()
+    {
+        return $this->getName();
+    }
+
 }

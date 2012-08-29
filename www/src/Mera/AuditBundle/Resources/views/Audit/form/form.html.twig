@@ -1,17 +1,20 @@
 <form action="{% spaceless %}
-{% if facility.id %}
-{{ path('postoffice_update', { 'id': facility.id }) }}
+{% if common.id %}
+{{ path('audit') }}
 {% else %}
-{{ path('postoffice_create') }}
+{{ path('audit') }}
 {% endif %}
 {% endspaceless %}" method="post" {{ form_enctype(form) }}>
     <div class="embedded">
-        <h4>3.Технические характеристики зданий (для каждого здания)</h4>
+        <h4>3.Технические характеристики зданий</h4>
+        <blockquote>
+        <p class="lead">Для каждого здания</p>
+        </blockquote>
         {{ form_errors(form.Buildings) }}
         <div>
             {% for building in form.Buildings %}
             <div>
-                Здание №{{form_label(building)+1}}
+                Здание №{{form_label(building)}}
                 {{ form_row(building.name) }}
                 {{ form_row(building.year) }}
                 {{ form_row(building.floors) }}
@@ -24,10 +27,11 @@
                 {{ form_row(building.perimeter_building) }}
                 {{ form_row(building.depreciation_actual) }}
                 {{ form_row(building.depreciation_physical) }}
-                {{ form_row(building.PostOffice) }}
+                {{ form_row(building.Common) }}
             </div>
             {% endfor %}
         </div>
     </div>
     {{ form_rest(form) }}
 </form>
+<button class="btn btn-primary"><i class="icon-plus-sign icon-white"></i> Добавть здание</button>
