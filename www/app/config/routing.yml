@@ -1,4 +1,4 @@
-mera_user:
+MeraUserBundle:
     resource: "@MeraUserBundle/Controller/"
     type:     annotation
     prefix:   /
@@ -13,6 +13,10 @@ MeraManageBundle:
     resource: "@MeraManageBundle/Controller/"
     type:     annotation
     prefix:   /
+
+_welcome:
+    pattern:  /
+    defaults: { _controller: MeraAuditBundle:Audit:audit}
 
 # Internal routing configuration to handle ESI
 #_internal:
