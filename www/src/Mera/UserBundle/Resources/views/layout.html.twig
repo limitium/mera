@@ -1,0 +1,20 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="offset1">
+            <div class="row well">
+                <div class="span4">
+                    {% block fos_user_content %}{% endblock %}
+                </div>
+                <div class="span4">
+                    <blockquote>
+                        <p class="lead">Это важно</p>
+
+                        <p>Ввести валидные даные бла бла бла ФИО должность очень важно ! ахутнг!</p>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

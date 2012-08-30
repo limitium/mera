@@ -24,6 +24,7 @@ class AppKernel extends Kernel
 
             new Mera\ManageBundle\MeraManageBundle(),
             new Mera\AuditBundle\MeraAuditBundle(),
+            new Mera\UserBundle\MeraUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
