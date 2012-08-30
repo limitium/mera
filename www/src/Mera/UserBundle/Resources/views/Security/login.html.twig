@@ -2,7 +2,7 @@
 
 {% block fos_user_content %}
     <div class="row">
-        <div class="offset2 span8 well">
+        <div class="offset2 span8 well" style="margin-top:15%;">
             <form class="bs-docs-example form-horizontal" action="{{ path("fos_user_security_check") }}" method="post">
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
                 <legend>MERA: Авторизация</legend>
