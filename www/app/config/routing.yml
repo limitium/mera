@@ -1,7 +1,7 @@
-MeraUserBundle:
-    resource: "@MeraUserBundle/Controller/"
-    type:     annotation
-    prefix:   /
+#MeraUserBundle:
+#    resource: "@MeraUserBundle/Controller/"
+#    type:     annotation
+#    prefix:   /
 
 MeraAuditBundle:
     resource: "@MeraAuditBundle/Controller/"
