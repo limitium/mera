@@ -16,9 +16,9 @@
                         <li class="divider-vertical"></li>
                     </ul>
                     <ul class="nav pull-right">
-                        <li><a href="#">Алибаба алибабаевич</a></li>
+                        <li><p class="navbar-text">{{ app.user.email }}, Албибаба Ахмедович (старший клинер)</p></li>
                         <li class="divider-vertical"></li>
-                        <li><a href="#">Выйти</a></li>
+                        <li><a href="{{ path('fos_user_security_logout') }}">Выйти</a></li>
                     </ul>
                 </div>
                 <!-- /.nav-collapse -->
