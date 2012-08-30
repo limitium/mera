@@ -1,0 +1,48 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block fos_user_content %}
+    <div class="row">
+        <div class="offset2 span8 well">
+            <form class="bs-docs-example form-horizontal" action="{{ path("fos_user_security_check") }}" method="post">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
+                <legend>MERA: Авторизация</legend>
+                {% if error %}
+                    <div class="alert alert-error">{{ error|trans({}, 'FOSUserBundle') }}</div>
+                {% endif %}
+                <div class="row">
+                    <div class="span3">
+                        <div class="control-group">
+                            <label for="username" class="control-label">Email</label>
+
+                            <div class="controls">
+                                <input type="text" placeholder="Email" id="username" name="_username" value="{{ last_username }}">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label for="password" class="control-label">Пароль</label>
+
+                            <div class="controls">
+                                <input type="password" placeholder="Пароль" id="password" name="_password">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls">
+                                <label class="checkbox">
+                                    <input type="checkbox" name="_remember_me" checked> Запомнить
+                                </label>
+                                <button class="btn btn-primary" type="submit">Войти</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="offset1 span3">
+                        <blockquote>
+                            <p class="lead">Это важно</p>
+
+                            <p>Ввести валидные даные бла бла бла ФИО должность очень важно ! ахутнг!</p>
+                        </blockquote>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock fos_user_content %}
