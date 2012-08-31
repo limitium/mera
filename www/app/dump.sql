@@ -12,15 +12,13 @@ MySQL - 5.1.40-community : Database - mera
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`mera` /*!40100 DEFAULT CHARACTER SET utf8 */;
-
 /*Table structure for table `Building` */
 
 DROP TABLE IF EXISTS `Building`;
 
 CREATE TABLE `Building` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `post_office_id` int(11) DEFAULT NULL,
+  `common_id` int(11) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `year` int(11) DEFAULT NULL,
   `floors` int(11) DEFAULT NULL,
@@ -34,18 +32,17 @@ CREATE TABLE `Building` (
   `depreciation_actual` int(11) DEFAULT NULL,
   `depreciation_physical` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `IDX_181903825ECEBCD3` (`post_office_id`),
-  CONSTRAINT `FK_181903825ECEBCD3` FOREIGN KEY (`post_office_id`) REFERENCES `postoffice` (`id`)
+  KEY `IDX_181903828DBC56F7` (`common_id`),
+  CONSTRAINT `FK_181903828DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Data for the table `Building` */
 
 /*Table structure for table `Common` */
 
 DROP TABLE IF EXISTS `Common`;
 
 CREATE TABLE `Common` (
-  `post_office_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `facility_id` int(11) DEFAULT NULL,
   `address_legal` varchar(255) DEFAULT NULL,
   `adress_actual` varchar(255) DEFAULT NULL,
   `tin` varchar(255) DEFAULT NULL,
@@ -56,27 +53,53 @@ CREATE TABLE `Common` (
   `agrn` varchar(255) DEFAULT NULL,
   `okved` varchar(255) DEFAULT NULL,
   `okp` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`post_office_id`),
-  CONSTRAINT `FK_E24075675ECEBCD3` FOREIGN KEY (`post_office_id`) REFERENCES `postoffice` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Data for the table `Common` */
-
-/*Table structure for table `PostOffice` */
-
-DROP TABLE IF EXISTS `PostOffice`;
-
-CREATE TABLE `PostOffice` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
+  `created` datetime NOT NULL,
+  `updated` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `UNIQ_21830D975E237E06` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+  UNIQUE KEY `UNIQ_E2407567A7014910` (`facility_id`),
+  CONSTRAINT `FK_E2407567A7014910` FOREIGN KEY (`facility_id`) REFERENCES `facility` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
-/*Data for the table `PostOffice` */
+/*Table structure for table `Facility` */
 
-insert  into `PostOffice`(`id`,`name`,`email`) values (1,'Засранск 1','qwe@qwe.qwe'),(2,'Почта в перде','Asd@aasd.asd'),(3,'мухсрансокое','sdf@werwef.df');
+DROP TABLE IF EXISTS `Facility`;
+
+CREATE TABLE `Facility` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_E92FF6E45E237E06` (`name`),
+  KEY `IDX_E92FF6E4A76ED395` (`user_id`),
+  CONSTRAINT `FK_E92FF6E4A76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+
+/*Table structure for table `User` */
+
+DROP TABLE IF EXISTS `User`;
+
+CREATE TABLE `User` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL,
+  `username_canonical` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `email_canonical` varchar(255) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `salt` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `last_login` datetime DEFAULT NULL,
+  `locked` tinyint(1) NOT NULL,
+  `expired` tinyint(1) NOT NULL,
+  `expires_at` datetime DEFAULT NULL,
+  `confirmation_token` varchar(255) DEFAULT NULL,
+  `password_requested_at` datetime DEFAULT NULL,
+  `roles` longtext NOT NULL COMMENT '(DC2Type:array)',
+  `credentials_expired` tinyint(1) NOT NULL,
+  `credentials_expire_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_2DA1797792FC23A8` (`username_canonical`),
+  UNIQUE KEY `UNIQ_2DA17977A0D96FBF` (`email_canonical`)
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
