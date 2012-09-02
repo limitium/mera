@@ -36,6 +36,8 @@ CREATE TABLE `Building` (
   CONSTRAINT `FK_181903828DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+/*Data for the table `Building` */
+
 /*Table structure for table `Common` */
 
 DROP TABLE IF EXISTS `Common`;
@@ -60,6 +62,10 @@ CREATE TABLE `Common` (
   CONSTRAINT `FK_E2407567A7014910` FOREIGN KEY (`facility_id`) REFERENCES `facility` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
+/*Data for the table `Common` */
+
+insert  into `Common`(`id`,`facility_id`,`address_legal`,`adress_actual`,`tin`,`cat`,`settlement_account`,`bic`,`bank_name`,`agrn`,`okved`,`okp`,`created`,`updated`) values (23,27,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2012-08-28 00:00:00','2012-08-28 00:00:00');
+
 /*Table structure for table `Facility` */
 
 DROP TABLE IF EXISTS `Facility`;
@@ -73,6 +79,10 @@ CREATE TABLE `Facility` (
   KEY `IDX_E92FF6E4A76ED395` (`user_id`),
   CONSTRAINT `FK_E92FF6E4A76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+
+/*Data for the table `Facility` */
+
+insert  into `Facility`(`id`,`user_id`,`name`) values (27,27,'123qweasd');
 
 /*Table structure for table `User` */
 
@@ -100,6 +110,10 @@ CREATE TABLE `User` (
   UNIQUE KEY `UNIQ_2DA1797792FC23A8` (`username_canonical`),
   UNIQUE KEY `UNIQ_2DA17977A0D96FBF` (`email_canonical`)
 ) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+
+/*Data for the table `User` */
+
+insert  into `User`(`id`,`username`,`username_canonical`,`email`,`email_canonical`,`enabled`,`salt`,`password`,`last_login`,`locked`,`expired`,`expires_at`,`confirmation_token`,`password_requested_at`,`roles`,`credentials_expired`,`credentials_expire_at`) values (27,'qwe@qwe.qwe','qwe@qwe.qwe','qwe@qwe.qwe','qwe@qwe.qwe',1,'','qweqwe','2012-08-31 23:01:58',0,0,NULL,NULL,NULL,'N;',0,NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
