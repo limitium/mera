@@ -70,7 +70,7 @@ class FacilityController extends Controller
     {
         $facility = new Facility();
         $user = new User();
-        $user->setPassword(substr(sha1(mt_rand() . time()), mt_rand(0, 35), 8));
+        $user->setPassword(substr(sha1(mt_rand() . time()), mt_rand(0, 35 - 9), 8));
         $facility->setUser($user);
 
         $form = $this->createForm(new FacilityType(), $facility);

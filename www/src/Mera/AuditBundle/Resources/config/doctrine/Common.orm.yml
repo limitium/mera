@@ -9,7 +9,7 @@ Mera\AuditBundle\Entity\Common:
         address_legal:
             type: string
             nullable: true
-        adress_actual:
+        address_actual:
             type: string
             nullable: true
         tin:

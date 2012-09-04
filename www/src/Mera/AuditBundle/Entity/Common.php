@@ -18,10 +18,11 @@ class Common
      */
     private $address_legal;
 
+
     /**
-     * @var string $adress_actual
+     * @var string $address_actual
      */
-    private $adress_actual;
+    private $address_actual;
 
     /**
      * @var string $tin
@@ -81,6 +82,7 @@ class Common
      * @var datetime $updated
      */
     private $updated;
+
     /**
      * Constructor
      */
@@ -123,26 +125,26 @@ class Common
     }
 
     /**
-     * Set adress_actual
+     * Set address_actual
      *
-     * @param string $adressActual
+     * @param string $addressActual
      * @return Common
      */
-    public function setAdressActual($adressActual)
+    public function setAddressActual($addressActual)
     {
-        $this->adress_actual = $adressActual;
+        $this->address_actual = $addressActual;
 
         return $this;
     }
 
     /**
-     * Get adress_actual
+     * Get address_actual
      *
      * @return string
      */
-    public function getAdressActual()
+    public function getAddressActual()
     {
-        return $this->adress_actual;
+        return $this->address_actual;
     }
 
     /**
@@ -151,7 +153,8 @@ class Common
      * @param string $tin
      * @return Common
      */
-    public function setTin($tin)
+    public
+    function setTin($tin)
     {
         $this->tin = $tin;
 
@@ -163,7 +166,8 @@ class Common
      *
      * @return string
      */
-    public function getTin()
+    public
+    function getTin()
     {
         return $this->tin;
     }
@@ -174,7 +178,8 @@ class Common
      * @param string $cat
      * @return Common
      */
-    public function setCat($cat)
+    public
+    function setCat($cat)
     {
         $this->cat = $cat;
 
@@ -186,7 +191,8 @@ class Common
      *
      * @return string
      */
-    public function getCat()
+    public
+    function getCat()
     {
         return $this->cat;
     }
@@ -197,7 +203,8 @@ class Common
      * @param string $settlementAccount
      * @return Common
      */
-    public function setSettlementAccount($settlementAccount)
+    public
+    function setSettlementAccount($settlementAccount)
     {
         $this->settlement_account = $settlementAccount;
 
@@ -209,7 +216,8 @@ class Common
      *
      * @return string
      */
-    public function getSettlementAccount()
+    public
+    function getSettlementAccount()
     {
         return $this->settlement_account;
     }
@@ -220,7 +228,8 @@ class Common
      * @param string $bic
      * @return Common
      */
-    public function setBic($bic)
+    public
+    function setBic($bic)
     {
         $this->bic = $bic;
 
@@ -232,7 +241,8 @@ class Common
      *
      * @return string
      */
-    public function getBic()
+    public
+    function getBic()
     {
         return $this->bic;
     }
@@ -243,7 +253,8 @@ class Common
      * @param string $bankName
      * @return Common
      */
-    public function setBankName($bankName)
+    public
+    function setBankName($bankName)
     {
         $this->bank_name = $bankName;
 
@@ -255,7 +266,8 @@ class Common
      *
      * @return string
      */
-    public function getBankName()
+    public
+    function getBankName()
     {
         return $this->bank_name;
     }
@@ -266,7 +278,8 @@ class Common
      * @param string $agrn
      * @return Common
      */
-    public function setAgrn($agrn)
+    public
+    function setAgrn($agrn)
     {
         $this->agrn = $agrn;
 
@@ -278,7 +291,8 @@ class Common
      *
      * @return string
      */
-    public function getAgrn()
+    public
+    function getAgrn()
     {
         return $this->agrn;
     }
@@ -289,7 +303,8 @@ class Common
      * @param string $okved
      * @return Common
      */
-    public function setOkved($okved)
+    public
+    function setOkved($okved)
     {
         $this->okved = $okved;
 
@@ -301,7 +316,8 @@ class Common
      *
      * @return string
      */
-    public function getOkved()
+    public
+    function getOkved()
     {
         return $this->okved;
     }
@@ -312,7 +328,8 @@ class Common
      * @param string $okp
      * @return Common
      */
-    public function setOkp($okp)
+    public
+    function setOkp($okp)
     {
         $this->okp = $okp;
 
@@ -324,7 +341,8 @@ class Common
      *
      * @return string
      */
-    public function getOkp()
+    public
+    function getOkp()
     {
         return $this->okp;
     }
@@ -335,7 +353,8 @@ class Common
      * @param Mera\ManageBundle\Entity\Facility $facility
      * @return Common
      */
-    public function setFacility(\Mera\ManageBundle\Entity\Facility $facility = null)
+    public
+    function setFacility(\Mera\ManageBundle\Entity\Facility $facility = null)
     {
         $this->Facility = $facility;
 
@@ -347,7 +366,8 @@ class Common
      *
      * @return Mera\ManageBundle\Entity\Facility
      */
-    public function getFacility()
+    public
+    function getFacility()
     {
         return $this->Facility;
     }
@@ -358,7 +378,8 @@ class Common
      * @param Mera\AuditBundle\Entity\Building $buildings
      * @return Common
      */
-    public function addBuilding(\Mera\AuditBundle\Entity\Building $buildings)
+    public
+    function addBuilding(\Mera\AuditBundle\Entity\Building $buildings)
     {
         $this->Buildings[] = $buildings;
 
@@ -370,7 +391,8 @@ class Common
      *
      * @param Mera\AuditBundle\Entity\Building $buildings
      */
-    public function removeBuilding(\Mera\AuditBundle\Entity\Building $buildings)
+    public
+    function removeBuilding(\Mera\AuditBundle\Entity\Building $buildings)
     {
         $this->Buildings->removeElement($buildings);
     }
@@ -380,7 +402,8 @@ class Common
      *
      * @return Doctrine\Common\Collections\Collection
      */
-    public function getBuildings()
+    public
+    function getBuildings()
     {
         return $this->Buildings;
     }
@@ -391,7 +414,8 @@ class Common
      * @param \DateTime $created
      * @return Common
      */
-    public function setCreated($created)
+    public
+    function setCreated($created)
     {
         $this->created = $created;
 
@@ -403,7 +427,8 @@ class Common
      *
      * @return \DateTime
      */
-    public function getCreated()
+    public
+    function getCreated()
     {
         return $this->created;
     }
@@ -414,7 +439,8 @@ class Common
      * @param \DateTime $updated
      * @return Common
      */
-    public function setUpdated($updated)
+    public
+    function setUpdated($updated)
     {
         $this->updated = $updated;
 
@@ -426,14 +452,15 @@ class Common
      *
      * @return \DateTime
      */
-    public function getUpdated()
+    public
+    function getUpdated()
     {
         return $this->updated;
     }
 
     function __toString()
     {
-     return $this->getFacility()->getName();
+        return $this->getFacility()->getName();
     }
 
 }

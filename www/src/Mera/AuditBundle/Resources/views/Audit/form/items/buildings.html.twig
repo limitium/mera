@@ -1,18 +1,15 @@
-<form action="{% spaceless %}
-{% if common.id %}
-{{ path('audit') }}
-{% else %}
-{{ path('audit') }}
-{% endif %}
-{% endspaceless %}" method="post" {{ form_enctype(form) }}>
-    <div class="embedded">
-        <h4>3.Технические характеристики зданий</h4>
-        <blockquote>
+{% extends 'MeraAuditBundle:Audit:form/collapseItem.html.twig' %}
+{% block collapseTitle %}
+    Технические характеристики зданий
+{% endblock %}
+{% block collapseId %}buildings{% endblock %}
+{% block collapseBody %}
+    <blockquote>
         <p class="lead">Для каждого здания</p>
-        </blockquote>
-        {{ form_errors(form.Buildings) }}
-        <div>
-            {% for building in form.Buildings %}
+    </blockquote>
+    {{ form_errors(form.Buildings) }}
+    <div>
+        {% for building in form.Buildings %}
             <div>
                 Здание №{{form_label(building)}}
                 {{ form_row(building.name) }}
@@ -29,9 +26,8 @@
                 {{ form_row(building.depreciation_physical) }}
                 {{ form_row(building.Common) }}
             </div>
-            {% endfor %}
-        </div>
+        {% endfor %}
+        <button class="btn btn-primary"><i class="icon-plus-sign icon-white"></i> Добавть здание</button>
     </div>
-    {{ form_rest(form) }}
-</form>
-<button class="btn btn-primary"><i class="icon-plus-sign icon-white"></i> Добавть здание</button>
+
+{% endblock %}

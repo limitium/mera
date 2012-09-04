@@ -1,0 +1,18 @@
+{% extends 'MeraAuditBundle:Audit:form/collapseItem.html.twig' %}
+{% block collapseTitle %}
+    Общие сведения по предприятию
+{% endblock %}
+{% block collapseId %}common{% endblock %}
+{% block collapseBody %}
+    {{ form_row(form.address_legal) }}
+    {{ form_row(form.address_actual) }}
+    {{ form_row(form.tin) }}
+    {{ form_row(form.cat) }}
+    {{ form_row(form.settlement_account) }}
+    {{ form_row(form.bic) }}
+    {{ form_row(form.bank_name) }}
+    {{ form_row(form.agrn) }}
+    {{ form_row(form.okved) }}
+    {{ form_row(form.okp) }}
+    {{ form_row(form.Facility) }}
+{% endblock %}

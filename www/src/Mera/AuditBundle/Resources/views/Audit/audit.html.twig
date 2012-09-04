@@ -1,95 +1,52 @@
 {% extends 'MeraAuditBundle::layout.html.twig' %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/app.js') }}"></script>
+{% endblock %}
 {% block body %}
+    <div class="row">
+        <div class="span12">
+            <h2>Опросный лист ({{ common.facility.name }})</h2>
 
-        <div class="row">
-            <div class="span12">
-                <h2>Опросный лист ({{ common.facility.name }})</h2>
-
-                <div class="btn-toolbar">
-                    <div class="btn-group">
-                        <a class="btn" href="{{ path('audit') }}"><i class="icon-edit"></i> Сохранить</a>
-                        <a class="btn" href="{{ path('audit') }}"><i class="icon-check""></i>
-                            Проверить</a>
-                        <a class="btn" href="{{ path('audit') }}"><i class="icon-share""></i>
-                            Отправить</a>
-                    </div>
+            <div class="btn-toolbar">
+                <div class="btn-group">
+                    <a class="btn" href="{{ path('audit') }}"><i class="icon-edit"></i> Сохранить</a>
+                    <a class="btn" href="{{ path('audit') }}"><i class="icon-check""></i>
+                        Проверить</a>
+                    <a class="btn" href="{{ path('audit') }}"><i class="icon-share""></i>
+                        Отправить</a>
                 </div>
             </div>
-            <div class="span4">
-                <ol>
-                    <li>
-                        <a href="#p1">Общие сведения по предприятию</a>
-                    </li>
-                    <li>
-                        <a href="#p3">Сведения об обособленных подразделениях организации</a>
-                    </li>
-                    <li>
-                        <a href="#p3">Технические характеристики зданий</a>
-                    </li>
-                    <li>
-                        <a href="#p3">Поэтажный план здания</a>
-                    </li>
-                    <li>
-                        <a href="#p3">Техническое описание конструктивных элементов здания</a>
-                    </li>
-                    <li>
-                        <a href="#p3">Оснащенность организации приборами учета потребления</a>
-                    </li>
-                    <li>
-                        <a href="#p3">Документация по системе отопления</a>
-                    </li>
-                    <li>
-                        <a href="#p3">Документация по системе вентиляции и кондиционирования</a>
-                    </li>
-                    <li>
-                        <a href="#p3">Количество и установленная мощность электропотребляющего оборудования</a>
-                    </li>
-                    <li>
-                        <a href="#p3">Документация по системе освещения</a>
-                    </li>
-                    <li>
-                        <a href="#p3">Сведения о программе энергосбережения и повышения энергоэффективности</a>
-                    </li>
-                    <li>
-                        <a href="#p3">Перечень проведенных мероприятий по энергосбережению</a>
-                    </li>
-                    <li>
-                        <a href="#p3">Характеристики и протяженность трубопроводов</a>
-                    </li>
-                    <li>
-                        <a href="#p3">Годовое потребление энергоресурсов в натуральном и финансовом выражении</a>
-                    </li>
-                    <li>
-                        <a href="#p3">Количество работающего персонала, время работы</a>
-                    </li>
-                    <li>
-                        <a href="#p3">Производство продукции в натуральном выражении</a>
-                    </li>
-                    <li>
-                        <a href="#p3">Схемы электроснабжения</a>
-                    </li>
-                    <li>
-                        <a href="#p3">Подготовить копии договоров</a>
-                    </li>
-                    <li>
-                        <a href="#p3">Годовой объем средств, выделяемый на содержание организации</a>
-                    </li>
-                    <li>
-                        <a href="#p3">Сведения по балансу моторного топлива и его изменениях за отчетный год</a>
-                    </li>
-                    <li>
-                        <a href="#p3">Перечень должностных лиц</a>
-                    </li>
-                    <li>
-                        <a href="#p3">Сведения о квалификации персонала</a>
-                    </li>
-                    <li>
-                        <a href="#p3">Количество и мощность трансформаторов</a>
-                    </li>
-                </ol>
-            </div>
-            <div class="span8">
-                {% include 'MeraAuditBundle:Audit:form/form.html.twig' %}
-            </div>
         </div>
+        <div class="span12">
+            <form action="{{ path('audit') }}" method="post" {{ form_enctype(form) }}>
+                <div class="accordion">
+                    {% include 'MeraAuditBundle:Audit:form/items/common.html.twig' %}
+                    {% include 'MeraAuditBundle:Audit:form/items/subdivisons.html.twig' %}
+                    {% include 'MeraAuditBundle:Audit:form/items/buildings.html.twig' %}
+                    {% include 'MeraAuditBundle:Audit:form/items/floorplan.html.twig' %}
+                    {% include 'MeraAuditBundle:Audit:form/items/constructelem.html.twig' %}
+                </div>
+                {{ form_rest(form) }}
+            </form>
+            <a href="#p3">Оснащенность организации приборами учета потребления</a>
+            <a href="#p3">Документация по системе отопления</a>
+            <a href="#p3">Документация по системе вентиляции и кондиционирования</a>
+            <a href="#p3">Количество и установленная мощность электропотребляющего оборудования</a>
+            <a href="#p3">Документация по системе освещения</a>
+            <a href="#p3">Сведения о программе энергосбережения и повышения энергоэффективности</a>
+            <a href="#p3">Перечень проведенных мероприятий по энергосбережению</a>
+            <a href="#p3">Характеристики и протяженность трубопроводов</a>
+            <a href="#p3">Годовое потребление энергоресурсов в натуральном и финансовом выражении</a>
+            <a href="#p3">Количество работающего персонала, время работы</a>
+            <a href="#p3">Производство продукции в натуральном выражении</a>
+            <a href="#p3">Схемы электроснабжения</a>
+            <a href="#p3">Подготовить копии договоров</a>
+            <a href="#p3">Годовой объем средств, выделяемый на содержание организации</a>
+            <a href="#p3">Сведения по балансу моторного топлива и его изменениях за отчетный год</a>
+            <a href="#p3">Перечень должностных лиц</a>
+            <a href="#p3">Сведения о квалификации персонала</a>
+            <a href="#p3">Количество и мощность трансформаторов</a>
+        </div>
+    </div>
 {% endblock %}

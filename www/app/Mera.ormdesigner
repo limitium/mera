@@ -10,7 +10,7 @@
     <table description="1.Общие сведения по предприятию (учреждению)" name="Common" visPositionX="29" visPositionY="-8" visSizeX="0" visSizeX2="142" visSizeY="0" visSizeY2="185">
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
       <column name="address_legal" type="string"/>
-      <column name="adress_actual" type="string"/>
+      <column name="address_actual" type="string"/>
       <column name="tin" type="string"/>
       <column name="cat" type="string"/>
       <column name="settlement_account" type="string"/>

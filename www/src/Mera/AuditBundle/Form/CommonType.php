@@ -12,7 +12,7 @@ class CommonType extends AbstractType
     {
         $builder
             ->add('address_legal')
-            ->add('adress_actual')
+            ->add('address_actual')
             ->add('tin')
             ->add('cat')
             ->add('settlement_account')

@@ -12,6 +12,8 @@ MySQL - 5.1.40-community : Database - mera
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`mera` /*!40100 DEFAULT CHARACTER SET utf8 */;
+
 /*Table structure for table `Building` */
 
 DROP TABLE IF EXISTS `Building`;
@@ -46,7 +48,7 @@ CREATE TABLE `Common` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `facility_id` int(11) DEFAULT NULL,
   `address_legal` varchar(255) DEFAULT NULL,
-  `adress_actual` varchar(255) DEFAULT NULL,
+  `address_actual` varchar(255) DEFAULT NULL,
   `tin` varchar(255) DEFAULT NULL,
   `cat` varchar(255) DEFAULT NULL,
   `settlement_account` varchar(255) DEFAULT NULL,
@@ -60,11 +62,11 @@ CREATE TABLE `Common` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_E2407567A7014910` (`facility_id`),
   CONSTRAINT `FK_E2407567A7014910` FOREIGN KEY (`facility_id`) REFERENCES `facility` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 /*Data for the table `Common` */
 
-insert  into `Common`(`id`,`facility_id`,`address_legal`,`adress_actual`,`tin`,`cat`,`settlement_account`,`bic`,`bank_name`,`agrn`,`okved`,`okp`,`created`,`updated`) values (23,27,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2012-08-28 00:00:00','2012-08-28 00:00:00');
+insert  into `Common`(`id`,`facility_id`,`address_legal`,`address_actual`,`tin`,`cat`,`settlement_account`,`bic`,`bank_name`,`agrn`,`okved`,`okp`,`created`,`updated`) values (1,5,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2012-08-29 15:49:57','2012-08-29 15:49:57');
 
 /*Table structure for table `Facility` */
 
@@ -78,25 +80,38 @@ CREATE TABLE `Facility` (
   UNIQUE KEY `UNIQ_E92FF6E45E237E06` (`name`),
   KEY `IDX_E92FF6E4A76ED395` (`user_id`),
   CONSTRAINT `FK_E92FF6E4A76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 /*Data for the table `Facility` */
 
-insert  into `Facility`(`id`,`user_id`,`name`) values (27,27,'123qweasd');
+insert  into `Facility`(`id`,`user_id`,`name`) values (5,6,'123456');
 
-/*Table structure for table `User` */
+/*Table structure for table `Role` */
 
-DROP TABLE IF EXISTS `User`;
+DROP TABLE IF EXISTS `Role`;
 
-CREATE TABLE `User` (
+CREATE TABLE `Role` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_F75B25545E237E06` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `Role` */
+
+/*Table structure for table `user` */
+
+DROP TABLE IF EXISTS `user`;
+
+CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `username_canonical` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `email_canonical` varchar(255) NOT NULL,
   `enabled` tinyint(1) NOT NULL,
   `salt` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
   `last_login` datetime DEFAULT NULL,
   `locked` tinyint(1) NOT NULL,
   `expired` tinyint(1) NOT NULL,
@@ -109,11 +124,11 @@ CREATE TABLE `User` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_2DA1797792FC23A8` (`username_canonical`),
   UNIQUE KEY `UNIQ_2DA17977A0D96FBF` (`email_canonical`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
-/*Data for the table `User` */
+/*Data for the table `user` */
 
-insert  into `User`(`id`,`username`,`username_canonical`,`email`,`email_canonical`,`enabled`,`salt`,`password`,`last_login`,`locked`,`expired`,`expires_at`,`confirmation_token`,`password_requested_at`,`roles`,`credentials_expired`,`credentials_expire_at`) values (27,'qwe@qwe.qwe','qwe@qwe.qwe','qwe@qwe.qwe','qwe@qwe.qwe',1,'','qweqwe','2012-08-31 23:01:58',0,0,NULL,NULL,NULL,'N;',0,NULL);
+insert  into `user`(`id`,`username`,`password`,`username_canonical`,`email`,`email_canonical`,`enabled`,`salt`,`last_login`,`locked`,`expired`,`expires_at`,`confirmation_token`,`password_requested_at`,`roles`,`credentials_expired`,`credentials_expire_at`) values (1,'qwe@qwe.qwe','qweqwe','qwe@qwe.qwe','qwe@qwe.qwe','qwe@qwe.qwe',1,'','2012-09-04 17:11:03',0,0,NULL,NULL,NULL,'N;',0,NULL),(6,'qwe@qwe.qwewwww','b9cbfd31','qwe@qwe.qwewwww','qwe@qwe.qwewwww','qwe@qwe.qwewwww',1,'',NULL,0,0,NULL,NULL,NULL,'N;',0,NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
