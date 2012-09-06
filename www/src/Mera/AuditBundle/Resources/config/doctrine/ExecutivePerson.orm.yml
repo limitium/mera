@@ -1,0 +1,33 @@
+Mera\AuditBundle\Entity\ExecutivePerson:
+    type: entity
+    fields:
+        id:
+            id: true
+            type: integer
+            generator:
+                strategy: AUTO
+        name:
+            type: string
+            nullable: true
+        position:
+            type: string
+            nullable: true
+        contact:
+            type: string
+            nullable: true
+        responsibilities:
+            type: string
+            nullable: true
+        document:
+            type: string
+            nullable: true
+        date:
+            type: date
+            nullable: true
+    manyToOne:
+        Common:
+            targetEntity: Mera\AuditBundle\Entity\Common
+            inversedBy: ExecutivePersons
+            joinColumns:
+                common_id:
+                    referencedColumnName: id

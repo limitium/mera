@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <orm-designer version="1.4.7.491">
 
-  <project code-name="Mera" framework="Without Framework" name="mera" orm="Doctrine2" visSizeX="28" visSizeX2="1213" visSizeY="98" visSizeY2="853">
+  <project code-name="Mera" framework="Without Framework" name="mera" orm="Doctrine2" visSizeX="28" visSizeX2="1684" visSizeY="143" visSizeY2="853">
     <module-position name="AuditBundle" visPositionX="394" visPositionY="-61"/>
     <module-position name="ManageBundle" visPositionX="-17" visPositionY="-88"/>
   </project>
 
-  <module import-format="Doctrine2Yml" import-path="..\src\Mera\AuditBundle\Resources\config\doctrine\" name="AuditBundle" visBkColor="16380404" visSizeX="0" visSizeX2="374" visSizeY="32" visSizeY2="495">
+  <module import-format="Doctrine2Yml" import-path="..\src\Mera\AuditBundle\Resources\config\doctrine\" name="AuditBundle" visBkColor="16380404" visSizeX="0" visSizeX2="1240" visSizeY="32" visSizeY2="907">
     <table description="1.Общие сведения по предприятию (учреждению)" name="Common" visPositionX="29" visPositionY="-8" visSizeX="0" visSizeX2="142" visSizeY="0" visSizeY2="185">
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
       <column name="address_legal" type="string"/>
@@ -23,7 +23,7 @@
       <column name="created" required="true" type="datetime"/>
       <column name="updated" required="true" type="datetime"/>
     </table>
-    <table description="3.Технические характеристики зданий (для каждого здания)" name="Building" visPositionX="29" visPositionY="248" visSizeX="0" visSizeX2="155" visSizeY="0" visSizeY2="213">
+    <table description="3.Технические характеристики зданий (для каждого здания)" name="Building" visPositionX="11" visPositionY="232" visSizeX="0" visSizeX2="155" visSizeY="0" visSizeY2="213">
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
       <column name="name" type="string"/>
       <column name="year" type="integer"/>
@@ -38,6 +38,115 @@
       <column name="depreciation_actual" type="integer"/>
       <column name="depreciation_physical" type="integer"/>
       <column name="common_id" required="true" type="integer"/>
+    </table>
+    <table name="ConstructElement" visPositionX="275" visPositionY="-30" visSizeX="0" visSizeX2="178" visSizeY="0" visSizeY2="101">
+      <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
+      <column name="area" type="decimal"/>
+      <column name="description" type="text"/>
+      <column name="width" type="decimal"/>
+      <column name="construct_element_type_id" required="true" type="integer"/>
+      <column name="common_id" required="true" type="integer"/>
+    </table>
+    <table name="ConstructElementType" visPositionX="750" visPositionY="-22" visSizeX="0" visSizeX2="113" visSizeY="0" visSizeY2="45">
+      <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
+      <column name="name" required="true" type="string"/>
+    </table>
+    <table name="ConsumptionMeter" visPositionX="449" visPositionY="87" visSizeX="0" visSizeX2="183" visSizeY="0" visSizeY2="101">
+      <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
+      <column name="name" type="string"/>
+      <column name="precision_class" type="string"/>
+      <column name="verification_date" type="date"/>
+      <column name="consumption_meter_type_id" required="true" type="integer"/>
+      <column name="common_id" required="true" type="integer"/>
+    </table>
+    <table name="ConsumptionMeterType" visPositionX="750" visPositionY="36" visSizeX="0" visSizeX2="118" visSizeY="0" visSizeY2="45">
+      <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
+      <column name="name" required="true" type="string"/>
+    </table>
+    <table name="ElectroEquipment" visPositionX="708" visPositionY="250" visSizeX="0" visSizeX2="177" visSizeY="0" visSizeY2="101">
+      <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
+      <column name="quantity" type="integer"/>
+      <column name="power" type="decimal"/>
+      <column name="work_duration" type="decimal"/>
+      <column name="common_id" required="true" type="integer"/>
+      <column name="electro_equipment_type_id" required="true" type="integer"/>
+    </table>
+    <table name="ElectroEquipmentType" visPositionX="751" visPositionY="101" visSizeX="0" visSizeX2="113" visSizeY="0" visSizeY2="45">
+      <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
+      <column name="name" required="true" type="string"/>
+    </table>
+    <table name="LightsSystemPlace" visPositionX="234" visPositionY="444" visSizeX="0" visSizeX2="96" visSizeY="0" visSizeY2="45">
+      <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
+      <column name="name" required="true" type="string"/>
+    </table>
+    <table name="LightsSystem" visPositionX="202" visPositionY="232" visSizeX="0" visSizeX2="163" visSizeY="0" visSizeY2="157">
+      <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
+      <column name="tungsten_quantity" type="integer"/>
+      <column name="tungsten_power" type="decimal"/>
+      <column name="fluorescent_quantity" type="integer"/>
+      <column name="fluorescent_power" type="decimal"/>
+      <column name="energy_save_quantity" type="integer"/>
+      <column name="energy_save_power" type="decimal"/>
+      <column name="work_duration" type="decimal"/>
+      <column name="common_id" required="true" type="integer"/>
+      <column name="lights_system_place_id" required="true" type="integer"/>
+    </table>
+    <table name="Pipeline" visPositionX="405" visPositionY="231" visSizeX="0" visSizeX2="137" visSizeY="0" visSizeY2="101">
+      <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
+      <column name="name" type="string"/>
+      <column name="length" type="decimal"/>
+      <column name="diameter" type="decimal"/>
+      <column name="insulation" type="string"/>
+      <column name="operation_period" type="decimal"/>
+      <column name="pipeline_installation_type_id" required="true" type="integer"/>
+      <column name="common_id" required="true" type="integer"/>
+    </table>
+    <table name="PipelineInstallationType" visPositionX="537" visPositionY="399" visSizeX="0" visSizeX2="120" visSizeY="0" visSizeY2="45">
+      <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
+      <column name="name" required="true" type="string"/>
+    </table>
+    <table name="FuelConsumption" visPositionX="30" visPositionY="483" visSizeX="0" visSizeX2="135" visSizeY="0" visSizeY2="157">
+      <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
+      <column name="type" type="string"/>
+      <column name="quantity" type="integer"/>
+      <column name="load_capacity" type="decimal"/>
+      <column name="passengers" type="integer"/>
+      <column name="consumption" type="decimal"/>
+      <column name="work_duration" type="decimal"/>
+      <column name="total_consumed" type="decimal"/>
+      <column name="common_id" required="true" type="integer"/>
+      <column name="fuel_type_id" required="true" type="integer"/>
+    </table>
+    <table name="FuelType" visPositionX="257" visPositionY="527" visSizeX="0" visSizeX2="83" visSizeY="0" visSizeY2="45">
+      <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
+      <column name="name" required="true" type="string"/>
+    </table>
+    <table name="ExecutivePerson" visPositionX="377" visPositionY="452" visSizeX="0" visSizeX2="121" visSizeY="0" visSizeY2="129">
+      <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
+      <column name="name" type="string"/>
+      <column name="position" type="string"/>
+      <column name="contact" type="string"/>
+      <column name="responsibilities" type="string"/>
+      <column name="document" type="string"/>
+      <column name="date" type="date"/>
+      <column name="common_id" required="true" type="integer"/>
+    </table>
+    <table name="Personal" visPositionX="545" visPositionY="465" visSizeX="0" visSizeX2="125" visSizeY="0" visSizeY2="143">
+      <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
+      <column name="name" type="string"/>
+      <column name="position" type="string"/>
+      <column name="school_name" type="string"/>
+      <column name="shcool_address" type="string"/>
+      <column name="school_license" type="string"/>
+      <column name="date_start" type="date"/>
+      <column name="date_end" type="date"/>
+      <column name="certification" type="text"/>
+      <column name="common_id" required="true" type="integer"/>
+      <column name="course_type_id" required="true" type="integer"/>
+    </table>
+    <table name="CourseType" visPositionX="706" visPositionY="516" visSizeX="0" visSizeX2="20" visSizeY="0" visSizeY2="20">
+      <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
+      <column name="name" required="true" type="string"/>
     </table>
     <foreign-key caption="Facility Common" from="Common" inverse-alias="Facility" name="FK_Common_Facility_id" owning-alias="Common" to="Facility">
       <foreign-key-column from="facility_id" to="id"/>
@@ -72,6 +181,51 @@
           </attribute>
         </attribute>
       </orm-properties>
+    </foreign-key>
+    <foreign-key caption="ConstructElementType ConstructElement" from="ConstructElement" inverse-alias="ConstructElementType" name="FK_ConstructElement_ConstructElementType_id" owning-alias="ConstructElements" to="ConstructElementType">
+      <foreign-key-column from="construct_element_type_id" to="id"/>
+    </foreign-key>
+    <foreign-key caption="Common ConstructElement" from="ConstructElement" inverse-alias="Common" name="FK_ConstructElement_Common_id" owning-alias="ConstructElements" to="Common">
+      <foreign-key-column from="common_id" to="id"/>
+    </foreign-key>
+    <foreign-key caption="ConsumptionMeterType ConsumptionMeter" from="ConsumptionMeter" inverse-alias="ConsumptionMeterType" name="FK_ConsumptionMeter_ConsumptionMeterType_id" owning-alias="ConsumptionMeters" to="ConsumptionMeterType" visCaption1X="-1" visCaption1Y="0" visCenterX="0" visCenterY="0">
+      <foreign-key-column from="consumption_meter_type_id" to="id"/>
+    </foreign-key>
+    <foreign-key caption="Common ConsumptionMeter" from="ConsumptionMeter" inverse-alias="Common" name="FK_ConsumptionMeter_Common_id" owning-alias="ConsumptionMeters" to="Common" visCaption1X="1" visCaption1Y="0" visCenterX="0" visCenterY="0">
+      <foreign-key-column from="common_id" to="id"/>
+    </foreign-key>
+    <foreign-key caption="Common ElectroEquipment" from="ElectroEquipment" inverse-alias="Common" name="FK_ElectroEquipment_Common_id" owning-alias="ElectroEquipments" to="Common">
+      <foreign-key-column from="common_id" to="id"/>
+    </foreign-key>
+    <foreign-key caption="ElectroEquipmentType ElectroEquipment" from="ElectroEquipment" inverse-alias="ElectroEquipmentType" name="FK_ElectroEquipment_ElectroEquipmentType_id" owning-alias="ElectroEquipments" to="ElectroEquipmentType">
+      <foreign-key-column from="electro_equipment_type_id" to="id"/>
+    </foreign-key>
+    <foreign-key caption="Common LightsSystem" from="LightsSystem" inverse-alias="Common" name="FK_LightsSystem_Common_id" owning-alias="LightsSystems" to="Common">
+      <foreign-key-column from="common_id" to="id"/>
+    </foreign-key>
+    <foreign-key caption="LightsSystemPlace LightsSystem" from="LightsSystem" inverse-alias="LightsSystemPlace" name="FK_LightsSystem_LightsSystemPlace_id" owning-alias="LightsSystems" to="LightsSystemPlace">
+      <foreign-key-column from="lights_system_place_id" to="id"/>
+    </foreign-key>
+    <foreign-key caption="PipelineInstallationType Pipeline" from="Pipeline" inverse-alias="PipelineInstallationType" name="FK_Pipeline_PipelineInstallationType_id" owning-alias="Pipelines" to="PipelineInstallationType">
+      <foreign-key-column from="pipeline_installation_type_id" to="id"/>
+    </foreign-key>
+    <foreign-key caption="Common Pipeline" from="Pipeline" inverse-alias="Common" name="FK_Pipeline_Common_id" owning-alias="Pipelines" to="Common">
+      <foreign-key-column from="common_id" to="id"/>
+    </foreign-key>
+    <foreign-key caption="Common FuelConsumption" from="FuelConsumption" inverse-alias="Common" name="FK_FuelConsumption_Common_id" owning-alias="FuelConsumptions" to="Common">
+      <foreign-key-column from="common_id" to="id"/>
+    </foreign-key>
+    <foreign-key caption="FuelType FuelConsumption" from="FuelConsumption" inverse-alias="FuelType" name="FK_FuelConsumption_FuelType_id" owning-alias="FuelConsumptions" to="FuelType" visCaption1X="1" visCaption1Y="0" visCenterX="0" visCenterY="0">
+      <foreign-key-column from="fuel_type_id" to="id"/>
+    </foreign-key>
+    <foreign-key caption="Common ExecutivePerson" from="ExecutivePerson" inverse-alias="Common" name="FK_ExecutivePerson_Common_id" owning-alias="ExecutivePersons" to="Common">
+      <foreign-key-column from="common_id" to="id"/>
+    </foreign-key>
+    <foreign-key caption="Common Personal" from="Personal" inverse-alias="Common" name="FK_Personal_Common_id" owning-alias="Personals" to="Common">
+      <foreign-key-column from="common_id" to="id"/>
+    </foreign-key>
+    <foreign-key caption="CourseType Personal" from="Personal" inverse-alias="CourseType" name="FK_Personal_CourseType_id" owning-alias="Personals" to="CourseType">
+      <foreign-key-column from="course_type_id" to="id"/>
     </foreign-key>
   </module>
 

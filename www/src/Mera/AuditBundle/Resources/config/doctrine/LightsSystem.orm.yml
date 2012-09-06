@@ -1,0 +1,42 @@
+Mera\AuditBundle\Entity\LightsSystem:
+    type: entity
+    fields:
+        id:
+            id: true
+            type: integer
+            generator:
+                strategy: AUTO
+        tungsten_quantity:
+            type: integer
+            nullable: true
+        tungsten_power:
+            type: decimal
+            nullable: true
+        fluorescent_quantity:
+            type: integer
+            nullable: true
+        fluorescent_power:
+            type: decimal
+            nullable: true
+        energy_save_quantity:
+            type: integer
+            nullable: true
+        energy_save_power:
+            type: decimal
+            nullable: true
+        work_duration:
+            type: decimal
+            nullable: true
+    manyToOne:
+        Common:
+            targetEntity: Mera\AuditBundle\Entity\Common
+            inversedBy: LightsSystems
+            joinColumns:
+                common_id:
+                    referencedColumnName: id
+        LightsSystemPlace:
+            targetEntity: Mera\AuditBundle\Entity\LightsSystemPlace
+            inversedBy: LightsSystems
+            joinColumns:
+                lights_system_place_id:
+                    referencedColumnName: id

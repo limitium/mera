@@ -1,0 +1,36 @@
+Mera\AuditBundle\Entity\Pipeline:
+    type: entity
+    fields:
+        id:
+            id: true
+            type: integer
+            generator:
+                strategy: AUTO
+        name:
+            type: string
+            nullable: true
+        length:
+            type: decimal
+            nullable: true
+        diameter:
+            type: decimal
+            nullable: true
+        insulation:
+            type: string
+            nullable: true
+        operation_period:
+            type: decimal
+            nullable: true
+    manyToOne:
+        PipelineInstallationType:
+            targetEntity: Mera\AuditBundle\Entity\PipelineInstallationType
+            inversedBy: Pipelines
+            joinColumns:
+                pipeline_installation_type_id:
+                    referencedColumnName: id
+        Common:
+            targetEntity: Mera\AuditBundle\Entity\Common
+            inversedBy: Pipelines
+            joinColumns:
+                common_id:
+                    referencedColumnName: id

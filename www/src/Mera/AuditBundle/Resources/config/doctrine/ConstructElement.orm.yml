@@ -1,0 +1,30 @@
+Mera\AuditBundle\Entity\ConstructElement:
+    type: entity
+    fields:
+        id:
+            id: true
+            type: integer
+            generator:
+                strategy: AUTO
+        area:
+            type: decimal
+            nullable: true
+        description:
+            type: text
+            nullable: true
+        width:
+            type: decimal
+            nullable: true
+    manyToOne:
+        ConstructElementType:
+            targetEntity: Mera\AuditBundle\Entity\ConstructElementType
+            inversedBy: ConstructElements
+            joinColumns:
+                construct_element_type_id:
+                    referencedColumnName: id
+        Common:
+            targetEntity: Mera\AuditBundle\Entity\Common
+            inversedBy: ConstructElements
+            joinColumns:
+                common_id:
+                    referencedColumnName: id

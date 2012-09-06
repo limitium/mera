@@ -1,0 +1,15 @@
+Mera\AuditBundle\Entity\CourseType:
+    type: entity
+    fields:
+        id:
+            id: true
+            type: integer
+            generator:
+                strategy: AUTO
+        name:
+            type: string
+            nullable: false
+    oneToMany:
+        Personals:
+            targetEntity: Mera\AuditBundle\Entity\Personal
+            mappedBy: CourseType

@@ -1,12 +1,21 @@
-<div class="accordion-group">
+<div class="accordion-group" style="margin-left:-2px;">
     <div class="accordion-heading">
         <a href="#{% block collapseId %}{% endblock %}" data-toggle="collapse" class="accordion-toggle">
             {% block collapseTitle %}{% endblock %}
         </a>
     </div>
     <div class="accordion-body collapse in" id="{{ block('collapseId') }}">
-        <div class="accordion-inner">
-            {% block collapseBody %}{% endblock %}
+        <div class="accordion-inner" style="padding: 9px 0;">
+            <div class="span12">
+                {% block collapseBody %}{% endblock %}
+            </div>
+            <div class="span12">
+                <div class="control-group">
+                    <div class="controls">
+                        <button class="btn next">Дальше</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

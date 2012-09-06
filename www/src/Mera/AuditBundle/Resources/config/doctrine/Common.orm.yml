@@ -59,3 +59,27 @@ Mera\AuditBundle\Entity\Common:
             mappedBy: Common
             cascade:
                 - all
+        ConstructElements:
+            targetEntity: Mera\AuditBundle\Entity\ConstructElement
+            mappedBy: Common
+        ConsumptionMeters:
+            targetEntity: Mera\AuditBundle\Entity\ConsumptionMeter
+            mappedBy: Common
+        ElectroEquipments:
+            targetEntity: Mera\AuditBundle\Entity\ElectroEquipment
+            mappedBy: Common
+        LightsSystems:
+            targetEntity: Mera\AuditBundle\Entity\LightsSystem
+            mappedBy: Common
+        Pipelines:
+            targetEntity: Mera\AuditBundle\Entity\Pipeline
+            mappedBy: Common
+        FuelConsumptions:
+            targetEntity: Mera\AuditBundle\Entity\FuelConsumption
+            mappedBy: Common
+        ExecutivePersons:
+            targetEntity: Mera\AuditBundle\Entity\ExecutivePerson
+            mappedBy: Common
+        Personals:
+            targetEntity: Mera\AuditBundle\Entity\Personal
+            mappedBy: Common

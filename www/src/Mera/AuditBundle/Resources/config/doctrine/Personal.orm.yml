@@ -1,0 +1,45 @@
+Mera\AuditBundle\Entity\Personal:
+    type: entity
+    fields:
+        id:
+            id: true
+            type: integer
+            generator:
+                strategy: AUTO
+        name:
+            type: string
+            nullable: true
+        position:
+            type: string
+            nullable: true
+        school_name:
+            type: string
+            nullable: true
+        shcool_address:
+            type: string
+            nullable: true
+        school_license:
+            type: string
+            nullable: true
+        date_start:
+            type: date
+            nullable: true
+        date_end:
+            type: date
+            nullable: true
+        certification:
+            type: text
+            nullable: true
+    manyToOne:
+        Common:
+            targetEntity: Mera\AuditBundle\Entity\Common
+            inversedBy: Personals
+            joinColumns:
+                common_id:
+                    referencedColumnName: id
+        CourseType:
+            targetEntity: Mera\AuditBundle\Entity\CourseType
+            inversedBy: Personals
+            joinColumns:
+                course_type_id:
+                    referencedColumnName: id

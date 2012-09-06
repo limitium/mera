@@ -463,4 +463,308 @@ class Common
         return $this->getFacility()->getName();
     }
 
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     */
+    private $ConstructElements;
+
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     */
+    private $ConsumptionMeters;
+
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     */
+    private $ElectroEquipments;
+
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     */
+    private $LightsSystems;
+
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     */
+    private $Pipelines;
+
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     */
+    private $FuelConsumptions;
+
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     */
+    private $ExecutivePersons;
+
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     */
+    private $Personals;
+
+
+    /**
+     * Add ConstructElements
+     *
+     * @param Mera\AuditBundle\Entity\ConstructElement $constructElements
+     * @return Common
+     */
+    public function addConstructElement(\Mera\AuditBundle\Entity\ConstructElement $constructElements)
+    {
+        $this->ConstructElements[] = $constructElements;
+    
+        return $this;
+    }
+
+    /**
+     * Remove ConstructElements
+     *
+     * @param Mera\AuditBundle\Entity\ConstructElement $constructElements
+     */
+    public function removeConstructElement(\Mera\AuditBundle\Entity\ConstructElement $constructElements)
+    {
+        $this->ConstructElements->removeElement($constructElements);
+    }
+
+    /**
+     * Get ConstructElements
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getConstructElements()
+    {
+        return $this->ConstructElements;
+    }
+
+    /**
+     * Add ConsumptionMeters
+     *
+     * @param Mera\AuditBundle\Entity\ConsumptionMeter $consumptionMeters
+     * @return Common
+     */
+    public function addConsumptionMeter(\Mera\AuditBundle\Entity\ConsumptionMeter $consumptionMeters)
+    {
+        $this->ConsumptionMeters[] = $consumptionMeters;
+    
+        return $this;
+    }
+
+    /**
+     * Remove ConsumptionMeters
+     *
+     * @param Mera\AuditBundle\Entity\ConsumptionMeter $consumptionMeters
+     */
+    public function removeConsumptionMeter(\Mera\AuditBundle\Entity\ConsumptionMeter $consumptionMeters)
+    {
+        $this->ConsumptionMeters->removeElement($consumptionMeters);
+    }
+
+    /**
+     * Get ConsumptionMeters
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getConsumptionMeters()
+    {
+        return $this->ConsumptionMeters;
+    }
+
+    /**
+     * Add ElectroEquipments
+     *
+     * @param Mera\AuditBundle\Entity\ElectroEquipment $electroEquipments
+     * @return Common
+     */
+    public function addElectroEquipment(\Mera\AuditBundle\Entity\ElectroEquipment $electroEquipments)
+    {
+        $this->ElectroEquipments[] = $electroEquipments;
+    
+        return $this;
+    }
+
+    /**
+     * Remove ElectroEquipments
+     *
+     * @param Mera\AuditBundle\Entity\ElectroEquipment $electroEquipments
+     */
+    public function removeElectroEquipment(\Mera\AuditBundle\Entity\ElectroEquipment $electroEquipments)
+    {
+        $this->ElectroEquipments->removeElement($electroEquipments);
+    }
+
+    /**
+     * Get ElectroEquipments
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getElectroEquipments()
+    {
+        return $this->ElectroEquipments;
+    }
+
+    /**
+     * Add LightsSystems
+     *
+     * @param Mera\AuditBundle\Entity\LightsSystem $lightsSystems
+     * @return Common
+     */
+    public function addLightsSystem(\Mera\AuditBundle\Entity\LightsSystem $lightsSystems)
+    {
+        $this->LightsSystems[] = $lightsSystems;
+    
+        return $this;
+    }
+
+    /**
+     * Remove LightsSystems
+     *
+     * @param Mera\AuditBundle\Entity\LightsSystem $lightsSystems
+     */
+    public function removeLightsSystem(\Mera\AuditBundle\Entity\LightsSystem $lightsSystems)
+    {
+        $this->LightsSystems->removeElement($lightsSystems);
+    }
+
+    /**
+     * Get LightsSystems
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getLightsSystems()
+    {
+        return $this->LightsSystems;
+    }
+
+    /**
+     * Add Pipelines
+     *
+     * @param Mera\AuditBundle\Entity\Pipeline $pipelines
+     * @return Common
+     */
+    public function addPipeline(\Mera\AuditBundle\Entity\Pipeline $pipelines)
+    {
+        $this->Pipelines[] = $pipelines;
+    
+        return $this;
+    }
+
+    /**
+     * Remove Pipelines
+     *
+     * @param Mera\AuditBundle\Entity\Pipeline $pipelines
+     */
+    public function removePipeline(\Mera\AuditBundle\Entity\Pipeline $pipelines)
+    {
+        $this->Pipelines->removeElement($pipelines);
+    }
+
+    /**
+     * Get Pipelines
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getPipelines()
+    {
+        return $this->Pipelines;
+    }
+
+    /**
+     * Add FuelConsumptions
+     *
+     * @param Mera\AuditBundle\Entity\FuelConsumption $fuelConsumptions
+     * @return Common
+     */
+    public function addFuelConsumption(\Mera\AuditBundle\Entity\FuelConsumption $fuelConsumptions)
+    {
+        $this->FuelConsumptions[] = $fuelConsumptions;
+    
+        return $this;
+    }
+
+    /**
+     * Remove FuelConsumptions
+     *
+     * @param Mera\AuditBundle\Entity\FuelConsumption $fuelConsumptions
+     */
+    public function removeFuelConsumption(\Mera\AuditBundle\Entity\FuelConsumption $fuelConsumptions)
+    {
+        $this->FuelConsumptions->removeElement($fuelConsumptions);
+    }
+
+    /**
+     * Get FuelConsumptions
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getFuelConsumptions()
+    {
+        return $this->FuelConsumptions;
+    }
+
+    /**
+     * Add ExecutivePersons
+     *
+     * @param Mera\AuditBundle\Entity\ExecutivePerson $executivePersons
+     * @return Common
+     */
+    public function addExecutivePerson(\Mera\AuditBundle\Entity\ExecutivePerson $executivePersons)
+    {
+        $this->ExecutivePersons[] = $executivePersons;
+    
+        return $this;
+    }
+
+    /**
+     * Remove ExecutivePersons
+     *
+     * @param Mera\AuditBundle\Entity\ExecutivePerson $executivePersons
+     */
+    public function removeExecutivePerson(\Mera\AuditBundle\Entity\ExecutivePerson $executivePersons)
+    {
+        $this->ExecutivePersons->removeElement($executivePersons);
+    }
+
+    /**
+     * Get ExecutivePersons
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getExecutivePersons()
+    {
+        return $this->ExecutivePersons;
+    }
+
+    /**
+     * Add Personals
+     *
+     * @param Mera\AuditBundle\Entity\Personal $personals
+     * @return Common
+     */
+    public function addPersonal(\Mera\AuditBundle\Entity\Personal $personals)
+    {
+        $this->Personals[] = $personals;
+    
+        return $this;
+    }
+
+    /**
+     * Remove Personals
+     *
+     * @param Mera\AuditBundle\Entity\Personal $personals
+     */
+    public function removePersonal(\Mera\AuditBundle\Entity\Personal $personals)
+    {
+        $this->Personals->removeElement($personals);
+    }
+
+    /**
+     * Get Personals
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getPersonals()
+    {
+        return $this->Personals;
+    }
 }
