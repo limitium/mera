@@ -1,4 +1,4 @@
-{% extends 'MeraAuditBundle:Audit:form/collapseItem.html.twig' %}
+{% extends 'MeraAuditBundle:Audit:form/collection.html.twig' %}
 {% block collapseTitle %}
     Технические характеристики зданий
 {% endblock %}
@@ -15,53 +15,36 @@
         </div>
     {% endspaceless %}
 {% endblock form_row %}
-{% block collection_widget %}
-    {% spaceless %}
-    {% if prototype is defined %}
-        {% set attr = attr|merge({'data-prototype': form_row(prototype) }) %}
-    {% endif %}
-        <div {{ block('widget_container_attributes') }}>
-            {{ form_errors(form) }}
-            {% for child in form %}
-            {{ form_row(child) }}
-            {% endfor %}
-            <button class="btn btn-primary"><i class="icon-plus-sign icon-white"></i> Добавить</button>
-        </div>
-    {% endspaceless %}
-{% endblock collection_widget %}
 
 
 {% block collapseBody %}
     <blockquote>
         <p class="lead">Для каждого здания</p>
     </blockquote>
-    {{ form_errors(form.Buildings) }}
-    <div class="row">
-        {{ form_widget(form.Buildings) }}
-    </div>
+    {{ form_widget(form.Buildings) }}
 {% endblock %}
 
 {#{% for building in form.Buildings %}#}
-    {#<div class="span12">#}
-        {#Здание №{{ form_label(building) }}#}
-    {#</div>#}
-    {#<div class="span4">#}
-        {#{{ form_row(building.name) }}#}
-        {#{{ form_row(building.year) }}#}
-        {#{{ form_row(building.floors) }}#}
-        {#{{ form_row(building.height_ceilings) }}#}
-        {#{{ form_row(building.height_building) }}#}
-    {#</div>#}
-    {#<div class="span4">#}
-        {#{{ form_row(building.volume_building) }}#}
-        {#{{ form_row(building.volume_heated) }}#}
-        {#{{ form_row(building.area_total) }}#}
-        {#{{ form_row(building.area_glazing) }}#}
-    {#</div>#}
-    {#<div class="span4">#}
-        {#{{ form_row(building.perimeter_building) }}#}
-        {#{{ form_row(building.depreciation_actual) }}#}
-        {#{{ form_row(building.depreciation_physical) }}#}
-        {#{{ form_row(building.Common) }}#}
-    {#</div>#}
+{#<div class="span12">#}
+{#Здание №{{ form_label(building) }}#}
+{#</div>#}
+{#<div class="span4">#}
+{#{{ form_row(building.name) }}#}
+{#{{ form_row(building.year) }}#}
+{#{{ form_row(building.floors) }}#}
+{#{{ form_row(building.height_ceilings) }}#}
+{#{{ form_row(building.height_building) }}#}
+{#</div>#}
+{#<div class="span4">#}
+{#{{ form_row(building.volume_building) }}#}
+{#{{ form_row(building.volume_heated) }}#}
+{#{{ form_row(building.area_total) }}#}
+{#{{ form_row(building.area_glazing) }}#}
+{#</div>#}
+{#<div class="span4">#}
+{#{{ form_row(building.perimeter_building) }}#}
+{#{{ form_row(building.depreciation_actual) }}#}
+{#{{ form_row(building.depreciation_physical) }}#}
+{#{{ form_row(building.Common) }}#}
+{#</div>#}
 {#{% endfor %}#}
