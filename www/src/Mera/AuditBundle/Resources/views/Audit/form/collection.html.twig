@@ -1,18 +1,21 @@
 {% extends 'MeraAuditBundle:Audit:form/collapseItem.html.twig' %}
 
-{% form_theme form _self %}
 {% block collection_widget %}
     {% spaceless %}
         {% if prototype is defined %}
             {% set attr = attr|merge({'data-prototype': form_row(prototype) }) %}
         {% endif %}
         <div class="collection" {{ block('widget_container_attributes') }}>
-            {{ form_errors(form) }}
-            {% for child in form %}
-                {{ form_row(child) }}
-            {% endfor %}
-            <button class="btn btn-primary"><i class="icon-plus-sign icon-white"></i> Добавить</button>
+            <div class="collection-error">
+                {{ form_errors(form) }}
+            </div>
+            <div class="collection-rows">
+                {% for child in form %}
+                    {{ form_row(child) }}
+                {% endfor %}
+            </div>
+            <button class="btn btn-primary add-collection-item"><i class="icon-plus-sign icon-white"></i> Добавить
+            </button>
         </div>
     {% endspaceless %}
 {% endblock collection_widget %}
-
