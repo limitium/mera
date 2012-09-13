@@ -24,6 +24,9 @@ class CommonType extends AbstractType
             ->add('Facility')
             ->add('Buildings', 'collection', array('type' => new BuildingType(),
             'allow_add' => true,
+            'allow_delete' => true))
+            ->add('ConstructElements', 'collection', array('type' => new ConstructElementType(),
+            'allow_add' => true,
             'allow_delete' => true));
 
         ;

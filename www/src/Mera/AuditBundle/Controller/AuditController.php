@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Mera\AuditBundle\Entity\Building;
+use Mera\AuditBundle\Entity\ConstructElement;
 use Mera\AuditBundle\Form\CommonType;
 
 /**
@@ -36,6 +37,7 @@ class AuditController extends Controller
             throw $this->createNotFoundException('Unable to find Audit audit.');
         }
         $common->addBuilding(new Building());
+        $common->addConstructElement(new ConstructElement());
 
         $form = $this->createForm(new CommonType(), $common);
 

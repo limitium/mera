@@ -1,7 +1,21 @@
-{% extends 'MeraAuditBundle:Audit:form/collapseItem.html.twig' %}
+{% extends 'MeraAuditBundle:Audit:form/collection.html.twig' %}
 {% block collapseTitle %}
     Техническое описание конструктивных элементов здания
 {% endblock %}
 {% block collapseId %}construcelem{% endblock %}
+
+{% form_theme form _self %}
+{% block form_row %}
+    {% spaceless %}
+        <div>
+            {{ form_label(form) }}
+            {{ form_errors(form) }}
+            {{ form_widget(form) }}
+        </div>
+    {% endspaceless %}
+{% endblock form_row %}
+
+
 {% block collapseBody %}
+    {{ form_widget(form.ConstructElements) }}
 {% endblock %}
