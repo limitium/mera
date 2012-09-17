@@ -11,7 +11,7 @@ $(document).ready(function () {
             collection = button.closest("[data-prototype]"),
             prototype = collection.data("prototype"),
             collectionContainer = $(".collection-rows", collection),
-            rowNumber = $(".collection-rows").children().length,
+            rowNumber = $(".collection-rows").children().length - 1,
             newRow = prototype.split("__name__").join(rowNumber);
 
         collectionContainer.append(newRow);
