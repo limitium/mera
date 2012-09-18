@@ -5,17 +5,26 @@
 {% block collapseId %}construcelem{% endblock %}
 
 {% form_theme form _self %}
-{% block form_row %}
-    {% spaceless %}
-        <div>
-            {{ form_label(form) }}
-            {{ form_errors(form) }}
-            {{ form_widget(form) }}
-        </div>
-    {% endspaceless %}
-{% endblock form_row %}
-
 
 {% block collapseBody %}
+    <blockquote>
+        <p class="lead">123</p>
+    </blockquote>
     {{ form_widget(form.ConstructElements) }}
 {% endblock %}
+
+{% block collection_row_inner %}
+    <div class="span3">
+        {{ form_row(fields.area) }}
+    </div>
+    <div class="span3">
+        {{ form_row(fields.description) }}
+    </div>
+    <div class="span3">
+        {{ form_row(fields.width) }}
+    </div>
+    <div class="span3">
+        {{ form_row(fields.ConstructElementType) }}
+        {{ form_row(fields.Common) }}
+    </div>
+{% endblock collection_row_inner %}

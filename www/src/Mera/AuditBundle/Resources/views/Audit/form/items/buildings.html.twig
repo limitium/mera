@@ -1,21 +1,12 @@
 {% extends 'MeraAuditBundle:Audit:form/collection.html.twig' %}
+
 {% block collapseTitle %}
     Технические характеристики зданий
 {% endblock %}
+
 {% block collapseId %}buildings{% endblock %}
 
-
 {% form_theme form _self %}
-{% block form_row %}
-    {% spaceless %}
-        <div class="span3">
-            {{ form_label(form) }}
-            {{ form_errors(form) }}
-            {{ form_widget(form) }}
-        </div>
-    {% endspaceless %}
-{% endblock form_row %}
-
 
 {% block collapseBody %}
     <blockquote>
@@ -23,3 +14,27 @@
     </blockquote>
     {{ form_widget(form.Buildings) }}
 {% endblock %}
+
+{% block collection_row_inner %}
+    <div class="span3">
+        {{ form_row(fields.name) }}
+        {{ form_row(fields.year) }}
+        {{ form_row(fields.floors) }}
+    </div>
+    <div class="span3">
+        {{ form_row(fields.height_ceilings) }}
+        {{ form_row(fields.height_building) }}
+        {{ form_row(fields.volume_building) }}
+    </div>
+    <div class="span3">
+        {{ form_row(fields.volume_heated) }}
+        {{ form_row(fields.area_total) }}
+        {{ form_row(fields.area_glazing) }}
+    </div>
+    <div class="span3">
+        {{ form_row(fields.perimeter_building) }}
+        {{ form_row(fields.depreciation_actual) }}
+        {{ form_row(fields.depreciation_physical) }}
+        {{ form_row(fields.Common) }}
+    </div>
+{% endblock collection_row_inner %}
