@@ -187,21 +187,77 @@
     </foreign-key>
     <foreign-key caption="Common ConstructElement" from="ConstructElement" inverse-alias="Common" name="FK_ConstructElement_Common_id" owning-alias="ConstructElements" to="Common">
       <foreign-key-column from="common_id" to="id"/>
+      <orm-properties>
+        <attribute name="on-delete">CASCADE</attribute>
+        <attribute name="on-update">CASCADE</attribute>
+        <attribute name="side-owning">
+          <attribute name="cascade">
+            <attribute name="cascade-all">true</attribute>
+          </attribute>
+        </attribute>
+        <attribute name="side-inverse">
+          <attribute name="cascade">
+            <attribute name="cascade-all">true</attribute>
+          </attribute>
+        </attribute>
+      </orm-properties>
     </foreign-key>
     <foreign-key caption="ConsumptionMeterType ConsumptionMeter" from="ConsumptionMeter" inverse-alias="ConsumptionMeterType" name="FK_ConsumptionMeter_ConsumptionMeterType_id" owning-alias="ConsumptionMeters" to="ConsumptionMeterType" visCaption1X="-1" visCaption1Y="0" visCenterX="0" visCenterY="0">
       <foreign-key-column from="consumption_meter_type_id" to="id"/>
     </foreign-key>
     <foreign-key caption="Common ConsumptionMeter" from="ConsumptionMeter" inverse-alias="Common" name="FK_ConsumptionMeter_Common_id" owning-alias="ConsumptionMeters" to="Common" visCaption1X="1" visCaption1Y="0" visCenterX="0" visCenterY="0">
       <foreign-key-column from="common_id" to="id"/>
+      <orm-properties>
+        <attribute name="on-delete">CASCADE</attribute>
+        <attribute name="on-update">CASCADE</attribute>
+        <attribute name="side-inverse">
+          <attribute name="cascade">
+            <attribute name="cascade-all">true</attribute>
+          </attribute>
+        </attribute>
+        <attribute name="side-owning">
+          <attribute name="cascade">
+            <attribute name="cascade-all">true</attribute>
+          </attribute>
+        </attribute>
+      </orm-properties>
     </foreign-key>
     <foreign-key caption="Common ElectroEquipment" from="ElectroEquipment" inverse-alias="Common" name="FK_ElectroEquipment_Common_id" owning-alias="ElectroEquipments" to="Common">
       <foreign-key-column from="common_id" to="id"/>
+      <orm-properties>
+        <attribute name="side-owning">
+          <attribute name="cascade">
+            <attribute name="cascade-all">true</attribute>
+          </attribute>
+        </attribute>
+        <attribute name="side-inverse">
+          <attribute name="cascade">
+            <attribute name="cascade-all">true</attribute>
+          </attribute>
+        </attribute>
+        <attribute name="on-delete">CASCADE</attribute>
+        <attribute name="on-update">CASCADE</attribute>
+      </orm-properties>
     </foreign-key>
     <foreign-key caption="ElectroEquipmentType ElectroEquipment" from="ElectroEquipment" inverse-alias="ElectroEquipmentType" name="FK_ElectroEquipment_ElectroEquipmentType_id" owning-alias="ElectroEquipments" to="ElectroEquipmentType">
       <foreign-key-column from="electro_equipment_type_id" to="id"/>
     </foreign-key>
     <foreign-key caption="Common LightsSystem" from="LightsSystem" inverse-alias="Common" name="FK_LightsSystem_Common_id" owning-alias="LightsSystems" to="Common">
       <foreign-key-column from="common_id" to="id"/>
+      <orm-properties>
+        <attribute name="on-delete">CASCADE</attribute>
+        <attribute name="on-update">CASCADE</attribute>
+        <attribute name="side-inverse">
+          <attribute name="cascade">
+            <attribute name="cascade-all">true</attribute>
+          </attribute>
+        </attribute>
+        <attribute name="side-owning">
+          <attribute name="cascade">
+            <attribute name="cascade-all">true</attribute>
+          </attribute>
+        </attribute>
+      </orm-properties>
     </foreign-key>
     <foreign-key caption="LightsSystemPlace LightsSystem" from="LightsSystem" inverse-alias="LightsSystemPlace" name="FK_LightsSystem_LightsSystemPlace_id" owning-alias="LightsSystems" to="LightsSystemPlace">
       <foreign-key-column from="lights_system_place_id" to="id"/>
@@ -211,18 +267,74 @@
     </foreign-key>
     <foreign-key caption="Common Pipeline" from="Pipeline" inverse-alias="Common" name="FK_Pipeline_Common_id" owning-alias="Pipelines" to="Common">
       <foreign-key-column from="common_id" to="id"/>
+      <orm-properties>
+        <attribute name="side-owning">
+          <attribute name="cascade">
+            <attribute name="cascade-all">true</attribute>
+          </attribute>
+        </attribute>
+        <attribute name="on-delete">CASCADE</attribute>
+        <attribute name="on-update">CASCADE</attribute>
+        <attribute name="side-inverse">
+          <attribute name="cascade">
+            <attribute name="cascade-all">true</attribute>
+          </attribute>
+        </attribute>
+      </orm-properties>
     </foreign-key>
     <foreign-key caption="Common FuelConsumption" from="FuelConsumption" inverse-alias="Common" name="FK_FuelConsumption_Common_id" owning-alias="FuelConsumptions" to="Common">
       <foreign-key-column from="common_id" to="id"/>
+      <orm-properties>
+        <attribute name="side-owning">
+          <attribute name="cascade">
+            <attribute name="cascade-all">true</attribute>
+          </attribute>
+        </attribute>
+        <attribute name="side-inverse">
+          <attribute name="cascade">
+            <attribute name="cascade-all">true</attribute>
+          </attribute>
+        </attribute>
+        <attribute name="on-delete">CASCADE</attribute>
+        <attribute name="on-update">CASCADE</attribute>
+      </orm-properties>
     </foreign-key>
     <foreign-key caption="FuelType FuelConsumption" from="FuelConsumption" inverse-alias="FuelType" name="FK_FuelConsumption_FuelType_id" owning-alias="FuelConsumptions" to="FuelType" visCaption1X="1" visCaption1Y="0" visCenterX="0" visCenterY="0">
       <foreign-key-column from="fuel_type_id" to="id"/>
     </foreign-key>
     <foreign-key caption="Common ExecutivePerson" from="ExecutivePerson" inverse-alias="Common" name="FK_ExecutivePerson_Common_id" owning-alias="ExecutivePersons" to="Common">
       <foreign-key-column from="common_id" to="id"/>
+      <orm-properties>
+        <attribute name="side-owning">
+          <attribute name="cascade">
+            <attribute name="cascade-all">true</attribute>
+          </attribute>
+        </attribute>
+        <attribute name="side-inverse">
+          <attribute name="cascade">
+            <attribute name="cascade-all">true</attribute>
+          </attribute>
+        </attribute>
+        <attribute name="on-delete">CASCADE</attribute>
+        <attribute name="on-update">CASCADE</attribute>
+      </orm-properties>
     </foreign-key>
     <foreign-key caption="Common Personal" from="Personal" inverse-alias="Common" name="FK_Personal_Common_id" owning-alias="Personals" to="Common">
       <foreign-key-column from="common_id" to="id"/>
+      <orm-properties>
+        <attribute name="on-delete">CASCADE</attribute>
+        <attribute name="on-update">CASCADE</attribute>
+        <attribute name="side-inverse">
+          <attribute name="cascade">
+            <attribute name="cascade-all">true</attribute>
+          </attribute>
+        </attribute>
+        <attribute name="side-owning">
+          <attribute name="cascade">
+            <attribute name="cascade-all">true</attribute>
+          </attribute>
+        </attribute>
+      </orm-properties>
     </foreign-key>
     <foreign-key caption="CourseType Personal" from="Personal" inverse-alias="CourseType" name="FK_Personal_CourseType_id" owning-alias="Personals" to="CourseType">
       <foreign-key-column from="course_type_id" to="id"/>

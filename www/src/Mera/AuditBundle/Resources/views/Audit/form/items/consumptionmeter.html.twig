@@ -1,7 +1,27 @@
-{% extends 'MeraAuditBundle:Audit:form/collapseItem.html.twig' %}
+{% extends 'MeraAuditBundle:Audit:form/collection.html.twig' %}
 {% block collapseTitle %}
     Оснащенность организации приборами учета потребления
 {% endblock %}
 {% block collapseId %}consumptionmeter{% endblock %}
+
+{% form_theme form _self %}
+
 {% block collapseBody %}
+    {{ form_widget(form.ConsumptionMeters) }}
 {% endblock %}
+
+{% block collection_row_inner %}
+    <div class="span3">
+        {{ form_row(fields.name) }}
+    </div>
+    <div class="span3">
+        {{ form_row(fields.precision_class) }}
+    </div>
+    <div class="span3">
+        {{ form_row(fields.verification_date) }}
+    </div>
+    <div class="span3">
+        {{ form_row(fields.ConsumptionMeterType) }}
+        {{ form_row(fields.Common) }}
+    </div>
+{% endblock collection_row_inner %}

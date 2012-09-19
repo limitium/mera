@@ -31,9 +31,13 @@ Mera\AuditBundle\Entity\FuelConsumption:
         Common:
             targetEntity: Mera\AuditBundle\Entity\Common
             inversedBy: FuelConsumptions
+            cascade:
+                - all
             joinColumns:
                 common_id:
                     referencedColumnName: id
+                    onDelete: CASCADE
+                    onUpdate: CASCADE
         FuelType:
             targetEntity: Mera\AuditBundle\Entity\FuelType
             inversedBy: FuelConsumptions

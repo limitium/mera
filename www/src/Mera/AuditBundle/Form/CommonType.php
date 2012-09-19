@@ -27,6 +27,9 @@ class CommonType extends AbstractType
             'allow_delete' => true))
             ->add('ConstructElements', 'collection', array('type' => new ConstructElementType(),
             'allow_add' => true,
+            'allow_delete' => true))
+            ->add('ConsumptionMeters', 'collection', array('type' => new ConsumptionMeterType(),
+            'allow_add' => true,
             'allow_delete' => true));
 
         ;

@@ -3,6 +3,7 @@
 namespace Mera\ManageBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Mera\AuditBundle\Entity\Building;
 use Mera\AuditBundle\Entity\Common;
 use Mera\ManageBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -96,19 +97,7 @@ class FacilityController extends Controller
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
 
-            $user = $facility->getUser();
-            $user->setUsername($user->getEmail());
-            $user->setEnabled(true);
-            $user->setLocked(false);
-            $user->setExpired(false);
-            $user->setCredentialsExpired(false);
-            $user->setSalt("");
-
-            $common = new Common();
-            $common->setFacility($facility);
-            $common->setCreated(new \DateTime('now'));
-            $common->setUpdated(new \DateTime('now'));
-            $facility->setCommon($common);
+            $this->generateObjects($facility);
 
             $em->persist($facility);
             $em->flush();
@@ -120,6 +109,23 @@ class FacilityController extends Controller
             'entity' => $facility,
             'form' => $form->createView(),
         );
+    }
+
+    private function generateObjects($facility)
+    {
+        $user = $facility->getUser();
+        $user->setUsername($user->getEmail());
+        $user->setEnabled(true);
+        $user->setLocked(false);
+        $user->setExpired(false);
+        $user->setCredentialsExpired(false);
+        $user->setSalt("");
+
+        $common = new Common();
+        $common->setFacility($facility);
+        $common->setCreated(new \DateTime('now'));
+        $common->setUpdated(new \DateTime('now'));
+        $facility->setCommon($common);
     }
 
     /**

@@ -25,6 +25,10 @@ Mera\AuditBundle\Entity\ConstructElement:
         Common:
             targetEntity: Mera\AuditBundle\Entity\Common
             inversedBy: ConstructElements
+            cascade:
+                - all
             joinColumns:
                 common_id:
                     referencedColumnName: id
+                    onDelete: CASCADE
+                    onUpdate: CASCADE
