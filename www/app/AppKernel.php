@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new Gregwar\FormBundle\GregwarFormBundle(),
 
             new Mera\ManageBundle\MeraManageBundle(),
             new Mera\AuditBundle\MeraAuditBundle(),

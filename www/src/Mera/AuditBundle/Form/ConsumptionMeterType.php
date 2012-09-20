@@ -15,7 +15,6 @@ class ConsumptionMeterType extends AbstractType
             ->add('precision_class')
             ->add('verification_date')
             ->add('ConsumptionMeterType')
-            ->add('Common')
         ;
     }
 

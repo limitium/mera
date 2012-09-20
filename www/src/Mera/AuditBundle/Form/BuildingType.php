@@ -22,9 +22,7 @@ class BuildingType extends AbstractType
             ->add('area_glazing')
             ->add('perimeter_building')
             ->add('depreciation_actual')
-            ->add('depreciation_physical')
-            ->add('Common')
-        ;
+            ->add('depreciation_physical');
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

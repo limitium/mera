@@ -30,14 +30,15 @@ class AuditController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $common = $em->getRepository('MeraAuditBundle:Common')->findAll();
-        $common = array_pop($common);
+        $user = $this->getUser();
+
+        //check role
+        $facility = $user->getFacility();
+        $common = $facility[0]->getCommon();
 
         if (!$common) {
             throw $this->createNotFoundException('Unable to find Audit audit.');
         }
-        $common->addBuilding(new Building());
-        $common->addConstructElement(new ConstructElement());
 
         $form = $this->createForm(new CommonType(), $common);
 

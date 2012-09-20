@@ -15,7 +15,6 @@ class ConstructElementType extends AbstractType
             ->add('description')
             ->add('width')
             ->add('ConstructElementType')
-            ->add('Common')
         ;
     }
 
