@@ -12,10 +12,6 @@ use FOS\UserBundle\Entity\User as BaseUser;
 class User extends BaseUser
 {
     /**
-     * @var \Doctrine\Common\Collections\ArrayCollection
-     */
-    private $Facility;
-    /**
      * @var integer $id
      */
     protected $id;
@@ -43,46 +39,9 @@ class User extends BaseUser
     }
 
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->Facility = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
-    /**
-     * Add Facility
-     *
-     * @param Mera\ManageBundle\Entity\Facility $facility
-     * @return User
-     */
-    public function addFacility(\Mera\ManageBundle\Entity\Facility $facility)
-    {
-        $this->Facility[] = $facility;
 
-        return $this;
-    }
 
-    /**
-     * Remove Facility
-     *
-     * @param Mera\ManageBundle\Entity\Facility $facility
-     */
-    public function removeFacility(\Mera\ManageBundle\Entity\Facility $facility)
-    {
-        $this->Facility->removeElement($facility);
-    }
-
-    /**
-     * Get Facility
-     *
-     * @return Doctrine\Common\Collections\Collection
-     */
-    public function getFacility()
-    {
-        return $this->Facility;
-    }
 
     /**
      * @param string $salt
@@ -90,5 +49,90 @@ class User extends BaseUser
     public function setSalt($salt)
     {
         $this->salt = $salt;
+    }
+    /**
+     * @var string $first_name
+     */
+    private $first_name;
+
+    /**
+     * @var string $last_name
+     */
+    private $last_name;
+
+
+    /**
+     * Set first_name
+     *
+     * @param string $firstName
+     * @return User
+     */
+    public function setFirstName($firstName)
+    {
+        $this->first_name = $firstName;
+    
+        return $this;
+    }
+
+    /**
+     * Get first_name
+     *
+     * @return string 
+     */
+    public function getFirstName()
+    {
+        return $this->first_name;
+    }
+
+    /**
+     * Set last_name
+     *
+     * @param string $lastName
+     * @return User
+     */
+    public function setLastName($lastName)
+    {
+        $this->last_name = $lastName;
+    
+        return $this;
+    }
+
+    /**
+     * Get last_name
+     *
+     * @return string 
+     */
+    public function getLastName()
+    {
+        return $this->last_name;
+    }
+
+    /**
+     * @var Mera\ManageBundle\Entity\Facility
+     */
+    private $Facility;
+
+
+    /**
+     * Set Facility
+     *
+     * @param Mera\ManageBundle\Entity\Facility $facility
+     * @return User
+     */
+    public function setFacility(\Mera\ManageBundle\Entity\Facility $facility = null)
+    {
+        $this->Facility = $facility;
+    
+        return $this;
+    }
+
+    /**
+     * Get Facility
+     *
+     * @return Mera\ManageBundle\Entity\Facility 
+     */
+    public function getFacility()
+    {
+        return $this->Facility;
     }
 }

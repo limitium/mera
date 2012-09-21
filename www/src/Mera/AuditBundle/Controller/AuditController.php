@@ -33,8 +33,8 @@ class AuditController extends Controller
         $user = $this->getUser();
 
         //check role
-        $facility = $user->getFacility();
-        $common = $facility[0]->getCommon();
+
+        $common = $user->getFacility()->getCommon();
 
         if (!$common) {
             throw $this->createNotFoundException('Unable to find Audit audit.');

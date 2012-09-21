@@ -349,6 +349,8 @@
     </table>
     <table name="User" visPositionX="57" visPositionY="20" visSizeX="0" visSizeX2="92" visSizeY="0" visSizeY2="45">
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
+      <column name="first_name" type="string"/>
+      <column name="last_name" type="string"/>
     </table>
     <foreign-key caption="User Facility" from="Facility" inverse-alias="User" name="FK_Facility_User_id" owning-alias="Facility" to="User" visCaption1X="1" visCaption1Y="-1" visCenterX="0" visCenterY="0">
       <foreign-key-column from="user_id" to="id"/>

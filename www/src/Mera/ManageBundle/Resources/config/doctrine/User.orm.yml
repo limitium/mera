@@ -6,6 +6,12 @@ Mera\ManageBundle\Entity\User:
             type: integer
             generator:
                 strategy: AUTO
+        first_name:
+            type: string
+            nullable: true
+        last_name:
+            type: string
+            nullable: true
     oneToOne:
         Facility:
             targetEntity: Mera\ManageBundle\Entity\Facility
