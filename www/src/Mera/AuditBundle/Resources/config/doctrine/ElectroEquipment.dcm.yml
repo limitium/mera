@@ -1,0 +1,33 @@
+ElectroEquipment:
+  type: entity
+  fields:
+    id:
+      id: true
+      type: integer
+      generator:
+        strategy: AUTO
+    quantity:
+      type: integer
+      nullable: true
+    power:
+      type: decimal
+      nullable: true
+    work_duration:
+      type: decimal
+      nullable: true
+  manyToOne:
+    Common:
+      targetEntity: Common
+      inversedBy: ElectroEquipments
+      cascade: [cascadeAll]
+      joinColumns:
+        common_id:
+          referencedColumnName: id
+          onDelete: CASCADE
+          onUpdate: CASCADE
+    ElectroEquipmentType:
+      targetEntity: ElectroEquipmentType
+      inversedBy: ElectroEquipments
+      joinColumns:
+        electro_equipment_type_id:
+          referencedColumnName: id

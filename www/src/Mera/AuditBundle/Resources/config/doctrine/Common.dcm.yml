@@ -1,0 +1,91 @@
+Common:
+  type: entity
+  fields:
+    id:
+      id: true
+      type: integer
+      generator:
+        strategy: AUTO
+    address_legal:
+      type: string
+      nullable: true
+    address_actual:
+      type: string
+      nullable: true
+    tin:
+      type: string
+      nullable: true
+    cat:
+      type: string
+      nullable: true
+    settlement_account:
+      type: string
+      nullable: true
+    bic:
+      type: string
+      nullable: true
+    bank_name:
+      type: string
+      nullable: true
+    agrn:
+      type: string
+      nullable: true
+    okved:
+      type: string
+      nullable: true
+    okp:
+      type: string
+      nullable: true
+    created:
+      type: datetime
+      nullable: false
+    updated:
+      type: datetime
+      nullable: false
+  oneToOne:
+    Facility:
+      targetEntity: Facility
+      inversedBy: Common
+      cascade: [cascadeAll]
+      joinColumns:
+        facility_id:
+          referencedColumnName: id
+          onDelete: CASCADE
+          onUpdate: CASCADE
+  oneToMany:
+    Buildings:
+      targetEntity: Building
+      mappedBy: Common
+      cascade: [cascadeAll]
+    ConstructElements:
+      targetEntity: ConstructElement
+      mappedBy: Common
+      cascade: [cascadeAll]
+    ConsumptionMeters:
+      targetEntity: ConsumptionMeter
+      mappedBy: Common
+      cascade: [cascadeAll]
+    ElectroEquipments:
+      targetEntity: ElectroEquipment
+      mappedBy: Common
+      cascade: [cascadeAll]
+    LightsSystems:
+      targetEntity: LightsSystem
+      mappedBy: Common
+      cascade: [cascadeAll]
+    Pipelines:
+      targetEntity: Pipeline
+      mappedBy: Common
+      cascade: [cascadeAll]
+    FuelConsumptions:
+      targetEntity: FuelConsumption
+      mappedBy: Common
+      cascade: [cascadeAll]
+    ExecutivePersons:
+      targetEntity: ExecutivePerson
+      mappedBy: Common
+      cascade: [cascadeAll]
+    Personals:
+      targetEntity: Personal
+      mappedBy: Common
+      cascade: [cascadeAll]

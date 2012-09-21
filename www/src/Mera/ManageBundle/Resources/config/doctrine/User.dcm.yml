@@ -1,0 +1,13 @@
+User:
+  type: entity
+  fields:
+    id:
+      id: true
+      type: integer
+      generator:
+        strategy: AUTO
+  oneToOne:
+    Facility:
+      targetEntity: Facility
+      mappedBy: User
+      cascade: [cascadeAll]

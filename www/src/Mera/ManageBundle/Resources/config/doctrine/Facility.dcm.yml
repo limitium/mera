@@ -1,0 +1,26 @@
+Facility:
+  type: entity
+  fields:
+    id:
+      id: true
+      type: integer
+      generator:
+        strategy: AUTO
+    name:
+      type: string
+      unique: true
+      nullable: false
+  oneToOne:
+    User:
+      targetEntity: User
+      inversedBy: Facility
+      cascade: [cascadeAll]
+      joinColumns:
+        user_id:
+          referencedColumnName: id
+          onDelete: CASCADE
+          onUpdate: CASCADE
+    Common:
+      targetEntity: Common
+      mappedBy: Facility
+      cascade: [cascadeAll]

@@ -1,0 +1,33 @@
+ConsumptionMeter:
+  type: entity
+  fields:
+    id:
+      id: true
+      type: integer
+      generator:
+        strategy: AUTO
+    name:
+      type: string
+      nullable: true
+    precision_class:
+      type: string
+      nullable: true
+    verification_date:
+      type: date
+      nullable: true
+  manyToOne:
+    ConsumptionMeterType:
+      targetEntity: ConsumptionMeterType
+      inversedBy: ConsumptionMeters
+      joinColumns:
+        consumption_meter_type_id:
+          referencedColumnName: id
+    Common:
+      targetEntity: Common
+      inversedBy: ConsumptionMeters
+      cascade: [cascadeAll]
+      joinColumns:
+        common_id:
+          referencedColumnName: id
+          onDelete: CASCADE
+          onUpdate: CASCADE

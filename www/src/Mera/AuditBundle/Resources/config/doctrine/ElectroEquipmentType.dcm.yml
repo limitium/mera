@@ -1,0 +1,15 @@
+ElectroEquipmentType:
+  type: entity
+  fields:
+    id:
+      id: true
+      type: integer
+      generator:
+        strategy: AUTO
+    name:
+      type: string
+      nullable: false
+  oneToMany:
+    ElectroEquipments:
+      targetEntity: ElectroEquipment
+      mappedBy: ElectroEquipmentType
