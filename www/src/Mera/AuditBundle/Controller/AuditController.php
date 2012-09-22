@@ -28,17 +28,8 @@ class AuditController extends Controller
      */
     public function auditAction()
     {
-        $em = $this->getDoctrine()->getManager();
 
-        $user = $this->getUser();
-
-        //check role
-
-        $common = $user->getFacility()->getCommon();
-
-        if (!$common) {
-            throw $this->createNotFoundException('Unable to find Audit audit.');
-        }
+        $common = $this->getCommon();
 
         $form = $this->createForm(new CommonType(), $common);
 
@@ -48,4 +39,40 @@ class AuditController extends Controller
         );
     }
 
+
+    /**
+     * Save a Audit audit.
+     *
+     * @Route("/save", name="audit_save")
+     * @Method("POST")
+     * @Template("MeraAuditBundle:Audit:audit.html.twig")
+     */
+    public function saveAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $common = $this->getCommon();
+        $form = $this->createForm(new CommonType(), $common);
+
+        $form->bind($request);
+
+        $em->persist($common);
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('audit'));
+    }
+
+    private function getCommon()
+    {
+        $user = $this->getUser();
+
+        //check role
+
+        $common = $user->getFacility()->getCommon();
+
+        if (!$common) {
+            throw $this->createNotFoundException('Unable to find Audit audit.');
+        }
+        return $common;
+    }
 }

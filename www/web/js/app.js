@@ -38,4 +38,8 @@ $(document).ready(function () {
         row.toggleClass("hide");
         return false;
     });
+
+    $("#audit-save").click(function () {
+        $("#audit-form").submit();
+    });
 });
