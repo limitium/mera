@@ -7,15 +7,18 @@
     <div class="accordion-body collapse in" id="{{ block('collapseId') }}">
         <div class="accordion-inner" style="padding: 9px 0;">
             <div class="span12">
-                {% block collapseBody %}{% endblock %}
-            </div>
-            <div class="span12">
-                <div class="control-group">
-                    <div class="controls">
-                        <button class="btn next"><i class="icon-arrow-down"></i> Дальше</button>
+
+                <div class="btn-toolbar">
+                    <div class="btn-group">
+                        <button class="btn up"><i class="icon-arrow-up"></i> Вверх</button>
+                        <button class="btn prev"><i class="icon-chevron-up"></i> Назад</button>
+                        <button class="btn next"><i class="icon-chevron-down"></i> Дальше</button>
                     </div>
                 </div>
+            </div><div class="span12">
+                {% block collapseBody %}{% endblock %}
             </div>
+
         </div>
     </div>
 </div>

@@ -1,29 +1,29 @@
 {% extends 'MeraAuditBundle:Audit:form/collection.html.twig' %}
 {% block collapseTitle %}
-    Техническое описание конструктивных элементов здания
+Техническое описание конструктивных элементов здания
 {% endblock %}
 {% block collapseId %}construcelem{% endblock %}
 
 {% form_theme form _self %}
 
 {% block collapseBody %}
-    <blockquote>
-        <p class="lead">123</p>
-    </blockquote>
-    {{ form_widget(form.ConstructElements) }}
+<blockquote>
+    <p class="lead">Какой-то текст</p>
+</blockquote>
+{{ form_widget(form.ConstructElements) }}
 {% endblock %}
 
 {% block collection_row_inner %}
-    <div class="span3">
-        {{ form_row(fields.area) }}
-    </div>
-    <div class="span3">
-        {{ form_row(fields.description) }}
-    </div>
-    <div class="span3">
-        {{ form_row(fields.width) }}
-    </div>
-    <div class="span3">
-        {{ form_row(fields.ConstructElementType) }}
-    </div>
+<div class="span3">
+    {{ form_row(fields.area) }}
+</div>
+<div class="span3">
+    {{ form_row(fields.description) }}
+</div>
+<div class="span3">
+    {{ form_row(fields.width) }}
+</div>
+<div class="span3">
+    {{ form_row(fields.ConstructElementType) }}
+</div>
 {% endblock collection_row_inner %}

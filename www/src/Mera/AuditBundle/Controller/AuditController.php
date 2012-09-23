@@ -56,6 +56,13 @@ class AuditController extends Controller
 
         $form->bind($request);
 
+        foreach (array("Buildings", "ConstructElements", "ConsumptionMeters", "ElectroEquipments", "FuelConsumptions", "LightsSystems", "Personals", "Pipelines") as $related) {
+            $getter = "get" . $related;
+            foreach ($common->$getter() as $relatedObject) {
+                $relatedObject->setCommon($common);
+            }
+        }
+
         $em->persist($common);
         $em->flush();
 
