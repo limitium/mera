@@ -26,8 +26,15 @@ $(document).ready(function () {
             collection = button.closest("[data-prototype]"),
             prototype = collection.data("prototype"),
             collectionContainer = $(".collection-rows", collection),
-            rowNumber = $(".collection-rows").children().length,
-            newRow = prototype.split("__name__").join(rowNumber);
+            rowNumber = collectionContainer.children().length;
+        $.each($(".row", collectionContainer), function () {
+            var index = $(this).data("index");
+            if (index >= rowNumber) {
+                rowNumber = ++index;
+            }
+        });
+
+        var newRow = prototype.split("__name__").join(rowNumber);
 
         collectionContainer.append(newRow);
         return false;

@@ -25,8 +25,8 @@
         <form id="audit-form" action="{{ path('audit_save') }}" method="post" {{ form_enctype(form) }}>
             <div class="accordion">
                 {% include 'MeraAuditBundle:Audit:form/items/common.html.twig' %}
+
                 {% include 'MeraAuditBundle:Audit:form/items/buildings.html.twig' %}
-                {% include 'MeraAuditBundle:Audit:form/items/floorplan.html.twig' %}
                 {% include 'MeraAuditBundle:Audit:form/items/constructelem.html.twig' %}
                 {% include 'MeraAuditBundle:Audit:form/items/consumptionmeter.html.twig' %}
                 {% include 'MeraAuditBundle:Audit:form/items/electroequipment.html.twig' %}
@@ -35,6 +35,8 @@
                 {% include 'MeraAuditBundle:Audit:form/items/fuelconsumption.html.twig' %}
                 {% include 'MeraAuditBundle:Audit:form/items/executiveperson.html.twig' %}
                 {% include 'MeraAuditBundle:Audit:form/items/personal.html.twig' %}
+
+                {% include 'MeraAuditBundle:Audit:form/items/floorplan.html.twig' %}
             </div>
             {{ form_rest(form) }}
         </form>

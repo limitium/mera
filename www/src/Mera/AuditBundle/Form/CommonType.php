@@ -24,7 +24,9 @@ class CommonType extends AbstractType
             ->add('Facility')
             ->add('Buildings', 'collection', array('type' => new BuildingType(),
             'allow_add' => true,
-            'allow_delete' => true))
+            'allow_delete' => true,
+            'by_reference' => false,
+            'options'=>array('data_class' => 'Mera\AuditBundle\Entity\Building')))
             ->add('ConstructElements', 'collection', array('type' => new ConstructElementType(),
             'allow_add' => true,
             'allow_delete' => true))

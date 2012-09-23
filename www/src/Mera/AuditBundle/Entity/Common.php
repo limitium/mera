@@ -402,8 +402,7 @@ class Common
      *
      * @return Doctrine\Common\Collections\Collection
      */
-    public
-    function getBuildings()
+    public function getBuildings()
     {
         return $this->Buildings;
     }
@@ -513,7 +512,7 @@ class Common
     public function addConstructElement(\Mera\AuditBundle\Entity\ConstructElement $constructElements)
     {
         $this->ConstructElements[] = $constructElements;
-    
+
         return $this;
     }
 
@@ -530,7 +529,7 @@ class Common
     /**
      * Get ConstructElements
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return Doctrine\Common\Collections\Collection
      */
     public function getConstructElements()
     {
@@ -546,7 +545,7 @@ class Common
     public function addConsumptionMeter(\Mera\AuditBundle\Entity\ConsumptionMeter $consumptionMeters)
     {
         $this->ConsumptionMeters[] = $consumptionMeters;
-    
+
         return $this;
     }
 
@@ -563,7 +562,7 @@ class Common
     /**
      * Get ConsumptionMeters
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return Doctrine\Common\Collections\Collection
      */
     public function getConsumptionMeters()
     {
@@ -579,7 +578,7 @@ class Common
     public function addElectroEquipment(\Mera\AuditBundle\Entity\ElectroEquipment $electroEquipments)
     {
         $this->ElectroEquipments[] = $electroEquipments;
-    
+
         return $this;
     }
 
@@ -596,7 +595,7 @@ class Common
     /**
      * Get ElectroEquipments
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return Doctrine\Common\Collections\Collection
      */
     public function getElectroEquipments()
     {
@@ -612,7 +611,7 @@ class Common
     public function addLightsSystem(\Mera\AuditBundle\Entity\LightsSystem $lightsSystems)
     {
         $this->LightsSystems[] = $lightsSystems;
-    
+
         return $this;
     }
 
@@ -629,7 +628,7 @@ class Common
     /**
      * Get LightsSystems
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return Doctrine\Common\Collections\Collection
      */
     public function getLightsSystems()
     {
@@ -645,7 +644,7 @@ class Common
     public function addPipeline(\Mera\AuditBundle\Entity\Pipeline $pipelines)
     {
         $this->Pipelines[] = $pipelines;
-    
+
         return $this;
     }
 
@@ -662,7 +661,7 @@ class Common
     /**
      * Get Pipelines
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return Doctrine\Common\Collections\Collection
      */
     public function getPipelines()
     {
@@ -678,7 +677,7 @@ class Common
     public function addFuelConsumption(\Mera\AuditBundle\Entity\FuelConsumption $fuelConsumptions)
     {
         $this->FuelConsumptions[] = $fuelConsumptions;
-    
+
         return $this;
     }
 
@@ -695,7 +694,7 @@ class Common
     /**
      * Get FuelConsumptions
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return Doctrine\Common\Collections\Collection
      */
     public function getFuelConsumptions()
     {
@@ -711,7 +710,7 @@ class Common
     public function addExecutivePerson(\Mera\AuditBundle\Entity\ExecutivePerson $executivePersons)
     {
         $this->ExecutivePersons[] = $executivePersons;
-    
+
         return $this;
     }
 
@@ -728,7 +727,7 @@ class Common
     /**
      * Get ExecutivePersons
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return Doctrine\Common\Collections\Collection
      */
     public function getExecutivePersons()
     {
@@ -744,7 +743,7 @@ class Common
     public function addPersonal(\Mera\AuditBundle\Entity\Personal $personals)
     {
         $this->Personals[] = $personals;
-    
+
         return $this;
     }
 
@@ -761,7 +760,7 @@ class Common
     /**
      * Get Personals
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return Doctrine\Common\Collections\Collection
      */
     public function getPersonals()
     {

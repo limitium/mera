@@ -18,7 +18,8 @@
         </div>
     </div>
 
-    <div class="row">
+        <b>{{row.vars.name}}</b>
+    <div class="row" data-index="{{row.vars.name}}">
         {% set fields = row.children %}
         {{ block('collection_row_inner') }}
     </div>

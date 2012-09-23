@@ -54,12 +54,38 @@ class AuditController extends Controller
         $common = $this->getCommon();
         $form = $this->createForm(new CommonType(), $common);
 
+        $collections = array("Buildings", "ConstructElements", "ConsumptionMeters", "ElectroEquipments", "FuelConsumptions", "LightsSystems", "Personals", "Pipelines");
+
+        $originalCollections = array();
+        foreach ($collections as $collection) {
+            $getter = "get" . $collection;
+            $originalCollections[$collection] = array();
+            foreach ($common->$getter() as $relatedObject) {
+                $originalCollections[$collection][] = $relatedObject;
+            }
+        }
+
         $form->bind($request);
 
-        foreach (array("Buildings", "ConstructElements", "ConsumptionMeters", "ElectroEquipments", "FuelConsumptions", "LightsSystems", "Personals", "Pipelines") as $related) {
-            $getter = "get" . $related;
+        foreach ($collections as $collection) {
+            $getter = "get" . $collection;
             foreach ($common->$getter() as $relatedObject) {
+
                 $relatedObject->setCommon($common);
+
+                foreach ($originalCollections[$collection] as $key => $oldRelatedObject) {
+                    if ($oldRelatedObject->getId() == $relatedObject->getId()) {
+                        unset($originalCollections[$collection][$key]);
+                    }
+                }
+            }
+        }
+
+        foreach ($originalCollections as $collection => $relatedObjects) {
+            foreach ($relatedObjects as $toDelete) {
+                $remove = "remove" . substr($collection, 0, -1);
+                $common->$remove($toDelete);
+                $em->remove($toDelete);
             }
         }
 
