@@ -19,6 +19,7 @@ Mera\ManageBundle\Entity\Facility:
             joinColumns:
                 user_id:
                     referencedColumnName: id
+                    nullable: false
                     onDelete: CASCADE
                     onUpdate: CASCADE
         Common:

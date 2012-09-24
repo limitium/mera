@@ -36,6 +36,7 @@ Mera\AuditBundle\Entity\LightsSystem:
             joinColumns:
                 common_id:
                     referencedColumnName: id
+                    nullable: false
                     onDelete: CASCADE
                     onUpdate: CASCADE
         LightsSystemPlace:
@@ -44,3 +45,4 @@ Mera\AuditBundle\Entity\LightsSystem:
             joinColumns:
                 lights_system_place_id:
                     referencedColumnName: id
+                    nullable: false

@@ -1,0 +1,3 @@
+Mera\AuditBundle\Entity\VentilationSystem:
+    type: entity
+    fields: null

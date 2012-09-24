@@ -22,6 +22,7 @@ Mera\AuditBundle\Entity\ConstructElement:
             joinColumns:
                 construct_element_type_id:
                     referencedColumnName: id
+                    nullable: false
         Common:
             targetEntity: Mera\AuditBundle\Entity\Common
             inversedBy: ConstructElements
@@ -30,5 +31,6 @@ Mera\AuditBundle\Entity\ConstructElement:
             joinColumns:
                 common_id:
                     referencedColumnName: id
+                    nullable: false
                     onDelete: CASCADE
                     onUpdate: CASCADE

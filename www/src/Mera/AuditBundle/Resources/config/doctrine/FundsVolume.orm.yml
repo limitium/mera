@@ -1,0 +1,27 @@
+Mera\AuditBundle\Entity\FundsVolume:
+    type: entity
+    fields:
+        id:
+            id: true
+            type: integer
+        year:
+            type: integer
+            nullable: true
+        budget:
+            type: integer
+            nullable: true
+        non_budget:
+            type: integer
+            nullable: true
+    manyToOne:
+        Common:
+            targetEntity: Mera\AuditBundle\Entity\Common
+            inversedBy: FundsVolumes
+            cascade:
+                - all
+            joinColumns:
+                Common_id:
+                    referencedColumnName: id
+                    nullable: false
+                    onDelete: CASCADE
+                    onUpdate: CASCADE

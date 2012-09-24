@@ -39,6 +39,7 @@ Mera\AuditBundle\Entity\Personal:
             joinColumns:
                 common_id:
                     referencedColumnName: id
+                    nullable: false
                     onDelete: CASCADE
                     onUpdate: CASCADE
         CourseType:
@@ -47,3 +48,4 @@ Mera\AuditBundle\Entity\Personal:
             joinColumns:
                 course_type_id:
                     referencedColumnName: id
+                    nullable: false

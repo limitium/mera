@@ -1,0 +1,3 @@
+Mera\AuditBundle\Entity\HeatingSystem:
+    type: entity
+    fields: null

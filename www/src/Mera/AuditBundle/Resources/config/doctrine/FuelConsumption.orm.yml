@@ -36,6 +36,7 @@ Mera\AuditBundle\Entity\FuelConsumption:
             joinColumns:
                 common_id:
                     referencedColumnName: id
+                    nullable: false
                     onDelete: CASCADE
                     onUpdate: CASCADE
         FuelType:
@@ -44,3 +45,4 @@ Mera\AuditBundle\Entity\FuelConsumption:
             joinColumns:
                 fuel_type_id:
                     referencedColumnName: id
+                    nullable: false

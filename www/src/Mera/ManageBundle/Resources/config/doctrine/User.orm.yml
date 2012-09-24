@@ -1,5 +1,6 @@
 Mera\ManageBundle\Entity\User:
     type: entity
+    table: User
     fields:
         id:
             id: true

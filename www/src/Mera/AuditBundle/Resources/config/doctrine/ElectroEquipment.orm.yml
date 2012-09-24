@@ -24,6 +24,7 @@ Mera\AuditBundle\Entity\ElectroEquipment:
             joinColumns:
                 common_id:
                     referencedColumnName: id
+                    nullable: false
                     onDelete: CASCADE
                     onUpdate: CASCADE
         ElectroEquipmentType:
@@ -32,3 +33,4 @@ Mera\AuditBundle\Entity\ElectroEquipment:
             joinColumns:
                 electro_equipment_type_id:
                     referencedColumnName: id
+                    nullable: false

@@ -1,0 +1,3 @@
+Mera\AuditBundle\Entity\PowerCircuits:
+    type: entity
+    fields: null

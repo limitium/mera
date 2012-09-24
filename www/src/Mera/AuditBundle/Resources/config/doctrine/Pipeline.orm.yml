@@ -28,6 +28,7 @@ Mera\AuditBundle\Entity\Pipeline:
             joinColumns:
                 pipeline_installation_type_id:
                     referencedColumnName: id
+                    nullable: false
         Common:
             targetEntity: Mera\AuditBundle\Entity\Common
             inversedBy: Pipelines
@@ -36,5 +37,6 @@ Mera\AuditBundle\Entity\Pipeline:
             joinColumns:
                 common_id:
                     referencedColumnName: id
+                    nullable: false
                     onDelete: CASCADE
                     onUpdate: CASCADE

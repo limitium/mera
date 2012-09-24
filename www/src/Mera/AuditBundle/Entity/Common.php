@@ -766,4 +766,232 @@ class Common
     {
         return $this->Personals;
     }
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     */
+    private $Files;
+
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     */
+    private $Transofrmators;
+
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     */
+    private $FundsVolumes;
+
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     */
+    private $PersonalQuantitys;
+
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     */
+    private $ConsumedTariffs;
+
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     */
+    private $NaturalProductions;
+
+
+    /**
+     * Add Files
+     *
+     * @param Mera\AuditBundle\Entity\File $files
+     * @return Common
+     */
+    public function addFile(\Mera\AuditBundle\Entity\File $files)
+    {
+        $this->Files[] = $files;
+    
+        return $this;
+    }
+
+    /**
+     * Remove Files
+     *
+     * @param Mera\AuditBundle\Entity\File $files
+     */
+    public function removeFile(\Mera\AuditBundle\Entity\File $files)
+    {
+        $this->Files->removeElement($files);
+    }
+
+    /**
+     * Get Files
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getFiles()
+    {
+        return $this->Files;
+    }
+
+    /**
+     * Add Transofrmators
+     *
+     * @param Mera\AuditBundle\Entity\Transofrmator $transofrmators
+     * @return Common
+     */
+    public function addTransofrmator(\Mera\AuditBundle\Entity\Transofrmator $transofrmators)
+    {
+        $this->Transofrmators[] = $transofrmators;
+    
+        return $this;
+    }
+
+    /**
+     * Remove Transofrmators
+     *
+     * @param Mera\AuditBundle\Entity\Transofrmator $transofrmators
+     */
+    public function removeTransofrmator(\Mera\AuditBundle\Entity\Transofrmator $transofrmators)
+    {
+        $this->Transofrmators->removeElement($transofrmators);
+    }
+
+    /**
+     * Get Transofrmators
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getTransofrmators()
+    {
+        return $this->Transofrmators;
+    }
+
+    /**
+     * Add FundsVolumes
+     *
+     * @param Mera\AuditBundle\Entity\FundsVolume $fundsVolumes
+     * @return Common
+     */
+    public function addFundsVolume(\Mera\AuditBundle\Entity\FundsVolume $fundsVolumes)
+    {
+        $this->FundsVolumes[] = $fundsVolumes;
+    
+        return $this;
+    }
+
+    /**
+     * Remove FundsVolumes
+     *
+     * @param Mera\AuditBundle\Entity\FundsVolume $fundsVolumes
+     */
+    public function removeFundsVolume(\Mera\AuditBundle\Entity\FundsVolume $fundsVolumes)
+    {
+        $this->FundsVolumes->removeElement($fundsVolumes);
+    }
+
+    /**
+     * Get FundsVolumes
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getFundsVolumes()
+    {
+        return $this->FundsVolumes;
+    }
+
+    /**
+     * Add PersonalQuantitys
+     *
+     * @param Mera\AuditBundle\Entity\PersonalQuantity $personalQuantitys
+     * @return Common
+     */
+    public function addPersonalQuantity(\Mera\AuditBundle\Entity\PersonalQuantity $personalQuantitys)
+    {
+        $this->PersonalQuantitys[] = $personalQuantitys;
+    
+        return $this;
+    }
+
+    /**
+     * Remove PersonalQuantitys
+     *
+     * @param Mera\AuditBundle\Entity\PersonalQuantity $personalQuantitys
+     */
+    public function removePersonalQuantity(\Mera\AuditBundle\Entity\PersonalQuantity $personalQuantitys)
+    {
+        $this->PersonalQuantitys->removeElement($personalQuantitys);
+    }
+
+    /**
+     * Get PersonalQuantitys
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getPersonalQuantitys()
+    {
+        return $this->PersonalQuantitys;
+    }
+
+    /**
+     * Add ConsumedTariffs
+     *
+     * @param Mera\AuditBundle\Entity\ConsumedTariff $consumedTariffs
+     * @return Common
+     */
+    public function addConsumedTariff(\Mera\AuditBundle\Entity\ConsumedTariff $consumedTariffs)
+    {
+        $this->ConsumedTariffs[] = $consumedTariffs;
+    
+        return $this;
+    }
+
+    /**
+     * Remove ConsumedTariffs
+     *
+     * @param Mera\AuditBundle\Entity\ConsumedTariff $consumedTariffs
+     */
+    public function removeConsumedTariff(\Mera\AuditBundle\Entity\ConsumedTariff $consumedTariffs)
+    {
+        $this->ConsumedTariffs->removeElement($consumedTariffs);
+    }
+
+    /**
+     * Get ConsumedTariffs
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getConsumedTariffs()
+    {
+        return $this->ConsumedTariffs;
+    }
+
+    /**
+     * Add NaturalProductions
+     *
+     * @param Mera\AuditBundle\Entity\NaturalProduction $naturalProductions
+     * @return Common
+     */
+    public function addNaturalProduction(\Mera\AuditBundle\Entity\NaturalProduction $naturalProductions)
+    {
+        $this->NaturalProductions[] = $naturalProductions;
+    
+        return $this;
+    }
+
+    /**
+     * Remove NaturalProductions
+     *
+     * @param Mera\AuditBundle\Entity\NaturalProduction $naturalProductions
+     */
+    public function removeNaturalProduction(\Mera\AuditBundle\Entity\NaturalProduction $naturalProductions)
+    {
+        $this->NaturalProductions->removeElement($naturalProductions);
+    }
+
+    /**
+     * Get NaturalProductions
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getNaturalProductions()
+    {
+        return $this->NaturalProductions;
+    }
 }

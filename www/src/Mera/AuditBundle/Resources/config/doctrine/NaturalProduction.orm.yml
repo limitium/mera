@@ -1,4 +1,4 @@
-Mera\AuditBundle\Entity\ExecutivePerson:
+Mera\AuditBundle\Entity\NaturalProduction:
     type: entity
     fields:
         id:
@@ -6,32 +6,27 @@ Mera\AuditBundle\Entity\ExecutivePerson:
             type: integer
             generator:
                 strategy: AUTO
-        name:
-            type: string
+        year:
+            type: integer
             nullable: true
-        position:
-            type: string
-            nullable: true
-        contact:
-            type: string
-            nullable: true
-        responsibilities:
-            type: string
-            nullable: true
-        document:
-            type: string
-            nullable: true
-        date:
-            type: date
+        quantity:
+            type: decimal
             nullable: true
     manyToOne:
+        DimentionType:
+            targetEntity: Mera\AuditBundle\Entity\DimentionType
+            inversedBy: NaturalProductions
+            joinColumns:
+                dimention_type_id:
+                    referencedColumnName: id
+                    nullable: false
         Common:
             targetEntity: Mera\AuditBundle\Entity\Common
-            inversedBy: ExecutivePersons
+            inversedBy: NaturalProductions
             cascade:
                 - all
             joinColumns:
-                common_id:
+                Common_id:
                     referencedColumnName: id
                     nullable: false
                     onDelete: CASCADE

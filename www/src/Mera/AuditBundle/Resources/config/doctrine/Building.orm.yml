@@ -51,5 +51,6 @@ Mera\AuditBundle\Entity\Building:
             joinColumns:
                 common_id:
                     referencedColumnName: id
+                    nullable: false
                     onDelete: CASCADE
                     onUpdate: CASCADE

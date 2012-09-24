@@ -1,0 +1,3 @@
+Mera\AuditBundle\Entity\FloorPlan:
+    type: entity
+    fields: null

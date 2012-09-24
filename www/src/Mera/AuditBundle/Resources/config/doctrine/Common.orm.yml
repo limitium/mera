@@ -51,6 +51,7 @@ Mera\AuditBundle\Entity\Common:
             joinColumns:
                 facility_id:
                     referencedColumnName: id
+                    nullable: false
                     onDelete: CASCADE
                     onUpdate: CASCADE
     oneToMany:
@@ -96,6 +97,34 @@ Mera\AuditBundle\Entity\Common:
                 - all
         Personals:
             targetEntity: Mera\AuditBundle\Entity\Personal
+            mappedBy: Common
+            cascade:
+                - all
+        Files:
+            targetEntity: Mera\AuditBundle\Entity\File
+            mappedBy: Common
+            cascade:
+                - all
+        Transofrmators:
+            targetEntity: Mera\AuditBundle\Entity\Transofrmator
+            mappedBy: Common
+        FundsVolumes:
+            targetEntity: Mera\AuditBundle\Entity\FundsVolume
+            mappedBy: Common
+            cascade:
+                - all
+        PersonalQuantitys:
+            targetEntity: Mera\AuditBundle\Entity\PersonalQuantity
+            mappedBy: Common
+            cascade:
+                - all
+        ConsumedTariffs:
+            targetEntity: Mera\AuditBundle\Entity\ConsumedTariff
+            mappedBy: Common
+            cascade:
+                - all
+        NaturalProductions:
+            targetEntity: Mera\AuditBundle\Entity\NaturalProduction
             mappedBy: Common
             cascade:
                 - all
