@@ -1,5 +1,16 @@
 $(document).ready(function () {
-    $(".collapse").collapse();
+    $(".tab-pane").show();
+    $(".accordion").each(function () {
+
+        $(".collapse",this).collapse({
+            parent:this
+        });
+    });
+
+    $('#audit-tabs a').click(function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+    });
 
     $(".up").click(function () {
         var but = $(this);
@@ -62,4 +73,5 @@ $(document).ready(function () {
     $("#audit-save").click(function () {
         $("#audit-form").submit();
     });
-});
+})
+;

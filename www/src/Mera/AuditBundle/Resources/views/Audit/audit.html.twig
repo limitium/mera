@@ -1,56 +1,71 @@
 {% extends 'MeraAuditBundle::layout.html.twig' %}
 {% block javascripts %}
-{{ parent() }}
-<script src="{{ asset('js/app.js') }}"></script>
+    {{ parent() }}
+    <script src="{{ asset('js/app.js') }}"></script>
 {% endblock %}
 {% block body %}
-<div class="row">
-    <div class="span12">
-        <h2>Опросный лист ({{ common.facility.name }})</h2>
+    <div class="row">
+        <div class="span12">
+            <h2>Опросный лист ({{ common.facility.name }})</h2>
 
-        <div class="btn-toolbar">
-            <div class="btn-group">
-                <button id="audit-save" class="btn"><i class="icon-edit"></i> Сохранить</button>
-                <button id="audit-check" class="btn"><i class="icon-check""></i>
-                    Проверить
-                </button>
-                <button id="audit-send" class="btn"><i class="icon-share"></i>
-                    Отправить
-                </button>
+            <div class="btn-toolbar">
+                <div class="btn-group">
+                    <button id="audit-save" class="btn"><i class="icon-edit"></i> Сохранить</button>
+                    <button id="audit-check" class="btn"><i class="icon-check""></i>
+                        Проверить
+                    </button>
+                    <button id="audit-send" class="btn"><i class="icon-share"></i>
+                        Отправить
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="span12">
+        <div class="span12">
+            <ul id="audit-tabs" class="nav nav-tabs">
+                <li class="active"><a href="#audit-data" data-toggle="tab">Данные</a></li>
+                <li><a href="#audit-files" data-toggle="tab">Документы</a></li>
+            </ul>
 
-        <form id="audit-form" action="{{ path('audit_save') }}" method="post" {{ form_enctype(form) }}>
-            <div class="accordion">
-                {% include 'MeraAuditBundle:Audit:form/items/common.html.twig' %}
+            <div class="tab-content" style="overflow: visible;">
+                <div class="tab-pane active" id="audit-data">
+                    <form id="audit-form" action="{{ path('audit_save') }}" method="post" {{ form_enctype(form) }}>
+                        <div class="accordion" id="accordion-data">
+                            {% include 'MeraAuditBundle:Audit:form/items/common.html.twig' %}
 
-                {% include 'MeraAuditBundle:Audit:form/items/buildings.html.twig' %}
-                {% include 'MeraAuditBundle:Audit:form/items/constructelem.html.twig' %}
-                {% include 'MeraAuditBundle:Audit:form/items/consumptionmeter.html.twig' %}
-                {% include 'MeraAuditBundle:Audit:form/items/electroequipment.html.twig' %}
-                {% include 'MeraAuditBundle:Audit:form/items/lightssystem.html.twig' %}
-                {% include 'MeraAuditBundle:Audit:form/items/pipeline.html.twig' %}
-                {% include 'MeraAuditBundle:Audit:form/items/fuelconsumption.html.twig' %}
-                {% include 'MeraAuditBundle:Audit:form/items/executiveperson.html.twig' %}
-                {% include 'MeraAuditBundle:Audit:form/items/personal.html.twig' %}
+                            {% include 'MeraAuditBundle:Audit:form/items/buildings.html.twig' %}
+                            {% include 'MeraAuditBundle:Audit:form/items/constructelem.html.twig' %}
+                            {% include 'MeraAuditBundle:Audit:form/items/consumptionmeter.html.twig' %}
+                            {% include 'MeraAuditBundle:Audit:form/items/electroequipment.html.twig' %}
+                            {% include 'MeraAuditBundle:Audit:form/items/lightssystem.html.twig' %}
+                            {% include 'MeraAuditBundle:Audit:form/items/pipeline.html.twig' %}
+                            {% include 'MeraAuditBundle:Audit:form/items/fuelconsumption.html.twig' %}
+                            {% include 'MeraAuditBundle:Audit:form/items/executiveperson.html.twig' %}
+                            {% include 'MeraAuditBundle:Audit:form/items/personal.html.twig' %}
 
-                {% include 'MeraAuditBundle:Audit:form/items/floorplan.html.twig' %}
+
+                        </div>
+                        {{ form_rest(form) }}
+                    </form>
+                </div>
+                <div class="tab-pane" id="audit-files">
+                    <div class="accordion" id="accordion-files">
+                        {% include 'MeraAuditBundle:Audit:form/items/floorplan.html.twig' %}
+                    </div>
+                    <a href="#p3">Документация по системе отопления</a>
+                    <a href="#p3">Документация по системе вентиляции и кондиционирования</a>
+                    <a href="#p3">Сведения о программе энергосбережения и повышения энергоэффективности</a>
+                    <a href="#p3">Перечень проведенных мероприятий по энергосбережению</a>
+                    <a href="#p3">Годовое потребление энергоресурсов в натуральном и финансовом выражении</a>
+                    <a href="#p3">Количество работающего персонала, время работы</a>
+                    <a href="#p3">Производство продукции в натуральном выражении</a>
+                    <a href="#p3">Схемы электроснабжения</a>
+                    <a href="#p3">Подготовить копии договоров</a>
+                    <a href="#p3">Годовой объем средств, выделяемый на содержание организации</a>
+                    <a href="#p3">Количество и мощность трансформаторов</a>
+                </div>
             </div>
-            {{ form_rest(form) }}
-        </form>
-        <a href="#p3">Документация по системе отопления</a>
-        <a href="#p3">Документация по системе вентиляции и кондиционирования</a>
-        <a href="#p3">Сведения о программе энергосбережения и повышения энергоэффективности</a>
-        <a href="#p3">Перечень проведенных мероприятий по энергосбережению</a>
-        <a href="#p3">Годовое потребление энергоресурсов в натуральном и финансовом выражении</a>
-        <a href="#p3">Количество работающего персонала, время работы</a>
-        <a href="#p3">Производство продукции в натуральном выражении</a>
-        <a href="#p3">Схемы электроснабжения</a>
-        <a href="#p3">Подготовить копии договоров</a>
-        <a href="#p3">Годовой объем средств, выделяемый на содержание организации</a>
-        <a href="#p3">Количество и мощность трансформаторов</a>
+
+
+        </div>
     </div>
-</div>
 {% endblock %}
