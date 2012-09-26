@@ -1,16 +1,17 @@
 $(document).ready(function () {
-    $(".tab-pane").show();
-    $(".accordion").each(function () {
 
-        $(".collapse",this).collapse({
+    $(".accordion").each(function () {
+        $(".collapse", this).collapse({
             parent:this
         });
     });
+    $("#audit-files").removeClass("active");
 
     $('#audit-tabs a').click(function (e) {
         e.preventDefault();
         $(this).tab('show');
     });
+
 
     $(".up").click(function () {
         var but = $(this);
@@ -25,6 +26,7 @@ $(document).ready(function () {
         return false;
     });
     $(".next").click(function () {
+        console.log(this)
         var but = $(this);
         but.closest(".collapse").collapse("hide");
         but.closest(".accordion-group").next().children(".collapse").collapse("show");
