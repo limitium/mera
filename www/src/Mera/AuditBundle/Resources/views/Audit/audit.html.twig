@@ -25,7 +25,7 @@
 <!-- The File Upload user interface plugin -->
 <script src="{{ asset('uploader/js/jquery.fileupload-ui.js') }}"></script>
 <!-- The main application script -->
-<script src="{{ asset('uploader/js/main.j') }}s"></script>
+<script src="{{ asset('uploader/js/main.js') }}"></script>
 <!-- The XDomainRequest Transport is included for cross-domain file deletion for IE8+ -->
 <!--[if gte IE 8]>
 <script src="{{ asset('uploader/js/cors/jquery.xdr-transport.js') }}"></script><![endif]-->
@@ -79,11 +79,11 @@
             <div class="tab-pane active" id="audit-files">
                 <div class="accordion" id="accordion-files">
                     {% include 'MeraAuditBundle:Audit:form/items/f_floorplan.html.twig' %}
-                    {% include 'MeraAuditBundle:Audit:form/items/f_heatingsystem.html.twig' %}
-                    {% include 'MeraAuditBundle:Audit:form/items/f_ventilationsystem.html.twig' %}
-                    {% include 'MeraAuditBundle:Audit:form/items/f_energysavingprogram.html.twig' %}
-                    {% include 'MeraAuditBundle:Audit:form/items/f_energysavingmeasures.html.twig' %}
-                    {% include 'MeraAuditBundle:Audit:form/items/f_powercircuits.html.twig' %}
+                    {#{% include 'MeraAuditBundle:Audit:form/items/f_heatingsystem.html.twig' %}#}
+                    {#{% include 'MeraAuditBundle:Audit:form/items/f_ventilationsystem.html.twig' %}#}
+                    {#{% include 'MeraAuditBundle:Audit:form/items/f_energysavingprogram.html.twig' %}#}
+                    {#{% include 'MeraAuditBundle:Audit:form/items/f_energysavingmeasures.html.twig' %}#}
+                    {#{% include 'MeraAuditBundle:Audit:form/items/f_powercircuits.html.twig' %}#}
                 </div>
             </div>
         </div>

@@ -1,10 +1,13 @@
 $(document).ready(function () {
 
-    $(".accordion").each(function () {
-        $(".collapse", this).collapse({
-            parent:this
-        });
-    });
+//    $(".accordion").each(function () {
+//        $(".collapse", this).collapse({
+//            parent:this
+//        });
+//    });
+//        $(".collapse", this).collapse();
+
+
     $("#audit-files").removeClass("active");
 
     $('#audit-tabs a').click(function (e) {
