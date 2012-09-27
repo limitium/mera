@@ -5,9 +5,9 @@ namespace Mera\AuditBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Mera\AuditBundle\Entity\Transofrmator
+ * Mera\AuditBundle\Entity\Transformator
  */
-class Transofrmator
+class Transformator
 {
     /**
      * @var integer $id
@@ -59,7 +59,7 @@ class Transofrmator
      * Set year
      *
      * @param integer $year
-     * @return Transofrmator
+     * @return Transformator
      */
     public function setYear($year)
     {
@@ -82,7 +82,7 @@ class Transofrmator
      * Set quantity
      *
      * @param integer $quantity
-     * @return Transofrmator
+     * @return Transformator
      */
     public function setQuantity($quantity)
     {
@@ -105,7 +105,7 @@ class Transofrmator
      * Set individual_capacity
      *
      * @param float $individualCapacity
-     * @return Transofrmator
+     * @return Transformator
      */
     public function setIndividualCapacity($individualCapacity)
     {
@@ -128,7 +128,7 @@ class Transofrmator
      * Set higher_voltage
      *
      * @param float $higherVoltage
-     * @return Transofrmator
+     * @return Transformator
      */
     public function setHigherVoltage($higherVoltage)
     {
@@ -151,7 +151,7 @@ class Transofrmator
      * Set installed_power
      *
      * @param float $installedPower
-     * @return Transofrmator
+     * @return Transformator
      */
     public function setInstalledPower($installedPower)
     {
@@ -174,7 +174,7 @@ class Transofrmator
      * Set Common
      *
      * @param Mera\AuditBundle\Entity\Common $common
-     * @return Transofrmator
+     * @return Transformator
      */
     public function setCommon(\Mera\AuditBundle\Entity\Common $common)
     {

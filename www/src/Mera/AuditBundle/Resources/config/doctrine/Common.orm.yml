@@ -106,7 +106,7 @@ Mera\AuditBundle\Entity\Common:
             cascade:
                 - all
         Transofrmators:
-            targetEntity: Mera\AuditBundle\Entity\Transofrmator
+            targetEntity: Mera\AuditBundle\Entity\Transformator
             mappedBy: Common
         FundsVolumes:
             targetEntity: Mera\AuditBundle\Entity\FundsVolume

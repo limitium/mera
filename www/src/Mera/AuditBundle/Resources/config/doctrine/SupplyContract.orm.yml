@@ -1,0 +1,3 @@
+Mera\AuditBundle\Entity\SupplyContract:
+    type: entity
+    fields: null

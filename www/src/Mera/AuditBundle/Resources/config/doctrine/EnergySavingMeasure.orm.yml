@@ -1,0 +1,3 @@
+Mera\AuditBundle\Entity\EnergySavingMeasure:
+    type: entity
+    fields: null

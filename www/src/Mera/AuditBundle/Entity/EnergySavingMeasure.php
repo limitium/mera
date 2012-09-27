@@ -5,9 +5,9 @@ namespace Mera\AuditBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Mera\AuditBundle\Entity\PowerCircuits
+ * Mera\AuditBundle\Entity\EnergySavingMeasures
  */
-class PowerCircuits extends File
+class EnergySavingMeasure extends File
 {
 
 }

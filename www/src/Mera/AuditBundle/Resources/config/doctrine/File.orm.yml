@@ -29,5 +29,6 @@ Mera\AuditBundle\Entity\File:
         HeatingSystem: Mera\AuditBundle\Entity\HeatingSystem
         VentilationSystem: Mera\AuditBundle\Entity\VentilationSystem
         EnergySavingProgram: Mera\AuditBundle\Entity\EnergySavingProgram
-        EnergySavingMeasures: Mera\AuditBundle\Entity\EnergySavingMeasures
-        PowerCircuits: Mera\AuditBundle\Entity\PowerCircuits
+        EnergySavingMeasure: Mera\AuditBundle\Entity\EnergySavingMeasure
+        PowerCircuit: Mera\AuditBundle\Entity\PowerCircuit
+        SupplyContract: Mera\AuditBundle\Entity\SupplyContract

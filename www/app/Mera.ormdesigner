@@ -148,7 +148,7 @@
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
       <column name="name" required="true" type="string"/>
     </table>
-    <table name="File" visPositionX="18" visPositionY="684" visSizeX="0" visSizeX2="113" visSizeY="0" visSizeY2="45">
+    <table name="File" visPositionX="17" visPositionY="684" visSizeX="0" visSizeX2="113" visSizeY="0" visSizeY2="73">
       <column auto-increment="true" name="id" primary="true" required="true"/>
       <column name="name" required="true"/>
       <column name="common_id" required="true" type="integer"/>
@@ -167,13 +167,13 @@
     <table name="EnergySavingProgram" visPositionX="126" visPositionY="876" visSizeX="0" visSizeX2="113" visSizeY="0" visSizeY2="20">
       <inheritance-child derived-from="File" discriminator-value="EnergySavingProgram"/>
     </table>
-    <table name="EnergySavingMeasures" visPositionX="127" visPositionY="835" visSizeX="0" visSizeX2="116" visSizeY="0" visSizeY2="20">
-      <inheritance-child derived-from="File" discriminator-value="EnergySavingMeasures"/>
+    <table name="EnergySavingMeasure" visPositionX="127" visPositionY="835" visSizeX="0" visSizeX2="116" visSizeY="0" visSizeY2="20">
+      <inheritance-child derived-from="File" discriminator-value="EnergySavingMeasure"/>
     </table>
-    <table name="PowerCircuits" visPositionX="127" visPositionY="799" visSizeX="0" visSizeX2="75" visSizeY="0" visSizeY2="20">
-      <inheritance-child derived-from="File" discriminator-value="PowerCircuits"/>
+    <table name="PowerCircuit" visPositionX="127" visPositionY="799" visSizeX="0" visSizeX2="75" visSizeY="0" visSizeY2="20">
+      <inheritance-child derived-from="File" discriminator-value="PowerCircuit"/>
     </table>
-    <table name="Transofrmator" visPositionX="389" visPositionY="777" visSizeX="0" visSizeX2="149" visSizeY="0" visSizeY2="101">
+    <table name="Transformator" visPositionX="389" visPositionY="777" visSizeX="0" visSizeX2="149" visSizeY="0" visSizeY2="101">
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
       <column name="year" type="integer"/>
       <column name="quantity" type="integer"/>
@@ -216,6 +216,9 @@
     <table name="DimentionType" visPositionX="1147" visPositionY="763" visSizeX="0" visSizeX2="83" visSizeY="0" visSizeY2="45">
       <column name="id" primary="true" required="true" type="integer"/>
       <column name="name" required="true" type="string"/>
+    </table>
+    <table name="SupplyContract" visPositionX="235" visPositionY="800" visSizeX="0" visSizeX2="20" visSizeY="0" visSizeY2="20">
+      <inheritance-child derived-from="File" discriminator-value="SupplyContract"/>
     </table>
     <foreign-key caption="Facility Common" from="Common" inverse-alias="Facility" name="FK_Common_Facility_id" owning-alias="Common" to="Facility">
       <foreign-key-column from="facility_id" to="id"/>
@@ -425,7 +428,7 @@
         </attribute>
       </orm-properties>
     </foreign-key>
-    <foreign-key caption="Common Transofrmator" from="Transofrmator" inverse-alias="Common" name="FK_Transofrmator_Common_id" owning-alias="Transofrmators" to="Common" visCaption1X="0" visCaption1Y="0" visCenterX="0" visCenterY="-1">
+    <foreign-key caption="Common Transofrmator" from="Transformator" inverse-alias="Common" name="FK_Transofrmator_Common_id" owning-alias="Transofrmators" to="Common" visCaption1X="0" visCaption1Y="0" visCenterX="0" visCenterY="-1">
       <foreign-key-column from="Common_id" to="id"/>
     </foreign-key>
     <foreign-key caption="Common FundsVolume" from="FundsVolume" inverse-alias="Common" name="FK_FundsVolume_Common_id" owning-alias="FundsVolumes" to="Common">

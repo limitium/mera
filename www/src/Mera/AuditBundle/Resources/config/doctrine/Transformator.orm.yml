@@ -1,4 +1,4 @@
-Mera\AuditBundle\Entity\Transofrmator:
+Mera\AuditBundle\Entity\Transformator:
     type: entity
     fields:
         id:
