@@ -55,7 +55,7 @@
             <li><a href="#audit-files" data-toggle="tab">Загрузка документов</a></li>
         </ul>
 
-        <div class="tab-content" style="overflow: visible;">
+        <div class="tab-content">
             <div class="tab-pane active" id="audit-data">
                 <form id="audit-form" action="{{ path('audit_save') }}" method="post" {{ form_enctype(form) }}>
                     <div class="accordion" id="accordion-data">
@@ -83,16 +83,15 @@
                     {{ form_rest(form) }}
                 </form>
             </div>
-            <div class="tab-pane active" id="audit-files">
+            <div class="tab-pane active hide" id="audit-files">
                 <div class="accordion" id="accordion-files">
                     {% include 'MeraAuditBundle:Audit:form/items/f_floorplan.html.twig' %}
-                    {#{% include 'MeraAuditBundle:Audit:form/items/f_heatingsystem.html.twig' %}#}
-                    {#{% include 'MeraAuditBundle:Audit:form/items/f_ventilationsystem.html.twig' %}#}
-                    {#{% include 'MeraAuditBundle:Audit:form/items/f_energysavingprogram.html.twig' %}#}
-                    {#{% include 'MeraAuditBundle:Audit:form/items/f_energysavingmeasure.html.twig' %}#}
-                    {#{% include 'MeraAuditBundle:Audit:form/items/f_powercircuit.html.twig' %}#}
-                    {#{% include 'MeraAuditBundle:Audit:form/items/f_powercircuit.html.twig' %}#}
-                    {#{% include 'MeraAuditBundle:Audit:form/items/f_supplycontract.html.twig' %}#}
+                    {% include 'MeraAuditBundle:Audit:form/items/f_heatingsystem.html.twig' %}
+                    {% include 'MeraAuditBundle:Audit:form/items/f_ventilationsystem.html.twig' %}
+                    {% include 'MeraAuditBundle:Audit:form/items/f_energysavingprogram.html.twig' %}
+                    {% include 'MeraAuditBundle:Audit:form/items/f_energysavingmeasure.html.twig' %}
+                    {% include 'MeraAuditBundle:Audit:form/items/f_powercircuit.html.twig' %}
+                    {% include 'MeraAuditBundle:Audit:form/items/f_supplycontract.html.twig' %}
                 </div>
             </div>
         </div>
