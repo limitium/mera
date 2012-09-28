@@ -1,6 +1,6 @@
 {% extends 'MeraAuditBundle:Audit:form/collapseItem.html.twig' %}
 {% block collapseBody %}
-<form enctype="multipart/form-data" method="POST" action="server/php/" id="fileupload" class="">
+<form enctype="multipart/form-data" method="POST" action="{{ path('audit_file')}}" id="fileupload" class="">
     <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
     <div class="row fileupload-buttonbar">
         <div class="span7">
@@ -52,7 +52,7 @@
         <td class="name"><span>{%=file.name%}</span></td>
         <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
         {% if (file.error) { %}
-        <td class="error" colspan="2"><span class="label label-important">Error</span> {%=file.error%}</td>
+        <td class="error" colspan="2"><span class="label label-important">Ошибка</span> {%=file.error%}</td>
         {% } else if (o.files.valid && !i) { %}
         <td>
             <div class="progress progress-success progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="bar" style="width:0%;"></div></div>
@@ -60,7 +60,7 @@
         <td class="start">{% if (!o.options.autoUpload) { %}
             <button class="btn">
                 <i class="icon-upload"></i>
-                <span>Start</span>
+                <span>Загрузить</span>
             </button>
             {% } %}</td>
         {% } else { %}
@@ -69,7 +69,7 @@
         <td class="cancel">{% if (!i) { %}
             <button class="btn">
                 <i class="icon-ban-circle"></i>
-                <span>Cancel</span>
+                <span>Отменить</span>
             </button>
             {% } %}</td>
     </tr>
@@ -83,7 +83,7 @@
         <td></td>
         <td class="name"><span>{%=file.name%}</span></td>
         <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
-        <td class="error" colspan="2"><span class="label label-important">Error</span> {%=file.error%}</td>
+        <td class="error" colspan="2"><span class="label label-important">Ошибка</span> {%=file.error%}</td>
         {% } else { %}
         <td class="preview">{% if (file.thumbnail_url) { %}
             <a href="{%=file.url%}" title="{%=file.name%}" rel="gallery" download="{%=file.name%}"><img src="{%=file.thumbnail_url%}"></a>
@@ -97,7 +97,7 @@
         <td class="delete">
             <button class="btn" data-type="{%=file.delete_type%}" data-url="{%=file.delete_url%}">
                 <i class="icon-trash"></i>
-                <span>Delete</span>
+                <span>Удалить</span>
             </button>
             <input type="checkbox" name="delete" value="1">
         </td>
