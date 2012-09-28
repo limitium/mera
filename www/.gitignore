@@ -6,3 +6,6 @@ build/
 vendor
 bin
 composer.phar
+
+web/img/scans/*
+web/img/thumbnails/*
