@@ -5,13 +5,15 @@ $(document).ready(function () {
             parent:this
         });
     });
-//    $(".collapse").collapse();
-//    $("#audit-files").removeClass("active");
 
     $('#audit-tabs a').click(function (e) {
         e.preventDefault();
         $(this).tab('show');
     });
+
+    setTimeout(function () {
+        $('#audit-tabs a[href="#audit-data"]').tab('show');
+    }, 100);
 
 
     $(".up").click(function () {

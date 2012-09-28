@@ -1,7 +1,6 @@
 
 $(document).ready(function () {
 
-    console.log(123);
     // Initialize the jQuery File Upload widget:
     $('#fileupload').fileupload();
 
