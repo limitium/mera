@@ -76,15 +76,15 @@
                             {% include 'MeraAuditBundle:Audit:form/items/personal.html.twig' %}
 
 
-                            {#{% include 'MeraAuditBundle:Audit:form/items/transformator.html.twig' %}#}
-                            {#{% include 'MeraAuditBundle:Audit:form/items/fundsvolume.html.twig' %}#}
-                            {#{% include 'MeraAuditBundle:Audit:form/items/personalquantity.html.twig' %}#}
-                            {#{% include 'MeraAuditBundle:Audit:form/items/consumedtariff.html.twig' %}#}
-                            {#{% include 'MeraAuditBundle:Audit:form/items/naturalproduction.html.twig' %}#}
+                            {% include 'MeraAuditBundle:Audit:form/items/transformator.html.twig' %}
+                            {% include 'MeraAuditBundle:Audit:form/items/fundsvolume.html.twig' %}
+                            {% include 'MeraAuditBundle:Audit:form/items/personalquantity.html.twig' %}
+                            {% include 'MeraAuditBundle:Audit:form/items/consumedtariff.html.twig' %}
+                            {% include 'MeraAuditBundle:Audit:form/items/naturalproduction.html.twig' %}
 
 
                         </div>
-                        {#{{ form_rest(form) }}#}
+                        {{ form_rest(form) }}
                     </form>
                 </div>
                 <div class="tab-pane active hide" id="audit-files">

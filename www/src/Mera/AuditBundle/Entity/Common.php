@@ -774,7 +774,7 @@ class Common
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
      */
-    private $Transofrmators;
+    private $Transformators;
 
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
@@ -831,36 +831,36 @@ class Common
     }
 
     /**
-     * Add Transofrmators
+     * Add Transformators
      *
-     * @param Mera\AuditBundle\Entity\Transofrmator $transofrmators
+     * @param Mera\AuditBundle\Entity\Transofrmator $transformators
      * @return Common
      */
-    public function addTransofrmator(\Mera\AuditBundle\Entity\Transofrmator $transofrmators)
+    public function addTransofrmator(\Mera\AuditBundle\Entity\Transformator $transformators)
     {
-        $this->Transofrmators[] = $transofrmators;
+        $this->Transformators[] = $transformators;
     
         return $this;
     }
 
     /**
-     * Remove Transofrmators
+     * Remove Transformators
      *
-     * @param Mera\AuditBundle\Entity\Transofrmator $transofrmators
+     * @param Mera\AuditBundle\Entity\Transofrmator $transformators
      */
-    public function removeTransofrmator(\Mera\AuditBundle\Entity\Transofrmator $transofrmators)
+    public function removeTransofrmator(\Mera\AuditBundle\Entity\Transformator $transformators)
     {
-        $this->Transofrmators->removeElement($transofrmators);
+        $this->Transformators->removeElement($transformators);
     }
 
     /**
-     * Get Transofrmators
+     * Get Transformators
      *
      * @return Doctrine\Common\Collections\Collection 
      */
-    public function getTransofrmators()
+    public function getTransformators()
     {
-        return $this->Transofrmators;
+        return $this->Transformators;
     }
 
     /**

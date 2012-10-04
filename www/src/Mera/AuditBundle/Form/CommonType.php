@@ -50,6 +50,25 @@ class CommonType extends AbstractType
             'allow_delete' => true))
             ->add('Personals', 'collection', array('type' => new PersonalType(),
             'allow_add' => true,
+            'allow_delete' => true))
+
+            ->add('Transformators', 'collection', array('type' => new TransformatorType(),
+            'allow_add' => true,
+            'allow_delete' => true))
+            ->add('FundsVolumes', 'collection', array('type' => new FundsVolumeType(),
+            'allow_add' => true,
+            'allow_delete' => true))
+            ->add('PersonalQuantitys', 'collection', array('type' => new PersonalQuantityType(),
+            'allow_add' => true,
+            'allow_delete' => true))
+            ->add('PersonalQuantitys', 'collection', array('type' => new PersonalQuantityType(),
+            'allow_add' => true,
+            'allow_delete' => true))
+            ->add('ConsumedTariffs', 'collection', array('type' => new ConsumedTariffType(),
+            'allow_add' => true,
+            'allow_delete' => true))
+            ->add('NaturalProductions', 'collection', array('type' => new NaturalProductionType(),
+            'allow_add' => true,
             'allow_delete' => true));
 
         ;

@@ -4,6 +4,8 @@ Mera\AuditBundle\Entity\FundsVolume:
         id:
             id: true
             type: integer
+            generator:
+                strategy: AUTO
         year:
             type: integer
             nullable: true

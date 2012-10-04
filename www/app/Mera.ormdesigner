@@ -183,7 +183,7 @@
       <column name="Common_id" required="true" type="integer"/>
     </table>
     <table name="FundsVolume" visPositionX="559" visPositionY="779" visSizeX="0" visSizeX2="113" visSizeY="0" visSizeY2="73">
-      <column name="id" primary="true" type="integer"/>
+      <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
       <column name="year" type="integer"/>
       <column name="budget" type="integer"/>
       <column name="non_budget" type="integer"/>
@@ -428,7 +428,7 @@
         </attribute>
       </orm-properties>
     </foreign-key>
-    <foreign-key caption="Common Transofrmator" from="Transformator" inverse-alias="Common" name="FK_Transofrmator_Common_id" owning-alias="Transofrmators" to="Common" visCaption1X="0" visCaption1Y="0" visCenterX="0" visCenterY="-1">
+    <foreign-key caption="Common Transformator" from="Transformator" inverse-alias="Common" name="FK_Transformator_Common_id" owning-alias="Transformators" to="Common" visCaption1X="0" visCaption1Y="0" visCenterX="0" visCenterY="-1">
       <foreign-key-column from="Common_id" to="id"/>
     </foreign-key>
     <foreign-key caption="Common FundsVolume" from="FundsVolume" inverse-alias="Common" name="FK_FundsVolume_Common_id" owning-alias="FundsVolumes" to="Common">
