@@ -1,7 +1,29 @@
-{% extends 'MeraAuditBundle:Audit:form/collapseItem.html.twig' %}
+{% extends 'MeraAuditBundle:Audit:form/collection.html.twig' %}
 {% block collapseTitle %}
     Характеристики и протяженность трубопроводов
 {% endblock %}
 {% block collapseId %}pipeline{% endblock %}
+{% form_theme form _self %}
 {% block collapseBody %}
+    <blockquote>
+        <p class="lead">Какой-то текст</p>
+    </blockquote>
+    {{ form_widget(form.Pipelines) }}
 {% endblock %}
+
+{% block collection_row_inner %}
+    <div class="span3">
+        {{ form_row(fields.name) }}
+        {{ form_row(fields.length) }}
+    </div>
+    <div class="span3">
+        {{ form_row(fields.diameter) }}
+        {{ form_row(fields.insulation) }}
+    </div>
+    <div class="span3">
+        {{ form_row(fields.operation_period) }}
+    </div>
+    <div class="span3">
+        {{ form_row(fields.PipelineInstallationType) }}
+    </div>
+{% endblock collection_row_inner %}

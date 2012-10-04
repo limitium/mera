@@ -1,7 +1,32 @@
-{% extends 'MeraAuditBundle:Audit:form/collapseItem.html.twig' %}
+{% extends 'MeraAuditBundle:Audit:form/collection.html.twig' %}
 {% block collapseTitle %}
     Документация по системе освещения
 {% endblock %}
 {% block collapseId %}lightssystem{% endblock %}
+{% form_theme form _self %}
+
 {% block collapseBody %}
+    <blockquote>
+        <p class="lead">Какой-то текст</p>
+    </blockquote>
+    {{ form_widget(form.LightsSystems) }}
 {% endblock %}
+
+{% block collection_row_inner %}
+    <div class="span3">
+        {{ form_row(fields.tungsten_quantity) }}
+        {{ form_row(fields.tungsten_power) }}
+    </div>
+    <div class="span3">
+        {{ form_row(fields.fluorescent_quantity) }}
+        {{ form_row(fields.fluorescent_power) }}
+    </div>
+    <div class="span3">
+        {{ form_row(fields.energy_save_quantity) }}
+        {{ form_row(fields.energy_save_power) }}
+    </div>
+    <div class="span3">
+        {{ form_row(fields.work_duration) }}
+        {{ form_row(fields.LightsSystemPlace) }}
+    </div>
+{% endblock collection_row_inner %}

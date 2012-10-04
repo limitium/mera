@@ -1,7 +1,29 @@
-{% extends 'MeraAuditBundle:Audit:form/collapseItem.html.twig' %}
+{% extends 'MeraAuditBundle:Audit:form/collection.html.twig' %}
 {% block collapseTitle %}
     Перечень должностных лиц
 {% endblock %}
 {% block collapseId %}executiveperson{% endblock %}
+{% form_theme form _self %}
 {% block collapseBody %}
+    <blockquote>
+        <p class="lead">Какой-то текст</p>
+    </blockquote>
+    {{ form_widget(form.ExecutivePersons) }}
 {% endblock %}
+
+{% block collection_row_inner %}
+    <div class="span3">
+        {{ form_row(fields.name) }}
+        {{ form_row(fields.position) }}
+    </div>
+    <div class="span3">
+        {{ form_row(fields.contact) }}
+        {{ form_row(fields.responsibilities) }}
+    </div>
+    <div class="span3">
+        {{ form_row(fields.document) }}
+    </div>
+    <div class="span3">
+        {{ form_row(fields.date) }}
+    </div>
+{% endblock collection_row_inner %}

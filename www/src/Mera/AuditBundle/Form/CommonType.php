@@ -32,6 +32,24 @@ class CommonType extends AbstractType
             'allow_delete' => true))
             ->add('ConsumptionMeters', 'collection', array('type' => new ConsumptionMeterType(),
             'allow_add' => true,
+            'allow_delete' => true))
+            ->add('ElectroEquipments', 'collection', array('type' => new ElectroEquipmentType(),
+            'allow_add' => true,
+            'allow_delete' => true))
+            ->add('LightsSystems', 'collection', array('type' => new LightsSystemType(),
+            'allow_add' => true,
+            'allow_delete' => true))
+            ->add('Pipelines', 'collection', array('type' => new PipelineType(),
+            'allow_add' => true,
+            'allow_delete' => true))
+            ->add('FuelConsumptions', 'collection', array('type' => new FuelConsumptionType(),
+            'allow_add' => true,
+            'allow_delete' => true))
+            ->add('ExecutivePersons', 'collection', array('type' => new ExecutivePersonType(),
+            'allow_add' => true,
+            'allow_delete' => true))
+            ->add('Personals', 'collection', array('type' => new PersonalType(),
+            'allow_add' => true,
             'allow_delete' => true));
 
         ;

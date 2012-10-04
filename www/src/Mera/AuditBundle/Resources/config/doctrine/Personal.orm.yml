@@ -15,7 +15,7 @@ Mera\AuditBundle\Entity\Personal:
         school_name:
             type: string
             nullable: true
-        shcool_address:
+        school_address:
             type: string
             nullable: true
         school_license:

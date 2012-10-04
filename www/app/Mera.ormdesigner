@@ -136,7 +136,7 @@
       <column name="name" type="string"/>
       <column name="position" type="string"/>
       <column name="school_name" type="string"/>
-      <column name="shcool_address" type="string"/>
+      <column name="school_address" type="string"/>
       <column name="school_license" type="string"/>
       <column name="date_start" type="date"/>
       <column name="date_end" type="date"/>
