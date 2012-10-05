@@ -62,8 +62,17 @@ class AuditController extends Controller
             "ElectroEquipments",
             "FuelConsumptions",
             "LightsSystems",
+            "Pipelines",
+            "FuelConsumptions",
+            "ExecutivePersons",
             "Personals",
-            "Pipelines");
+
+            "Transformators",
+            "FundsVolumes",
+            "PersonalQuantitys",
+            "ConsumedTariffs",
+            "NaturalProductions",
+            );
 
         $originalCollections = array();
         foreach ($collections as $collection) {

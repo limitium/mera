@@ -11,7 +11,7 @@ class BuildingType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
+            ->add('name',null,array('label'=>'Название'))
             ->add('year')
             ->add('floors')
             ->add('height_ceilings')

@@ -11,17 +11,16 @@ class CommonType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('address_legal')
-            ->add('address_actual')
-            ->add('tin')
-            ->add('cat')
-            ->add('settlement_account')
-            ->add('bic')
-            ->add('bank_name')
-            ->add('agrn')
-            ->add('okved')
-            ->add('okp')
-            ->add('Facility')
+            ->add('address_legal',null,array('label'=>'Юридический адрес'))
+            ->add('address_actual',null,array('label'=>'Фактический адрес'))
+            ->add('tin',null,array('label'=>'ИНН'))
+            ->add('cat',null,array('label'=>'КПП'))
+            ->add('settlement_account',null,array('label'=>'Расчетный счет'))
+            ->add('bic',null,array('label'=>'БИК'))
+            ->add('bank_name',null,array('label'=>'Название банка'))
+            ->add('agrn',null,array('label'=>'ОГРН'))
+            ->add('okved',null,array('label'=>'ОКВЭД'))
+            ->add('okp',null,array('label'=>'ОКП или ОКУН'))
             ->add('Buildings', 'collection', array('type' => new BuildingType(),
             'allow_add' => true,
             'allow_delete' => true,
@@ -56,9 +55,6 @@ class CommonType extends AbstractType
             'allow_add' => true,
             'allow_delete' => true))
             ->add('FundsVolumes', 'collection', array('type' => new FundsVolumeType(),
-            'allow_add' => true,
-            'allow_delete' => true))
-            ->add('PersonalQuantitys', 'collection', array('type' => new PersonalQuantityType(),
             'allow_add' => true,
             'allow_delete' => true))
             ->add('PersonalQuantitys', 'collection', array('type' => new PersonalQuantityType(),
