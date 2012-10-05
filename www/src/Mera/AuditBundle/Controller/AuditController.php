@@ -55,14 +55,22 @@ class AuditController extends Controller
         $common = $this->getCommon();
         $form = $this->createForm(new CommonType(), $common);
 
-        $collections = array("Buildings", "ConstructElements", "ConsumptionMeters", "ElectroEquipments", "FuelConsumptions", "LightsSystems", "Personals", "Pipelines");
+        $collections = array(
+            "Buildings",
+            "ConstructElements",
+            "ConsumptionMeters",
+            "ElectroEquipments",
+            "FuelConsumptions",
+            "LightsSystems",
+            "Personals",
+            "Pipelines");
 
         $originalCollections = array();
         foreach ($collections as $collection) {
             $getter = "get" . $collection;
             $originalCollections[$collection] = array();
             foreach ($common->$getter() as $relatedObject) {
-                $originalCollections[$collection][] = $relatedObject;
+                $originalCollections[$collection][$relatedObject->getId()] = $relatedObject;
             }
         }
 
@@ -74,24 +82,24 @@ class AuditController extends Controller
 
                 $relatedObject->setCommon($common);
 
-                foreach ($originalCollections[$collection] as $key => $oldRelatedObject) {
-                    if ($oldRelatedObject->getId() == $relatedObject->getId()) {
-                        unset($originalCollections[$collection][$key]);
-                    }
+                if (isset($originalCollections[$collection][$relatedObject->getId()])) {
+                    unset($originalCollections[$collection][$relatedObject->getId()]);
                 }
             }
         }
 
-        foreach ($originalCollections as $collection => $relatedObjects) {
-            foreach ($relatedObjects as $toDelete) {
-                $remove = "remove" . substr($collection, 0, -1);
-                $common->$remove($toDelete);
-                $em->remove($toDelete);
-            }
-        }
 
         $em->persist($common);
         $em->flush();
+
+//        foreach ($originalCollections as $collection => $relatedObjects) {
+//            foreach ($relatedObjects as $toDelete) {
+//                $remove = "remove" . substr($collection, 0, -1);
+//                $common->$remove($toDelete);
+//                $em->remove($toDelete);
+//            }
+//        }
+//        $em->flush();
 
         return $this->redirect($this->generateUrl('audit'));
     }
