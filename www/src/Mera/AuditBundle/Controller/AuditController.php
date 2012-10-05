@@ -88,18 +88,18 @@ class AuditController extends Controller
             }
         }
 
+        foreach ($originalCollections as $collection => $relatedObjects) {
+            foreach ($relatedObjects as $toDelete) {
+                $remove = "remove" . substr($collection, 0, -1);
+                $common->$remove($toDelete);
+                $toDelete->setCommon(null);
+                $em->remove($toDelete);
+            }
+        }
 
         $em->persist($common);
         $em->flush();
 
-//        foreach ($originalCollections as $collection => $relatedObjects) {
-//            foreach ($relatedObjects as $toDelete) {
-//                $remove = "remove" . substr($collection, 0, -1);
-//                $common->$remove($toDelete);
-//                $em->remove($toDelete);
-//            }
-//        }
-//        $em->flush();
 
         return $this->redirect($this->generateUrl('audit'));
     }
