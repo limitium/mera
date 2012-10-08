@@ -1,7 +1,31 @@
-{% extends 'MeraAuditBundle:Audit:form/collapseItem.html.twig' %}
+{% extends 'MeraAuditBundle:Audit:form/collection.html.twig' %}
 {% block collapseTitle %}
     Сведения по балансу моторного топлива и его изменениях за отчетный год
 {% endblock %}
 {% block collapseId %}fuelconsupmtion{% endblock %}
+{% form_theme form _self %}
 {% block collapseBody %}
+    <blockquote>
+        <p class="lead">Какой-то текст</p>
+    </blockquote>
+    {{ form_widget(form.FuelConsumptions) }}
 {% endblock %}
+
+{% block collection_row_inner %}
+    <div class="span3">
+        {{ form_row(fields.type) }}
+        {{ form_row(fields.quantity) }}
+    </div>
+    <div class="span3">
+        {{ form_row(fields.load_capacity) }}
+        {{ form_row(fields.passengers) }}
+    </div>
+    <div class="span3">
+        {{ form_row(fields.consumption) }}
+        {{ form_row(fields.work_duration) }}
+    </div>
+    <div class="span3">
+        {{ form_row(fields.total_consumed) }}
+        {{ form_row(fields.FuelType) }}
+    </div>
+{% endblock collection_row_inner %}

@@ -1,7 +1,25 @@
-{% extends 'MeraAuditBundle:Audit:form/collapseItem.html.twig' %}
-{% block collapseTitle %}
+{% extends 'MeraAuditBundle:Audit:form/collection.html.twig' %}{% block collapseTitle %}
     Годовой объем средств, выделяемый на содержание организации
 {% endblock %}
 {% block collapseId %}fundsvolume{% endblock %}
+{% form_theme form _self %}
 {% block collapseBody %}
+    <blockquote>
+        <p class="lead">Какой-то текст</p>
+    </blockquote>
+    {{ form_widget(form.FundsVolumes) }}
 {% endblock %}
+
+{% block collection_row_inner %}
+    <div class="span3">
+        {{ form_row(fields.year) }}
+    </div>
+    <div class="span3">
+        {{ form_row(fields.budget) }}
+    </div>
+    <div class="span3">
+    </div>
+    <div class="span3">
+        {{ form_row(fields.non_budget) }}
+    </div>
+{% endblock collection_row_inner %}

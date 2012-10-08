@@ -1,7 +1,26 @@
-{% extends 'MeraAuditBundle:Audit:form/collapseItem.html.twig' %}
+{% extends 'MeraAuditBundle:Audit:form/collection.html.twig' %}
 {% block collapseTitle %}
     Производство продукции в натуральном выражении
 {% endblock %}
 {% block collapseId %}naturalproduction{% endblock %}
+{% form_theme form _self %}
 {% block collapseBody %}
+    <blockquote>
+        <p class="lead">Какой-то текст</p>
+    </blockquote>
+    {{ form_widget(form.NaturalProductions) }}
 {% endblock %}
+
+{% block collection_row_inner %}
+    <div class="span3">
+        {{ form_row(fields.year) }}
+    </div>
+    <div class="span3">
+        {{ form_row(fields.quantity) }}
+    </div>
+    <div class="span3">
+    </div>
+    <div class="span3">
+        {{ form_row(fields.DimentionType) }}
+    </div>
+{% endblock collection_row_inner %}

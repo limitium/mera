@@ -1,7 +1,27 @@
-{% extends 'MeraAuditBundle:Audit:form/collapseItem.html.twig' %}
+{% extends 'MeraAuditBundle:Audit:form/collection.html.twig' %}
 {% block collapseTitle %}
     Количество и установленная мощность электропотребляющего оборудования
 {% endblock %}
 {% block collapseId %}electroequipment{% endblock %}
+{% form_theme form _self %}
 {% block collapseBody %}
+    <blockquote>
+        <p class="lead">Какой-то текст</p>
+    </blockquote>
+    {{ form_widget(form.ElectroEquipments) }}
 {% endblock %}
+
+{% block collection_row_inner %}
+    <div class="span3">
+        {{ form_row(fields.quantity) }}
+    </div>
+    <div class="span3">
+        {{ form_row(fields.power) }}
+    </div>
+    <div class="span3">
+        {{ form_row(fields.work_duration) }}
+    </div>
+    <div class="span3">
+        {{ form_row(fields.ElectroEquipmentType) }}
+    </div>
+{% endblock collection_row_inner %}

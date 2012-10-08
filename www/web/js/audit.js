@@ -76,7 +76,7 @@ $(document).ready(function () {
     });
 
     $("#audit-save").click(function () {
-        $("#audit-form").submit();
+        $("#submiter").trigger("click");
     });
 })
 ;

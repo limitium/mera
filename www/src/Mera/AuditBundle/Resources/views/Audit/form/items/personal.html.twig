@@ -1,7 +1,32 @@
-{% extends 'MeraAuditBundle:Audit:form/collapseItem.html.twig' %}
+{% extends 'MeraAuditBundle:Audit:form/collection.html.twig' %}
 {% block collapseTitle %}
     Сведения о квалификации персонала
 {% endblock %}
 {% block collapseId %}personal{% endblock %}
+{% form_theme form _self %}
 {% block collapseBody %}
+    <blockquote>
+        <p class="lead">Какой-то текст</p>
+    </blockquote>
+    {{ form_widget(form.Personals) }}
 {% endblock %}
+
+{% block collection_row_inner %}
+    <div class="span3">
+        {{ form_row(fields.name) }}
+        {{ form_row(fields.position) }}
+    </div>
+    <div class="span3">
+        {{ form_row(fields.school_name) }}
+        {{ form_row(fields.school_address) }}
+    </div>
+    <div class="span3">
+        {{ form_row(fields.school_license) }}
+        {{ form_row(fields.date_start) }}
+    </div>
+    <div class="span3">
+        {{ form_row(fields.date_end) }}
+        {{ form_row(fields.certification) }}
+        {{ form_row(fields.CourseType) }}
+    </div>
+{% endblock collection_row_inner %}

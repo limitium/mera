@@ -1,7 +1,25 @@
-{% extends 'MeraAuditBundle:Audit:form/collapseItem.html.twig' %}
+{% extends 'MeraAuditBundle:Audit:form/collection.html.twig' %}
 {% block collapseTitle %}
     Количество работающего персонала
 {% endblock %}
 {% block collapseId %}personalquantity{% endblock %}
+{% form_theme form _self %}
 {% block collapseBody %}
+    <blockquote>
+        <p class="lead">Какой-то текст</p>
+    </blockquote>
+    {{ form_widget(form.PersonalQuantitys) }}
 {% endblock %}
+
+{% block collection_row_inner %}
+    <div class="span3">
+        {{ form_row(fields.year) }}
+    </div>
+    <div class="span3">
+        {{ form_row(fields.quantity) }}
+    </div>
+    <div class="span3">
+    </div>
+    <div class="span3">
+    </div>
+{% endblock collection_row_inner %}

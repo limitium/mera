@@ -30,9 +30,9 @@ class Personal
     private $school_name;
 
     /**
-     * @var string $shcool_address
+     * @var string $school_address
      */
-    private $shcool_address;
+    private $school_address;
 
     /**
      * @var string $school_license
@@ -145,26 +145,26 @@ class Personal
     }
 
     /**
-     * Set shcool_address
+     * Set school_address
      *
-     * @param string $shcoolAddress
+     * @param string $schoolAddress
      * @return Personal
      */
-    public function setShcoolAddress($shcoolAddress)
+    public function setSchoolAddress($schoolAddress)
     {
-        $this->shcool_address = $shcoolAddress;
+        $this->school_address = $schoolAddress;
     
         return $this;
     }
 
     /**
-     * Get shcool_address
+     * Get school_address
      *
      * @return string 
      */
-    public function getShcoolAddress()
+    public function getSchoolAddress()
     {
-        return $this->shcool_address;
+        return $this->school_address;
     }
 
     /**

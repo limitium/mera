@@ -24,7 +24,7 @@ Mera\AuditBundle\Entity\Transformator:
     manyToOne:
         Common:
             targetEntity: Mera\AuditBundle\Entity\Common
-            inversedBy: Transofrmators
+            inversedBy: Transformators
             joinColumns:
                 Common_id:
                     referencedColumnName: id

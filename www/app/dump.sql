@@ -2,7 +2,8 @@
 SQLyog Ultimate - MySQL GUI v8.2 
 MySQL - 5.1.40-community : Database - mera
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -380,7 +381,7 @@ CREATE TABLE `Personal` (
   `name` varchar(255) DEFAULT NULL,
   `position` varchar(255) DEFAULT NULL,
   `school_name` varchar(255) DEFAULT NULL,
-  `shcool_address` varchar(255) DEFAULT NULL,
+  `school_address` varchar(255) DEFAULT NULL,
   `school_license` varchar(255) DEFAULT NULL,
   `date_start` date DEFAULT NULL,
   `date_end` date DEFAULT NULL,

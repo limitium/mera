@@ -14,7 +14,7 @@ class PersonalType extends AbstractType
             ->add('name')
             ->add('position')
             ->add('school_name')
-            ->add('shcool_address')
+            ->add('school_address')
             ->add('school_license')
             ->add('date_start')
             ->add('date_end')

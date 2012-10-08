@@ -105,7 +105,7 @@ Mera\AuditBundle\Entity\Common:
             mappedBy: Common
             cascade:
                 - all
-        Transofrmators:
+        Transformators:
             targetEntity: Mera\AuditBundle\Entity\Transformator
             mappedBy: Common
         FundsVolumes:
