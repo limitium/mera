@@ -14,6 +14,7 @@ Mera\ManageBundle\Entity\Facility:
         User:
             targetEntity: Mera\ManageBundle\Entity\User
             inversedBy: Facility
+            orphanRemoval: true
             cascade:
                 - all
             joinColumns:
@@ -25,5 +26,3 @@ Mera\ManageBundle\Entity\Facility:
         Common:
             targetEntity: Mera\AuditBundle\Entity\Common
             mappedBy: Facility
-            cascade:
-                - all

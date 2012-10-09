@@ -34,6 +34,7 @@ Mera\AuditBundle\Entity\Personal:
         Common:
             targetEntity: Mera\AuditBundle\Entity\Common
             inversedBy: Personals
+            orphanRemoval: true
             cascade:
                 - all
             joinColumns:

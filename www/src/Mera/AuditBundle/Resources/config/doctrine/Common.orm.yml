@@ -46,6 +46,7 @@ Mera\AuditBundle\Entity\Common:
         Facility:
             targetEntity: Mera\ManageBundle\Entity\Facility
             inversedBy: Common
+            orphanRemoval: true
             cascade:
                 - all
             joinColumns:
@@ -58,73 +59,45 @@ Mera\AuditBundle\Entity\Common:
         Buildings:
             targetEntity: Mera\AuditBundle\Entity\Building
             mappedBy: Common
-            cascade:
-                - all
         ConstructElements:
             targetEntity: Mera\AuditBundle\Entity\ConstructElement
             mappedBy: Common
-            cascade:
-                - all
         ConsumptionMeters:
             targetEntity: Mera\AuditBundle\Entity\ConsumptionMeter
             mappedBy: Common
-            cascade:
-                - all
         ElectroEquipments:
             targetEntity: Mera\AuditBundle\Entity\ElectroEquipment
             mappedBy: Common
-            cascade:
-                - all
         LightsSystems:
             targetEntity: Mera\AuditBundle\Entity\LightsSystem
             mappedBy: Common
-            cascade:
-                - all
         Pipelines:
             targetEntity: Mera\AuditBundle\Entity\Pipeline
             mappedBy: Common
-            cascade:
-                - all
         FuelConsumptions:
             targetEntity: Mera\AuditBundle\Entity\FuelConsumption
             mappedBy: Common
-            cascade:
-                - all
         ExecutivePersons:
             targetEntity: Mera\AuditBundle\Entity\ExecutivePerson
             mappedBy: Common
-            cascade:
-                - all
         Personals:
             targetEntity: Mera\AuditBundle\Entity\Personal
             mappedBy: Common
-            cascade:
-                - all
         Files:
             targetEntity: Mera\AuditBundle\Entity\File
             mappedBy: Common
-            cascade:
-                - all
         Transformators:
             targetEntity: Mera\AuditBundle\Entity\Transformator
             mappedBy: Common
         FundsVolumes:
             targetEntity: Mera\AuditBundle\Entity\FundsVolume
             mappedBy: Common
-            cascade:
-                - all
         PersonalQuantitys:
             targetEntity: Mera\AuditBundle\Entity\PersonalQuantity
             mappedBy: Common
-            cascade:
-                - all
         ConsumedTariffs:
             targetEntity: Mera\AuditBundle\Entity\ConsumedTariff
             mappedBy: Common
-            cascade:
-                - all
         NaturalProductions:
             targetEntity: Mera\AuditBundle\Entity\NaturalProduction
             mappedBy: Common
-            cascade:
-                - all

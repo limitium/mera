@@ -72,7 +72,7 @@ class AuditController extends Controller
             "PersonalQuantitys",
             "ConsumedTariffs",
             "NaturalProductions",
-            );
+        );
 
         $originalCollections = array();
         foreach ($collections as $collection) {
@@ -117,17 +117,10 @@ class AuditController extends Controller
      * Save a Audit audit.
      *
      * @Route("/file", name="audit_file")
-     * @Method("POST")
      */
     public function fileAction(Request $request)
     {
-//        $em = $this->getDoctrine()->getEntityManager();
-//
-//        if(!$projet = $em->getRepository('BoldPrezBundle:Projet')->find($id)) {
-//            throw $this->createNotFoundException('Le projet[id='.$id.'] n\'existe pas.');
-//        }
-//        $client = $projet->getClient();
-//
+
         $request = $this->get('request');
 
         $options = array(
@@ -142,29 +135,25 @@ class AuditController extends Controller
         );
         $upload_handler = new UploadHandler($options, "");
 
-
         switch ($request->getMethod()) {
-            case 'OPTIONS':
-                break;
-            case 'HEAD':
             case 'GET':
-                $upload_handler->get();
+                $upl = $upload_handler->get();
                 break;
             case 'POST':
                 if ($request->get('_method') === 'DELETE') {
-                    $upload_handler->delete();
+                    $upl = $upload_handler->delete();
                 } else {
-                    $upload_handler->post();
+                    $upl = $upload_handler->post();
                 }
                 break;
             case 'DELETE':
-                $upload_handler->delete();
+                $upl = $upload_handler->delete();
                 break;
             default:
-                header('HTTP/1.1 405 Method Not Allowed');
+                throw $this->createNotFoundException("Method not allowed");
         }
 
-        $response = new Response();
+        $response = new Response(json_encode($upl));
         $response->headers->set('Pragma', 'no-cache');
         $response->headers->set('Cache-Control', 'no-store, no-cache, must-revalidate');
         $response->headers->set('Content-Disposition', 'inline; filename="files.json"');

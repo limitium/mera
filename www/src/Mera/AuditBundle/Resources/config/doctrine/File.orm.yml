@@ -12,6 +12,7 @@ Mera\AuditBundle\Entity\File:
         Common:
             targetEntity: Mera\AuditBundle\Entity\Common
             inversedBy: Files
+            orphanRemoval: true
             cascade:
                 - all
             joinColumns:

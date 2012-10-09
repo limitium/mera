@@ -339,7 +339,7 @@ class UploadHandler
             $info = $this->get_file_objects();
         }
         header('Content-type: application/json');
-        echo json_encode($info);
+        return $info;
     }
 
     public function post() {
@@ -382,7 +382,7 @@ class UploadHandler
             );
         }
         header('Vary: Accept');
-        $json = json_encode($info);
+        $json = $info;
         $redirect = isset($_REQUEST['redirect']) ?
             stripslashes($_REQUEST['redirect']) : null;
         if ($redirect) {
@@ -395,7 +395,7 @@ class UploadHandler
         } else {
             header('Content-type: text/plain');
         }
-        echo $json;
+        return $json;
     }
 
     public function delete() {
@@ -412,7 +412,7 @@ class UploadHandler
             }
         }
         header('Content-type: application/json');
-        echo json_encode($success);
+        return $success;
     }
 
 }
