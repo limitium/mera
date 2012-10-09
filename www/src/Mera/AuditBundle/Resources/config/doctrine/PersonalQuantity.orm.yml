@@ -16,6 +16,7 @@ Mera\AuditBundle\Entity\PersonalQuantity:
         Common:
             targetEntity: Mera\AuditBundle\Entity\Common
             inversedBy: PersonalQuantitys
+            orphanRemoval: true
             cascade:
                 - all
             joinColumns:

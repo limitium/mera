@@ -31,6 +31,7 @@ Mera\AuditBundle\Entity\FuelConsumption:
         Common:
             targetEntity: Mera\AuditBundle\Entity\Common
             inversedBy: FuelConsumptions
+            orphanRemoval: true
             cascade:
                 - all
             joinColumns:

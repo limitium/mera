@@ -22,6 +22,7 @@ Mera\AuditBundle\Entity\ConsumedTariff:
         Common:
             targetEntity: Mera\AuditBundle\Entity\Common
             inversedBy: ConsumedTariffs
+            orphanRemoval: true
             cascade:
                 - all
             joinColumns:

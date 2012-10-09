@@ -6,7 +6,7 @@
     <module-position name="ManageBundle" visPositionX="-17" visPositionY="-88"/>
   </project>
 
-  <module import-format="Doctrine2Yml" import-path="..\src\Mera\AuditBundle\Resources\config\doctrine\" name="AuditBundle" visBkColor="16380404" visSizeX="0" visSizeX2="1240" visSizeY="32" visSizeY2="907">
+  <module import-format="Doctrine2Yml" import-path="..\src\Mera\AuditBundle\Resources\config\doctrine\" name="AuditBundle" visBkColor="16380404" visSizeX="0" visSizeX2="1240" visSizeY="60" visSizeY2="907">
     <table description="1.Общие сведения по предприятию (учреждению)" name="Common" visPositionX="29" visPositionY="-8" visSizeX="0" visSizeX2="142" visSizeY="0" visSizeY2="185">
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
       <column name="address_legal" type="string"/>
@@ -23,7 +23,7 @@
       <column name="created" required="true" type="datetime"/>
       <column name="updated" required="true" type="datetime"/>
     </table>
-    <table description="3.Технические характеристики зданий (для каждого здания)" name="Building" visPositionX="11" visPositionY="232" visSizeX="0" visSizeX2="155" visSizeY="0" visSizeY2="213">
+    <table description="3.Технические характеристики зданий (для каждого здания)" name="Building" visPositionX="14" visPositionY="255" visSizeX="0" visSizeX2="155" visSizeY="0" visSizeY2="213">
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
       <column name="name" type="string"/>
       <column name="year" type="integer"/>
@@ -39,7 +39,7 @@
       <column name="depreciation_physical" type="integer"/>
       <column name="common_id" required="true" type="integer"/>
     </table>
-    <table name="ConstructElement" visPositionX="275" visPositionY="-30" visSizeX="0" visSizeX2="178" visSizeY="0" visSizeY2="101">
+    <table name="ConstructElement" visPositionX="322" visPositionY="-40" visSizeX="0" visSizeX2="178" visSizeY="0" visSizeY2="101">
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
       <column name="area" type="decimal"/>
       <column name="description" type="text"/>
@@ -220,15 +220,11 @@
     <table name="SupplyContract" visPositionX="235" visPositionY="800" visSizeX="0" visSizeX2="20" visSizeY="0" visSizeY2="20">
       <inheritance-child derived-from="File" discriminator-value="SupplyContract"/>
     </table>
-    <foreign-key caption="Facility Common" from="Common" inverse-alias="Facility" name="FK_Common_Facility_id" owning-alias="Common" to="Facility">
+    <foreign-key caption="Facility Common" from="Common" inverse-alias="Facility" name="FK_Common_Facility_id" owning-alias="Common" to="Facility" visCaption1X="0" visCaption1Y="-2" visCenterX="0" visCenterY="0">
       <foreign-key-column from="facility_id" to="id"/>
       <orm-properties>
-        <attribute name="side-inverse">
-          <attribute name="cascade">
-            <attribute name="cascade-all">true</attribute>
-          </attribute>
-        </attribute>
         <attribute name="side-owning">
+          <attribute name="orphan-removal">true</attribute>
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
@@ -246,11 +242,7 @@
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
-        </attribute>
-        <attribute name="side-inverse">
-          <attribute name="cascade">
-            <attribute name="cascade-all">true</attribute>
-          </attribute>
+          <attribute name="orphan-removal">true</attribute>
         </attribute>
       </orm-properties>
     </foreign-key>
@@ -266,11 +258,7 @@
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
-        </attribute>
-        <attribute name="side-inverse">
-          <attribute name="cascade">
-            <attribute name="cascade-all">true</attribute>
-          </attribute>
+          <attribute name="orphan-removal">true</attribute>
         </attribute>
       </orm-properties>
     </foreign-key>
@@ -282,15 +270,11 @@
       <orm-properties>
         <attribute name="on-delete">CASCADE</attribute>
         <attribute name="on-update">CASCADE</attribute>
-        <attribute name="side-inverse">
-          <attribute name="cascade">
-            <attribute name="cascade-all">true</attribute>
-          </attribute>
-        </attribute>
         <attribute name="side-owning">
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
+          <attribute name="orphan-removal">true</attribute>
         </attribute>
       </orm-properties>
     </foreign-key>
@@ -301,11 +285,7 @@
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
-        </attribute>
-        <attribute name="side-inverse">
-          <attribute name="cascade">
-            <attribute name="cascade-all">true</attribute>
-          </attribute>
+          <attribute name="orphan-removal">true</attribute>
         </attribute>
         <attribute name="on-delete">CASCADE</attribute>
         <attribute name="on-update">CASCADE</attribute>
@@ -319,15 +299,11 @@
       <orm-properties>
         <attribute name="on-delete">CASCADE</attribute>
         <attribute name="on-update">CASCADE</attribute>
-        <attribute name="side-inverse">
-          <attribute name="cascade">
-            <attribute name="cascade-all">true</attribute>
-          </attribute>
-        </attribute>
         <attribute name="side-owning">
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
+          <attribute name="orphan-removal">true</attribute>
         </attribute>
       </orm-properties>
     </foreign-key>
@@ -344,14 +320,10 @@
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
+          <attribute name="orphan-removal">true</attribute>
         </attribute>
         <attribute name="on-delete">CASCADE</attribute>
         <attribute name="on-update">CASCADE</attribute>
-        <attribute name="side-inverse">
-          <attribute name="cascade">
-            <attribute name="cascade-all">true</attribute>
-          </attribute>
-        </attribute>
       </orm-properties>
     </foreign-key>
     <foreign-key caption="Common FuelConsumption" from="FuelConsumption" inverse-alias="Common" name="FK_FuelConsumption_Common_id" owning-alias="FuelConsumptions" to="Common">
@@ -361,11 +333,7 @@
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
-        </attribute>
-        <attribute name="side-inverse">
-          <attribute name="cascade">
-            <attribute name="cascade-all">true</attribute>
-          </attribute>
+          <attribute name="orphan-removal">true</attribute>
         </attribute>
         <attribute name="on-delete">CASCADE</attribute>
         <attribute name="on-update">CASCADE</attribute>
@@ -381,11 +349,7 @@
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
-        </attribute>
-        <attribute name="side-inverse">
-          <attribute name="cascade">
-            <attribute name="cascade-all">true</attribute>
-          </attribute>
+          <attribute name="orphan-removal">true</attribute>
         </attribute>
         <attribute name="on-delete">CASCADE</attribute>
         <attribute name="on-update">CASCADE</attribute>
@@ -396,15 +360,11 @@
       <orm-properties>
         <attribute name="on-delete">CASCADE</attribute>
         <attribute name="on-update">CASCADE</attribute>
-        <attribute name="side-inverse">
-          <attribute name="cascade">
-            <attribute name="cascade-all">true</attribute>
-          </attribute>
-        </attribute>
         <attribute name="side-owning">
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
+          <attribute name="orphan-removal">true</attribute>
         </attribute>
       </orm-properties>
     </foreign-key>
@@ -416,35 +376,37 @@
       <orm-properties>
         <attribute name="on-delete">CASCADE</attribute>
         <attribute name="on-update">CASCADE</attribute>
-        <attribute name="side-inverse">
-          <attribute name="cascade">
-            <attribute name="cascade-all">true</attribute>
-          </attribute>
-        </attribute>
         <attribute name="side-owning">
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
+          <attribute name="orphan-removal">true</attribute>
         </attribute>
       </orm-properties>
     </foreign-key>
     <foreign-key caption="Common Transformator" from="Transformator" inverse-alias="Common" name="FK_Transformator_Common_id" owning-alias="Transformators" to="Common" visCaption1X="0" visCaption1Y="0" visCenterX="0" visCenterY="-1">
       <foreign-key-column from="Common_id" to="id"/>
+      <orm-properties>
+        <attribute name="side-owning">
+          <attribute name="orphan-removal">true</attribute>
+          <attribute name="cascade">
+            <attribute name="cascade-all">true</attribute>
+          </attribute>
+        </attribute>
+        <attribute name="on-update">CASCADE</attribute>
+        <attribute name="on-delete">CASCADE</attribute>
+      </orm-properties>
     </foreign-key>
     <foreign-key caption="Common FundsVolume" from="FundsVolume" inverse-alias="Common" name="FK_FundsVolume_Common_id" owning-alias="FundsVolumes" to="Common">
       <foreign-key-column from="Common_id" to="id"/>
       <orm-properties>
         <attribute name="on-delete">CASCADE</attribute>
         <attribute name="on-update">CASCADE</attribute>
-        <attribute name="side-inverse">
-          <attribute name="cascade">
-            <attribute name="cascade-all">true</attribute>
-          </attribute>
-        </attribute>
         <attribute name="side-owning">
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
+          <attribute name="orphan-removal">true</attribute>
         </attribute>
       </orm-properties>
     </foreign-key>
@@ -453,15 +415,11 @@
       <orm-properties>
         <attribute name="on-delete">CASCADE</attribute>
         <attribute name="on-update">CASCADE</attribute>
-        <attribute name="side-inverse">
-          <attribute name="cascade">
-            <attribute name="cascade-all">true</attribute>
-          </attribute>
-        </attribute>
         <attribute name="side-owning">
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
+          <attribute name="orphan-removal">true</attribute>
         </attribute>
       </orm-properties>
     </foreign-key>
@@ -473,15 +431,11 @@
       <orm-properties>
         <attribute name="on-delete">CASCADE</attribute>
         <attribute name="on-update">CASCADE</attribute>
-        <attribute name="side-inverse">
-          <attribute name="cascade">
-            <attribute name="cascade-all">true</attribute>
-          </attribute>
-        </attribute>
         <attribute name="side-owning">
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
+          <attribute name="orphan-removal">true</attribute>
         </attribute>
       </orm-properties>
     </foreign-key>
@@ -493,15 +447,11 @@
       <orm-properties>
         <attribute name="on-update">CASCADE</attribute>
         <attribute name="on-delete">CASCADE</attribute>
-        <attribute name="side-inverse">
-          <attribute name="cascade">
-            <attribute name="cascade-all">true</attribute>
-          </attribute>
-        </attribute>
         <attribute name="side-owning">
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
+          <attribute name="orphan-removal">true</attribute>
         </attribute>
       </orm-properties>
     </foreign-key>
@@ -526,15 +476,11 @@
       <orm-properties>
         <attribute name="on-delete">CASCADE</attribute>
         <attribute name="on-update">CASCADE</attribute>
-        <attribute name="side-inverse">
-          <attribute name="cascade">
-            <attribute name="cascade-all">true</attribute>
-          </attribute>
-        </attribute>
         <attribute name="side-owning">
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
+          <attribute name="orphan-removal">true</attribute>
         </attribute>
       </orm-properties>
     </foreign-key>

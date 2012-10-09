@@ -19,6 +19,7 @@ Mera\AuditBundle\Entity\FundsVolume:
         Common:
             targetEntity: Mera\AuditBundle\Entity\Common
             inversedBy: FundsVolumes
+            orphanRemoval: true
             cascade:
                 - all
             joinColumns:

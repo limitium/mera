@@ -17,5 +17,3 @@ Mera\ManageBundle\Entity\User:
         Facility:
             targetEntity: Mera\ManageBundle\Entity\Facility
             mappedBy: User
-            cascade:
-                - all
