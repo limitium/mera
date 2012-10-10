@@ -50,6 +50,9 @@ class CommonType extends AbstractType
             ->add('Personals', 'collection', array('type' => new PersonalType(),
             'allow_add' => true,
             'allow_delete' => true))
+            ->add('ConsumptionResources', 'collection', array('type' => new ConsumptionResourceType(),
+            'allow_add' => true,
+            'allow_delete' => true))
 
             ->add('Transformators', 'collection', array('type' => new TransformatorType(),
             'allow_add' => true,

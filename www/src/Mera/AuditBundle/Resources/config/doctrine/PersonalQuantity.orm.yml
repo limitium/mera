@@ -20,7 +20,7 @@ Mera\AuditBundle\Entity\PersonalQuantity:
             cascade:
                 - all
             joinColumns:
-                Common_id:
+                common_id:
                     referencedColumnName: id
                     nullable: false
                     onDelete: CASCADE

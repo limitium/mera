@@ -1,4 +1,4 @@
-Mera\AuditBundle\Entity\Transformator:
+Mera\AuditBundle\Entity\ConsumptionResource:
     type: entity
     fields:
         id:
@@ -9,22 +9,23 @@ Mera\AuditBundle\Entity\Transformator:
         year:
             type: integer
             nullable: true
-        quantity:
-            type: integer
-            nullable: true
-        individual_capacity:
+        physical_quantity:
             type: decimal
             nullable: true
-        higher_voltage:
-            type: decimal
-            nullable: true
-        installed_power:
+        financial_quantity:
             type: decimal
             nullable: true
     manyToOne:
+        ResourceType:
+            targetEntity: Mera\AuditBundle\Entity\ResourceType
+            inversedBy: СonsumptionResources
+            joinColumns:
+                resource_type_id:
+                    referencedColumnName: id
+                    nullable: false
         Common:
             targetEntity: Mera\AuditBundle\Entity\Common
-            inversedBy: Transformators
+            inversedBy: ConsumptionResources
             orphanRemoval: true
             cascade:
                 - all

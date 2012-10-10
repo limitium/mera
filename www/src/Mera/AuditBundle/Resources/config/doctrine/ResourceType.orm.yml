@@ -9,3 +9,7 @@ Mera\AuditBundle\Entity\ResourceType:
         name:
             type: string
             nullable: false
+    oneToMany:
+        СonsumptionResources:
+            targetEntity: Mera\AuditBundle\Entity\ConsumptionResource
+            mappedBy: ResourceType
