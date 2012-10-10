@@ -101,3 +101,6 @@ Mera\AuditBundle\Entity\Common:
         NaturalProductions:
             targetEntity: Mera\AuditBundle\Entity\NaturalProduction
             mappedBy: Common
+        ConsumptionResources:
+            targetEntity: Mera\AuditBundle\Entity\ConsumptionResource
+            mappedBy: Common

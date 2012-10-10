@@ -1,0 +1,26 @@
+{% extends 'MeraAuditBundle:Audit:form/collection.html.twig' %}
+{% block collapseTitle %}
+    Годовое потребление энергоресурсов в натуральном и финансовом выражени
+{% endblock %}
+{% block collapseId %}consumptionresource{% endblock %}
+
+{% form_theme form _self %}
+
+{% block collapseBody %}
+    {{ form_widget(form.ConsumptionResources) }}
+{% endblock %}
+
+{% block collection_row_inner %}
+    <div class="span3">
+        {{ form_row(fields.year) }}
+    </div>
+    <div class="span3">
+        {{ form_row(fields.physical_quantity) }}
+    </div>
+    <div class="span3">
+        {{ form_row(fields.financial_quantity) }}
+    </div>
+    <div class="span3">
+        {{ form_row(fields.ResourceType) }}
+    </div>
+{% endblock collection_row_inner %}

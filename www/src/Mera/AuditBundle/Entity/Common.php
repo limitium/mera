@@ -994,4 +994,65 @@ class Common
     {
         return $this->NaturalProductions;
     }
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     */
+    private $ConsumptionResources;
+
+
+    /**
+     * Add Transformators
+     *
+     * @param Mera\AuditBundle\Entity\Transformator $transformators
+     * @return Common
+     */
+    public function addTransformator(\Mera\AuditBundle\Entity\Transformator $transformators)
+    {
+        $this->Transformators[] = $transformators;
+    
+        return $this;
+    }
+
+    /**
+     * Remove Transformators
+     *
+     * @param Mera\AuditBundle\Entity\Transformator $transformators
+     */
+    public function removeTransformator(\Mera\AuditBundle\Entity\Transformator $transformators)
+    {
+        $this->Transformators->removeElement($transformators);
+    }
+
+    /**
+     * Add ConsumptionResources
+     *
+     * @param Mera\AuditBundle\Entity\ConsumptionResource $consumptionResources
+     * @return Common
+     */
+    public function addConsumptionResource(\Mera\AuditBundle\Entity\ConsumptionResource $consumptionResources)
+    {
+        $this->ConsumptionResources[] = $consumptionResources;
+    
+        return $this;
+    }
+
+    /**
+     * Remove ConsumptionResources
+     *
+     * @param Mera\AuditBundle\Entity\ConsumptionResource $consumptionResources
+     */
+    public function removeConsumptionResource(\Mera\AuditBundle\Entity\ConsumptionResource $consumptionResources)
+    {
+        $this->ConsumptionResources->removeElement($consumptionResources);
+    }
+
+    /**
+     * Get ConsumptionResources
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getConsumptionResources()
+    {
+        return $this->ConsumptionResources;
+    }
 }
