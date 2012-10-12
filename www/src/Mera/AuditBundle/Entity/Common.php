@@ -65,7 +65,7 @@ class Common
     private $okp;
 
     /**
-     * @var Mera\ManageBundle\Entity\Facility
+     * @var \Mera\ManageBundle\Entity\Facility
      */
     private $Facility;
 
@@ -350,7 +350,7 @@ class Common
     /**
      * Set Facility
      *
-     * @param Mera\ManageBundle\Entity\Facility $facility
+     * @param \Mera\ManageBundle\Entity\Facility $facility
      * @return Common
      */
     public
@@ -364,7 +364,7 @@ class Common
     /**
      * Get Facility
      *
-     * @return Mera\ManageBundle\Entity\Facility
+     * @return \Mera\ManageBundle\Entity\Facility
      */
     public
     function getFacility()
@@ -375,7 +375,7 @@ class Common
     /**
      * Add Buildings
      *
-     * @param Mera\AuditBundle\Entity\Building $buildings
+     * @param \Mera\AuditBundle\Entity\Building $buildings
      * @return Common
      */
     public
@@ -389,7 +389,7 @@ class Common
     /**
      * Remove Buildings
      *
-     * @param Mera\AuditBundle\Entity\Building $buildings
+     * @param \Mera\AuditBundle\Entity\Building $buildings
      */
     public
     function removeBuilding(\Mera\AuditBundle\Entity\Building $buildings)
@@ -400,7 +400,7 @@ class Common
     /**
      * Get Buildings
      *
-     * @return Doctrine\Common\Collections\Collection
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getBuildings()
     {
@@ -506,7 +506,7 @@ class Common
     /**
      * Add ConstructElements
      *
-     * @param Mera\AuditBundle\Entity\ConstructElement $constructElements
+     * @param \Mera\AuditBundle\Entity\ConstructElement $constructElements
      * @return Common
      */
     public function addConstructElement(\Mera\AuditBundle\Entity\ConstructElement $constructElements)
@@ -519,7 +519,7 @@ class Common
     /**
      * Remove ConstructElements
      *
-     * @param Mera\AuditBundle\Entity\ConstructElement $constructElements
+     * @param \Mera\AuditBundle\Entity\ConstructElement $constructElements
      */
     public function removeConstructElement(\Mera\AuditBundle\Entity\ConstructElement $constructElements)
     {
@@ -529,7 +529,7 @@ class Common
     /**
      * Get ConstructElements
      *
-     * @return Doctrine\Common\Collections\Collection
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getConstructElements()
     {
@@ -539,7 +539,7 @@ class Common
     /**
      * Add ConsumptionMeters
      *
-     * @param Mera\AuditBundle\Entity\ConsumptionMeter $consumptionMeters
+     * @param \Mera\AuditBundle\Entity\ConsumptionMeter $consumptionMeters
      * @return Common
      */
     public function addConsumptionMeter(\Mera\AuditBundle\Entity\ConsumptionMeter $consumptionMeters)
@@ -552,7 +552,7 @@ class Common
     /**
      * Remove ConsumptionMeters
      *
-     * @param Mera\AuditBundle\Entity\ConsumptionMeter $consumptionMeters
+     * @param \Mera\AuditBundle\Entity\ConsumptionMeter $consumptionMeters
      */
     public function removeConsumptionMeter(\Mera\AuditBundle\Entity\ConsumptionMeter $consumptionMeters)
     {
@@ -562,7 +562,7 @@ class Common
     /**
      * Get ConsumptionMeters
      *
-     * @return Doctrine\Common\Collections\Collection
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getConsumptionMeters()
     {
@@ -572,7 +572,7 @@ class Common
     /**
      * Add ElectroEquipments
      *
-     * @param Mera\AuditBundle\Entity\ElectroEquipment $electroEquipments
+     * @param \Mera\AuditBundle\Entity\ElectroEquipment $electroEquipments
      * @return Common
      */
     public function addElectroEquipment(\Mera\AuditBundle\Entity\ElectroEquipment $electroEquipments)
@@ -585,7 +585,7 @@ class Common
     /**
      * Remove ElectroEquipments
      *
-     * @param Mera\AuditBundle\Entity\ElectroEquipment $electroEquipments
+     * @param \Mera\AuditBundle\Entity\ElectroEquipment $electroEquipments
      */
     public function removeElectroEquipment(\Mera\AuditBundle\Entity\ElectroEquipment $electroEquipments)
     {
@@ -595,7 +595,7 @@ class Common
     /**
      * Get ElectroEquipments
      *
-     * @return Doctrine\Common\Collections\Collection
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getElectroEquipments()
     {
@@ -605,7 +605,7 @@ class Common
     /**
      * Add LightsSystems
      *
-     * @param Mera\AuditBundle\Entity\LightsSystem $lightsSystems
+     * @param \Mera\AuditBundle\Entity\LightsSystem $lightsSystems
      * @return Common
      */
     public function addLightsSystem(\Mera\AuditBundle\Entity\LightsSystem $lightsSystems)
@@ -618,7 +618,7 @@ class Common
     /**
      * Remove LightsSystems
      *
-     * @param Mera\AuditBundle\Entity\LightsSystem $lightsSystems
+     * @param \Mera\AuditBundle\Entity\LightsSystem $lightsSystems
      */
     public function removeLightsSystem(\Mera\AuditBundle\Entity\LightsSystem $lightsSystems)
     {
@@ -628,7 +628,7 @@ class Common
     /**
      * Get LightsSystems
      *
-     * @return Doctrine\Common\Collections\Collection
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getLightsSystems()
     {
@@ -638,7 +638,7 @@ class Common
     /**
      * Add Pipelines
      *
-     * @param Mera\AuditBundle\Entity\Pipeline $pipelines
+     * @param \Mera\AuditBundle\Entity\Pipeline $pipelines
      * @return Common
      */
     public function addPipeline(\Mera\AuditBundle\Entity\Pipeline $pipelines)
@@ -651,7 +651,7 @@ class Common
     /**
      * Remove Pipelines
      *
-     * @param Mera\AuditBundle\Entity\Pipeline $pipelines
+     * @param \Mera\AuditBundle\Entity\Pipeline $pipelines
      */
     public function removePipeline(\Mera\AuditBundle\Entity\Pipeline $pipelines)
     {
@@ -661,7 +661,7 @@ class Common
     /**
      * Get Pipelines
      *
-     * @return Doctrine\Common\Collections\Collection
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getPipelines()
     {
@@ -671,7 +671,7 @@ class Common
     /**
      * Add FuelConsumptions
      *
-     * @param Mera\AuditBundle\Entity\FuelConsumption $fuelConsumptions
+     * @param \Mera\AuditBundle\Entity\FuelConsumption $fuelConsumptions
      * @return Common
      */
     public function addFuelConsumption(\Mera\AuditBundle\Entity\FuelConsumption $fuelConsumptions)
@@ -684,7 +684,7 @@ class Common
     /**
      * Remove FuelConsumptions
      *
-     * @param Mera\AuditBundle\Entity\FuelConsumption $fuelConsumptions
+     * @param \Mera\AuditBundle\Entity\FuelConsumption $fuelConsumptions
      */
     public function removeFuelConsumption(\Mera\AuditBundle\Entity\FuelConsumption $fuelConsumptions)
     {
@@ -694,7 +694,7 @@ class Common
     /**
      * Get FuelConsumptions
      *
-     * @return Doctrine\Common\Collections\Collection
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getFuelConsumptions()
     {
@@ -704,7 +704,7 @@ class Common
     /**
      * Add ExecutivePersons
      *
-     * @param Mera\AuditBundle\Entity\ExecutivePerson $executivePersons
+     * @param \Mera\AuditBundle\Entity\ExecutivePerson $executivePersons
      * @return Common
      */
     public function addExecutivePerson(\Mera\AuditBundle\Entity\ExecutivePerson $executivePersons)
@@ -717,7 +717,7 @@ class Common
     /**
      * Remove ExecutivePersons
      *
-     * @param Mera\AuditBundle\Entity\ExecutivePerson $executivePersons
+     * @param \Mera\AuditBundle\Entity\ExecutivePerson $executivePersons
      */
     public function removeExecutivePerson(\Mera\AuditBundle\Entity\ExecutivePerson $executivePersons)
     {
@@ -727,7 +727,7 @@ class Common
     /**
      * Get ExecutivePersons
      *
-     * @return Doctrine\Common\Collections\Collection
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getExecutivePersons()
     {
@@ -737,7 +737,7 @@ class Common
     /**
      * Add Personals
      *
-     * @param Mera\AuditBundle\Entity\Personal $personals
+     * @param \Mera\AuditBundle\Entity\Personal $personals
      * @return Common
      */
     public function addPersonal(\Mera\AuditBundle\Entity\Personal $personals)
@@ -750,7 +750,7 @@ class Common
     /**
      * Remove Personals
      *
-     * @param Mera\AuditBundle\Entity\Personal $personals
+     * @param \Mera\AuditBundle\Entity\Personal $personals
      */
     public function removePersonal(\Mera\AuditBundle\Entity\Personal $personals)
     {
@@ -760,7 +760,7 @@ class Common
     /**
      * Get Personals
      *
-     * @return Doctrine\Common\Collections\Collection
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getPersonals()
     {
@@ -800,7 +800,7 @@ class Common
     /**
      * Add Files
      *
-     * @param Mera\AuditBundle\Entity\File $files
+     * @param \Mera\AuditBundle\Entity\File $files
      * @return Common
      */
     public function addFile(\Mera\AuditBundle\Entity\File $files)
@@ -813,7 +813,7 @@ class Common
     /**
      * Remove Files
      *
-     * @param Mera\AuditBundle\Entity\File $files
+     * @param \Mera\AuditBundle\Entity\File $files
      */
     public function removeFile(\Mera\AuditBundle\Entity\File $files)
     {
@@ -823,7 +823,7 @@ class Common
     /**
      * Get Files
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection 
      */
     public function getFiles()
     {
@@ -833,7 +833,7 @@ class Common
     /**
      * Add Transformators
      *
-     * @param Mera\AuditBundle\Entity\Transofrmator $transformators
+     * @param \Mera\AuditBundle\Entity\Transformator $transformators
      * @return Common
      */
     public function addTransofrmator(\Mera\AuditBundle\Entity\Transformator $transformators)
@@ -846,7 +846,7 @@ class Common
     /**
      * Remove Transformators
      *
-     * @param Mera\AuditBundle\Entity\Transofrmator $transformators
+     * @param \Mera\AuditBundle\Entity\Transformator $transformators
      */
     public function removeTransofrmator(\Mera\AuditBundle\Entity\Transformator $transformators)
     {
@@ -856,7 +856,7 @@ class Common
     /**
      * Get Transformators
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection 
      */
     public function getTransformators()
     {
@@ -866,7 +866,7 @@ class Common
     /**
      * Add FundsVolumes
      *
-     * @param Mera\AuditBundle\Entity\FundsVolume $fundsVolumes
+     * @param \Mera\AuditBundle\Entity\FundsVolume $fundsVolumes
      * @return Common
      */
     public function addFundsVolume(\Mera\AuditBundle\Entity\FundsVolume $fundsVolumes)
@@ -879,7 +879,7 @@ class Common
     /**
      * Remove FundsVolumes
      *
-     * @param Mera\AuditBundle\Entity\FundsVolume $fundsVolumes
+     * @param \Mera\AuditBundle\Entity\FundsVolume $fundsVolumes
      */
     public function removeFundsVolume(\Mera\AuditBundle\Entity\FundsVolume $fundsVolumes)
     {
@@ -889,7 +889,7 @@ class Common
     /**
      * Get FundsVolumes
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection 
      */
     public function getFundsVolumes()
     {
@@ -899,7 +899,7 @@ class Common
     /**
      * Add PersonalQuantitys
      *
-     * @param Mera\AuditBundle\Entity\PersonalQuantity $personalQuantitys
+     * @param \Mera\AuditBundle\Entity\PersonalQuantity $personalQuantitys
      * @return Common
      */
     public function addPersonalQuantity(\Mera\AuditBundle\Entity\PersonalQuantity $personalQuantitys)
@@ -912,7 +912,7 @@ class Common
     /**
      * Remove PersonalQuantitys
      *
-     * @param Mera\AuditBundle\Entity\PersonalQuantity $personalQuantitys
+     * @param \Mera\AuditBundle\Entity\PersonalQuantity $personalQuantitys
      */
     public function removePersonalQuantity(\Mera\AuditBundle\Entity\PersonalQuantity $personalQuantitys)
     {
@@ -922,7 +922,7 @@ class Common
     /**
      * Get PersonalQuantitys
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection 
      */
     public function getPersonalQuantitys()
     {
@@ -932,7 +932,7 @@ class Common
     /**
      * Add ConsumedTariffs
      *
-     * @param Mera\AuditBundle\Entity\ConsumedTariff $consumedTariffs
+     * @param \Mera\AuditBundle\Entity\ConsumedTariff $consumedTariffs
      * @return Common
      */
     public function addConsumedTariff(\Mera\AuditBundle\Entity\ConsumedTariff $consumedTariffs)
@@ -945,7 +945,7 @@ class Common
     /**
      * Remove ConsumedTariffs
      *
-     * @param Mera\AuditBundle\Entity\ConsumedTariff $consumedTariffs
+     * @param \Mera\AuditBundle\Entity\ConsumedTariff $consumedTariffs
      */
     public function removeConsumedTariff(\Mera\AuditBundle\Entity\ConsumedTariff $consumedTariffs)
     {
@@ -955,7 +955,7 @@ class Common
     /**
      * Get ConsumedTariffs
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection 
      */
     public function getConsumedTariffs()
     {
@@ -965,7 +965,7 @@ class Common
     /**
      * Add NaturalProductions
      *
-     * @param Mera\AuditBundle\Entity\NaturalProduction $naturalProductions
+     * @param \Mera\AuditBundle\Entity\NaturalProduction $naturalProductions
      * @return Common
      */
     public function addNaturalProduction(\Mera\AuditBundle\Entity\NaturalProduction $naturalProductions)
@@ -978,7 +978,7 @@ class Common
     /**
      * Remove NaturalProductions
      *
-     * @param Mera\AuditBundle\Entity\NaturalProduction $naturalProductions
+     * @param \Mera\AuditBundle\Entity\NaturalProduction $naturalProductions
      */
     public function removeNaturalProduction(\Mera\AuditBundle\Entity\NaturalProduction $naturalProductions)
     {
@@ -988,7 +988,7 @@ class Common
     /**
      * Get NaturalProductions
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection 
      */
     public function getNaturalProductions()
     {
@@ -1003,7 +1003,7 @@ class Common
     /**
      * Add Transformators
      *
-     * @param Mera\AuditBundle\Entity\Transformator $transformators
+     * @param \Mera\AuditBundle\Entity\Transformator $transformators
      * @return Common
      */
     public function addTransformator(\Mera\AuditBundle\Entity\Transformator $transformators)
@@ -1016,7 +1016,7 @@ class Common
     /**
      * Remove Transformators
      *
-     * @param Mera\AuditBundle\Entity\Transformator $transformators
+     * @param \Mera\AuditBundle\Entity\Transformator $transformators
      */
     public function removeTransformator(\Mera\AuditBundle\Entity\Transformator $transformators)
     {
@@ -1026,7 +1026,7 @@ class Common
     /**
      * Add ConsumptionResources
      *
-     * @param Mera\AuditBundle\Entity\ConsumptionResource $consumptionResources
+     * @param \Mera\AuditBundle\Entity\ConsumptionResource $consumptionResources
      * @return Common
      */
     public function addConsumptionResource(\Mera\AuditBundle\Entity\ConsumptionResource $consumptionResources)
@@ -1039,7 +1039,7 @@ class Common
     /**
      * Remove ConsumptionResources
      *
-     * @param Mera\AuditBundle\Entity\ConsumptionResource $consumptionResources
+     * @param \Mera\AuditBundle\Entity\ConsumptionResource $consumptionResources
      */
     public function removeConsumptionResource(\Mera\AuditBundle\Entity\ConsumptionResource $consumptionResources)
     {
@@ -1049,7 +1049,7 @@ class Common
     /**
      * Get ConsumptionResources
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection 
      */
     public function getConsumptionResources()
     {

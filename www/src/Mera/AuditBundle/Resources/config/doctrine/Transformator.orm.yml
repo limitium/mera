@@ -25,9 +25,6 @@ Mera\AuditBundle\Entity\Transformator:
         Common:
             targetEntity: Mera\AuditBundle\Entity\Common
             inversedBy: Transformators
-            orphanRemoval: true
-            cascade:
-                - all
             joinColumns:
                 common_id:
                     referencedColumnName: id

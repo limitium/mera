@@ -26,9 +26,6 @@ Mera\AuditBundle\Entity\ConstructElement:
         Common:
             targetEntity: Mera\AuditBundle\Entity\Common
             inversedBy: ConstructElements
-            orphanRemoval: true
-            cascade:
-                - all
             joinColumns:
                 common_id:
                     referencedColumnName: id

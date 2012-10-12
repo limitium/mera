@@ -32,9 +32,6 @@ Mera\AuditBundle\Entity\Pipeline:
         Common:
             targetEntity: Mera\AuditBundle\Entity\Common
             inversedBy: Pipelines
-            orphanRemoval: true
-            cascade:
-                - all
             joinColumns:
                 common_id:
                     referencedColumnName: id

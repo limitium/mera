@@ -2,8 +2,7 @@
 SQLyog Ultimate - MySQL GUI v8.2 
 MySQL - 5.1.40-community : Database - mera
 *********************************************************************
-*/
-
+*/
 
 /*!40101 SET NAMES utf8 */;
 
@@ -37,7 +36,7 @@ CREATE TABLE `Building` (
   PRIMARY KEY (`id`),
   KEY `IDX_181903828DBC56F7` (`common_id`),
   CONSTRAINT `FK_181903828DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 
 /*Data for the table `Building` */
 
@@ -63,11 +62,11 @@ CREATE TABLE `Common` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_E2407567A7014910` (`facility_id`),
   CONSTRAINT `FK_E2407567A7014910` FOREIGN KEY (`facility_id`) REFERENCES `facility` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 /*Data for the table `Common` */
 
-insert  into `Common`(`id`,`facility_id`,`address_legal`,`address_actual`,`tin`,`cat`,`settlement_account`,`bic`,`bank_name`,`agrn`,`okved`,`okp`,`created`,`updated`) values (1,5,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2012-08-29 15:49:57','2012-08-29 15:49:57'),(2,6,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2012-09-04 17:47:39','2012-09-04 17:47:39');
+insert  into `Common`(`id`,`facility_id`,`address_legal`,`address_actual`,`tin`,`cat`,`settlement_account`,`bic`,`bank_name`,`agrn`,`okved`,`okp`,`created`,`updated`) values (8,12,'11',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2012-10-05 17:20:56','2012-10-05 17:20:56'),(9,13,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2012-10-12 11:32:32','2012-10-12 11:32:32');
 
 /*Table structure for table `ConstructElement` */
 
@@ -114,8 +113,8 @@ CREATE TABLE `ConsumedTariff` (
   PRIMARY KEY (`id`),
   KEY `IDX_1BF6458C98EC6B7B` (`resource_type_id`),
   KEY `IDX_1BF6458CF4DD454` (`Common_id`),
-  CONSTRAINT `FK_1BF6458CF4DD454` FOREIGN KEY (`Common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `FK_1BF6458C98EC6B7B` FOREIGN KEY (`resource_type_id`) REFERENCES `resourcetype` (`id`)
+  CONSTRAINT `FK_1BF6458C98EC6B7B` FOREIGN KEY (`resource_type_id`) REFERENCES `resourcetype` (`id`),
+  CONSTRAINT `FK_1BF6458CF4DD454` FOREIGN KEY (`Common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `ConsumedTariff` */
@@ -151,6 +150,26 @@ CREATE TABLE `ConsumptionMeterType` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `ConsumptionMeterType` */
+
+/*Table structure for table `ConsumptionResource` */
+
+DROP TABLE IF EXISTS `ConsumptionResource`;
+
+CREATE TABLE `ConsumptionResource` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `resource_type_id` int(11) NOT NULL,
+  `common_id` int(11) NOT NULL,
+  `year` int(11) DEFAULT NULL,
+  `physical_quantity` decimal(10,0) DEFAULT NULL,
+  `financial_quantity` decimal(10,0) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_CDD8DEA098EC6B7B` (`resource_type_id`),
+  KEY `IDX_CDD8DEA08DBC56F7` (`common_id`),
+  CONSTRAINT `FK_CDD8DEA08DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `FK_CDD8DEA098EC6B7B` FOREIGN KEY (`resource_type_id`) REFERENCES `resourcetype` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+/*Data for the table `ConsumptionResource` */
 
 /*Table structure for table `CourseType` */
 
@@ -240,11 +259,11 @@ CREATE TABLE `Facility` (
   UNIQUE KEY `UNIQ_E92FF6E45E237E06` (`name`),
   UNIQUE KEY `UNIQ_E92FF6E4A76ED395` (`user_id`),
   CONSTRAINT `FK_E92FF6E4A76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 /*Data for the table `Facility` */
 
-insert  into `Facility`(`id`,`user_id`,`name`) values (5,6,'asdqweqwed'),(6,1,'фывфывфывфывфыв');
+insert  into `Facility`(`id`,`user_id`,`name`) values (12,13,'РћР±СЉРµРєС‚ в„–1'),(13,14,'РћР±СЉРµРєС‚ в„–2');
 
 /*Table structure for table `File` */
 
@@ -303,7 +322,7 @@ CREATE TABLE `FuelType` (
 DROP TABLE IF EXISTS `FundsVolume`;
 
 CREATE TABLE `FundsVolume` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `year` int(11) DEFAULT NULL,
   `budget` int(11) DEFAULT NULL,
   `non_budget` int(11) DEFAULT NULL,
@@ -364,8 +383,8 @@ CREATE TABLE `NaturalProduction` (
   PRIMARY KEY (`id`),
   KEY `IDX_ECE3253F3DDA71A` (`dimention_type_id`),
   KEY `IDX_ECE3253FF4DD454` (`Common_id`),
-  CONSTRAINT `FK_ECE3253FF4DD454` FOREIGN KEY (`Common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `FK_ECE3253F3DDA71A` FOREIGN KEY (`dimention_type_id`) REFERENCES `dimentiontype` (`id`)
+  CONSTRAINT `FK_ECE3253F3DDA71A` FOREIGN KEY (`dimention_type_id`) REFERENCES `dimentiontype` (`id`),
+  CONSTRAINT `FK_ECE3253FF4DD454` FOREIGN KEY (`Common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `NaturalProduction` */
@@ -470,6 +489,25 @@ CREATE TABLE `Role` (
 
 /*Data for the table `Role` */
 
+/*Table structure for table `Transformator` */
+
+DROP TABLE IF EXISTS `Transformator`;
+
+CREATE TABLE `Transformator` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `year` int(11) DEFAULT NULL,
+  `quantity` int(11) DEFAULT NULL,
+  `individual_capacity` decimal(10,0) DEFAULT NULL,
+  `higher_voltage` decimal(10,0) DEFAULT NULL,
+  `installed_power` decimal(10,0) DEFAULT NULL,
+  `Common_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_59523BB1F4DD454` (`Common_id`),
+  CONSTRAINT `FK_59523BB1F4DD454` FOREIGN KEY (`Common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+/*Data for the table `Transformator` */
+
 /*Table structure for table `Transofrmator` */
 
 DROP TABLE IF EXISTS `Transofrmator`;
@@ -516,11 +554,11 @@ CREATE TABLE `User` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_2DA1797792FC23A8` (`username_canonical`),
   UNIQUE KEY `UNIQ_2DA17977A0D96FBF` (`email_canonical`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 /*Data for the table `User` */
 
-insert  into `User`(`id`,`username`,`password`,`username_canonical`,`email`,`email_canonical`,`enabled`,`salt`,`last_login`,`locked`,`expired`,`expires_at`,`confirmation_token`,`password_requested_at`,`roles`,`credentials_expired`,`credentials_expire_at`,`first_name`,`last_name`) values (1,'qwe@qwe.qwe','qweqwe','qwe@qwe.qwe','qwe@qwe.qwe','qwe@qwe.qwe',1,'','2012-09-21 17:30:18',0,0,NULL,NULL,NULL,'N;',0,NULL,NULL,NULL),(6,'qwe@qwe.qwewwww','b9cbfd31','qwe@qwe.qwewwww','qwe@qwe.qwewwww','qwe@qwe.qwewwww',1,'',NULL,0,0,NULL,NULL,NULL,'N;',0,NULL,NULL,NULL),(7,'asdasdas@qwdasd.asdasd','085d7421','asdasdas@qwdasd.asdasd','asdasdas@qwdasd.asdasd','asdasdas@qwdasd.asdasd',1,'',NULL,0,0,NULL,NULL,NULL,'N;',0,NULL,NULL,NULL);
+insert  into `User`(`id`,`username`,`password`,`username_canonical`,`email`,`email_canonical`,`enabled`,`salt`,`last_login`,`locked`,`expired`,`expires_at`,`confirmation_token`,`password_requested_at`,`roles`,`credentials_expired`,`credentials_expire_at`,`first_name`,`last_name`) values (13,'qwe@qwe.qwe','qweqwe123','qwe@qwe.qwe','qwe@qwe.qwe','qwe@qwe.qwe',1,'','2012-10-10 17:16:24',0,0,NULL,NULL,NULL,'a:0:{}',0,NULL,NULL,NULL),(14,'asdasdas@qwdasd.asdasd','811ad413','asdasdas@qwdasd.asdasd','asdasdas@qwdasd.asdasd','asdasdas@qwdasd.asdasd',1,'',NULL,0,0,NULL,NULL,NULL,'a:0:{}',0,NULL,NULL,NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

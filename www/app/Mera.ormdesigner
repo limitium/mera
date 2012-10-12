@@ -231,14 +231,14 @@
     <foreign-key caption="Facility Common" from="Common" inverse-alias="Facility" name="FK_Common_Facility_id" owning-alias="Common" to="Facility" visCaption1X="0" visCaption1Y="-2" visCenterX="0" visCenterY="0">
       <foreign-key-column from="facility_id" to="id"/>
       <orm-properties>
-        <attribute name="side-owning">
+        <attribute name="on-delete">CASCADE</attribute>
+        <attribute name="on-update">CASCADE</attribute>
+        <attribute name="side-inverse">
           <attribute name="orphan-removal">true</attribute>
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
         </attribute>
-        <attribute name="on-delete">CASCADE</attribute>
-        <attribute name="on-update">CASCADE</attribute>
       </orm-properties>
     </foreign-key>
     <foreign-key caption="Common Building" from="Building" inverse-alias="Common" name="FK_Building_Common_id" owning-alias="Buildings" to="Common" visCaption1X="-1" visCaption1Y="0" visCenterX="0" visCenterY="0">
@@ -246,7 +246,7 @@
       <orm-properties>
         <attribute name="on-delete">CASCADE</attribute>
         <attribute name="on-update">CASCADE</attribute>
-        <attribute name="side-owning">
+        <attribute name="side-inverse">
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
@@ -262,11 +262,11 @@
       <orm-properties>
         <attribute name="on-delete">CASCADE</attribute>
         <attribute name="on-update">CASCADE</attribute>
-        <attribute name="side-owning">
+        <attribute name="side-inverse">
+          <attribute name="orphan-removal">true</attribute>
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
-          <attribute name="orphan-removal">true</attribute>
         </attribute>
       </orm-properties>
     </foreign-key>
@@ -278,25 +278,25 @@
       <orm-properties>
         <attribute name="on-delete">CASCADE</attribute>
         <attribute name="on-update">CASCADE</attribute>
-        <attribute name="side-owning">
+        <attribute name="side-inverse">
+          <attribute name="orphan-removal">true</attribute>
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
-          <attribute name="orphan-removal">true</attribute>
         </attribute>
       </orm-properties>
     </foreign-key>
     <foreign-key caption="Common ElectroEquipment" from="ElectroEquipment" inverse-alias="Common" name="FK_ElectroEquipment_Common_id" owning-alias="ElectroEquipments" to="Common">
       <foreign-key-column from="common_id" to="id"/>
       <orm-properties>
-        <attribute name="side-owning">
+        <attribute name="on-delete">CASCADE</attribute>
+        <attribute name="on-update">CASCADE</attribute>
+        <attribute name="side-inverse">
+          <attribute name="orphan-removal">true</attribute>
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
-          <attribute name="orphan-removal">true</attribute>
         </attribute>
-        <attribute name="on-delete">CASCADE</attribute>
-        <attribute name="on-update">CASCADE</attribute>
       </orm-properties>
     </foreign-key>
     <foreign-key caption="ElectroEquipmentType ElectroEquipment" from="ElectroEquipment" inverse-alias="ElectroEquipmentType" name="FK_ElectroEquipment_ElectroEquipmentType_id" owning-alias="ElectroEquipments" to="ElectroEquipmentType">
@@ -307,7 +307,7 @@
       <orm-properties>
         <attribute name="on-delete">CASCADE</attribute>
         <attribute name="on-update">CASCADE</attribute>
-        <attribute name="side-owning">
+        <attribute name="side-inverse">
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
@@ -324,27 +324,27 @@
     <foreign-key caption="Common Pipeline" from="Pipeline" inverse-alias="Common" name="FK_Pipeline_Common_id" owning-alias="Pipelines" to="Common">
       <foreign-key-column from="common_id" to="id"/>
       <orm-properties>
-        <attribute name="side-owning">
+        <attribute name="on-delete">CASCADE</attribute>
+        <attribute name="on-update">CASCADE</attribute>
+        <attribute name="side-inverse">
+          <attribute name="orphan-removal">true</attribute>
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
-          <attribute name="orphan-removal">true</attribute>
         </attribute>
-        <attribute name="on-delete">CASCADE</attribute>
-        <attribute name="on-update">CASCADE</attribute>
       </orm-properties>
     </foreign-key>
     <foreign-key caption="Common FuelConsumption" from="FuelConsumption" inverse-alias="Common" name="FK_FuelConsumption_Common_id" owning-alias="FuelConsumptions" to="Common">
       <foreign-key-column from="common_id" to="id"/>
       <orm-properties>
-        <attribute name="side-owning">
+        <attribute name="on-delete">CASCADE</attribute>
+        <attribute name="on-update">CASCADE</attribute>
+        <attribute name="side-inverse">
+          <attribute name="orphan-removal">true</attribute>
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
-          <attribute name="orphan-removal">true</attribute>
         </attribute>
-        <attribute name="on-delete">CASCADE</attribute>
-        <attribute name="on-update">CASCADE</attribute>
       </orm-properties>
     </foreign-key>
     <foreign-key caption="FuelType FuelConsumption" from="FuelConsumption" inverse-alias="FuelType" name="FK_FuelConsumption_FuelType_id" owning-alias="FuelConsumptions" to="FuelType" visCaption1X="1" visCaption1Y="0" visCenterX="0" visCenterY="0">
@@ -353,14 +353,14 @@
     <foreign-key caption="Common ExecutivePerson" from="ExecutivePerson" inverse-alias="Common" name="FK_ExecutivePerson_Common_id" owning-alias="ExecutivePersons" to="Common">
       <foreign-key-column from="common_id" to="id"/>
       <orm-properties>
-        <attribute name="side-owning">
+        <attribute name="on-delete">CASCADE</attribute>
+        <attribute name="on-update">CASCADE</attribute>
+        <attribute name="side-inverse">
+          <attribute name="orphan-removal">true</attribute>
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
-          <attribute name="orphan-removal">true</attribute>
         </attribute>
-        <attribute name="on-delete">CASCADE</attribute>
-        <attribute name="on-update">CASCADE</attribute>
       </orm-properties>
     </foreign-key>
     <foreign-key caption="Common Personal" from="Personal" inverse-alias="Common" name="FK_Personal_Common_id" owning-alias="Personals" to="Common">
@@ -368,7 +368,7 @@
       <orm-properties>
         <attribute name="on-delete">CASCADE</attribute>
         <attribute name="on-update">CASCADE</attribute>
-        <attribute name="side-owning">
+        <attribute name="side-inverse">
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
@@ -379,30 +379,30 @@
     <foreign-key caption="CourseType Personal" from="Personal" inverse-alias="CourseType" name="FK_Personal_CourseType_id" owning-alias="Personals" to="CourseType">
       <foreign-key-column from="course_type_id" to="id"/>
     </foreign-key>
-    <foreign-key caption="Common File" from="File" inverse-alias="Common" name="FK_File_Common_id" owning-alias="Files" to="Common">
+    <foreign-key caption="Common File" from="File" inverse-alias="Common" name="FK_File_Common_id" owning-alias="Files" to="Common" visCaption1X="0" visCaption1Y="0" visCenterX="0" visCenterY="-1">
       <foreign-key-column from="common_id" to="id"/>
       <orm-properties>
         <attribute name="on-delete">CASCADE</attribute>
         <attribute name="on-update">CASCADE</attribute>
-        <attribute name="side-owning">
+        <attribute name="side-inverse">
+          <attribute name="orphan-removal">true</attribute>
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
-          <attribute name="orphan-removal">true</attribute>
         </attribute>
       </orm-properties>
     </foreign-key>
     <foreign-key caption="Common Transformator" from="Transformator" inverse-alias="Common" name="FK_Transformator_Common_id" owning-alias="Transformators" to="Common" visCaption1X="0" visCaption1Y="0" visCenterX="0" visCenterY="-1">
       <foreign-key-column from="common_id" to="id"/>
       <orm-properties>
-        <attribute name="side-owning">
+        <attribute name="on-update">CASCADE</attribute>
+        <attribute name="on-delete">CASCADE</attribute>
+        <attribute name="side-inverse">
           <attribute name="orphan-removal">true</attribute>
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
         </attribute>
-        <attribute name="on-update">CASCADE</attribute>
-        <attribute name="on-delete">CASCADE</attribute>
       </orm-properties>
     </foreign-key>
     <foreign-key caption="Common FundsVolume" from="FundsVolume" inverse-alias="Common" name="FK_FundsVolume_Common_id" owning-alias="FundsVolumes" to="Common">
@@ -410,11 +410,11 @@
       <orm-properties>
         <attribute name="on-delete">CASCADE</attribute>
         <attribute name="on-update">CASCADE</attribute>
-        <attribute name="side-owning">
+        <attribute name="side-inverse">
+          <attribute name="orphan-removal">true</attribute>
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
-          <attribute name="orphan-removal">true</attribute>
         </attribute>
       </orm-properties>
     </foreign-key>
@@ -423,11 +423,11 @@
       <orm-properties>
         <attribute name="on-delete">CASCADE</attribute>
         <attribute name="on-update">CASCADE</attribute>
-        <attribute name="side-owning">
+        <attribute name="side-inverse">
+          <attribute name="orphan-removal">true</attribute>
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
-          <attribute name="orphan-removal">true</attribute>
         </attribute>
       </orm-properties>
     </foreign-key>
@@ -439,7 +439,7 @@
       <orm-properties>
         <attribute name="on-delete">CASCADE</attribute>
         <attribute name="on-update">CASCADE</attribute>
-        <attribute name="side-owning">
+        <attribute name="side-inverse">
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
@@ -455,7 +455,7 @@
       <orm-properties>
         <attribute name="on-update">CASCADE</attribute>
         <attribute name="on-delete">CASCADE</attribute>
-        <attribute name="side-owning">
+        <attribute name="side-inverse">
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
@@ -471,7 +471,7 @@
       <orm-properties>
         <attribute name="on-delete">CASCADE</attribute>
         <attribute name="on-update">CASCADE</attribute>
-        <attribute name="side-owning">
+        <attribute name="side-inverse">
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
@@ -482,7 +482,7 @@
   </module>
 
   <module import-format="Doctrine2Yml" import-path="..\src\Mera\ManageBundle\Resources\config\doctrine\" name="ManageBundle" visBkColor="16317694" visSizeX="0" visSizeX2="404" visSizeY="6" visSizeY2="259">
-    <table name="Facility" visPositionX="203" visPositionY="162" visSizeX="0" visSizeX2="95" visSizeY="0" visSizeY2="59">
+    <table name="Facility" visPositionX="203" visPositionY="159" visSizeX="0" visSizeX2="95" visSizeY="0" visSizeY2="59">
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
       <column name="name" required="true" type="string" unique="true"/>
       <column name="user_id" required="true" type="integer" unique="true"/>
@@ -495,16 +495,16 @@
         <attribute name="table">User</attribute>
       </orm-properties>
     </table>
-    <foreign-key caption="User Facility" from="Facility" inverse-alias="User" name="FK_Facility_User_id" owning-alias="Facility" to="User" visCaption1X="1" visCaption1Y="-1" visCenterX="0" visCenterY="0">
+    <foreign-key caption="User Facility" from="Facility" inverse-alias="User" name="FK_Facility_User_id" owning-alias="Facility" to="User" visCaption1X="0" visCaption1Y="-2" visCenterX="0" visCenterY="0">
       <foreign-key-column from="user_id" to="id"/>
       <orm-properties>
         <attribute name="on-delete">CASCADE</attribute>
         <attribute name="on-update">CASCADE</attribute>
         <attribute name="side-owning">
+          <attribute name="orphan-removal">true</attribute>
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
-          <attribute name="orphan-removal">true</attribute>
         </attribute>
       </orm-properties>
     </foreign-key>

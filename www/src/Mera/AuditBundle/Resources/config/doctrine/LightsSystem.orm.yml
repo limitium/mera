@@ -31,9 +31,6 @@ Mera\AuditBundle\Entity\LightsSystem:
         Common:
             targetEntity: Mera\AuditBundle\Entity\Common
             inversedBy: LightsSystems
-            orphanRemoval: true
-            cascade:
-                - all
             joinColumns:
                 common_id:
                     referencedColumnName: id

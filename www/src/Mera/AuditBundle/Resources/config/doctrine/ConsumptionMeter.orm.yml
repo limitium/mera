@@ -26,9 +26,6 @@ Mera\AuditBundle\Entity\ConsumptionMeter:
         Common:
             targetEntity: Mera\AuditBundle\Entity\Common
             inversedBy: ConsumptionMeters
-            orphanRemoval: true
-            cascade:
-                - all
             joinColumns:
                 common_id:
                     referencedColumnName: id

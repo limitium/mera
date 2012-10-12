@@ -19,9 +19,6 @@ Mera\AuditBundle\Entity\ElectroEquipment:
         Common:
             targetEntity: Mera\AuditBundle\Entity\Common
             inversedBy: ElectroEquipments
-            orphanRemoval: true
-            cascade:
-                - all
             joinColumns:
                 common_id:
                     referencedColumnName: id

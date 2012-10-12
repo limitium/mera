@@ -28,9 +28,6 @@ Mera\AuditBundle\Entity\ExecutivePerson:
         Common:
             targetEntity: Mera\AuditBundle\Entity\Common
             inversedBy: ExecutivePersons
-            orphanRemoval: true
-            cascade:
-                - all
             joinColumns:
                 common_id:
                     referencedColumnName: id
