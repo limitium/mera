@@ -62,11 +62,11 @@ CREATE TABLE `Common` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_E2407567A7014910` (`facility_id`),
   CONSTRAINT `FK_E2407567A7014910` FOREIGN KEY (`facility_id`) REFERENCES `facility` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 /*Data for the table `Common` */
 
-insert  into `Common`(`id`,`facility_id`,`address_legal`,`address_actual`,`tin`,`cat`,`settlement_account`,`bic`,`bank_name`,`agrn`,`okved`,`okp`,`created`,`updated`) values (8,12,'11',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2012-10-05 17:20:56','2012-10-05 17:20:56'),(9,13,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2012-10-12 11:32:32','2012-10-12 11:32:32');
+insert  into `Common`(`id`,`facility_id`,`address_legal`,`address_actual`,`tin`,`cat`,`settlement_account`,`bic`,`bank_name`,`agrn`,`okved`,`okp`,`created`,`updated`) values (8,12,'11',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2012-10-05 17:20:56','2012-10-05 17:20:56'),(9,13,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2012-10-12 11:32:32','2012-10-12 11:32:32'),(10,14,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2012-10-15 17:34:50','2012-10-15 17:34:50');
 
 /*Table structure for table `ConstructElement` */
 
@@ -259,11 +259,11 @@ CREATE TABLE `Facility` (
   UNIQUE KEY `UNIQ_E92FF6E45E237E06` (`name`),
   UNIQUE KEY `UNIQ_E92FF6E4A76ED395` (`user_id`),
   CONSTRAINT `FK_E92FF6E4A76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 /*Data for the table `Facility` */
 
-insert  into `Facility`(`id`,`user_id`,`name`) values (12,13,'РћР±СЉРµРєС‚ в„–1'),(13,14,'РћР±СЉРµРєС‚ в„–2');
+insert  into `Facility`(`id`,`user_id`,`name`) values (12,13,'РћР±СЉРµРєС‚ в„–1'),(13,14,'РћР±СЉРµРєС‚ в„–2'),(14,15,'РћР±СЉРµРєС‚ в„–3');
 
 /*Table structure for table `File` */
 
@@ -554,11 +554,11 @@ CREATE TABLE `User` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_2DA1797792FC23A8` (`username_canonical`),
   UNIQUE KEY `UNIQ_2DA17977A0D96FBF` (`email_canonical`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 /*Data for the table `User` */
 
-insert  into `User`(`id`,`username`,`password`,`username_canonical`,`email`,`email_canonical`,`enabled`,`salt`,`last_login`,`locked`,`expired`,`expires_at`,`confirmation_token`,`password_requested_at`,`roles`,`credentials_expired`,`credentials_expire_at`,`first_name`,`last_name`) values (13,'qwe@qwe.qwe','qweqwe123','qwe@qwe.qwe','qwe@qwe.qwe','qwe@qwe.qwe',1,'','2012-10-10 17:16:24',0,0,NULL,NULL,NULL,'a:0:{}',0,NULL,NULL,NULL),(14,'asdasdas@qwdasd.asdasd','811ad413','asdasdas@qwdasd.asdasd','asdasdas@qwdasd.asdasd','asdasdas@qwdasd.asdasd',1,'',NULL,0,0,NULL,NULL,NULL,'a:0:{}',0,NULL,NULL,NULL);
+insert  into `User`(`id`,`username`,`password`,`username_canonical`,`email`,`email_canonical`,`enabled`,`salt`,`last_login`,`locked`,`expired`,`expires_at`,`confirmation_token`,`password_requested_at`,`roles`,`credentials_expired`,`credentials_expire_at`,`first_name`,`last_name`) values (13,'qwe@qwe.qwe','qweqwe123','qwe@qwe.qwe','qwe@qwe.qwe','qwe@qwe.qwe',1,'','2012-10-15 17:35:17',0,0,NULL,NULL,NULL,'a:0:{}',0,NULL,NULL,NULL),(14,'asdasdas@qwdasd.asdasd','811ad413','asdasdas@qwdasd.asdasd','asdasdas@qwdasd.asdasd','asdasdas@qwdasd.asdasd',1,'',NULL,0,0,NULL,NULL,NULL,'a:0:{}',0,NULL,NULL,NULL),(15,'qwe@qwe.qwe111','069cf67a','qwe@qwe.qwe111','qwe@qwe.qwe111','qwe@qwe.qwe111',1,'',NULL,0,0,NULL,NULL,NULL,'a:0:{}',0,NULL,NULL,NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
