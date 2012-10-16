@@ -4,22 +4,23 @@ Mera\AuditBundle\Entity\File:
     fields:
         id:
             id: true
+            type: integer
             generator:
                 strategy: AUTO
         name:
+            type: string
             nullable: false
-    manyToOne:
-        Common:
-            targetEntity: Mera\AuditBundle\Entity\Common
-            inversedBy: Files
-            joinColumns:
-                common_id:
-                    referencedColumnName: id
-                    nullable: false
-                    onDelete: CASCADE
-                    onUpdate: CASCADE
+        hash_name:
+            type: string
+            nullable: false
+        image_type:
+            type: string
+            nullable: true
+        size:
+            type: integer
+            nullable: true
     discriminatorColumn:
-        name: for
+        name: file_type
         length: 255
         type: text
     discriminatorMap:

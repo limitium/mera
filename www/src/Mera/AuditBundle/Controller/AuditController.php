@@ -8,7 +8,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Mera\AuditBundle\Entity\Building;
-use Mera\AuditBundle\Entity\FloorPlan;
 use Mera\AuditBundle\Classes\Uploader;
 use Mera\AuditBundle\Form\CommonType;
 use Symfony\Component\HttpFoundation\Response;
@@ -120,28 +119,34 @@ class AuditController extends Controller
      */
     public function uploadAction()
     {
-        $upload_handler = $this->getHandler();
+        $fileType = $this->getRequest()->get("file_type");
+        $fileClass = "Mera\\AuditBundle\\Entity\\" . $fileType;
+
+        $upload_handler = $this->getHandler($fileType);
         $upl = $upload_handler->post();
 
-//        $file = new FloorPlan();
-//        $file->setCommon($this->getCommon());
-//        $file->setName($upl[0]->hash);
-//
-//        $em = $this->getDoctrine()->getManager();
-//        $em->persist($file);
-//        $em->flush();
+        $file = new $fileClass();
+        $file->setCommon($this->getCommon());
+        $file->setName($upl[0]->name);
+        $file->setHashName($upl[0]->hash);
+        $file->setSize($upl[0]->size);
+        $file->setImageType($upl[0]->type);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($file);
+        $em->flush();
 
         return $this->getUploadResponse($upl);
     }
 
     /**
      * Detele image
-     * @Route("/file/{fileName}", name="audit_file_delete")
+     * @Route("/file/{fileType}/{fileName}", name="audit_file_delete")
      * @Method("DELETE")
      */
-    public function deleteUploadAction($fileName)
+    public function deleteUploadAction($fileType, $fileName)
     {
-        $upload_handler = $this->getHandler();
+        $upload_handler = $this->getHandler($fileType);
         $upl = $upload_handler->deleteFile($fileName);
         return $this->getUploadResponse($upl);
     }
@@ -158,16 +163,17 @@ class AuditController extends Controller
         return $response;
     }
 
-    private function getHandler()
+    private function getHandler($fileType)
     {
         $userId = $this->getCommon()->getFacility()->getUser()->getId();
         $options = array(
-            'upload_dir' => $this->getUploadDir(),
-            'upload_url' => $this->getRequest()->getBasePath() . "/img/scans/$userId/",
+            'file_type' => $fileType,
+            'upload_dir' => dirname($_SERVER['SCRIPT_FILENAME']) . "/img/scans/$userId/$fileType/",
+            'upload_url' => $this->getRequest()->getBasePath() . "/img/scans/$userId/$fileType/",
             'image_versions' => array(
                 'thumbnail' => array(
-                    'upload_url' => $this->getRequest()->getBasePath() . "/img/thumbnails/$userId/",
-                    'upload_dir' => $this->getThumbDir(),
+                    'upload_url' => $this->getRequest()->getBasePath() . "/img/thumbnails/$userId/$fileType/",
+                    'upload_dir' => dirname($_SERVER['SCRIPT_FILENAME']) . "/img/thumbnails/$userId/$fileType/",
                     'max_width' => 80,
                     'max_height' => 80
                 )
@@ -176,18 +182,6 @@ class AuditController extends Controller
         );
         $upload_handler = new Uploader($options);
         return $upload_handler;
-    }
-
-    private function getThumbDir()
-    {
-        $userId = $this->getCommon()->getFacility()->getUser()->getId();
-        return dirname($_SERVER['SCRIPT_FILENAME']) . "/img/thumbnails/$userId/";
-    }
-
-    private function getUploadDir()
-    {
-        $userId = $this->getCommon()->getFacility()->getUser()->getId();
-        return dirname($_SERVER['SCRIPT_FILENAME']) . "/img/scans/$userId/";
     }
 
     /**

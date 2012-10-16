@@ -1,3 +1,13 @@
 Mera\AuditBundle\Entity\VentilationSystem:
     type: entity
     fields: null
+    manyToOne:
+        Common:
+            targetEntity: Mera\AuditBundle\Entity\Common
+            inversedBy: VentilationSystems
+            joinColumns:
+                common_id:
+                    referencedColumnName: id
+                    nullable: false
+                    onDelete: CASCADE
+                    onUpdate: CASCADE

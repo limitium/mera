@@ -80,4 +80,89 @@ class File
     {
         return $this->Common;
     }
+
+    /**
+     * @var string $hash_name
+     */
+    private $hash_name;
+
+
+    /**
+     * Set hash_name
+     *
+     * @param string $hashName
+     * @return File
+     */
+    public function setHashName($hashName)
+    {
+        $this->hash_name = $hashName;
+    
+        return $this;
+    }
+
+    /**
+     * Get hash_name
+     *
+     * @return string 
+     */
+    public function getHashName()
+    {
+        return $this->hash_name;
+    }
+    /**
+     * @var string $image_type
+     */
+    private $image_type;
+
+    /**
+     * @var integer $size
+     */
+    private $size;
+
+
+    /**
+     * Set image_type
+     *
+     * @param string $imageType
+     * @return File
+     */
+    public function setImageType($imageType)
+    {
+        $this->image_type = $imageType;
+    
+        return $this;
+    }
+
+    /**
+     * Get image_type
+     *
+     * @return string 
+     */
+    public function getImageType()
+    {
+        return $this->image_type;
+    }
+
+    /**
+     * Set size
+     *
+     * @param integer $size
+     * @return File
+     */
+    public function setSize($size)
+    {
+        $this->size = $size;
+    
+        return $this;
+    }
+
+    /**
+     * Get size
+     *
+     * @return integer 
+     */
+    public function getSize()
+    {
+        return $this->size;
+    }
 }

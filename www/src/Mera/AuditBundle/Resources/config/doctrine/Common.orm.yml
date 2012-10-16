@@ -107,8 +107,36 @@ Mera\AuditBundle\Entity\Common:
             orphanRemoval: true
             cascade:
                 - all
-        Files:
-            targetEntity: Mera\AuditBundle\Entity\File
+        FloorPlans:
+            targetEntity: Mera\AuditBundle\Entity\FloorPlan
+            mappedBy: Common
+            orphanRemoval: true
+            cascade:
+                - all
+        HeatingSystems:
+            targetEntity: Mera\AuditBundle\Entity\HeatingSystem
+            mappedBy: Common
+            orphanRemoval: true
+            cascade:
+                - all
+        VentilationSystems:
+            targetEntity: Mera\AuditBundle\Entity\VentilationSystem
+            mappedBy: Common
+            orphanRemoval: true
+            cascade:
+                - all
+        EnergySavingPrograms:
+            targetEntity: Mera\AuditBundle\Entity\EnergySavingProgram
+            mappedBy: Common
+            orphanRemoval: true
+            cascade:
+                - all
+        EnergySavingMeasures:
+            targetEntity: Mera\AuditBundle\Entity\EnergySavingMeasure
+            mappedBy: Common
+            orphanRemoval: true
+        PowerCircuits:
+            targetEntity: Mera\AuditBundle\Entity\PowerCircuit
             mappedBy: Common
             orphanRemoval: true
             cascade:
@@ -139,6 +167,12 @@ Mera\AuditBundle\Entity\Common:
                 - all
         NaturalProductions:
             targetEntity: Mera\AuditBundle\Entity\NaturalProduction
+            mappedBy: Common
+            orphanRemoval: true
+            cascade:
+                - all
+        SupplyContracts:
+            targetEntity: Mera\AuditBundle\Entity\SupplyContract
             mappedBy: Common
             orphanRemoval: true
             cascade:

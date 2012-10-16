@@ -7,7 +7,7 @@
   </project>
 
   <module import-format="Doctrine2Yml" import-path="..\src\Mera\AuditBundle\Resources\config\doctrine\" name="AuditBundle" visBkColor="16380404" visSizeX="0" visSizeX2="1240" visSizeY="60" visSizeY2="929">
-    <table description="1.Общие сведения по предприятию (учреждению)" name="Common" visPositionX="29" visPositionY="-8" visSizeX="0" visSizeX2="142" visSizeY="0" visSizeY2="185">
+    <table description="1.Общие сведения по предприятию (учреждению)" name="Common" visPositionX="21" visPositionY="-35" visSizeX="0" visSizeX2="142" visSizeY="0" visSizeY2="213">
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
       <column name="address_legal" type="string"/>
       <column name="address_actual" type="string"/>
@@ -148,29 +148,37 @@
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
       <column name="name" required="true" type="string"/>
     </table>
-    <table name="File" visPositionX="17" visPositionY="684" visSizeX="0" visSizeX2="113" visSizeY="0" visSizeY2="73">
-      <column auto-increment="true" name="id" primary="true" required="true"/>
-      <column name="name" required="true"/>
-      <column name="common_id" required="true" type="integer"/>
-      <column name="for" required="true" size="255" type="text"/>
-      <inheritance-parent discriminator-column="for" type="SINGLE_TABLE"/>
+    <table name="File" visPositionX="16" visPositionY="660" visSizeX="0" visSizeX2="111" visSizeY="0" visSizeY2="101">
+      <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
+      <column name="name" required="true" type="string"/>
+      <column name="hash_name" required="true" type="string"/>
+      <column name="image_type" type="string"/>
+      <column name="size" type="integer"/>
+      <column name="file_type" required="true" size="255" type="text"/>
+      <inheritance-parent discriminator-column="file_type" type="SINGLE_TABLE"/>
     </table>
-    <table name="FloorPlan" visPositionX="17" visPositionY="874" visSizeX="0" visSizeX2="56" visSizeY="0" visSizeY2="20">
+    <table name="FloorPlan" visPositionX="3" visPositionY="886" visSizeX="0" visSizeX2="115" visSizeY="0" visSizeY2="31">
+      <column name="common_id" required="true" type="integer"/>
       <inheritance-child derived-from="File" discriminator-value="FloorPlan"/>
     </table>
-    <table name="HeatingSystem" visPositionX="22" visPositionY="839" visSizeX="0" visSizeX2="78" visSizeY="0" visSizeY2="20">
+    <table name="HeatingSystem" visPositionX="40" visPositionY="846" visSizeX="0" visSizeX2="115" visSizeY="0" visSizeY2="31">
+      <column name="common_id" required="true" type="integer"/>
       <inheritance-child derived-from="File" discriminator-value="HeatingSystem"/>
     </table>
-    <table name="VentilationSystem" visPositionX="21" visPositionY="800" visSizeX="0" visSizeX2="92" visSizeY="0" visSizeY2="20">
+    <table name="VentilationSystem" visPositionX="57" visPositionY="801" visSizeX="0" visSizeX2="115" visSizeY="0" visSizeY2="31">
+      <column name="common_id" required="true" type="integer"/>
       <inheritance-child derived-from="File" discriminator-value="VentilationSystem"/>
     </table>
-    <table name="EnergySavingProgram" visPositionX="126" visPositionY="876" visSizeX="0" visSizeX2="113" visSizeY="0" visSizeY2="20">
+    <table name="EnergySavingProgram" visPositionX="161" visPositionY="880" visSizeX="0" visSizeX2="115" visSizeY="0" visSizeY2="31">
+      <column name="common_id" required="true" type="integer"/>
       <inheritance-child derived-from="File" discriminator-value="EnergySavingProgram"/>
     </table>
-    <table name="EnergySavingMeasure" visPositionX="127" visPositionY="835" visSizeX="0" visSizeX2="116" visSizeY="0" visSizeY2="20">
+    <table name="EnergySavingMeasure" visPositionX="174" visPositionY="834" visSizeX="0" visSizeX2="115" visSizeY="0" visSizeY2="31">
+      <column name="common_id" required="true" type="integer"/>
       <inheritance-child derived-from="File" discriminator-value="EnergySavingMeasure"/>
     </table>
-    <table name="PowerCircuit" visPositionX="127" visPositionY="799" visSizeX="0" visSizeX2="75" visSizeY="0" visSizeY2="20">
+    <table name="PowerCircuit" visPositionX="190" visPositionY="796" visSizeX="0" visSizeX2="115" visSizeY="0" visSizeY2="31">
+      <column name="common_id" required="true" type="integer"/>
       <inheritance-child derived-from="File" discriminator-value="PowerCircuit"/>
     </table>
     <table name="Transformator" visPositionX="472" visPositionY="794" visSizeX="0" visSizeX2="149" visSizeY="0" visSizeY2="115">
@@ -217,7 +225,8 @@
       <column name="id" primary="true" required="true" type="integer"/>
       <column name="name" required="true" type="string"/>
     </table>
-    <table name="SupplyContract" visPositionX="235" visPositionY="800" visSizeX="0" visSizeX2="20" visSizeY="0" visSizeY2="20">
+    <table name="SupplyContract" visPositionX="219" visPositionY="751" visSizeX="0" visSizeX2="115" visSizeY="0" visSizeY2="31">
+      <column name="common_id" required="true" type="integer"/>
       <inheritance-child derived-from="File" discriminator-value="SupplyContract"/>
     </table>
     <table name="ConsumptionResource" visPositionX="327" visPositionY="795" visSizeX="0" visSizeX2="143" visSizeY="0" visSizeY2="87">
@@ -379,17 +388,80 @@
     <foreign-key caption="CourseType Personal" from="Personal" inverse-alias="CourseType" name="FK_Personal_CourseType_id" owning-alias="Personals" to="CourseType">
       <foreign-key-column from="course_type_id" to="id"/>
     </foreign-key>
-    <foreign-key caption="Common File" from="File" inverse-alias="Common" name="FK_File_Common_id" owning-alias="Files" to="Common" visCaption1X="0" visCaption1Y="0" visCenterX="0" visCenterY="-1">
+    <foreign-key caption="Common FloorPlan" from="FloorPlan" inverse-alias="Common" name="FK_FloorPlan_Common_id" owning-alias="FloorPlans" to="Common">
       <foreign-key-column from="common_id" to="id"/>
       <orm-properties>
-        <attribute name="on-delete">CASCADE</attribute>
-        <attribute name="on-update">CASCADE</attribute>
         <attribute name="side-inverse">
           <attribute name="orphan-removal">true</attribute>
           <attribute name="cascade">
             <attribute name="cascade-all">true</attribute>
           </attribute>
         </attribute>
+        <attribute name="on-delete">CASCADE</attribute>
+        <attribute name="on-update">CASCADE</attribute>
+      </orm-properties>
+    </foreign-key>
+    <foreign-key caption="Common HeatingSystem" from="HeatingSystem" inverse-alias="Common" name="FK_HeatingSystem_Common_id" owning-alias="HeatingSystems" to="Common">
+      <foreign-key-column from="common_id" to="id"/>
+      <orm-properties>
+        <attribute name="side-inverse">
+          <attribute name="orphan-removal">true</attribute>
+          <attribute name="cascade">
+            <attribute name="cascade-all">true</attribute>
+          </attribute>
+        </attribute>
+        <attribute name="on-update">CASCADE</attribute>
+        <attribute name="on-delete">CASCADE</attribute>
+      </orm-properties>
+    </foreign-key>
+    <foreign-key caption="Common VentilationSystem" from="VentilationSystem" inverse-alias="Common" name="FK_VentilationSystem_Common_id" owning-alias="VentilationSystems" to="Common">
+      <foreign-key-column from="common_id" to="id"/>
+      <orm-properties>
+        <attribute name="side-inverse">
+          <attribute name="orphan-removal">true</attribute>
+          <attribute name="cascade">
+            <attribute name="cascade-all">true</attribute>
+          </attribute>
+        </attribute>
+        <attribute name="on-delete">CASCADE</attribute>
+        <attribute name="on-update">CASCADE</attribute>
+      </orm-properties>
+    </foreign-key>
+    <foreign-key caption="Common EnergySavingProgram" from="EnergySavingProgram" inverse-alias="Common" name="FK_EnergySavingProgram_Common_id" owning-alias="EnergySavingPrograms" to="Common">
+      <foreign-key-column from="common_id" to="id"/>
+      <orm-properties>
+        <attribute name="side-inverse">
+          <attribute name="orphan-removal">true</attribute>
+          <attribute name="cascade">
+            <attribute name="cascade-all">true</attribute>
+          </attribute>
+        </attribute>
+        <attribute name="on-update">CASCADE</attribute>
+        <attribute name="on-delete">CASCADE</attribute>
+      </orm-properties>
+    </foreign-key>
+    <foreign-key caption="Common EnergySavingMeasure" from="EnergySavingMeasure" inverse-alias="Common" name="FK_EnergySavingMeasure_Common_id" owning-alias="EnergySavingMeasures" to="Common">
+      <foreign-key-column from="common_id" to="id"/>
+      <orm-properties>
+        <attribute name="side-inverse">
+          <attribute name="orphan-removal">true</attribute>
+          <attribute name="fetch">LAZY</attribute>
+        </attribute>
+        <attribute name="on-update">CASCADE</attribute>
+        <attribute name="on-delete">CASCADE</attribute>
+      </orm-properties>
+    </foreign-key>
+    <foreign-key caption="Common PowerCircuit" from="PowerCircuit" inverse-alias="Common" name="FK_PowerCircuit_Common_id" owning-alias="PowerCircuits" to="Common">
+      <foreign-key-column from="common_id" to="id"/>
+      <orm-properties>
+        <attribute name="side-inverse">
+          <attribute name="orphan-removal">true</attribute>
+          <attribute name="cascade">
+            <attribute name="cascade-all">true</attribute>
+          </attribute>
+        </attribute>
+        <attribute name="on-update">CASCADE</attribute>
+        <attribute name="on-delete">CASCADE</attribute>
       </orm-properties>
     </foreign-key>
     <foreign-key caption="Common Transformator" from="Transformator" inverse-alias="Common" name="FK_Transformator_Common_id" owning-alias="Transformators" to="Common" visCaption1X="0" visCaption1Y="0" visCenterX="0" visCenterY="-1">
@@ -463,10 +535,23 @@
         </attribute>
       </orm-properties>
     </foreign-key>
+    <foreign-key caption="Common SupplyContract" from="SupplyContract" inverse-alias="Common" name="FK_SupplyContract_Common_id" owning-alias="SupplyContracts" to="Common">
+      <foreign-key-column from="common_id" to="id"/>
+      <orm-properties>
+        <attribute name="side-inverse">
+          <attribute name="orphan-removal">true</attribute>
+          <attribute name="cascade">
+            <attribute name="cascade-all">true</attribute>
+          </attribute>
+        </attribute>
+        <attribute name="on-update">CASCADE</attribute>
+        <attribute name="on-delete">CASCADE</attribute>
+      </orm-properties>
+    </foreign-key>
     <foreign-key caption="ResourceType СonsumptionResource" from="ConsumptionResource" inverse-alias="ResourceType" name="FK_СonsumptionResource_ResourceType_id" owning-alias="СonsumptionResources" to="ResourceType" visCaption1X="0" visCaption1Y="-1" visCenterX="1" visCenterY="0">
       <foreign-key-column from="resource_type_id" to="id"/>
     </foreign-key>
-    <foreign-key caption="Common СonsumptionResource" from="ConsumptionResource" inverse-alias="Common" name="FK_СonsumptionResource_Common_id" owning-alias="ConsumptionResources" to="Common" visCaption1X="0" visCaption1Y="0" visCenterX="0" visCenterY="1">
+    <foreign-key caption="Common СonsumptionResource" from="ConsumptionResource" inverse-alias="Common" name="FK_СonsumptionResource_Common_id" owning-alias="ConsumptionResources" to="Common" visCaption1X="0" visCaption1Y="0" visCenterX="0" visCenterY="0">
       <foreign-key-column from="common_id" to="id"/>
       <orm-properties>
         <attribute name="on-delete">CASCADE</attribute>

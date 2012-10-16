@@ -1,3 +1,13 @@
 Mera\AuditBundle\Entity\PowerCircuit:
     type: entity
     fields: null
+    manyToOne:
+        Common:
+            targetEntity: Mera\AuditBundle\Entity\Common
+            inversedBy: PowerCircuits
+            joinColumns:
+                common_id:
+                    referencedColumnName: id
+                    nullable: false
+                    onDelete: CASCADE
+                    onUpdate: CASCADE

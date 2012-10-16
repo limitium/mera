@@ -41,8 +41,18 @@
     <table class="table table-striped" role="presentation">
         <tbody data-target="#modal-gallery" data-toggle="modal-gallery" class="files"></tbody>
     </table>
+    <input type="hidden" name="file_type" value="{{ block('collapseId') }}">
 </form>
-
+<script>
+    if(typeof Mera =='undefined'){
+        Mera={};
+        if(typeof Mera.files =='undefined'){
+            Mera.files={};
+        }
+    }
+    {% block filesData %}
+    {% endblock %}
+</script>
 {% raw %}
 <!-- The template to display files available for upload -->
 <script id="template-upload" type="text/x-tmpl">

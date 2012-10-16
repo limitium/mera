@@ -33,7 +33,7 @@ class Uploader extends UploadHandler
         $file->url = $this->options['upload_url'] . rawurlencode($file->hash);
         $file->thumbnail_url = $this->options['image_versions']['thumbnail']['upload_url'] . rawurlencode($file->hash);
 
-        $file->delete_url = $this->options['router']->generate('audit_file_delete', array('fileName' => $file->hash));
+        $file->delete_url = $this->options['router']->generate('audit_file_delete', array('fileName' => $file->hash,'fileType'=>$this->options['file_type']));
         return $file;
     }
 
