@@ -3,22 +3,6 @@
     Поэтажный план здания
 {% endblock %}
 {% block collapseId %}FloorPlan{% endblock %}
-{% block filesData %}
-    Mera.files.FloorPlan=[
-    {% for file in common.getFloorPlans() %}
-        {
-        name: "{{ file.name }}",
-        size: "{{ file.size }}",
-        type: "",
-        url: "",
-        thumbnail_url: "",
-        delete_url: "",
-        delete_type: "DELETE",
-        hash: "{{ file.hash }}",
-        }
-    {% if not loop.last %},{% endif %}
-    {% endfor %}
-    ];
-{% endblock %}
+{% set files = common.getFloorPlans() %}
 
 

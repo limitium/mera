@@ -124,13 +124,14 @@ class AuditController extends Controller
 
         $upload_handler = $this->getHandler($fileType);
         $upl = $upload_handler->post();
+        $uplResp = $upl[0];
 
         $file = new $fileClass();
         $file->setCommon($this->getCommon());
-        $file->setName($upl[0]->name);
-        $file->setHashName($upl[0]->hash);
-        $file->setSize($upl[0]->size);
-        $file->setImageType($upl[0]->type);
+        $file->setName($uplResp->name);
+        $file->setHashName($uplResp->hash);
+        $file->setSize($uplResp->size);
+        $file->setImageType($uplResp->type);
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($file);

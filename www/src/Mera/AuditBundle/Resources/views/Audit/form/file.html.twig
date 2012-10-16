@@ -50,8 +50,21 @@
             Mera.files={};
         }
     }
-    {% block filesData %}
-    {% endblock %}
+    Mera.files.{{block('collapseId')}}=[
+        {% for file in files %}
+        {
+            name: "{{ file.name }}",
+            size: "{{ file.size }}",
+            type: "{{ file.imageType }}",
+            url: "{{app.request.baseurl}}/img/scans/{{ app.user.id }}/{{block('collapseId')}}/{{ file.hashName }}",
+            thumbnail_url: "{{app.request.baseurl}}/img/thumbnails/{{ app.user.id }}/{{block('collapseId')}}/{{ file.hashName }}",
+            delete_url: "{{ path('audit_file_delete', { 'fileType': block('collapseId'),'fileName':file.hashName }) }}",
+            delete_type: "DELETE",
+            hash: "{{ file.hashName }}",
+        }
+        {% if not loop.last %},{% endif %}
+        {% endfor %}
+    ];
 </script>
 {% raw %}
 <!-- The template to display files available for upload -->
