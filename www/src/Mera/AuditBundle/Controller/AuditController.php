@@ -101,7 +101,7 @@ class AuditController extends Controller
             foreach ($relatedObjects as $toDelete) {
                 $remove = "remove" . substr($collection, 0, -1);
                 $common->$remove($toDelete);
-                $toDelete->setCommon(null);
+//                $toDelete->setCommon(null);
             }
         }
 
@@ -147,8 +147,20 @@ class AuditController extends Controller
      */
     public function deleteUploadAction($fileType, $fileName)
     {
+        $em = $this->getDoctrine()->getManager();
+        $file = $em->getRepository('MeraAuditBundle:' . $fileType)->findOneBy(array('hash_name'=>$fileName));
+        if (!$file) {
+            throw $this->createNotFoundException('Unable to find File entity.');
+        }
+
         $upload_handler = $this->getHandler($fileType);
         $upl = $upload_handler->deleteFile($fileName);
+
+        if ($upl == "true") {
+//            $file->setCommon(null);
+            $em->remove($file);
+            $em->flush();
+        }
         return $this->getUploadResponse($upl);
     }
 
