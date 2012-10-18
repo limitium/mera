@@ -29,7 +29,6 @@ $(document).ready(function () {
         return false;
     });
     $(".next").click(function () {
-        console.log(this)
         var but = $(this);
         but.closest(".collapse").collapse("hide");
         but.closest(".accordion-group").next().children(".collapse").collapse("show");

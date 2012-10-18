@@ -1,20 +1,13 @@
 $(document).ready(function () {
 
-    // Initialize the jQuery File Upload widget:
-    $('#fileupload').fileupload();
+    $('.fileupload').each(function () {
+        var uploader = $(this);
+        uploader.fileupload({
+            dropZone: uploader
+        });
 
-    // Enable iframe cross-domain access via redirect option:
-    $('#fileupload').fileupload(
-        'option',
-        'redirect',
-        window.location.href.replace(
-            /\/[^\/]*$/,
-            '/cors/result.html?%s'
-        )
-    );
-
-    $('#fileupload').each(function () {
-        $(this).fileupload('option', 'done')
-            .call(this, null, {result:Mera.files[ $(this).data("type")]});
+        uploader.fileupload('option', 'done')
+            .call(this, null, {result:Mera.files[ uploader.data("type")]});
     });
+
 });
