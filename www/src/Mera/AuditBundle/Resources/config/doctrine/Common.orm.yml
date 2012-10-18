@@ -183,3 +183,6 @@ Mera\AuditBundle\Entity\Common:
             orphanRemoval: true
             cascade:
                 - all
+        ChangeLogs:
+            targetEntity: Mera\AuditBundle\Entity\ChangeLog
+            mappedBy: Common

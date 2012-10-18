@@ -1321,4 +1321,42 @@ class Common
     {
         return $this->SupplyContracts;
     }
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     */
+    private $ChangeLogs;
+
+
+    /**
+     * Add ChangeLogs
+     *
+     * @param Mera\AuditBundle\Entity\ChangeLog $changeLogs
+     * @return Common
+     */
+    public function addChangeLog(\Mera\AuditBundle\Entity\ChangeLog $changeLogs)
+    {
+        $this->ChangeLogs[] = $changeLogs;
+    
+        return $this;
+    }
+
+    /**
+     * Remove ChangeLogs
+     *
+     * @param Mera\AuditBundle\Entity\ChangeLog $changeLogs
+     */
+    public function removeChangeLog(\Mera\AuditBundle\Entity\ChangeLog $changeLogs)
+    {
+        $this->ChangeLogs->removeElement($changeLogs);
+    }
+
+    /**
+     * Get ChangeLogs
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getChangeLogs()
+    {
+        return $this->ChangeLogs;
+    }
 }

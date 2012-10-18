@@ -237,6 +237,14 @@
       <column name="resource_type_id" required="true" type="integer"/>
       <column name="common_id" required="true" type="integer"/>
     </table>
+    <table name="ChangeLog" visPositionX="1113" visPositionY="-53" visSizeX="0" visSizeX2="113" visSizeY="0" visSizeY2="73">
+      <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
+      <column name="first_name" required="true" type="string"/>
+      <column name="last_name" required="true" type="string"/>
+      <column name="event" required="true" type="string"/>
+      <column name="event_data" type="string"/>
+      <column name="common_id" required="true" type="integer"/>
+    </table>
     <foreign-key caption="Facility Common" from="Common" inverse-alias="Facility" name="FK_Common_Facility_id" owning-alias="Common" to="Facility" visCaption1X="0" visCaption1Y="-2" visCenterX="0" visCenterY="0">
       <foreign-key-column from="facility_id" to="id"/>
       <orm-properties>
@@ -563,6 +571,9 @@
           <attribute name="orphan-removal">true</attribute>
         </attribute>
       </orm-properties>
+    </foreign-key>
+    <foreign-key caption="Common ChangeLog" from="ChangeLog" inverse-alias="Common" name="FK_ChangeLog_Common_id" owning-alias="ChangeLogs" to="Common">
+      <foreign-key-column from="common_id" to="id"/>
     </foreign-key>
   </module>
 
