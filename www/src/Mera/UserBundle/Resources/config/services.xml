@@ -4,17 +4,14 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--
     <parameters>
-        <parameter key="mera_user.example.class">Mera\UserBundle\Example</parameter>
+        <parameter key="mera.security.interactive_login_listener.class">Mera\UserBundle\Listener\InteractiveLoginListener</parameter>
     </parameters>
 
     <services>
-        <service id="mera_user.example" class="%mera_user.example.class%">
-            <argument type="service" id="service_id" />
-            <argument>plain_value</argument>
-            <argument>%parameter_name%</argument>
+        <service id="mera.security.interactive_login_listener" class="%mera.security.interactive_login_listener.class%">
+            <argument type="service" id="fos_user.user_manager" />
+            <tag name="kernel.event_listener" event="security.interactive_login" method="onSecurityInteractiveLogin" />
         </service>
     </services>
-    -->
 </container>
