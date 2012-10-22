@@ -10,6 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Mera\AuditBundle\Entity\Building;
 use Mera\AuditBundle\Classes\Uploader;
 use Mera\AuditBundle\Form\CommonType;
+use Mera\AuditBundle\Event\CommonUpdateEvent;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -108,6 +109,7 @@ class AuditController extends Controller
         $em->persist($common);
         $em->flush();
 
+        $this->container->get("event_dispatcher")->dispatch("audit.common_update", new CommonUpdateEvent($common, "update", "tratata"));
 
         return $this->redirect($this->generateUrl('audit'));
     }
@@ -148,7 +150,7 @@ class AuditController extends Controller
     public function deleteUploadAction($fileType, $fileName)
     {
         $em = $this->getDoctrine()->getManager();
-        $file = $em->getRepository('MeraAuditBundle:' . $fileType)->findOneBy(array('hash_name'=>$fileName));
+        $file = $em->getRepository('MeraAuditBundle:' . $fileType)->findOneBy(array('hash_name' => $fileName));
         if (!$file) {
             throw $this->createNotFoundException('Unable to find File entity.');
         }
