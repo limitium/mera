@@ -41,7 +41,7 @@ Mera\AuditBundle\Entity\Common:
             nullable: false
         updated:
             type: datetime
-            nullable: false
+            nullable: true
     oneToOne:
         Facility:
             targetEntity: Mera\ManageBundle\Entity\Facility

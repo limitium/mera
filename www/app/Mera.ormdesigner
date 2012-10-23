@@ -7,7 +7,7 @@
   </project>
 
   <module import-format="Doctrine2Yml" import-path="..\src\Mera\AuditBundle\Resources\config\doctrine\" name="AuditBundle" visBkColor="16380404" visSizeX="0" visSizeX2="1240" visSizeY="60" visSizeY2="929">
-    <table description="1.Общие сведения по предприятию (учреждению)" name="Common" visPositionX="21" visPositionY="-35" visSizeX="0" visSizeX2="142" visSizeY="0" visSizeY2="213">
+    <table description="1.Общие сведения по предприятию (учреждению)" name="Common" visPositionX="21" visPositionY="-36" visSizeX="0" visSizeX2="142" visSizeY="0" visSizeY2="213">
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
       <column name="address_legal" type="string"/>
       <column name="address_actual" type="string"/>
@@ -21,7 +21,7 @@
       <column name="okp" type="string"/>
       <column name="facility_id" required="true" type="integer" unique="true"/>
       <column name="created" required="true" type="datetime"/>
-      <column name="updated" required="true" type="datetime"/>
+      <column name="updated" type="datetime"/>
     </table>
     <table description="3.Технические характеристики зданий (для каждого здания)" name="Building" visPositionX="14" visPositionY="255" visSizeX="0" visSizeX2="155" visSizeY="0" visSizeY2="213">
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
@@ -237,12 +237,13 @@
       <column name="resource_type_id" required="true" type="integer"/>
       <column name="common_id" required="true" type="integer"/>
     </table>
-    <table name="ChangeLog" visPositionX="1113" visPositionY="-53" visSizeX="0" visSizeX2="113" visSizeY="0" visSizeY2="73">
+    <table name="ChangeLog" visPositionX="1113" visPositionY="-54" visSizeX="0" visSizeX2="113" visSizeY="0" visSizeY2="101">
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
       <column name="first_name" required="true" type="string"/>
       <column name="last_name" required="true" type="string"/>
-      <column name="event" required="true" type="string"/>
-      <column name="event_data" type="string"/>
+      <column name="action" required="true" type="string"/>
+      <column name="action_data" type="string"/>
+      <column name="created" required="true" type="datetime"/>
       <column name="common_id" required="true" type="integer"/>
     </table>
     <foreign-key caption="Facility Common" from="Common" inverse-alias="Facility" name="FK_Common_Facility_id" owning-alias="Common" to="Facility" visCaption1X="0" visCaption1Y="-2" visCenterX="0" visCenterY="0">

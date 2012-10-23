@@ -97,52 +97,6 @@ class ChangeLog
     }
 
     /**
-     * Set event
-     *
-     * @param string $event
-     * @return ChangeLog
-     */
-    public function setEvent($event)
-    {
-        $this->event = $event;
-    
-        return $this;
-    }
-
-    /**
-     * Get event
-     *
-     * @return string 
-     */
-    public function getEvent()
-    {
-        return $this->event;
-    }
-
-    /**
-     * Set event_data
-     *
-     * @param string $eventData
-     * @return ChangeLog
-     */
-    public function setEventData($eventData)
-    {
-        $this->event_data = $eventData;
-    
-        return $this;
-    }
-
-    /**
-     * Get event_data
-     *
-     * @return string 
-     */
-    public function getEventData()
-    {
-        return $this->event_data;
-    }
-
-    /**
      * Set Common
      *
      * @param Mera\AuditBundle\Entity\Common $common
@@ -163,5 +117,89 @@ class ChangeLog
     public function getCommon()
     {
         return $this->Common;
+    }
+    /**
+     * @var string $action
+     */
+    private $action;
+
+    /**
+     * @var string $action_data
+     */
+    private $action_data;
+
+    /**
+     * @var \DateTime $created
+     */
+    private $created;
+
+
+    /**
+     * Set action
+     *
+     * @param string $action
+     * @return ChangeLog
+     */
+    public function setAction($action)
+    {
+        $this->action = $action;
+    
+        return $this;
+    }
+
+    /**
+     * Get action
+     *
+     * @return string 
+     */
+    public function getAction()
+    {
+        return $this->action;
+    }
+
+    /**
+     * Set action_data
+     *
+     * @param string $actionData
+     * @return ChangeLog
+     */
+    public function setActionData($actionData)
+    {
+        $this->action_data = $actionData;
+    
+        return $this;
+    }
+
+    /**
+     * Get action_data
+     *
+     * @return string 
+     */
+    public function getActionData()
+    {
+        return $this->action_data;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return ChangeLog
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+    
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
     }
 }

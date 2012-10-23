@@ -35,6 +35,7 @@ class AuditController extends Controller
 
         $form = $this->createForm(new CommonType(), $common);
 
+        $this->container->get("event_dispatcher")->dispatch("audit.common_update", new CommonUpdateEvent($common, "open"));
         return array(
             'common' => $common,
             'form' => $form->createView(),
@@ -61,12 +62,12 @@ class AuditController extends Controller
             "ConstructElements",
             "ConsumptionMeters",
             "ElectroEquipments",
-            "FuelConsumptions",
             "LightsSystems",
             "Pipelines",
             "FuelConsumptions",
             "ExecutivePersons",
             "Personals",
+            "ConsumptionResources",
 
             "Transformators",
             "FundsVolumes",
@@ -102,14 +103,13 @@ class AuditController extends Controller
             foreach ($relatedObjects as $toDelete) {
                 $remove = "remove" . substr($collection, 0, -1);
                 $common->$remove($toDelete);
-//                $toDelete->setCommon(null);
             }
         }
 
         $em->persist($common);
         $em->flush();
 
-        $this->container->get("event_dispatcher")->dispatch("audit.common_update", new CommonUpdateEvent($common, "update", "tratata"));
+        $this->container->get("event_dispatcher")->dispatch("audit.common_update", new CommonUpdateEvent($common, "update"));
 
         return $this->redirect($this->generateUrl('audit'));
     }
@@ -128,8 +128,10 @@ class AuditController extends Controller
         $upl = $upload_handler->post();
         $uplResp = $upl[0];
 
+        $common = $this->getCommon();
+
         $file = new $fileClass();
-        $file->setCommon($this->getCommon());
+        $file->setCommon($common);
         $file->setName($uplResp->name);
         $file->setHashName($uplResp->hash);
         $file->setSize($uplResp->size);
@@ -138,6 +140,8 @@ class AuditController extends Controller
         $em = $this->getDoctrine()->getManager();
         $em->persist($file);
         $em->flush();
+
+        $this->container->get("event_dispatcher")->dispatch("audit.common_update", new CommonUpdateEvent($common, "add file", $uplResp->name));
 
         return $this->getUploadResponse($upl);
     }
@@ -159,12 +163,15 @@ class AuditController extends Controller
         $upl = $upload_handler->deleteFile($fileName);
 
         if ($upl == "true") {
-//            $file->setCommon(null);
             $em->remove($file);
             $em->flush();
+
+            $this->container->get("event_dispatcher")->dispatch("audit.common_update", new CommonUpdateEvent($this->getCommon(), "delete file", $file->getName()));
         }
+
         return $this->getUploadResponse($upl);
     }
+
 
     private function getUploadResponse($upl)
     {

@@ -20,13 +20,20 @@ class CommonUpdateListener
 
     public function onCommonUpdate(CommonUpdateEvent $event)
     {
-        $change = new ChangeLog();
-        $change->setEvent($event->getAction());
-        $change->setEventData($event->getActionData());
-        $change->setCommon($event->getCommon());
-        $change->setFirstName($event->getCommon()->getFacility()->getUser()->getFirstName());
-        $change->setLastName($event->getCommon()->getFacility()->getUser()->getLastName());
+        $common = $event->getCommon();
+        $updateTime = new \DateTime();
 
+        $change = new ChangeLog();
+        $change->setAction($event->getAction());
+        $change->setActionData($event->getActionData());
+        $change->setCommon($common);
+        $change->setFirstName($common->getFacility()->getUser()->getFirstName());
+        $change->setLastName($common->getFacility()->getUser()->getLastName());
+        $change->setCreated($updateTime);
+
+        $common->setUpdated($updateTime);
+
+        $this->em->persist($common);
         $this->em->persist($change);
         $this->em->flush();
     }

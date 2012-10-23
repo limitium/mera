@@ -12,12 +12,15 @@ Mera\AuditBundle\Entity\ChangeLog:
         last_name:
             type: string
             nullable: false
-        event:
+        action:
             type: string
             nullable: false
-        event_data:
+        action_data:
             type: string
             nullable: true
+        created:
+            type: datetime
+            nullable: false
     manyToOne:
         Common:
             targetEntity: Mera\AuditBundle\Entity\Common

@@ -10,7 +10,7 @@ class CommonUpdateEvent extends Event
     protected $action;
     protected $actionData;
 
-    public function __construct(Common $common, $action, $actionData)
+    public function __construct(Common $common, $action, $actionData = "")
     {
         $this->common = $common;
         $this->action = $action;

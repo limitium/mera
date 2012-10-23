@@ -1094,7 +1094,7 @@ class Common
     /**
      * Add FloorPlans
      *
-     * @param Mera\AuditBundle\Entity\FloorPlan $floorPlans
+     * @param \Mera\AuditBundle\Entity\FloorPlan $floorPlans
      * @return Common
      */
     public function addFloorPlan(\Mera\AuditBundle\Entity\FloorPlan $floorPlans)
@@ -1107,7 +1107,7 @@ class Common
     /**
      * Remove FloorPlans
      *
-     * @param Mera\AuditBundle\Entity\FloorPlan $floorPlans
+     * @param \Mera\AuditBundle\Entity\FloorPlan $floorPlans
      */
     public function removeFloorPlan(\Mera\AuditBundle\Entity\FloorPlan $floorPlans)
     {
@@ -1117,7 +1117,7 @@ class Common
     /**
      * Get FloorPlans
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getFloorPlans()
     {
@@ -1127,7 +1127,7 @@ class Common
     /**
      * Add HeatingSystems
      *
-     * @param Mera\AuditBundle\Entity\HeatingSystem $heatingSystems
+     * @param \Mera\AuditBundle\Entity\HeatingSystem $heatingSystems
      * @return Common
      */
     public function addHeatingSystem(\Mera\AuditBundle\Entity\HeatingSystem $heatingSystems)
@@ -1140,7 +1140,7 @@ class Common
     /**
      * Remove HeatingSystems
      *
-     * @param Mera\AuditBundle\Entity\HeatingSystem $heatingSystems
+     * @param \Mera\AuditBundle\Entity\HeatingSystem $heatingSystems
      */
     public function removeHeatingSystem(\Mera\AuditBundle\Entity\HeatingSystem $heatingSystems)
     {
@@ -1150,7 +1150,7 @@ class Common
     /**
      * Get HeatingSystems
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getHeatingSystems()
     {
@@ -1160,7 +1160,7 @@ class Common
     /**
      * Add VentilationSystems
      *
-     * @param Mera\AuditBundle\Entity\VentilationSystem $ventilationSystems
+     * @param \Mera\AuditBundle\Entity\VentilationSystem $ventilationSystems
      * @return Common
      */
     public function addVentilationSystem(\Mera\AuditBundle\Entity\VentilationSystem $ventilationSystems)
@@ -1173,7 +1173,7 @@ class Common
     /**
      * Remove VentilationSystems
      *
-     * @param Mera\AuditBundle\Entity\VentilationSystem $ventilationSystems
+     * @param \Mera\AuditBundle\Entity\VentilationSystem $ventilationSystems
      */
     public function removeVentilationSystem(\Mera\AuditBundle\Entity\VentilationSystem $ventilationSystems)
     {
@@ -1183,7 +1183,7 @@ class Common
     /**
      * Get VentilationSystems
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getVentilationSystems()
     {
@@ -1193,7 +1193,7 @@ class Common
     /**
      * Add EnergySavingPrograms
      *
-     * @param Mera\AuditBundle\Entity\EnergySavingProgram $energySavingPrograms
+     * @param \Mera\AuditBundle\Entity\EnergySavingProgram $energySavingPrograms
      * @return Common
      */
     public function addEnergySavingProgram(\Mera\AuditBundle\Entity\EnergySavingProgram $energySavingPrograms)
@@ -1206,7 +1206,7 @@ class Common
     /**
      * Remove EnergySavingPrograms
      *
-     * @param Mera\AuditBundle\Entity\EnergySavingProgram $energySavingPrograms
+     * @param \Mera\AuditBundle\Entity\EnergySavingProgram $energySavingPrograms
      */
     public function removeEnergySavingProgram(\Mera\AuditBundle\Entity\EnergySavingProgram $energySavingPrograms)
     {
@@ -1216,7 +1216,7 @@ class Common
     /**
      * Get EnergySavingPrograms
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getEnergySavingPrograms()
     {
@@ -1226,7 +1226,7 @@ class Common
     /**
      * Add EnergySavingMeasures
      *
-     * @param Mera\AuditBundle\Entity\EnergySavingMeasure $energySavingMeasures
+     * @param \Mera\AuditBundle\Entity\EnergySavingMeasure $energySavingMeasures
      * @return Common
      */
     public function addEnergySavingMeasure(\Mera\AuditBundle\Entity\EnergySavingMeasure $energySavingMeasures)
@@ -1239,7 +1239,7 @@ class Common
     /**
      * Remove EnergySavingMeasures
      *
-     * @param Mera\AuditBundle\Entity\EnergySavingMeasure $energySavingMeasures
+     * @param \Mera\AuditBundle\Entity\EnergySavingMeasure $energySavingMeasures
      */
     public function removeEnergySavingMeasure(\Mera\AuditBundle\Entity\EnergySavingMeasure $energySavingMeasures)
     {
@@ -1249,7 +1249,7 @@ class Common
     /**
      * Get EnergySavingMeasures
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getEnergySavingMeasures()
     {
@@ -1259,7 +1259,7 @@ class Common
     /**
      * Add PowerCircuits
      *
-     * @param Mera\AuditBundle\Entity\PowerCircuit $powerCircuits
+     * @param \Mera\AuditBundle\Entity\PowerCircuit $powerCircuits
      * @return Common
      */
     public function addPowerCircuit(\Mera\AuditBundle\Entity\PowerCircuit $powerCircuits)
@@ -1272,7 +1272,7 @@ class Common
     /**
      * Remove PowerCircuits
      *
-     * @param Mera\AuditBundle\Entity\PowerCircuit $powerCircuits
+     * @param \Mera\AuditBundle\Entity\PowerCircuit $powerCircuits
      */
     public function removePowerCircuit(\Mera\AuditBundle\Entity\PowerCircuit $powerCircuits)
     {
@@ -1282,7 +1282,7 @@ class Common
     /**
      * Get PowerCircuits
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getPowerCircuits()
     {
@@ -1292,7 +1292,7 @@ class Common
     /**
      * Add SupplyContracts
      *
-     * @param Mera\AuditBundle\Entity\SupplyContract $supplyContracts
+     * @param \Mera\AuditBundle\Entity\SupplyContract $supplyContracts
      * @return Common
      */
     public function addSupplyContract(\Mera\AuditBundle\Entity\SupplyContract $supplyContracts)
@@ -1305,7 +1305,7 @@ class Common
     /**
      * Remove SupplyContracts
      *
-     * @param Mera\AuditBundle\Entity\SupplyContract $supplyContracts
+     * @param \Mera\AuditBundle\Entity\SupplyContract $supplyContracts
      */
     public function removeSupplyContract(\Mera\AuditBundle\Entity\SupplyContract $supplyContracts)
     {
@@ -1315,7 +1315,7 @@ class Common
     /**
      * Get SupplyContracts
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getSupplyContracts()
     {
@@ -1330,7 +1330,7 @@ class Common
     /**
      * Add ChangeLogs
      *
-     * @param Mera\AuditBundle\Entity\ChangeLog $changeLogs
+     * @param \Mera\AuditBundle\Entity\ChangeLog $changeLogs
      * @return Common
      */
     public function addChangeLog(\Mera\AuditBundle\Entity\ChangeLog $changeLogs)
@@ -1343,7 +1343,7 @@ class Common
     /**
      * Remove ChangeLogs
      *
-     * @param Mera\AuditBundle\Entity\ChangeLog $changeLogs
+     * @param \Mera\AuditBundle\Entity\ChangeLog $changeLogs
      */
     public function removeChangeLog(\Mera\AuditBundle\Entity\ChangeLog $changeLogs)
     {
@@ -1353,7 +1353,7 @@ class Common
     /**
      * Get ChangeLogs
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getChangeLogs()
     {
