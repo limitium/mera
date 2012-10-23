@@ -111,6 +111,8 @@ class AuditController extends Controller
 
         $this->container->get("event_dispatcher")->dispatch("audit.common_update", new CommonUpdateEvent($common, "update"));
 
+        $this->get('session')->getFlashBag()->add('notice', 'Изменения сохранены.');
+
         return $this->redirect($this->generateUrl('audit'));
     }
 

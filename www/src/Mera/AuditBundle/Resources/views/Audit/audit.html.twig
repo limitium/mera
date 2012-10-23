@@ -38,14 +38,17 @@
         <div class="span12">
             <h2>Опросный лист ({{ common.facility.name }})</h2>
 
+            {% if app.session.hasFlash('notice') %}
+                <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    {{ app.session.flash('notice') }}
+                </div>
+            {% endif %}
+
             <div class="btn-toolbar">
-                <div class="btn-group">
-                    <button id="audit-save" class="btn"><i class="icon-edit"></i> Сохранить</button>
-                    <button id="audit-check" class="btn"><i class="icon-check""></i>
-                        Проверить
-                    </button>
-                    <button id="audit-send" class="btn"><i class="icon-share"></i>
-                        Отправить
+                <div class="btn-group pull-right">
+                    <button id="audit-send" class="btn btn-primary btn-large"><i class="icon-share icon-white"></i>
+                        Закрыть аудит
                     </button>
                 </div>
             </div>
@@ -58,6 +61,15 @@
 
             <div class="tab-content">
                 <div class="tab-pane active" id="audit-data">
+                    <div class="btn-toolbar">
+                        <div class="btn-group">
+                            <button id="audit-save" class="btn"><i class="icon-edit"></i> Сохранить</button>
+                            <button id="audit-check" class="btn"><i class="icon-check""></i>
+                                Проверить
+                            </button>
+                        </div>
+                    </div>
+
                     <form id="audit-form" action="{{ path('audit_save') }}" method="post" {{ form_enctype(form) }}>
                         <div class="accordion" id="accordion-data">
                             {% include 'MeraAuditBundle:Audit:form/items/common.html.twig' %}
@@ -83,7 +95,7 @@
 
                         </div>
                         {{ form_rest(form) }}
-                        <input id="submiter" class="hide" type="submit" value="submiter" />
+                        <input id="submiter" class="hide" type="submit" value="submiter"/>
                     </form>
                 </div>
                 <div class="tab-pane active hide" id="audit-files">
