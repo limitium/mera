@@ -73,15 +73,7 @@ class Common
      * @var \Doctrine\Common\Collections\ArrayCollection
      */
     private $Buildings;
-    /**
-     * @var datetime $created
-     */
-    private $created;
 
-    /**
-     * @var datetime $updated
-     */
-    private $updated;
 
     /**
      * Constructor
@@ -407,56 +399,6 @@ class Common
         return $this->Buildings;
     }
 
-    /**
-     * Set created
-     *
-     * @param \DateTime $created
-     * @return Common
-     */
-    public
-    function setCreated($created)
-    {
-        $this->created = $created;
-
-        return $this;
-    }
-
-    /**
-     * Get created
-     *
-     * @return \DateTime
-     */
-    public
-    function getCreated()
-    {
-        return $this->created;
-    }
-
-    /**
-     * Set updated
-     *
-     * @param \DateTime $updated
-     * @return Common
-     */
-    public
-    function setUpdated($updated)
-    {
-        $this->updated = $updated;
-
-        return $this;
-    }
-
-    /**
-     * Get updated
-     *
-     * @return \DateTime
-     */
-    public
-    function getUpdated()
-    {
-        return $this->updated;
-    }
-
     function __toString()
     {
         return $this->getFacility()->getName();
@@ -766,6 +708,7 @@ class Common
     {
         return $this->Personals;
     }
+
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
      */
@@ -806,7 +749,7 @@ class Common
     public function addFile(\Mera\AuditBundle\Entity\File $files)
     {
         $this->Files[] = $files;
-    
+
         return $this;
     }
 
@@ -823,7 +766,7 @@ class Common
     /**
      * Get Files
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getFiles()
     {
@@ -839,7 +782,7 @@ class Common
     public function addTransofrmator(\Mera\AuditBundle\Entity\Transformator $transformators)
     {
         $this->Transformators[] = $transformators;
-    
+
         return $this;
     }
 
@@ -856,7 +799,7 @@ class Common
     /**
      * Get Transformators
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getTransformators()
     {
@@ -872,7 +815,7 @@ class Common
     public function addFundsVolume(\Mera\AuditBundle\Entity\FundsVolume $fundsVolumes)
     {
         $this->FundsVolumes[] = $fundsVolumes;
-    
+
         return $this;
     }
 
@@ -889,7 +832,7 @@ class Common
     /**
      * Get FundsVolumes
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getFundsVolumes()
     {
@@ -905,7 +848,7 @@ class Common
     public function addPersonalQuantity(\Mera\AuditBundle\Entity\PersonalQuantity $personalQuantitys)
     {
         $this->PersonalQuantitys[] = $personalQuantitys;
-    
+
         return $this;
     }
 
@@ -922,7 +865,7 @@ class Common
     /**
      * Get PersonalQuantitys
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getPersonalQuantitys()
     {
@@ -938,7 +881,7 @@ class Common
     public function addConsumedTariff(\Mera\AuditBundle\Entity\ConsumedTariff $consumedTariffs)
     {
         $this->ConsumedTariffs[] = $consumedTariffs;
-    
+
         return $this;
     }
 
@@ -955,7 +898,7 @@ class Common
     /**
      * Get ConsumedTariffs
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getConsumedTariffs()
     {
@@ -971,7 +914,7 @@ class Common
     public function addNaturalProduction(\Mera\AuditBundle\Entity\NaturalProduction $naturalProductions)
     {
         $this->NaturalProductions[] = $naturalProductions;
-    
+
         return $this;
     }
 
@@ -988,12 +931,13 @@ class Common
     /**
      * Get NaturalProductions
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getNaturalProductions()
     {
         return $this->NaturalProductions;
     }
+
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
      */
@@ -1009,7 +953,7 @@ class Common
     public function addTransformator(\Mera\AuditBundle\Entity\Transformator $transformators)
     {
         $this->Transformators[] = $transformators;
-    
+
         return $this;
     }
 
@@ -1032,7 +976,7 @@ class Common
     public function addConsumptionResource(\Mera\AuditBundle\Entity\ConsumptionResource $consumptionResources)
     {
         $this->ConsumptionResources[] = $consumptionResources;
-    
+
         return $this;
     }
 
@@ -1049,12 +993,13 @@ class Common
     /**
      * Get ConsumptionResources
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getConsumptionResources()
     {
         return $this->ConsumptionResources;
     }
+
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
      */
@@ -1100,7 +1045,7 @@ class Common
     public function addFloorPlan(\Mera\AuditBundle\Entity\FloorPlan $floorPlans)
     {
         $this->FloorPlans[] = $floorPlans;
-    
+
         return $this;
     }
 
@@ -1133,7 +1078,7 @@ class Common
     public function addHeatingSystem(\Mera\AuditBundle\Entity\HeatingSystem $heatingSystems)
     {
         $this->HeatingSystems[] = $heatingSystems;
-    
+
         return $this;
     }
 
@@ -1166,7 +1111,7 @@ class Common
     public function addVentilationSystem(\Mera\AuditBundle\Entity\VentilationSystem $ventilationSystems)
     {
         $this->VentilationSystems[] = $ventilationSystems;
-    
+
         return $this;
     }
 
@@ -1199,7 +1144,7 @@ class Common
     public function addEnergySavingProgram(\Mera\AuditBundle\Entity\EnergySavingProgram $energySavingPrograms)
     {
         $this->EnergySavingPrograms[] = $energySavingPrograms;
-    
+
         return $this;
     }
 
@@ -1232,7 +1177,7 @@ class Common
     public function addEnergySavingMeasure(\Mera\AuditBundle\Entity\EnergySavingMeasure $energySavingMeasures)
     {
         $this->EnergySavingMeasures[] = $energySavingMeasures;
-    
+
         return $this;
     }
 
@@ -1265,7 +1210,7 @@ class Common
     public function addPowerCircuit(\Mera\AuditBundle\Entity\PowerCircuit $powerCircuits)
     {
         $this->PowerCircuits[] = $powerCircuits;
-    
+
         return $this;
     }
 
@@ -1298,7 +1243,7 @@ class Common
     public function addSupplyContract(\Mera\AuditBundle\Entity\SupplyContract $supplyContracts)
     {
         $this->SupplyContracts[] = $supplyContracts;
-    
+
         return $this;
     }
 
@@ -1321,42 +1266,5 @@ class Common
     {
         return $this->SupplyContracts;
     }
-    /**
-     * @var \Doctrine\Common\Collections\ArrayCollection
-     */
-    private $ChangeLogs;
 
-
-    /**
-     * Add ChangeLogs
-     *
-     * @param \Mera\AuditBundle\Entity\ChangeLog $changeLogs
-     * @return Common
-     */
-    public function addChangeLog(\Mera\AuditBundle\Entity\ChangeLog $changeLogs)
-    {
-        $this->ChangeLogs[] = $changeLogs;
-    
-        return $this;
-    }
-
-    /**
-     * Remove ChangeLogs
-     *
-     * @param \Mera\AuditBundle\Entity\ChangeLog $changeLogs
-     */
-    public function removeChangeLog(\Mera\AuditBundle\Entity\ChangeLog $changeLogs)
-    {
-        $this->ChangeLogs->removeElement($changeLogs);
-    }
-
-    /**
-     * Get ChangeLogs
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getChangeLogs()
-    {
-        return $this->ChangeLogs;
-    }
 }

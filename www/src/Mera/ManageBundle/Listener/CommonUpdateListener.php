@@ -1,7 +1,7 @@
 <?php
-namespace Mera\AuditBundle\Listener;
+namespace Mera\ManageBundle\Listener;
 
-use Mera\AuditBundle\Entity\ChangeLog;
+use Mera\ManageBundle\Entity\ChangeLog;
 use Mera\AuditBundle\Event\CommonUpdateEvent;
 use Doctrine\ORM\EntityManager;
 
@@ -20,21 +20,22 @@ class CommonUpdateListener
 
     public function onCommonUpdate(CommonUpdateEvent $event)
     {
-        $common = $event->getCommon();
+        $facility = $event->getCommon()->getFacility();
         $updateTime = new \DateTime();
 
         $change = new ChangeLog();
         $change->setAction($event->getAction());
         $change->setActionData($event->getActionData());
-        $change->setCommon($common);
-        $change->setFirstName($common->getFacility()->getUser()->getFirstName());
-        $change->setLastName($common->getFacility()->getUser()->getLastName());
+        $change->setFacility($facility);
+        $change->setFirstName($facility->getUser()->getFirstName());
+        $change->setLastName($facility->getUser()->getLastName());
         $change->setCreated($updateTime);
 
-        $common->setUpdated($updateTime);
+        $facility->setUpdated($updateTime);
 
-        $this->em->persist($common);
+        $this->em->persist($facility);
         $this->em->persist($change);
+
         $this->em->flush();
     }
 }

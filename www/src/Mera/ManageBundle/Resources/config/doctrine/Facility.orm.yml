@@ -10,6 +10,18 @@ Mera\ManageBundle\Entity\Facility:
             type: string
             unique: true
             nullable: false
+        created:
+            type: datetime
+            nullable: false
+        updated:
+            type: datetime
+            nullable: true
+        done:
+            type: datetime
+            nullable: true
+        closed:
+            type: datetime
+            nullable: true
     oneToOne:
         User:
             targetEntity: Mera\ManageBundle\Entity\User
@@ -29,3 +41,7 @@ Mera\ManageBundle\Entity\Facility:
             orphanRemoval: true
             cascade:
                 - all
+    oneToMany:
+        ChangeLogs:
+            targetEntity: Mera\ManageBundle\Entity\ChangeLog
+            mappedBy: Facility

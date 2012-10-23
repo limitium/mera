@@ -20,5 +20,27 @@
             <dt>Пароль:</dt>
             <dd>{{ entity.user.password }}</dd>
         </dl>
+
+        <h4>Лог изменений</h4>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Время</th>
+                <th>Пользователь</th>
+                <th>Действие</th>
+                <th>Доп. информация</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for log in entity.changeLogs|reverse %}
+                <tr>
+                    <td>{{ log.created|date("d.m.Y H:i") }}</td>
+                    <td>{{ log.firstName }} {{ log.lastName }}</td>
+                    <td>{{ log.action }} </td>
+                    <td>{{ log.actionData }} </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
     </div>
 {% endblock %}

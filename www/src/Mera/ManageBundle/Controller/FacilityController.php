@@ -97,6 +97,8 @@ class FacilityController extends Controller
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
 
+            $facility->setCreated(new \DateTime('now'));
+
             $this->generateObjects($facility);
 
             $em->persist($facility);
@@ -123,7 +125,6 @@ class FacilityController extends Controller
 
         $common = new Common();
         $common->setFacility($facility);
-        $common->setCreated(new \DateTime('now'));
 
         $facility->setCommon($common);
     }

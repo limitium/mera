@@ -1,11 +1,11 @@
 <?php
 
-namespace Mera\AuditBundle\Entity;
+namespace Mera\ManageBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Mera\AuditBundle\Entity\ChangeLog
+ * Mera\ManageBundle\Entity\ChangeLog
  */
 class ChangeLog
 {
@@ -25,19 +25,24 @@ class ChangeLog
     private $last_name;
 
     /**
-     * @var string $event
+     * @var string $action
      */
-    private $event;
+    private $action;
 
     /**
-     * @var string $event_data
+     * @var string $action_data
      */
-    private $event_data;
+    private $action_data;
 
     /**
-     * @var Mera\AuditBundle\Entity\Common
+     * @var \DateTime $created
      */
-    private $Common;
+    private $created;
+
+    /**
+     * @var Mera\ManageBundle\Entity\Facility
+     */
+    private $Facility;
 
 
     /**
@@ -95,44 +100,6 @@ class ChangeLog
     {
         return $this->last_name;
     }
-
-    /**
-     * Set Common
-     *
-     * @param Mera\AuditBundle\Entity\Common $common
-     * @return ChangeLog
-     */
-    public function setCommon(\Mera\AuditBundle\Entity\Common $common)
-    {
-        $this->Common = $common;
-    
-        return $this;
-    }
-
-    /**
-     * Get Common
-     *
-     * @return Mera\AuditBundle\Entity\Common 
-     */
-    public function getCommon()
-    {
-        return $this->Common;
-    }
-    /**
-     * @var string $action
-     */
-    private $action;
-
-    /**
-     * @var string $action_data
-     */
-    private $action_data;
-
-    /**
-     * @var \DateTime $created
-     */
-    private $created;
-
 
     /**
      * Set action
@@ -201,5 +168,28 @@ class ChangeLog
     public function getCreated()
     {
         return $this->created;
+    }
+
+    /**
+     * Set Facility
+     *
+     * @param Mera\ManageBundle\Entity\Facility $facility
+     * @return ChangeLog
+     */
+    public function setFacility(\Mera\ManageBundle\Entity\Facility $facility)
+    {
+        $this->Facility = $facility;
+    
+        return $this;
+    }
+
+    /**
+     * Get Facility
+     *
+     * @return Mera\ManageBundle\Entity\Facility 
+     */
+    public function getFacility()
+    {
+        return $this->Facility;
     }
 }

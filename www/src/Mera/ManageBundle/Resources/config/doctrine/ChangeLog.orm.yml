@@ -1,4 +1,4 @@
-Mera\AuditBundle\Entity\ChangeLog:
+Mera\ManageBundle\Entity\ChangeLog:
     type: entity
     fields:
         id:
@@ -22,10 +22,10 @@ Mera\AuditBundle\Entity\ChangeLog:
             type: datetime
             nullable: false
     manyToOne:
-        Common:
-            targetEntity: Mera\AuditBundle\Entity\Common
+        Facility:
+            targetEntity: Mera\ManageBundle\Entity\Facility
             inversedBy: ChangeLogs
             joinColumns:
-                common_id:
+                facility_id:
                     referencedColumnName: id
                     nullable: false

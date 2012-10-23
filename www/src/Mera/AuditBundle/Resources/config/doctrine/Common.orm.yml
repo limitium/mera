@@ -36,12 +36,6 @@ Mera\AuditBundle\Entity\Common:
         okp:
             type: string
             nullable: true
-        created:
-            type: datetime
-            nullable: false
-        updated:
-            type: datetime
-            nullable: true
     oneToOne:
         Facility:
             targetEntity: Mera\ManageBundle\Entity\Facility
@@ -183,6 +177,3 @@ Mera\AuditBundle\Entity\Common:
             orphanRemoval: true
             cascade:
                 - all
-        ChangeLogs:
-            targetEntity: Mera\AuditBundle\Entity\ChangeLog
-            mappedBy: Common
