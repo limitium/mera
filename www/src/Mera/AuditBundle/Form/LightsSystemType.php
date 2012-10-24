@@ -18,7 +18,7 @@ class LightsSystemType extends AbstractType
             ->add('energy_save_quantity',null,array('label'=>'Энергосберегающие кол-во'))
             ->add('energy_save_power',null,array('label'=>'Энергосберегающие мощность'))
             ->add('work_duration',null,array('label'=>'Продолжительность работы'))
-            ->add('LightsSystemPlace',null,array('label'=>'Помещение'))
+            ->add('LightsPlaceType',null,array('label'=>'Помещение'))
         ;
     }
 

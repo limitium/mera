@@ -36,6 +36,33 @@ Mera\AuditBundle\Entity\Common:
         okp:
             type: string
             nullable: true
+        lead_name:
+            type: string
+            nullable: true
+        lead_contact:
+            type: string
+            nullable: true
+        lead_position:
+            type: string
+            nullable: true
+        tech_name:
+            type: string
+            nullable: true
+        tech_contact:
+            type: string
+            nullable: true
+        tech_position:
+            type: string
+            nullable: true
+        energy_name:
+            type: string
+            nullable: true
+        energy_contact:
+            type: string
+            nullable: true
+        energy_position:
+            type: string
+            nullable: true
     oneToOne:
         Facility:
             targetEntity: Mera\ManageBundle\Entity\Facility

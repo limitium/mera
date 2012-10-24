@@ -54,10 +54,6 @@ class LightsSystem
      */
     private $Common;
 
-    /**
-     * @var Mera\AuditBundle\Entity\LightsSystemPlace
-     */
-    private $LightsSystemPlace;
 
 
     /**
@@ -255,25 +251,31 @@ class LightsSystem
     }
 
     /**
-     * Set LightsSystemPlace
+     * @var Mera\AuditBundle\Entity\LightsPlaceType
+     */
+    private $LightsPlaceType;
+
+
+    /**
+     * Set LightsPlaceType
      *
-     * @param Mera\AuditBundle\Entity\LightsSystemPlace $lightsSystemPlace
+     * @param Mera\AuditBundle\Entity\LightsPlaceType $lightsPlaceType
      * @return LightsSystem
      */
-    public function setLightsSystemPlace(\Mera\AuditBundle\Entity\LightsSystemPlace $lightsSystemPlace = null)
+    public function setLightsPlaceType(\Mera\AuditBundle\Entity\LightsPlaceType $lightsPlaceType)
     {
-        $this->LightsSystemPlace = $lightsSystemPlace;
+        $this->LightsPlaceType = $lightsPlaceType;
     
         return $this;
     }
 
     /**
-     * Get LightsSystemPlace
+     * Get LightsPlaceType
      *
-     * @return Mera\AuditBundle\Entity\LightsSystemPlace 
+     * @return Mera\AuditBundle\Entity\LightsPlaceType 
      */
-    public function getLightsSystemPlace()
+    public function getLightsPlaceType()
     {
-        return $this->LightsSystemPlace;
+        return $this->LightsPlaceType;
     }
 }

@@ -22,6 +22,16 @@ class CommonType extends AbstractType
             ->add('okved',null,array('label'=>'ОКВЭД'))
             ->add('okp',null,array('label'=>'ОКП или ОКУН'))
 
+            ->add('lead_name',null,array('label'=>'ФИО руководителя'))
+            ->add('lead_contact',null,array('label'=>'Телефон руководителя'))
+            ->add('lead_position',null,array('label'=>'Должнотсь руководителя'))
+            ->add('tech_name',null,array('label'=>'ФИО должностного лица, ответственного за техническое состояние оборудования'))
+            ->add('tech_contact',null,array('label'=>'Телефон'))
+            ->add('tech_position',null,array('label'=>'Должнотсь'))
+            ->add('energy_name',null,array('label'=>'ФИО  должностного лица, ответственного за энергетическое хозяйство'))
+            ->add('energy_contact',null,array('label'=>'Телефон'))
+            ->add('energy_position',null,array('label'=>'Должнотсь'))
+
 
             ->add('Buildings', 'collection', array('type' => new BuildingType(),
             'allow_add' => true,

@@ -20,24 +20,36 @@
       <column name="okved" type="string"/>
       <column name="okp" type="string"/>
       <column name="facility_id" required="true" type="integer" unique="true"/>
+      <column name="lead_name" type="string"/>
+      <column name="lead_contact" type="string"/>
+      <column name="lead_position" type="string"/>
+      <column name="tech_name" type="string"/>
+      <column name="tech_contact" type="string"/>
+      <column name="tech_position" type="string"/>
+      <column name="energy_name" type="string"/>
+      <column name="energy_contact" type="string"/>
+      <column name="energy_position" type="string"/>
     </table>
-    <table description="3.Технические характеристики зданий (для каждого здания)" name="Building" visPositionX="14" visPositionY="255" visSizeX="0" visSizeX2="155" visSizeY="0" visSizeY2="213">
+    <table description="3.Технические характеристики зданий (для каждого здания)" name="Building" visPositionX="215" visPositionY="193" visSizeX="0" visSizeX2="155" visSizeY="0" visSizeY2="227">
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
       <column name="name" type="string"/>
       <column name="year" type="integer"/>
       <column name="floors" type="integer"/>
-      <column name="height_ceilings" type="integer"/>
-      <column name="height_building" type="integer"/>
-      <column name="volume_building" type="integer"/>
-      <column name="volume_heated" type="integer"/>
-      <column name="area_total" type="integer"/>
-      <column name="area_glazing" type="integer"/>
-      <column name="perimeter_building" type="integer"/>
-      <column name="depreciation_actual" type="integer"/>
-      <column name="depreciation_physical" type="integer"/>
+      <column name="height_ceilings" type="decimal"/>
+      <column name="height_building" type="decimal"/>
+      <column name="volume_building" type="decimal"/>
+      <column name="area_total" type="decimal"/>
+      <column name="area_heated" type="decimal"/>
+      <column name="area_glazing" type="decimal"/>
+      <column name="area_basement" type="decimal"/>
+      <column name="area_attic" type="decimal"/>
+      <column name="perimeter_building" type="decimal"/>
+      <column name="depreciation_actual" type="decimal"/>
+      <column name="depreciation_physical" type="decimal"/>
       <column name="common_id" required="true" type="integer"/>
+      <column name="building_type_id" required="true" type="integer"/>
     </table>
-    <table name="ConstructElement" visPositionX="322" visPositionY="-40" visSizeX="0" visSizeX2="178" visSizeY="0" visSizeY2="101">
+    <table name="ConstructElement" visPositionX="449" visPositionY="-59" visSizeX="0" visSizeX2="178" visSizeY="0" visSizeY2="101">
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
       <column name="area" type="decimal"/>
       <column name="description" type="text"/>
@@ -73,11 +85,11 @@
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
       <column name="name" required="true" type="string"/>
     </table>
-    <table name="LightsSystemPlace" visPositionX="234" visPositionY="444" visSizeX="0" visSizeX2="96" visSizeY="0" visSizeY2="45">
+    <table name="LightsPlaceType" visPositionX="122" visPositionY="405" visSizeX="0" visSizeX2="83" visSizeY="0" visSizeY2="45">
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
       <column name="name" required="true" type="string"/>
     </table>
-    <table name="LightsSystem" visPositionX="202" visPositionY="232" visSizeX="0" visSizeX2="163" visSizeY="0" visSizeY2="157">
+    <table name="LightsSystem" visPositionX="253" visPositionY="7" visSizeX="0" visSizeX2="163" visSizeY="0" visSizeY2="157">
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
       <column name="tungsten_quantity" type="integer"/>
       <column name="tungsten_power" type="decimal"/>
@@ -87,7 +99,7 @@
       <column name="energy_save_power" type="decimal"/>
       <column name="work_duration" type="decimal"/>
       <column name="common_id" required="true" type="integer"/>
-      <column name="lights_system_place_id" required="true" type="integer"/>
+      <column name="lights_place_type_id" required="true" type="integer"/>
     </table>
     <table name="Pipeline" visPositionX="405" visPositionY="231" visSizeX="0" visSizeX2="137" visSizeY="0" visSizeY2="101">
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
@@ -235,6 +247,10 @@
       <column name="resource_type_id" required="true" type="integer"/>
       <column name="common_id" required="true" type="integer"/>
     </table>
+    <table name="BuildingType" visPositionX="282" visPositionY="592" visSizeX="0" visSizeX2="83" visSizeY="0" visSizeY2="45">
+      <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
+      <column name="name" required="true" type="string"/>
+    </table>
     <foreign-key caption="Facility Common" from="Common" inverse-alias="Facility" name="FK_Common_Facility_id" owning-alias="Common" to="Facility" visCaption1X="0" visCaption1Y="-2" visCenterX="0" visCenterY="0">
       <foreign-key-column from="facility_id" to="id"/>
       <orm-properties>
@@ -260,6 +276,9 @@
           <attribute name="orphan-removal">true</attribute>
         </attribute>
       </orm-properties>
+    </foreign-key>
+    <foreign-key caption="BuildingType Building" from="Building" inverse-alias="BuildingType" name="FK_Building_BuildingType_id" owning-alias="Buildings" to="BuildingType" visCaption1X="0" visCaption1Y="0" visCenterX="0" visCenterY="3">
+      <foreign-key-column from="building_type_id" to="id"/>
     </foreign-key>
     <foreign-key caption="ConstructElementType ConstructElement" from="ConstructElement" inverse-alias="ConstructElementType" name="FK_ConstructElement_ConstructElementType_id" owning-alias="ConstructElements" to="ConstructElementType">
       <foreign-key-column from="construct_element_type_id" to="id"/>
@@ -322,8 +341,8 @@
         </attribute>
       </orm-properties>
     </foreign-key>
-    <foreign-key caption="LightsSystemPlace LightsSystem" from="LightsSystem" inverse-alias="LightsSystemPlace" name="FK_LightsSystem_LightsSystemPlace_id" owning-alias="LightsSystems" to="LightsSystemPlace">
-      <foreign-key-column from="lights_system_place_id" to="id"/>
+    <foreign-key caption="LightsPlaceType LightsSystem" from="LightsSystem" inverse-alias="LightsPlaceType" name="FK_LightsSystem_LightsPlaceType_id" owning-alias="LightsSystems" to="LightsPlaceType">
+      <foreign-key-column from="lights_place_type_id" to="id"/>
     </foreign-key>
     <foreign-key caption="PipelineInstallationType Pipeline" from="Pipeline" inverse-alias="PipelineInstallationType" name="FK_Pipeline_PipelineInstallationType_id" owning-alias="Pipelines" to="PipelineInstallationType">
       <foreign-key-column from="pipeline_installation_type_id" to="id"/>

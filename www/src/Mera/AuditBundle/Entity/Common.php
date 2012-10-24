@@ -1267,4 +1267,256 @@ class Common
         return $this->SupplyContracts;
     }
 
+    /**
+     * @var string $lead_name
+     */
+    private $lead_name;
+
+    /**
+     * @var string $lead_contact
+     */
+    private $lead_contact;
+
+    /**
+     * @var string $lead_position
+     */
+    private $lead_position;
+
+    /**
+     * @var string $tech_name
+     */
+    private $tech_name;
+
+    /**
+     * @var string $tech_contact
+     */
+    private $tech_contact;
+
+    /**
+     * @var string $tech_position
+     */
+    private $tech_position;
+
+    /**
+     * @var string $energy_name
+     */
+    private $energy_name;
+
+    /**
+     * @var string $energy_contact
+     */
+    private $energy_contact;
+
+    /**
+     * @var string $energy_position
+     */
+    private $energy_position;
+
+
+    /**
+     * Set lead_name
+     *
+     * @param string $leadName
+     * @return Common
+     */
+    public function setLeadName($leadName)
+    {
+        $this->lead_name = $leadName;
+    
+        return $this;
+    }
+
+    /**
+     * Get lead_name
+     *
+     * @return string 
+     */
+    public function getLeadName()
+    {
+        return $this->lead_name;
+    }
+
+    /**
+     * Set lead_contact
+     *
+     * @param string $leadContact
+     * @return Common
+     */
+    public function setLeadContact($leadContact)
+    {
+        $this->lead_contact = $leadContact;
+    
+        return $this;
+    }
+
+    /**
+     * Get lead_contact
+     *
+     * @return string 
+     */
+    public function getLeadContact()
+    {
+        return $this->lead_contact;
+    }
+
+    /**
+     * Set lead_position
+     *
+     * @param string $leadPosition
+     * @return Common
+     */
+    public function setLeadPosition($leadPosition)
+    {
+        $this->lead_position = $leadPosition;
+    
+        return $this;
+    }
+
+    /**
+     * Get lead_position
+     *
+     * @return string 
+     */
+    public function getLeadPosition()
+    {
+        return $this->lead_position;
+    }
+
+    /**
+     * Set tech_name
+     *
+     * @param string $techName
+     * @return Common
+     */
+    public function setTechName($techName)
+    {
+        $this->tech_name = $techName;
+    
+        return $this;
+    }
+
+    /**
+     * Get tech_name
+     *
+     * @return string 
+     */
+    public function getTechName()
+    {
+        return $this->tech_name;
+    }
+
+    /**
+     * Set tech_contact
+     *
+     * @param string $techContact
+     * @return Common
+     */
+    public function setTechContact($techContact)
+    {
+        $this->tech_contact = $techContact;
+    
+        return $this;
+    }
+
+    /**
+     * Get tech_contact
+     *
+     * @return string 
+     */
+    public function getTechContact()
+    {
+        return $this->tech_contact;
+    }
+
+    /**
+     * Set tech_position
+     *
+     * @param string $techPosition
+     * @return Common
+     */
+    public function setTechPosition($techPosition)
+    {
+        $this->tech_position = $techPosition;
+    
+        return $this;
+    }
+
+    /**
+     * Get tech_position
+     *
+     * @return string 
+     */
+    public function getTechPosition()
+    {
+        return $this->tech_position;
+    }
+
+    /**
+     * Set energy_name
+     *
+     * @param string $energyName
+     * @return Common
+     */
+    public function setEnergyName($energyName)
+    {
+        $this->energy_name = $energyName;
+    
+        return $this;
+    }
+
+    /**
+     * Get energy_name
+     *
+     * @return string 
+     */
+    public function getEnergyName()
+    {
+        return $this->energy_name;
+    }
+
+    /**
+     * Set energy_contact
+     *
+     * @param string $energyContact
+     * @return Common
+     */
+    public function setEnergyContact($energyContact)
+    {
+        $this->energy_contact = $energyContact;
+    
+        return $this;
+    }
+
+    /**
+     * Get energy_contact
+     *
+     * @return string 
+     */
+    public function getEnergyContact()
+    {
+        return $this->energy_contact;
+    }
+
+    /**
+     * Set energy_position
+     *
+     * @param string $energyPosition
+     * @return Common
+     */
+    public function setEnergyPosition($energyPosition)
+    {
+        $this->energy_position = $energyPosition;
+    
+        return $this;
+    }
+
+    /**
+     * Get energy_position
+     *
+     * @return string 
+     */
+    public function getEnergyPosition()
+    {
+        return $this->energy_position;
+    }
 }

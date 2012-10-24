@@ -17,9 +17,11 @@ class BuildingType extends AbstractType
             ->add('height_ceilings',null,array('label'=>'Высота потолков'))
             ->add('height_building',null,array('label'=>'Высота здания'))
             ->add('volume_building',null,array('label'=>'Строительный объем'))
-            ->add('volume_heated',null,array('label'=>'Объем отопления'))
             ->add('area_total',null,array('label'=>'Площадь здания'))
+            ->add('area_heated',null,array('label'=>'Площадь отопления'))
             ->add('area_glazing',null,array('label'=>'Площадь остекления'))
+            ->add('area_basement',null,array('label'=>'Площадь подвала'))
+            ->add('area_attic',null,array('label'=>'Площадь чердака'))
             ->add('perimeter_building',null,array('label'=>'Периметр здания'))
             ->add('depreciation_actual',null,array('label'=>'Фактический износ'))
             ->add('depreciation_physical',null,array('label'=>'Физический износ'));

@@ -16,31 +16,37 @@ Mera\AuditBundle\Entity\Building:
             type: integer
             nullable: true
         height_ceilings:
-            type: integer
+            type: decimal
             nullable: true
         height_building:
-            type: integer
+            type: decimal
             nullable: true
         volume_building:
-            type: integer
-            nullable: true
-        volume_heated:
-            type: integer
+            type: decimal
             nullable: true
         area_total:
-            type: integer
+            type: decimal
+            nullable: true
+        area_heated:
+            type: decimal
             nullable: true
         area_glazing:
-            type: integer
+            type: decimal
+            nullable: true
+        area_basement:
+            type: decimal
+            nullable: true
+        area_attic:
+            type: decimal
             nullable: true
         perimeter_building:
-            type: integer
+            type: decimal
             nullable: true
         depreciation_actual:
-            type: integer
+            type: decimal
             nullable: true
         depreciation_physical:
-            type: integer
+            type: decimal
             nullable: true
     manyToOne:
         Common:
@@ -52,3 +58,10 @@ Mera\AuditBundle\Entity\Building:
                     nullable: false
                     onDelete: CASCADE
                     onUpdate: CASCADE
+        BuildingType:
+            targetEntity: Mera\AuditBundle\Entity\BuildingType
+            inversedBy: Buildings
+            joinColumns:
+                building_type_id:
+                    referencedColumnName: id
+                    nullable: false

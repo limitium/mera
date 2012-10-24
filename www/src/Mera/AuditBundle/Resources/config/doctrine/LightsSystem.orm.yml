@@ -37,10 +37,10 @@ Mera\AuditBundle\Entity\LightsSystem:
                     nullable: false
                     onDelete: CASCADE
                     onUpdate: CASCADE
-        LightsSystemPlace:
-            targetEntity: Mera\AuditBundle\Entity\LightsSystemPlace
+        LightsPlaceType:
+            targetEntity: Mera\AuditBundle\Entity\LightsPlaceType
             inversedBy: LightsSystems
             joinColumns:
-                lights_system_place_id:
+                lights_place_type_id:
                     referencedColumnName: id
                     nullable: false

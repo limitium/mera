@@ -1,0 +1,15 @@
+Mera\AuditBundle\Entity\LightsPlaceType:
+    type: entity
+    fields:
+        id:
+            id: true
+            type: integer
+            generator:
+                strategy: AUTO
+        name:
+            type: string
+            nullable: false
+    oneToMany:
+        LightsSystems:
+            targetEntity: Mera\AuditBundle\Entity\LightsSystem
+            mappedBy: LightsPlaceType

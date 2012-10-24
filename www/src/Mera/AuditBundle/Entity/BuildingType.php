@@ -5,9 +5,9 @@ namespace Mera\AuditBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Mera\AuditBundle\Entity\LightsSystemPlace
+ * Mera\AuditBundle\Entity\BuildingType
  */
-class LightsSystemPlace
+class BuildingType
 {
     /**
      * @var integer $id
@@ -22,14 +22,14 @@ class LightsSystemPlace
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
      */
-    private $LightsSystems;
+    private $Buildings;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->LightsSystems = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->Buildings = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
     /**
@@ -46,7 +46,7 @@ class LightsSystemPlace
      * Set name
      *
      * @param string $name
-     * @return LightsSystemPlace
+     * @return BuildingType
      */
     public function setName($name)
     {
@@ -66,35 +66,35 @@ class LightsSystemPlace
     }
 
     /**
-     * Add LightsSystems
+     * Add Buildings
      *
-     * @param Mera\AuditBundle\Entity\LightsSystem $lightsSystems
-     * @return LightsSystemPlace
+     * @param Mera\AuditBundle\Entity\Building $buildings
+     * @return BuildingType
      */
-    public function addLightsSystem(\Mera\AuditBundle\Entity\LightsSystem $lightsSystems)
+    public function addBuilding(\Mera\AuditBundle\Entity\Building $buildings)
     {
-        $this->LightsSystems[] = $lightsSystems;
+        $this->Buildings[] = $buildings;
     
         return $this;
     }
 
     /**
-     * Remove LightsSystems
+     * Remove Buildings
      *
-     * @param Mera\AuditBundle\Entity\LightsSystem $lightsSystems
+     * @param Mera\AuditBundle\Entity\Building $buildings
      */
-    public function removeLightsSystem(\Mera\AuditBundle\Entity\LightsSystem $lightsSystems)
+    public function removeBuilding(\Mera\AuditBundle\Entity\Building $buildings)
     {
-        $this->LightsSystems->removeElement($lightsSystems);
+        $this->Buildings->removeElement($buildings);
     }
 
     /**
-     * Get LightsSystems
+     * Get Buildings
      *
      * @return Doctrine\Common\Collections\Collection 
      */
-    public function getLightsSystems()
+    public function getBuildings()
     {
-        return $this->LightsSystems;
+        return $this->Buildings;
     }
 }

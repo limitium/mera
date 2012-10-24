@@ -44,10 +44,6 @@ class Building
      */
     private $volume_building;
 
-    /**
-     * @var integer $volume_heated
-     */
-    private $volume_heated;
 
     /**
      * @var integer $area_total
@@ -228,28 +224,6 @@ class Building
         return $this->volume_building;
     }
 
-    /**
-     * Set volume_heated
-     *
-     * @param integer $volumeHeated
-     * @return Building
-     */
-    public function setVolumeHeated($volumeHeated)
-    {
-        $this->volume_heated = $volumeHeated;
-    
-        return $this;
-    }
-
-    /**
-     * Get volume_heated
-     *
-     * @return integer 
-     */
-    public function getVolumeHeated()
-    {
-        return $this->volume_heated;
-    }
 
     /**
      * Set area_total
@@ -387,5 +361,117 @@ class Building
     public function getCommon()
     {
         return $this->Common;
+    }
+    /**
+     * @var float $area_heated
+     */
+    private $area_heated;
+
+    /**
+     * @var float $area_basement
+     */
+    private $area_basement;
+
+    /**
+     * @var float $area_attic
+     */
+    private $area_attic;
+
+    /**
+     * @var Mera\AuditBundle\Entity\BuildingType
+     */
+    private $BuildingType;
+
+
+    /**
+     * Set area_heated
+     *
+     * @param float $areaHeated
+     * @return Building
+     */
+    public function setAreaHeated($areaHeated)
+    {
+        $this->area_heated = $areaHeated;
+    
+        return $this;
+    }
+
+    /**
+     * Get area_heated
+     *
+     * @return float 
+     */
+    public function getAreaHeated()
+    {
+        return $this->area_heated;
+    }
+
+    /**
+     * Set area_basement
+     *
+     * @param float $areaBasement
+     * @return Building
+     */
+    public function setAreaBasement($areaBasement)
+    {
+        $this->area_basement = $areaBasement;
+    
+        return $this;
+    }
+
+    /**
+     * Get area_basement
+     *
+     * @return float 
+     */
+    public function getAreaBasement()
+    {
+        return $this->area_basement;
+    }
+
+    /**
+     * Set area_attic
+     *
+     * @param float $areaAttic
+     * @return Building
+     */
+    public function setAreaAttic($areaAttic)
+    {
+        $this->area_attic = $areaAttic;
+    
+        return $this;
+    }
+
+    /**
+     * Get area_attic
+     *
+     * @return float 
+     */
+    public function getAreaAttic()
+    {
+        return $this->area_attic;
+    }
+
+    /**
+     * Set BuildingType
+     *
+     * @param Mera\AuditBundle\Entity\BuildingType $buildingType
+     * @return Building
+     */
+    public function setBuildingType(\Mera\AuditBundle\Entity\BuildingType $buildingType)
+    {
+        $this->BuildingType = $buildingType;
+    
+        return $this;
+    }
+
+    /**
+     * Get BuildingType
+     *
+     * @return Mera\AuditBundle\Entity\BuildingType 
+     */
+    public function getBuildingType()
+    {
+        return $this->BuildingType;
     }
 }

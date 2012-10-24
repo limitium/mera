@@ -1,4 +1,4 @@
-Mera\AuditBundle\Entity\LightsSystemPlace:
+Mera\AuditBundle\Entity\BuildingType:
     type: entity
     fields:
         id:
@@ -10,6 +10,6 @@ Mera\AuditBundle\Entity\LightsSystemPlace:
             type: string
             nullable: false
     oneToMany:
-        LightsSystems:
-            targetEntity: Mera\AuditBundle\Entity\LightsSystem
-            mappedBy: LightsSystemPlace
+        Buildings:
+            targetEntity: Mera\AuditBundle\Entity\Building
+            mappedBy: BuildingType
