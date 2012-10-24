@@ -11,10 +11,10 @@ class ConsumptionMeterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('precision_class')
-            ->add('verification_date')
-            ->add('ConsumptionMeterType')
+            ->add('name',null,array('label'=>'Название прибора'))
+            ->add('precision_class',null,array('label'=>'Класс точности'))
+            ->add('verification_date',null,array('label'=>'Дата поверки'))
+            ->add('ConsumptionMeterType',null,array('label'=>'Вид потребляемого ресурса'))
         ;
     }
 

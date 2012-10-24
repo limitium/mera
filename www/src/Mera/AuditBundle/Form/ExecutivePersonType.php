@@ -11,13 +11,12 @@ class ExecutivePersonType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('position')
-            ->add('contact')
-            ->add('responsibilities')
-            ->add('document')
-            ->add('date')
-            ->add('Common')
+            ->add('name',null,array('label'=>'ФИО'))
+            ->add('position',null,array('label'=>'Должность'))
+            ->add('contact',null,array('label'=>'Контактная информация'))
+            ->add('responsibilities',null,array('label'=>'Основные функции'))
+            ->add('document',null,array('label'=>'Документ приказа'))
+            ->add('date',null,array('label'=>'Дата'))
         ;
     }
 

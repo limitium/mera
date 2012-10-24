@@ -21,6 +21,8 @@ class CommonType extends AbstractType
             ->add('agrn',null,array('label'=>'ОГРН'))
             ->add('okved',null,array('label'=>'ОКВЭД'))
             ->add('okp',null,array('label'=>'ОКП или ОКУН'))
+
+
             ->add('Buildings', 'collection', array('type' => new BuildingType(),
             'allow_add' => true,
             'allow_delete' => true,
@@ -53,6 +55,7 @@ class CommonType extends AbstractType
             ->add('ConsumptionResources', 'collection', array('type' => new ConsumptionResourceType(),
             'allow_add' => true,
             'allow_delete' => true))
+
 
             ->add('Transformators', 'collection', array('type' => new TransformatorType(),
             'allow_add' => true,

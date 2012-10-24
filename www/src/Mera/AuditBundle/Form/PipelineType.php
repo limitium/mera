@@ -11,13 +11,12 @@ class PipelineType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('length')
-            ->add('diameter')
-            ->add('insulation')
-            ->add('operation_period')
-            ->add('PipelineInstallationType')
-            ->add('Common')
+            ->add('name',null,array('label'=>'Название'))
+            ->add('length',null,array('label'=>'Протяженность'))
+            ->add('diameter',null,array('label'=>'Диаметр'))
+            ->add('insulation',null,array('label'=>'Материал изоляции'))
+            ->add('operation_period',null,array('label'=>'Срок эксплуатации'))
+            ->add('PipelineInstallationType',null,array('label'=>'Способ прокладки'))
         ;
     }
 

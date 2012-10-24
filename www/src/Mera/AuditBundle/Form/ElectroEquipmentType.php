@@ -11,11 +11,10 @@ class ElectroEquipmentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('quantity')
-            ->add('power')
-            ->add('work_duration')
-            ->add('Common')
-            ->add('ElectroEquipmentType')
+            ->add('quantity',null,array('label'=>'Количество'))
+            ->add('power',null,array('label'=>'Суммарная мощность'))
+            ->add('work_duration',null,array('label'=>'Продолжительность работы'))
+            ->add('ElectroEquipmentType',null,array('label'=>'Оборудование'))
         ;
     }
 

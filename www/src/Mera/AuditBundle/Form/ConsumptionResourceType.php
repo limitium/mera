@@ -11,11 +11,10 @@ class ConsumptionResourceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('year')
-            ->add('physical_quantity')
-            ->add('financial_quantity')
-            ->add('ResourceType')
-            ->add('Common')
+            ->add('year',null,array('label'=>'Год'))
+            ->add('physical_quantity',null,array('label'=>'В натуральном выражении'))
+            ->add('financial_quantity',null,array('label'=>'В финансовом выражении'))
+            ->add('ResourceType',null,array('label'=>'Вид ресурса'))
         ;
     }
 

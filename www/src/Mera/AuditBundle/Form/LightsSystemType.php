@@ -11,15 +11,14 @@ class LightsSystemType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('tungsten_quantity')
-            ->add('tungsten_power')
-            ->add('fluorescent_quantity')
-            ->add('fluorescent_power')
-            ->add('energy_save_quantity')
-            ->add('energy_save_power')
-            ->add('work_duration')
-            ->add('Common')
-            ->add('LightsSystemPlace')
+            ->add('tungsten_quantity',null,array('label'=>'Накаливания кол-во'))
+            ->add('tungsten_power',null,array('label'=>'Накаливания мощность'))
+            ->add('fluorescent_quantity',null,array('label'=>'Люминесцентные кол-во'))
+            ->add('fluorescent_power',null,array('label'=>'Люминесцентные мщность'))
+            ->add('energy_save_quantity',null,array('label'=>'Энергосберегающие кол-во'))
+            ->add('energy_save_power',null,array('label'=>'Энергосберегающие мощность'))
+            ->add('work_duration',null,array('label'=>'Продолжительность работы'))
+            ->add('LightsSystemPlace',null,array('label'=>'Помещение'))
         ;
     }
 

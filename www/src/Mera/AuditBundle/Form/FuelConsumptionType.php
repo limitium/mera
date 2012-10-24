@@ -11,15 +11,14 @@ class FuelConsumptionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('type')
-            ->add('quantity')
-            ->add('load_capacity')
-            ->add('passengers')
-            ->add('consumption')
-            ->add('work_duration')
-            ->add('total_consumed')
-            ->add('Common')
-            ->add('FuelType')
+            ->add('type',null,array('label'=>'Год'))
+            ->add('quantity',null,array('label'=>'Кол-во транспортных средств'))
+            ->add('load_capacity',null,array('label'=>'Грузоподъемность'))
+            ->add('passengers',null,array('label'=>'Кол-во пассажиров'))
+            ->add('consumption',null,array('label'=>'Уд. паспортный рахсод'))
+            ->add('work_duration',null,array('label'=>'Пробег'))
+            ->add('total_consumed',null,array('label'=>'Кол-во израсходованного топлива'))
+            ->add('FuelType',null,array('label'=>'Вид топлива'))
         ;
     }
 

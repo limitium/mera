@@ -11,16 +11,15 @@ class PersonalType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('position')
-            ->add('school_name')
-            ->add('school_address')
-            ->add('school_license')
-            ->add('date_start')
-            ->add('date_end')
-            ->add('certification')
-            ->add('Common')
-            ->add('CourseType')
+            ->add('name',null,array('label'=>'ФИО'))
+            ->add('position',null,array('label'=>'Должность'))
+            ->add('school_name',null,array('label'=>'Наименование образовательного учереждения'))
+            ->add('school_address',null,array('label'=>'Адрес'))
+            ->add('school_license',null,array('label'=>'Лицензия'))
+            ->add('date_start',null,array('label'=>'Начало'))
+            ->add('date_end',null,array('label'=>'Окончание'))
+            ->add('certification',null,array('label'=>'Сведения об аттестации'))
+            ->add('CourseType',null,array('label'=>'Тип курса'))
         ;
     }
 

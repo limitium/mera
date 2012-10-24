@@ -11,10 +11,10 @@ class ConstructElementType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('area')
-            ->add('description')
-            ->add('width')
-            ->add('ConstructElementType')
+            ->add('area',null,array('label'=>'Площадь'))
+            ->add('description',null,array('label'=>'Описание материала(конструкции)'))
+            ->add('width',null,array('label'=>'Толщина'))
+            ->add('ConstructElementType',null,array('label'=>'Наименование коструктивных элементов'))
         ;
     }
 

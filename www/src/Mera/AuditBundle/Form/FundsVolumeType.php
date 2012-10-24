@@ -11,10 +11,9 @@ class FundsVolumeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('year')
-            ->add('budget')
-            ->add('non_budget')
-            ->add('Common')
+            ->add('year',null,array('label'=>'Год'))
+            ->add('budget',null,array('label'=>'Бюджет'))
+            ->add('non_budget',null,array('label'=>'Внебюджет'))
         ;
     }
 

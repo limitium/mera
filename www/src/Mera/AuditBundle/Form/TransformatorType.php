@@ -11,12 +11,11 @@ class TransformatorType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('year')
-            ->add('quantity')
-            ->add('individual_capacity')
-            ->add('higher_voltage')
-            ->add('installed_power')
-            ->add('Common')
+            ->add('year',null,array('label'=>'Год'))
+            ->add('quantity',null,array('label'=>'Кол-во'))
+            ->add('individual_capacity',null,array('label'=>'Еденичная мощность'))
+            ->add('higher_voltage',null,array('label'=>'Высшее напряжение'))
+            ->add('installed_power',null,array('label'=>'Установленная мощность'))
         ;
     }
 

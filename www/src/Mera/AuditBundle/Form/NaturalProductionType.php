@@ -11,10 +11,9 @@ class NaturalProductionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('year')
-            ->add('quantity')
-            ->add('DimentionType')
-            ->add('Common')
+            ->add('year',null,array('label'=>'Год'))
+            ->add('quantity',null,array('label'=>'Количество'))
+            ->add('DimentionType',null,array('label'=>'Размерность'))
         ;
     }
 

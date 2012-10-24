@@ -11,10 +11,9 @@ class ConsumedTariffType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('year')
-            ->add('tariff')
-            ->add('ResourceType')
-            ->add('Common')
+            ->add('year',null,array('label'=>'Год'))
+            ->add('tariff',null,array('label'=>'Тариф'))
+            ->add('ResourceType',null,array('label'=>'Энергоресурс'))
         ;
     }
 
