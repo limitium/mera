@@ -1,37 +1,40 @@
 {% extends "FOSUserBundle::layout.html.twig" %}
 
 {% block fos_user_content %}
-    <div class="row">
-        <div class="span8 offset2 well" style="margin-top:10%;">
-            <legend>MERA: Авторизация</legend>
+<div class="row">
+    <div class="span8 offset2 well" style="margin-top:10%;">
+        <legend>MERA: Авторизация</legend>
 
-            <div class="row">
-                <div class="span3">{% if error %}
-                    <div class="alert alert-error">
-                        <a class="close" data-dismiss="alert" href="#">×</a>
-                        {{ error|trans({}, 'FOSUserBundle') }}
-                    </div>
+        <div class="row">
+            <div class="span8">
+                {% if error %}
+                <div class="alert alert-error">
+                    <a class="close" data-dismiss="alert" href="#">×</a>
+                    {{ error|trans({}, 'FOSUserBundle') }}
+                </div>
                 {% endif %}
-                    <form action="{{ path("fos_user_security_check") }}" method="post">
-                        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}">
-                        <input class="span3" type="text" placeholder="Имя" id="first_name" name="first_name" value="">
-                        <input class="span3" type="text" placeholder="Фамилия" id="last_name" name="last_name" value="">
-                        <input class="span3" type="text" placeholder="Email" id="username" name="_username" value="{{ last_username }}">
-                        <input class="span3" type="password" placeholder="Пароль" id="password" name="_password">
-                        <label class="checkbox">
-                            <input type="checkbox" name="remember" value="1"> Запомнить
-                        </label>
-                        <button type="submit" name="submit" class="btn btn-info btn-block">Войти</button>
-                    </form>
-                </div>
-                <div class="span5">
-                    <blockquote>
-                        <p class="lead">Это важно</p>
+            </div>
+            <div class="span3">
+                <form action="{{ path("fos_user_security_check") }}" method="post">
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}">
+                    <input class="span3" type="text" placeholder="Имя" id="first_name" name="first_name" value="">
+                    <input class="span3" type="text" placeholder="Фамилия" id="last_name" name="last_name" value="">
+                    <input class="span3" type="text" placeholder="Email" id="username" name="_username" value="{{ last_username }}">
+                    <input class="span3" type="password" placeholder="Пароль" id="password" name="_password">
+                    <label class="checkbox">
+                        <input type="checkbox" name="remember" value="1"> Запомнить
+                    </label>
+                    <button type="submit" name="submit" class="btn btn-info btn-block">Войти</button>
+                </form>
+            </div>
+            <div class="span5">
+                <blockquote>
+                    <p class="lead">Это важно</p>
 
-                        <p>Ввести валидные даные бла бла бла ФИО должность очень важно ! ахутнг!</p>
-                    </blockquote>
-                </div>
+                    <p>Ввести валидные даные бла бла бла ФИО должность очень важно ! ахутнг!</p>
+                </blockquote>
             </div>
         </div>
     </div>
+</div>
 {% endblock fos_user_content %}

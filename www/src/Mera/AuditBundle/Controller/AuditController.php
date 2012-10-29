@@ -8,10 +8,12 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Mera\AuditBundle\Entity\Building;
+use Mera\AuditBundle\Entity\Common;
 use Mera\AuditBundle\Classes\Uploader;
 use Mera\AuditBundle\Form\CommonType;
 use Mera\AuditBundle\Event\CommonUpdateEvent;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 /**
  * Audit controller.
@@ -25,13 +27,27 @@ class AuditController extends Controller
     /**
      * Finds and displays a Audit audit.
      *
-     * @Route("/", name="audit")
+     * @Route("/", name="main")
+     */
+    public function mainAction()
+    {
+        if ($this->getUser()->hasRole("admin")) {
+            return $this->redirect($this->generateUrl("facility"));
+        }
+        $common = $this->getUser()->getFacility()->getCommon();
+        return $this->forward("MeraAuditBundle:Audit:audit", array("id" => $common->getId()));
+    }
+
+    /**
+     * Finds and displays a Audit audit.
+     *
+     * @Route("/{id}", name="audit")
      * @Template()
      */
-    public function auditAction()
-    {
 
-        $common = $this->getCommon();
+    public function auditAction($id)
+    {
+        $common = $this->getCommon($id);
 
         $form = $this->createForm(new CommonType(), $common);
 
@@ -46,15 +62,16 @@ class AuditController extends Controller
     /**
      * Save a Audit audit.
      *
-     * @Route("/save", name="audit_save")
+     * @Route("/{id}/save", name="audit_save")
      * @Method("POST")
      * @Template("MeraAuditBundle:Audit:audit.html.twig")
      */
-    public function saveAction(Request $request)
+    public function saveAction(Request $request, $id)
     {
+        $common = $this->getCommon($id);
+
         $em = $this->getDoctrine()->getManager();
 
-        $common = $this->getCommon();
         $form = $this->createForm(new CommonType(), $common);
 
         $collections = array(
@@ -113,24 +130,25 @@ class AuditController extends Controller
 
         $this->get('session')->getFlashBag()->add('notice', 'Изменения сохранены.');
 
-        return $this->redirect($this->generateUrl('audit'));
+        return $this->redirect($this->generateUrl('audit', array('id' => $common->getId())));
     }
 
     /**
      * Upload image
-     * @Route("/file", name="audit_file_upload")
+     * @Route("/{id}/file", name="audit_file_upload")
      * @Method("POST")
      */
-    public function uploadAction()
+    public function uploadAction($id)
     {
+        $common = $this->getCommon($id);
+
         $fileType = $this->getRequest()->get("file_type");
         $fileClass = "Mera\\AuditBundle\\Entity\\" . $fileType;
 
-        $upload_handler = $this->getHandler($fileType);
+        $upload_handler = $this->getHandler($common, $fileType);
         $upl = $upload_handler->post();
         $uplResp = $upl[0];
 
-        $common = $this->getCommon();
 
         $file = new $fileClass();
         $file->setCommon($common);
@@ -150,25 +168,27 @@ class AuditController extends Controller
 
     /**
      * Detele image
-     * @Route("/file/{fileType}/{fileName}", name="audit_file_delete")
+     * @Route("/{id}/file/{fileType}/{fileName}", name="audit_file_delete")
      * @Method("DELETE")
      */
-    public function deleteUploadAction($fileType, $fileName)
+    public function deleteUploadAction($id, $fileType, $fileName)
     {
+        $common = $this->getCommon($id);
+
         $em = $this->getDoctrine()->getManager();
         $file = $em->getRepository('MeraAuditBundle:' . $fileType)->findOneBy(array('hash_name' => $fileName));
         if (!$file) {
             throw $this->createNotFoundException('Unable to find File entity.');
         }
 
-        $upload_handler = $this->getHandler($fileType);
+        $upload_handler = $this->getHandler($common, $fileType);
         $upl = $upload_handler->deleteFile($fileName);
 
         if ($upl == "true") {
             $em->remove($file);
             $em->flush();
 
-            $this->container->get("event_dispatcher")->dispatch("audit.common_update", new CommonUpdateEvent($this->getCommon(), "delete file", $file->getName()));
+            $this->container->get("event_dispatcher")->dispatch("audit.common_update", new CommonUpdateEvent($common, "delete file", $file->getName()));
         }
 
         return $this->getUploadResponse($upl);
@@ -187,9 +207,9 @@ class AuditController extends Controller
         return $response;
     }
 
-    private function getHandler($fileType)
+    private function getHandler(Common $common, $fileType)
     {
-        $userId = $this->getCommon()->getFacility()->getUser()->getId();
+        $userId = $common->getFacility()->getUser()->getId();
         $options = array(
             'file_type' => $fileType,
             'upload_dir' => dirname($_SERVER['SCRIPT_FILENAME']) . "/img/scans/$userId/$fileType/",
@@ -202,7 +222,8 @@ class AuditController extends Controller
                     'max_height' => 80
                 )
             ),
-            'router' => $this->get('router')
+            'router' => $this->get('router'),
+            'common' => $common
         );
         $upload_handler = new Uploader($options);
         return $upload_handler;
@@ -212,16 +233,17 @@ class AuditController extends Controller
      * @return \Mera\AuditBundle\Entity\Common
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      */
-    private function getCommon()
+    private function getCommon($id)
     {
-        $user = $this->getUser();
-
-        //check role
-
-        $common = $user->getFacility()->getCommon();
-
+        $em = $this->getDoctrine()->getManager();
+        $common = $em->getRepository('MeraAuditBundle:Common')->find($id);
         if (!$common) {
-            throw $this->createNotFoundException('Unable to find Audit audit.');
+            throw $this->createNotFoundException('Unable to find Quiz for audit.');
+        }
+
+        $user = $this->getUser();
+        if ($common->getFacility()->getUser() != $user && !$user->hasRole("admin")) {
+            throw new AccessDeniedHttpException("Access denied.");
         }
         return $common;
     }

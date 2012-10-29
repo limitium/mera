@@ -33,7 +33,7 @@ class Uploader extends UploadHandler
         $file->url = $this->options['upload_url'] . rawurlencode($file->hash);
         $file->thumbnail_url = $this->options['image_versions']['thumbnail']['upload_url'] . rawurlencode($file->hash);
 
-        $file->delete_url = $this->options['router']->generate('audit_file_delete', array('fileName' => $file->hash,'fileType'=>$this->options['file_type']));
+        $file->delete_url = $this->options['router']->generate('audit_file_delete', array('id' => $this->options['common']->getId(), 'fileName' => $file->hash, 'fileType' => $this->options['file_type']));
         return $file;
     }
 
@@ -56,7 +56,8 @@ class Uploader extends UploadHandler
 
     private function getHash($file)
     {
-        return md5($file->name);
+        return md5($file->name . $this->options['common']->getId() . "lolol" . microtime(true));
+
     }
 
 }

@@ -16,7 +16,7 @@ MeraManageBundle:
 
 _welcome:
     pattern:  /
-    defaults: { _controller: MeraAuditBundle:Audit:audit}
+    defaults: { _controller: MeraAuditBundle:Audit:main}
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"

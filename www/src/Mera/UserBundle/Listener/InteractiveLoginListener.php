@@ -5,10 +5,12 @@ use FOS\UserBundle\Model\UserManagerInterface;
 use FOS\UserBundle\Model\UserInterface;
 use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
 use Symfony\Component\Security\Core\Exception\BadCredentialsException;
+use Symfony\Component\Security\Core\SecurityContextInterface;
 
 class InteractiveLoginListener
 {
     protected $userManager;
+    protected $securityContext;
 
     public function __construct(UserManagerInterface $userManager)
     {
@@ -23,7 +25,7 @@ class InteractiveLoginListener
             $first_name = $event->getRequest()->request->get("first_name");
             $last_name = $event->getRequest()->request->get("last_name");
 
-            if (!$first_name || !$last_name) {
+            if (!$user->hasRole("admin") && (!$first_name || !$last_name)) {
                 throw new BadCredentialsException("Введите Имя и Фамилию.");
             }
             $user->setFirstName($first_name);

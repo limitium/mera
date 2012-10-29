@@ -1,26 +1,30 @@
 {% extends '::base.html.twig' %}
 
 {% block header %}
-    <div class="navbar">
-        <div class="navbar-inner">
-            <div class="container">
-                <a href="#" class="brand">MERA</a>
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="container">
+            <a href="#" class="brand">MERA</a>
 
-                <div class="nav-collapse">
-                    <ul class="nav">
-                        <li class="divider-vertical"></li>
-                        {#<li><a href="{{ path('facility') }}">Администрирование</a></li>#}
-                    </ul>
-                    <ul class="nav pull-right">
-                        <li><p class="navbar-text"><i class="icon-user"></i> {{ app.user.email }}, {{ app.user.firstName }} {{ app.user.lastName }}</p></li>
-                        <li class="divider-vertical"></li>
-                        <li><a href="{{ path('fos_user_security_logout') }}">Выйти</a></li>
-                    </ul>
-                </div>
-                <!-- /.nav-collapse -->
+            <div class="nav-collapse">
+                <ul class="nav">
+                    <li class="divider-vertical"></li>
+                    {% if app.user.hasRole('admin')%}
+                    <li><a href="{{ path('facility') }}">Администрирование</a></li>
+                    {% endif %}
+                </ul>
+                <ul class="nav pull-right">
+                    <li><p class="navbar-text"><i
+                            class="icon-user"></i> {{ app.user.email }}, {{ app.user.firstName }} {{ app.user.lastName }}
+                    </p></li>
+                    <li class="divider-vertical"></li>
+                    <li><a href="{{ path('fos_user_security_logout') }}">Выйти</a></li>
+                </ul>
             </div>
+            <!-- /.nav-collapse -->
         </div>
-        <!-- /navbar-inner -->
     </div>
+    <!-- /navbar-inner -->
+</div>
 {% endblock %}
 

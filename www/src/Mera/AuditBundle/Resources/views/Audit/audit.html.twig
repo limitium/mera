@@ -1,116 +1,117 @@
 {% extends 'MeraAuditBundle::layout.html.twig' %}
 
 {% block stylesheets %}
-    {{ parent() }}
+{{ parent() }}
 
-    <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
-    <link href="{{ asset('uploader/css/jquery.fileupload-ui.css') }}" type="text/css" rel="stylesheet"/>
+<!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+<link href="{{ asset('uploader/css/jquery.fileupload-ui.css') }}" type="text/css" rel="stylesheet"/>
 
 {% endblock %}
 
 {% block javascripts %}
-    {{ parent() }}
-    <script src="{{ asset('js/audit.js') }}"></script>
+{{ parent() }}
+<script src="{{ asset('js/audit.js') }}"></script>
 
-    <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
-    <script src="{{ asset('uploader/js/vendor/jquery.ui.widget.js') }}"></script>
-    <!-- The Templates plugin is included to render the upload/download listings -->
-    <script src="http://blueimp.github.com/JavaScript-Templates/tmpl.min.js"></script>
-    <!-- The Load Image plugin is included for the preview images and image resizing functionality -->
-    <script src="http://blueimp.github.com/JavaScript-Load-Image/load-image.min.js"></script>
-    <!-- The Canvas to Blob plugin is included for image resizing functionality -->
-    <script src="http://blueimp.github.com/JavaScript-Canvas-to-Blob/canvas-to-blob.min.js"></script>
-    <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
-    <script src="{{ asset('uploader/js/jquery.iframe-transport.js') }}"></script>
-    <!-- The basic File Upload plugin -->
-    <script src="{{ asset('uploader/js/jquery.fileupload.js') }}"></script>
-    <!-- The File Upload file processing plugin -->
-    <script src="{{ asset('uploader/js/jquery.fileupload-fp.js') }}"></script>
-    <!-- The File Upload user interface plugin -->
-    <script src="{{ asset('uploader/js/jquery.fileupload-ui.js') }}"></script>
-    <!-- The main application script -->
-    <script src="{{ asset('uploader/js/main.js') }}"></script>
+<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+<script src="{{ asset('uploader/js/vendor/jquery.ui.widget.js') }}"></script>
+<!-- The Templates plugin is included to render the upload/download listings -->
+<script src="http://blueimp.github.com/JavaScript-Templates/tmpl.min.js"></script>
+<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+<script src="http://blueimp.github.com/JavaScript-Load-Image/load-image.min.js"></script>
+<!-- The Canvas to Blob plugin is included for image resizing functionality -->
+<script src="http://blueimp.github.com/JavaScript-Canvas-to-Blob/canvas-to-blob.min.js"></script>
+<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+<script src="{{ asset('uploader/js/jquery.iframe-transport.js') }}"></script>
+<!-- The basic File Upload plugin -->
+<script src="{{ asset('uploader/js/jquery.fileupload.js') }}"></script>
+<!-- The File Upload file processing plugin -->
+<script src="{{ asset('uploader/js/jquery.fileupload-fp.js') }}"></script>
+<!-- The File Upload user interface plugin -->
+<script src="{{ asset('uploader/js/jquery.fileupload-ui.js') }}"></script>
+<!-- The main application script -->
+<script src="{{ asset('uploader/js/main.js') }}"></script>
 
 {% endblock %}
 
 {% block body %}
-    <div class="row">
-        <div class="span12">
-            <h2>Опросный лист ({{ common.facility.name }})</h2>
-            <h4>открыт {{ common.facility.created|date("d.m.Y") }}</h4>
+<div class="row">
+    <div class="span12">
+        <h2>Опросный лист ({{ common.facility.name }})</h2>
+        <h4>открыт {{ common.facility.created|date("d.m.Y") }}</h4>
 
-            {% if app.session.hasFlash('notice') %}
-                <div class="alert alert-success">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
-                    {{ app.session.flash('notice') }}
-                </div>
-            {% endif %}
+        {% if app.session.hasFlash('notice') %}
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            {{ app.session.flash('notice') }}
+        </div>
+        {% endif %}
 
-            <div class="btn-toolbar">
-                <div class="btn-group pull-right">
-                    <button id="audit-send" class="btn btn-primary btn-large"><i class="icon-share icon-white"></i>
-                        Закрыть аудит
-                    </button>
-                </div>
+        <div class="btn-toolbar">
+            <div class="btn-group pull-right">
+                <button id="audit-send" class="btn btn-info btn-large"><i class="icon-share icon-white"></i>
+                    Закрыть аудит
+                </button>
             </div>
         </div>
-        <div class="span12">
-            <ul id="audit-tabs" class="nav nav-tabs">
-                <li><a href="#audit-data" data-toggle="tab">Ввод данных</a></li>
-                <li><a href="#audit-files" data-toggle="tab">Загрузка документов</a></li>
-            </ul>
+    </div>
+    <div class="span12">
+        <ul id="audit-tabs" class="nav nav-tabs">
+            <li><a href="#audit-data" data-toggle="tab">Ввод данных</a></li>
+            <li><a href="#audit-files" data-toggle="tab">Загрузка документов</a></li>
+        </ul>
 
-            <div class="tab-content">
-                <div class="tab-pane active" id="audit-data">
-                    <div class="btn-toolbar">
-                        <div class="btn-group">
-                            <button id="audit-save" class="btn"><i class="icon-edit"></i> Сохранить</button>
-                            <button id="audit-check" class="btn"><i class="icon-check""></i>
-                                Проверить
-                            </button>
-                        </div>
+        <div class="tab-content">
+            <div class="tab-pane active" id="audit-data">
+                <div class="btn-toolbar">
+                    <div class="btn-group">
+                        <button id="audit-save" class="btn"><i class="icon-edit"></i> Сохранить</button>
+                        <button id="audit-check" class="btn"><i class="icon-check""></i>
+                            Проверить
+                        </button>
                     </div>
-
-                    <form id="audit-form" action="{{ path('audit_save') }}" method="post" {{ form_enctype(form) }}>
-                        <div class="accordion" id="accordion-data">
-                            {% include 'MeraAuditBundle:Audit:form/items/common.html.twig' %}
-
-                            {% include 'MeraAuditBundle:Audit:form/items/buildings.html.twig' %}
-                            {% include 'MeraAuditBundle:Audit:form/items/constructelem.html.twig' %}
-                            {% include 'MeraAuditBundle:Audit:form/items/consumptionmeter.html.twig' %}
-                            {% include 'MeraAuditBundle:Audit:form/items/electroequipment.html.twig' %}
-                            {% include 'MeraAuditBundle:Audit:form/items/lightssystem.html.twig' %}
-                            {% include 'MeraAuditBundle:Audit:form/items/pipeline.html.twig' %}
-                            {% include 'MeraAuditBundle:Audit:form/items/fuelconsumption.html.twig' %}
-                            {% include 'MeraAuditBundle:Audit:form/items/executiveperson.html.twig' %}
-                            {% include 'MeraAuditBundle:Audit:form/items/personal.html.twig' %}
-                            {% include 'MeraAuditBundle:Audit:form/items/consumptionresource.html.twig' %}
-
-
-                            {% include 'MeraAuditBundle:Audit:form/items/transformator.html.twig' %}
-                            {% include 'MeraAuditBundle:Audit:form/items/fundsvolume.html.twig' %}
-                            {% include 'MeraAuditBundle:Audit:form/items/personalquantity.html.twig' %}
-                            {% include 'MeraAuditBundle:Audit:form/items/consumedtariff.html.twig' %}
-                            {% include 'MeraAuditBundle:Audit:form/items/naturalproduction.html.twig' %}
-
-
-                        </div>
-                        {{ form_rest(form) }}
-                        <input id="submiter" class="hide" type="submit" value="submiter"/>
-                    </form>
                 </div>
-                <div class="tab-pane active hide" id="audit-files">
-                    <div class="accordion" id="accordion-files">
-                        {% include 'MeraAuditBundle:Audit:form/items/f_floorplan.html.twig' %}
-                        {% include 'MeraAuditBundle:Audit:form/items/f_heatingsystem.html.twig' %}
-                        {% include 'MeraAuditBundle:Audit:form/items/f_ventilationsystem.html.twig' %}
-                        {% include 'MeraAuditBundle:Audit:form/items/f_energysavingprogram.html.twig' %}
-                        {% include 'MeraAuditBundle:Audit:form/items/f_energysavingmeasure.html.twig' %}
-                        {% include 'MeraAuditBundle:Audit:form/items/f_powercircuit.html.twig' %}
-                        {% include 'MeraAuditBundle:Audit:form/items/f_supplycontract.html.twig' %}
+
+                <form id="audit-form" action="{{ path('audit_save',{'id':common.id}) }}"
+                      method="post" {{ form_enctype(form) }}>
+                    <div class="accordion" id="accordion-data">
+                        {% include 'MeraAuditBundle:Audit:form/items/common.html.twig' %}
+
+                        {% include 'MeraAuditBundle:Audit:form/items/buildings.html.twig' %}
+                        {% include 'MeraAuditBundle:Audit:form/items/constructelem.html.twig' %}
+                        {% include 'MeraAuditBundle:Audit:form/items/consumptionmeter.html.twig' %}
+                        {% include 'MeraAuditBundle:Audit:form/items/electroequipment.html.twig' %}
+                        {% include 'MeraAuditBundle:Audit:form/items/lightssystem.html.twig' %}
+                        {% include 'MeraAuditBundle:Audit:form/items/pipeline.html.twig' %}
+                        {% include 'MeraAuditBundle:Audit:form/items/fuelconsumption.html.twig' %}
+                        {% include 'MeraAuditBundle:Audit:form/items/executiveperson.html.twig' %}
+                        {% include 'MeraAuditBundle:Audit:form/items/personal.html.twig' %}
+                        {% include 'MeraAuditBundle:Audit:form/items/consumptionresource.html.twig' %}
+
+
+                        {% include 'MeraAuditBundle:Audit:form/items/transformator.html.twig' %}
+                        {% include 'MeraAuditBundle:Audit:form/items/fundsvolume.html.twig' %}
+                        {% include 'MeraAuditBundle:Audit:form/items/personalquantity.html.twig' %}
+                        {% include 'MeraAuditBundle:Audit:form/items/consumedtariff.html.twig' %}
+                        {% include 'MeraAuditBundle:Audit:form/items/naturalproduction.html.twig' %}
+
+
                     </div>
+                    {{ form_rest(form) }}
+                    <input id="submiter" class="hide" type="submit" value="submiter"/>
+                </form>
+            </div>
+            <div class="tab-pane active hide" id="audit-files">
+                <div class="accordion" id="accordion-files">
+                    {% include 'MeraAuditBundle:Audit:form/items/f_floorplan.html.twig' %}
+                    {% include 'MeraAuditBundle:Audit:form/items/f_heatingsystem.html.twig' %}
+                    {% include 'MeraAuditBundle:Audit:form/items/f_ventilationsystem.html.twig' %}
+                    {% include 'MeraAuditBundle:Audit:form/items/f_energysavingprogram.html.twig' %}
+                    {% include 'MeraAuditBundle:Audit:form/items/f_energysavingmeasure.html.twig' %}
+                    {% include 'MeraAuditBundle:Audit:form/items/f_powercircuit.html.twig' %}
+                    {% include 'MeraAuditBundle:Audit:form/items/f_supplycontract.html.twig' %}
                 </div>
             </div>
         </div>
     </div>
+</div>
 {% endblock %}

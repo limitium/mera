@@ -11,6 +11,7 @@
     <services>
         <service id="mera.audit.common_update_listener" class="%mera.audit.common_update_listener.class%">
             <argument type="service" id="doctrine.orm.entity_manager"/>
+            <argument type="service" id="security.context" />
             <tag name="kernel.event_listener" event="audit.common_update" method="onCommonUpdate"/>
         </service>
     </services>
