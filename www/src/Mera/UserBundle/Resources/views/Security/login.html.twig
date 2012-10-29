@@ -2,61 +2,36 @@
 
 {% block fos_user_content %}
     <div class="row">
-        <div class="offset2 span8 well" style="margin-top:10%;">
-            <form class="bs-docs-example form-horizontal" action="{{ path("fos_user_security_check") }}" method="post">
-                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
-                <legend>MERA: Авторизация</legend>
-                {% if error %}
-                    <div class="alert alert-error">{{ error|trans({}, 'FOSUserBundle') }}</div>
+        <div class="span8 offset2 well" style="margin-top:10%;">
+            <legend>MERA: Авторизация</legend>
+
+            <div class="row">
+                <div class="span3">{% if error %}
+                    <div class="alert alert-error">
+                        <a class="close" data-dismiss="alert" href="#">×</a>
+                        {{ error|trans({}, 'FOSUserBundle') }}
+                    </div>
                 {% endif %}
-                <div class="row">
-                    <div class="span3">
-                        <div class="control-group">
-                            <label for="first_name" class="control-label">Имя</label>
-
-                            <div class="controls">
-                                <input type="text" placeholder="Имя" id="first_name" name="first_name" value="">
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label for="last_name" class="control-label">Фамилия</label>
-
-                            <div class="controls">
-                                <input type="text" placeholder="Фамилия" id="last_name" name="last_name" value="">
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label for="username" class="control-label">Email</label>
-
-                            <div class="controls">
-                                <input type="text" placeholder="Email" id="username" name="_username" value="{{ last_username }}">
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label for="password" class="control-label">Пароль</label>
-
-                            <div class="controls">
-                                <input type="password" placeholder="Пароль" id="password" name="_password">
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <div class="controls">
-                                <label class="checkbox">
-                                    <input type="checkbox" name="_remember_me" checked> Запомнить
-                                </label>
-                                <button class="btn btn-primary" type="submit">Войти</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="offset1 span3">
-                        <blockquote>
-                            <p class="lead">Это важно</p>
-
-                            <p>Ввести валидные даные бла бла бла ФИО должность очень важно ! ахутнг!</p>
-                        </blockquote>
-                    </div>
+                    <form action="{{ path("fos_user_security_check") }}" method="post">
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}">
+                        <input class="span3" type="text" placeholder="Имя" id="first_name" name="first_name" value="">
+                        <input class="span3" type="text" placeholder="Фамилия" id="last_name" name="last_name" value="">
+                        <input class="span3" type="text" placeholder="Email" id="username" name="_username" value="{{ last_username }}">
+                        <input class="span3" type="password" placeholder="Пароль" id="password" name="_password">
+                        <label class="checkbox">
+                            <input type="checkbox" name="remember" value="1"> Запомнить
+                        </label>
+                        <button type="submit" name="submit" class="btn btn-info btn-block">Войти</button>
+                    </form>
                 </div>
-            </form>
+                <div class="span5">
+                    <blockquote>
+                        <p class="lead">Это важно</p>
+
+                        <p>Ввести валидные даные бла бла бла ФИО должность очень важно ! ахутнг!</p>
+                    </blockquote>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock fos_user_content %}
