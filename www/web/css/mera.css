@@ -1,0 +1,26 @@
+.accordion-inner {
+    padding: 9px 0px 9px 0px;
+}
+.accordion-inner [class*="span"]{
+    /*margin-left: 5px;*/
+}
+/*[class*="span"] {*/
+    /*margin-left: 15px;*/
+/*}*/
+
+/*@media (min-width: 768px) and (max-width: 979px) {*/
+    /*[class*="span"] {*/
+        /*margin-left: 15px;*/
+    /*}*/
+/*}*/
+
+/*@media (min-width: 1200px) {*/
+    /*[class*="span"] {*/
+        /*margin-left: 25px;*/
+    /*}*/
+/*}*/
+/*@media (max-width: 767px) {*/
+    /*[class*="span"] {*/
+        /*margin-left: 0;*/
+    /*}*/
+/*}*/

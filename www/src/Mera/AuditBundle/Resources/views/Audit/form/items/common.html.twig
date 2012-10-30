@@ -1,37 +1,54 @@
 {% extends 'MeraAuditBundle:Audit:form/collapseItem.html.twig' %}
 {% block collapseTitle %}
-    Общие сведения по предприятию
+Общие сведения по предприятию
 {% endblock %}
 {% block collapseId %}common{% endblock %}
 {% block collapseBody %}
-    <div class="row">
-        <div class="span4">
-            {{ form_row(form.address_legal) }}
-            {{ form_row(form.address_actual) }}
-            {{ form_row(form.tin) }}
-            {{ form_row(form.cat) }}
-        </div>
-        <div class="span4">
-            {{ form_row(form.settlement_account) }}
-            {{ form_row(form.bic) }}
-            {{ form_row(form.bank_name) }}
-        </div>
-        <div class="span4">
-            {{ form_row(form.agrn) }}
-            {{ form_row(form.okved) }}
-            {{ form_row(form.okp) }}
+<div class="row">
+    <div class="control-group span6">
+        <label class="control-label" for="inputError">Input with error</label>
 
-            {{ form_row(form.lead_name) }}
-            {{ form_row(form.lead_position) }}
-            {{ form_row(form.lead_contact) }}
-
-            {{ form_row(form.tech_name) }}
-            {{ form_row(form.tech_position) }}
-            {{ form_row(form.tech_contact) }}
-
-            {{ form_row(form.energy_name) }}
-            {{ form_row(form.energy_position) }}
-            {{ form_row(form.energy_contact) }}
+        <div class="controls">
+            <input type="text" id="inputError" class="span6">
         </div>
     </div>
+    <div class="control-group span6">
+        <label class="control-label" for="inputError">Input with error</label>
+
+        <div class="controls">
+            <input type="text" id="inputError" class="span6">
+        </div>
+    </div>
+
+    <div class="span4">
+        {% set widget_container_attributes ='span1'%}
+        {% set widget_attributes ='span1'%}
+        {{ form_row(form.address_legal) }}
+        {{ form_row(form.address_actual) }}
+        {{ form_row(form.tin) }}
+        {{ form_row(form.cat) }}
+    </div>
+    <div class="span4">
+        {{ form_row(form.settlement_account) }}
+        {{ form_row(form.bic) }}
+        {{ form_row(form.bank_name) }}
+    </div>
+    <div class="span4">
+        {{ form_row(form.agrn) }}
+        {{ form_row(form.okved) }}
+        {{ form_row(form.okp) }}
+
+        {{ form_row(form.lead_name) }}
+        {{ form_row(form.lead_position) }}
+        {{ form_row(form.lead_contact) }}
+
+        {{ form_row(form.tech_name) }}
+        {{ form_row(form.tech_position) }}
+        {{ form_row(form.tech_contact) }}
+
+        {{ form_row(form.energy_name) }}
+        {{ form_row(form.energy_position) }}
+        {{ form_row(form.energy_contact) }}
+    </div>
+</div>
 {% endblock %}
