@@ -192,4 +192,60 @@ class ChangeLog
     {
         return $this->Facility;
     }
+    /**
+     * @var string $username
+     */
+    private $username;
+
+    /**
+     * @var string $role
+     */
+    private $role;
+
+
+    /**
+     * Set username
+     *
+     * @param string $username
+     * @return ChangeLog
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    
+        return $this;
+    }
+
+    /**
+     * Get username
+     *
+     * @return string 
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * Set role
+     *
+     * @param string $role
+     * @return ChangeLog
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
+    
+        return $this;
+    }
+
+    /**
+     * Get role
+     *
+     * @return string 
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
 }

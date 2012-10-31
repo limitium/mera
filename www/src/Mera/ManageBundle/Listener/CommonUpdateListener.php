@@ -33,9 +33,10 @@ class CommonUpdateListener
         $change->setAction($event->getAction());
         $change->setActionData($event->getActionData());
         $change->setFacility($facility);
-        //@todo: add admin flag to log
-        $change->setFirstName(($curUser->hasRole("admin") ? "admin {$curUser->getEmail()} " : "") . $facilityUser->getFirstName());
-        $change->setLastName($facilityUser->getLastName());
+        $change->setUsername($curUser->getUsername());
+        $change->setFirstName($curUser->getFirstName());
+        $change->setLastName($curUser->getLastName());
+        $change->setRole($curUser->hasRole("admin") ? "admin" : "");
         $change->setCreated($updateTime);
 
         $facility->setUpdated($updateTime);

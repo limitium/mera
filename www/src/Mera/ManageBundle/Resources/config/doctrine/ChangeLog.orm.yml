@@ -6,12 +6,18 @@ Mera\ManageBundle\Entity\ChangeLog:
             type: integer
             generator:
                 strategy: AUTO
+        username:
+            type: string
+            nullable: false
         first_name:
             type: string
             nullable: false
         last_name:
             type: string
             nullable: false
+        role:
+            type: string
+            nullable: true
         action:
             type: string
             nullable: false

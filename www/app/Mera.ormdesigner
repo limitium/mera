@@ -586,8 +586,10 @@
   <module import-format="Doctrine2Yml" import-path="..\src\Mera\ManageBundle\Resources\config\doctrine\" name="ManageBundle" visBkColor="16317694" visSizeX="0" visSizeX2="404" visSizeY="6" visSizeY2="441">
     <table name="ChangeLog" visPositionX="246" visPositionY="214" visSizeX="0" visSizeX2="108" visSizeY="0" visSizeY2="115">
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
+      <column name="username" required="true" type="string"/>
       <column name="first_name" required="true" type="string"/>
       <column name="last_name" required="true" type="string"/>
+      <column name="role" type="string"/>
       <column name="action" required="true" type="string"/>
       <column name="action_data" type="string"/>
       <column name="created" required="true" type="datetime"/>

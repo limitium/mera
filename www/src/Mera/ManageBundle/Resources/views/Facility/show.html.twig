@@ -36,7 +36,7 @@
         {% for log in entity.changeLogs|reverse %}
         <tr>
             <td>{{ log.created|date("d.m.Y H:i") }}</td>
-            <td>{{ log.firstName }} {{ log.lastName }}</td>
+            <td>{% if log.role == "admin" %}<span class="label label-important">Admin</span>{% endif %} {{ log.username }}, {{ log.firstName }} {{ log.lastName }}</td>
             <td>{{ log.action }} </td>
             <td>{{ log.actionData }} </td>
         </tr>
