@@ -97,4 +97,8 @@ class ConsumptionMeterType
     {
         return $this->ConsumptionMeters;
     }
+    public function __toString()
+    {
+        return $this->getName();
+    }
 }

@@ -97,4 +97,8 @@ class CourseType
     {
         return $this->Personals;
     }
+    public function __toString()
+    {
+        return $this->getName();
+    }
 }

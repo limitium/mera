@@ -10,6 +10,6 @@ Mera\AuditBundle\Entity\ResourceType:
             type: string
             nullable: false
     oneToMany:
-        СonsumptionResources:
+        ConsumptionResources:
             targetEntity: Mera\AuditBundle\Entity\ConsumptionResource
             mappedBy: ResourceType

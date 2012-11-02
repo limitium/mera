@@ -96,5 +96,10 @@ class PipelineInstallationType
     public function getPipelines()
     {
         return $this->Pipelines;
+
+    }
+    public function __toString()
+    {
+        return $this->getName();
     }
 }

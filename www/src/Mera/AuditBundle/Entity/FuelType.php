@@ -97,4 +97,8 @@ class FuelType
     {
         return $this->FuelConsumptions;
     }
+    public function __toString()
+    {
+        return $this->getName();
+    }
 }

@@ -97,4 +97,8 @@ class LightsPlaceType
     {
         return $this->LightsSystems;
     }
+    public function __toString()
+    {
+        return $this->getName();
+    }
 }

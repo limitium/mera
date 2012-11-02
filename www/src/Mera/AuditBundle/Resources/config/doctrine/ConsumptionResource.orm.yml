@@ -16,13 +16,6 @@ Mera\AuditBundle\Entity\ConsumptionResource:
             type: decimal
             nullable: true
     manyToOne:
-        ResourceType:
-            targetEntity: Mera\AuditBundle\Entity\ResourceType
-            inversedBy: СonsumptionResources
-            joinColumns:
-                resource_type_id:
-                    referencedColumnName: id
-                    nullable: false
         Common:
             targetEntity: Mera\AuditBundle\Entity\Common
             inversedBy: ConsumptionResources
@@ -32,3 +25,10 @@ Mera\AuditBundle\Entity\ConsumptionResource:
                     nullable: false
                     onDelete: CASCADE
                     onUpdate: CASCADE
+        ResourceType:
+            targetEntity: Mera\AuditBundle\Entity\ResourceType
+            inversedBy: ConsumptionResources
+            joinColumns:
+                resource_type_id:
+                    referencedColumnName: id
+                    nullable: false

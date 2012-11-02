@@ -23,7 +23,7 @@ class ResourceType
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -39,62 +39,68 @@ class ResourceType
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
 
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
         return $this->name;
     }
+
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
      */
-    private $小onsumptionResources;
+    private $ConsumptionResources;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->小onsumptionResources = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->ConsumptionResources = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
-     * Add 小onsumptionResources
+     * Add ConsumptionResources
      *
-     * @param Mera\AuditBundle\Entity\ConsumptionResource $稹onsumptionResources
+     * @param Mera\AuditBundle\Entity\ConsumptionResource $consumptionResources
      * @return ResourceType
      */
-    public function add小onsumptionResource(\Mera\AuditBundle\Entity\ConsumptionResource $稹onsumptionResources)
+    public function addConsumptionResource(\Mera\AuditBundle\Entity\ConsumptionResource $consumptionResources)
     {
-        $this->小onsumptionResources[] = $稹onsumptionResources;
-    
+        $this->ConsumptionResources[] = $consumptionResources;
+
         return $this;
     }
 
     /**
-     * Remove 小onsumptionResources
+     * Remove ConsumptionResources
      *
-     * @param Mera\AuditBundle\Entity\ConsumptionResource $稹onsumptionResources
+     * @param Mera\AuditBundle\Entity\ConsumptionResource $consumptionResources
      */
-    public function remove小onsumptionResource(\Mera\AuditBundle\Entity\ConsumptionResource $稹onsumptionResources)
+    public function removeConsumptionResource(\Mera\AuditBundle\Entity\ConsumptionResource $consumptionResources)
     {
-        $this->小onsumptionResources->removeElement($稹onsumptionResources);
+        $this->ConsumptionResources->removeElement($consumptionResources);
     }
 
     /**
-     * Get 小onsumptionResources
+     * Get ConsumptionResources
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return Doctrine\Common\Collections\Collection
      */
-    public function get小onsumptionResources()
+    public function getConsumptionResources()
     {
-        return $this->小onsumptionResources;
+        return $this->ConsumptionResources;
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
     }
 }

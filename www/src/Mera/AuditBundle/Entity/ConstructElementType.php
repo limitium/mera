@@ -97,4 +97,9 @@ class ConstructElementType
     {
         return $this->ConstructElements;
     }
+
+    public function __toString()
+    {
+        return $this->getName();
+    }
 }

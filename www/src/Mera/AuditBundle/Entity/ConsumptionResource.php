@@ -30,11 +30,6 @@ class ConsumptionResource
     private $financial_quantity;
 
     /**
-     * @var Mera\AuditBundle\Entity\ResourceType
-     */
-    private $ResourceType;
-
-    /**
      * @var Mera\AuditBundle\Entity\Common
      */
     private $Common;
@@ -120,29 +115,6 @@ class ConsumptionResource
     }
 
     /**
-     * Set ResourceType
-     *
-     * @param Mera\AuditBundle\Entity\ResourceType $resourceType
-     * @return ConsumptionResource
-     */
-    public function setResourceType(\Mera\AuditBundle\Entity\ResourceType $resourceType)
-    {
-        $this->ResourceType = $resourceType;
-    
-        return $this;
-    }
-
-    /**
-     * Get ResourceType
-     *
-     * @return Mera\AuditBundle\Entity\ResourceType 
-     */
-    public function getResourceType()
-    {
-        return $this->ResourceType;
-    }
-
-    /**
      * Set Common
      *
      * @param Mera\AuditBundle\Entity\Common $common
@@ -163,5 +135,33 @@ class ConsumptionResource
     public function getCommon()
     {
         return $this->Common;
+    }
+    /**
+     * @var Mera\AuditBundle\Entity\ResourceType
+     */
+    private $ResourceType;
+
+
+    /**
+     * Set ResourceType
+     *
+     * @param Mera\AuditBundle\Entity\ResourceType $resourceType
+     * @return ConsumptionResource
+     */
+    public function setResourceType(\Mera\AuditBundle\Entity\ResourceType $resourceType)
+    {
+        $this->ResourceType = $resourceType;
+    
+        return $this;
+    }
+
+    /**
+     * Get ResourceType
+     *
+     * @return Mera\AuditBundle\Entity\ResourceType 
+     */
+    public function getResourceType()
+    {
+        return $this->ResourceType;
     }
 }

@@ -220,7 +220,7 @@
       <column name="resource_type_id" required="true" type="integer"/>
       <column name="common_id" required="true" type="integer"/>
     </table>
-    <table name="ResourceType" visPositionX="1150" visPositionY="678" visSizeX="0" visSizeX2="83" visSizeY="0" visSizeY2="45">
+    <table name="ResourceType" visPositionX="1155" visPositionY="688" visSizeX="0" visSizeX2="83" visSizeY="0" visSizeY2="45">
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
       <column name="name" required="true" type="string"/>
     </table>
@@ -239,13 +239,13 @@
       <column name="common_id" required="true" type="integer"/>
       <inheritance-child derived-from="File" discriminator-value="SupplyContract"/>
     </table>
-    <table name="ConsumptionResource" visPositionX="327" visPositionY="795" visSizeX="0" visSizeX2="143" visSizeY="0" visSizeY2="87">
+    <table name="ConsumptionResource" visPositionX="319" visPositionY="797" visSizeX="0" visSizeX2="143" visSizeY="0" visSizeY2="101">
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
       <column name="year" type="integer"/>
       <column name="physical_quantity" type="decimal"/>
       <column name="financial_quantity" type="decimal"/>
-      <column name="resource_type_id" required="true" type="integer"/>
       <column name="common_id" required="true" type="integer"/>
+      <column name="resource_type_id" required="true" type="integer"/>
     </table>
     <table name="BuildingType" visPositionX="282" visPositionY="592" visSizeX="0" visSizeX2="83" visSizeY="0" visSizeY2="45">
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
@@ -565,9 +565,6 @@
         <attribute name="on-delete">CASCADE</attribute>
       </orm-properties>
     </foreign-key>
-    <foreign-key caption="ResourceType СonsumptionResource" from="ConsumptionResource" inverse-alias="ResourceType" name="FK_СonsumptionResource_ResourceType_id" owning-alias="СonsumptionResources" to="ResourceType" visCaption1X="0" visCaption1Y="-1" visCenterX="1" visCenterY="0">
-      <foreign-key-column from="resource_type_id" to="id"/>
-    </foreign-key>
     <foreign-key caption="Common СonsumptionResource" from="ConsumptionResource" inverse-alias="Common" name="FK_СonsumptionResource_Common_id" owning-alias="ConsumptionResources" to="Common" visCaption1X="0" visCaption1Y="0" visCenterX="0" visCenterY="0">
       <foreign-key-column from="common_id" to="id"/>
       <orm-properties>
@@ -580,6 +577,9 @@
           <attribute name="orphan-removal">true</attribute>
         </attribute>
       </orm-properties>
+    </foreign-key>
+    <foreign-key caption="ResourceType ConsumptionResource" from="ConsumptionResource" inverse-alias="ResourceType" name="FK_ConsumptionResource_ResourceType_id" owning-alias="ConsumptionResources" to="ResourceType">
+      <foreign-key-column from="resource_type_id" to="id"/>
     </foreign-key>
   </module>
 

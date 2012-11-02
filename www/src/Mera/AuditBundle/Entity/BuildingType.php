@@ -31,11 +31,11 @@ class BuildingType
     {
         $this->Buildings = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -51,14 +51,14 @@ class BuildingType
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
 
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -74,7 +74,7 @@ class BuildingType
     public function addBuilding(\Mera\AuditBundle\Entity\Building $buildings)
     {
         $this->Buildings[] = $buildings;
-    
+
         return $this;
     }
 
@@ -91,10 +91,15 @@ class BuildingType
     /**
      * Get Buildings
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return Doctrine\Common\Collections\Collection
      */
     public function getBuildings()
     {
         return $this->Buildings;
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
     }
 }

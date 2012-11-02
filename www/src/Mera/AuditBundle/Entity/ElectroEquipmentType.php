@@ -97,4 +97,8 @@ class ElectroEquipmentType
     {
         return $this->ElectroEquipments;
     }
+    public function __toString()
+    {
+        return $this->getName();
+    }
 }
