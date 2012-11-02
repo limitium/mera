@@ -39,8 +39,8 @@ CREATE TABLE `Building` (
   PRIMARY KEY (`id`),
   KEY `IDX_181903828DBC56F7` (`common_id`),
   KEY `IDX_18190382F28401B9` (`building_type_id`),
-  CONSTRAINT `FK_18190382F28401B9` FOREIGN KEY (`building_type_id`) REFERENCES `buildingtype` (`id`),
-  CONSTRAINT `FK_181903828DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE
+  CONSTRAINT `FK_181903828DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `FK_18190382F28401B9` FOREIGN KEY (`building_type_id`) REFERENCES `buildingtype` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `Building` */
@@ -76,9 +76,11 @@ CREATE TABLE `ChangeLog` (
   PRIMARY KEY (`id`),
   KEY `IDX_72FEE242A7014910` (`facility_id`),
   CONSTRAINT `FK_72FEE242A7014910` FOREIGN KEY (`facility_id`) REFERENCES `facility` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `ChangeLog` */
+
+insert  into `ChangeLog`(`id`,`facility_id`,`first_name`,`last_name`,`action`,`action_data`,`created`,`username`,`role`) values (1,1,'','','open','','2012-11-02 10:41:16','admin','admin'),(2,1,'qwe','qwe','open','','2012-11-02 10:41:35','qwe@qwe.qwe',''),(3,1,'qwe','qwe','open','','2012-11-02 10:55:54','qwe@qwe.qwe',''),(4,1,'qwe','qwe','open','','2012-11-02 10:56:14','qwe@qwe.qwe',''),(5,1,'qwe','qwe','open','','2012-11-02 12:30:53','qwe@qwe.qwe','');
 
 /*Table structure for table `Common` */
 
@@ -109,9 +111,11 @@ CREATE TABLE `Common` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_E2407567A7014910` (`facility_id`),
   CONSTRAINT `FK_E2407567A7014910` FOREIGN KEY (`facility_id`) REFERENCES `facility` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `Common` */
+
+insert  into `Common`(`id`,`facility_id`,`address_legal`,`address_actual`,`tin`,`cat`,`settlement_account`,`bic`,`bank_name`,`agrn`,`okved`,`okp`,`lead_name`,`lead_contact`,`lead_position`,`tech_name`,`tech_contact`,`tech_position`,`energy_name`,`energy_contact`,`energy_position`) values (1,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 
 /*Table structure for table `ConstructElement` */
 
@@ -127,8 +131,8 @@ CREATE TABLE `ConstructElement` (
   PRIMARY KEY (`id`),
   KEY `IDX_72C4C0751476F3B8` (`construct_element_type_id`),
   KEY `IDX_72C4C0758DBC56F7` (`common_id`),
-  CONSTRAINT `FK_72C4C0758DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `FK_72C4C0751476F3B8` FOREIGN KEY (`construct_element_type_id`) REFERENCES `constructelementtype` (`id`)
+  CONSTRAINT `FK_72C4C0751476F3B8` FOREIGN KEY (`construct_element_type_id`) REFERENCES `constructelementtype` (`id`),
+  CONSTRAINT `FK_72C4C0758DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `ConstructElement` */
@@ -318,9 +322,11 @@ CREATE TABLE `Facility` (
   UNIQUE KEY `UNIQ_E92FF6E45E237E06` (`name`),
   UNIQUE KEY `UNIQ_E92FF6E4A76ED395` (`user_id`),
   CONSTRAINT `FK_E92FF6E4A76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `Facility` */
+
+insert  into `Facility`(`id`,`user_id`,`name`,`created`,`updated`,`done`,`closed`) values (1,2,'РћР±СЉРµРєС‚ в„–1','2012-11-02 10:41:05','2012-11-02 12:30:53',NULL,NULL),(2,3,'РћР±СЉРµРєС‚ в„–2','2012-11-02 12:31:23',NULL,NULL,NULL);
 
 /*Table structure for table `File` */
 
@@ -447,8 +453,8 @@ CREATE TABLE `NaturalProduction` (
   PRIMARY KEY (`id`),
   KEY `IDX_ECE3253F3DDA71A` (`dimention_type_id`),
   KEY `IDX_ECE3253F8DBC56F7` (`common_id`),
-  CONSTRAINT `FK_ECE3253F8DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `FK_ECE3253F3DDA71A` FOREIGN KEY (`dimention_type_id`) REFERENCES `dimentiontype` (`id`)
+  CONSTRAINT `FK_ECE3253F3DDA71A` FOREIGN KEY (`dimention_type_id`) REFERENCES `dimentiontype` (`id`),
+  CONSTRAINT `FK_ECE3253F8DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `NaturalProduction` */
@@ -472,8 +478,8 @@ CREATE TABLE `Personal` (
   PRIMARY KEY (`id`),
   KEY `IDX_8FC0FD28DBC56F7` (`common_id`),
   KEY `IDX_8FC0FD2CD8F897F` (`course_type_id`),
-  CONSTRAINT `FK_8FC0FD2CD8F897F` FOREIGN KEY (`course_type_id`) REFERENCES `coursetype` (`id`),
-  CONSTRAINT `FK_8FC0FD28DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE
+  CONSTRAINT `FK_8FC0FD28DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `FK_8FC0FD2CD8F897F` FOREIGN KEY (`course_type_id`) REFERENCES `coursetype` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `Personal` */
@@ -510,8 +516,8 @@ CREATE TABLE `Pipeline` (
   PRIMARY KEY (`id`),
   KEY `IDX_848ABB8F6E26B0C6` (`pipeline_installation_type_id`),
   KEY `IDX_848ABB8F8DBC56F7` (`common_id`),
-  CONSTRAINT `FK_848ABB8F8DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `FK_848ABB8F6E26B0C6` FOREIGN KEY (`pipeline_installation_type_id`) REFERENCES `pipelineinstallationtype` (`id`)
+  CONSTRAINT `FK_848ABB8F6E26B0C6` FOREIGN KEY (`pipeline_installation_type_id`) REFERENCES `pipelineinstallationtype` (`id`),
+  CONSTRAINT `FK_848ABB8F8DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `Pipeline` */
@@ -590,11 +596,11 @@ CREATE TABLE `User` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_2DA1797792FC23A8` (`username_canonical`),
   UNIQUE KEY `UNIQ_2DA17977A0D96FBF` (`email_canonical`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `User` */
 
-insert  into `User`(`id`,`username`,`username_canonical`,`email`,`email_canonical`,`enabled`,`salt`,`password`,`last_login`,`locked`,`expired`,`expires_at`,`confirmation_token`,`password_requested_at`,`roles`,`credentials_expired`,`credentials_expire_at`,`first_name`,`last_name`) values (1,'admin','admin','admin','admin',1,'','admin','2012-10-31 17:11:35',0,0,NULL,NULL,NULL,'a:1:{i:0;s:5:\"ADMIN\";}',0,NULL,'','');
+insert  into `User`(`id`,`username`,`username_canonical`,`email`,`email_canonical`,`enabled`,`salt`,`password`,`last_login`,`locked`,`expired`,`expires_at`,`confirmation_token`,`password_requested_at`,`roles`,`credentials_expired`,`credentials_expire_at`,`first_name`,`last_name`) values (1,'admin','admin','admin','admin',1,'','admin','2012-11-02 12:31:09',0,0,NULL,NULL,NULL,'a:1:{i:0;s:5:\"ADMIN\";}',0,NULL,'',''),(2,'qwe@qwe.qwe','qwe@qwe.qwe','qwe@qwe.qwe','qwe@qwe.qwe',1,'','qweqwe123','2012-11-02 10:41:30',0,0,NULL,NULL,NULL,'a:0:{}',0,NULL,'qwe','qwe'),(3,'qwe@qwe.qwe111','qwe@qwe.qwe111','qwe@qwe.qwe111','qwe@qwe.qwe111',1,'','880ae1e9',NULL,0,0,NULL,NULL,NULL,'a:0:{}',0,NULL,NULL,NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
