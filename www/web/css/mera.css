@@ -2,35 +2,23 @@
     padding: 9px 0px 9px 0px;
 }
 
-.accordion-inner [class*="span"] {
-    /*margin-left: 5px;*/
+.accordion-buttons {
+    margin-left: 40px;
 }
 
-/*[class*="span"] {*/
-/*margin-left: 15px;*/
-/*}*/
+.add-collection-item {
+    margin: 0 0 10px 10px;
+}
 
-/*@media (min-width: 768px) and (max-width: 979px) {*/
-/*[class*="span"] {*/
-/*margin-left: 15px;*/
-/*}*/
-/*}*/
-
-/*@media (min-width: 1200px) {*/
-/*[class*="span"] {*/
-/*margin-left: 25px;*/
-/*}*/
-/*}*/
-/*@media (max-width: 767px) {*/
-/*[class*="span"] {*/
-/*margin-left: 0;*/
-/*}*/
-/*}*/
+.login {
+    margin-top: 10%;
+}
 
 body {
     background-image: url("../img/back.png");
     padding-bottom: 20px;
 }
+
 .main-container {
     background-color: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.2);
