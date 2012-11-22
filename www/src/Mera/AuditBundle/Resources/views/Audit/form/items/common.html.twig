@@ -1,54 +1,41 @@
 {% extends 'MeraAuditBundle:Audit:form/collapseItem.html.twig' %}
 {% block collapseTitle %}
-Общие сведения по предприятию
+    Общие сведения по предприятию
 {% endblock %}
 {% block collapseId %}common{% endblock %}
+
+{% form_theme form 'MeraAuditBundle:Audit:form/fields.html.twig' %}
+
 {% block collapseBody %}
-<div class="row">
-    <div class="control-group span6">
-        <label class="control-label" for="inputError">Input with error</label>
+    <div class="row">
+        {{ form_row(form.address_legal,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
 
-        <div class="controls">
-            <input type="text" id="inputError" class="span6">
+        {{ form_row(form.address_actual,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        {{ form_row(form.tin,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        {{ form_row(form.cat,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        {{ form_row(form.settlement_account,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        {{ form_row(form.bic,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        {{ form_row(form.bank_name,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        {{ form_row(form.agrn,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        {{ form_row(form.okved,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        {{ form_row(form.okp,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        <div class="span12">
+            <div class="row">
+                {{ form_row(form.lead_name,{"attr":{"exclass":"span4", "class":"input-xlarge" }}) }}
+                {{ form_row(form.tech_name,{"attr":{"exclass":"span4", "class":"input-xlarge" }}) }}
+                {{ form_row(form.energy_name,{"attr":{"exclass":"span4", "class":"input-xlarge" }}) }}
+            </div>
+            <div class="row">
+                {{ form_row(form.lead_position,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+                {{ form_row(form.tech_position,{"attr":{"exclass":"offset1 span3", "class":"input-large" }}) }}
+                {{ form_row(form.energy_position,{"attr":{"exclass":"offset1 span3", "class":"input-large" }}) }}
+            </div>
+
+            <div class="row">
+                {{ form_row(form.lead_contact,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+                {{ form_row(form.tech_contact,{"attr":{"exclass":"offset1 span3", "class":"input-large" }}) }}
+                {{ form_row(form.energy_contact,{"attr":{"exclass":"offset1 span3", "class":"input-large" }}) }}
+            </div>
         </div>
     </div>
-    <div class="control-group span6">
-        <label class="control-label" for="inputError">Input with error</label>
-
-        <div class="controls">
-            <input type="text" id="inputError" class="span6">
-        </div>
-    </div>
-
-    <div class="span4">
-        {% set widget_container_attributes ='span1'%}
-        {% set widget_attributes ='span1'%}
-        {{ form_row(form.address_legal) }}
-        {{ form_row(form.address_actual) }}
-        {{ form_row(form.tin) }}
-        {{ form_row(form.cat) }}
-    </div>
-    <div class="span4">
-        {{ form_row(form.settlement_account) }}
-        {{ form_row(form.bic) }}
-        {{ form_row(form.bank_name) }}
-    </div>
-    <div class="span4">
-        {{ form_row(form.agrn) }}
-        {{ form_row(form.okved) }}
-        {{ form_row(form.okp) }}
-
-        {{ form_row(form.lead_name) }}
-        {{ form_row(form.lead_position) }}
-        {{ form_row(form.lead_contact) }}
-
-        {{ form_row(form.tech_name) }}
-        {{ form_row(form.tech_position) }}
-        {{ form_row(form.tech_contact) }}
-
-        {{ form_row(form.energy_name) }}
-        {{ form_row(form.energy_position) }}
-        {{ form_row(form.energy_contact) }}
-    </div>
-</div>
 {% endblock %}

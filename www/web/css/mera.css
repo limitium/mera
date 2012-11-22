@@ -1,13 +1,7 @@
-.accordion-inner {
-    padding: 9px 0px 9px 0px;
-}
-
-.accordion-buttons {
-    margin-left: 40px;
-}
-
-.add-collection-item {
-    margin: 0 0 10px 10px;
+.fileupload{
+    margin-left: -15px;
+}.add-collection-item {
+    margin: 0 0 10px 0;
 }
 
 .login {

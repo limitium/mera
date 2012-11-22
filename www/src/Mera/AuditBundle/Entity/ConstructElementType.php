@@ -100,8 +100,6 @@ class ConstructElementType
 
     public function __toString()
     {
-        print_r($this->name);
-        print_r("фывфыв");
-        return "123qweqwe";
+        return $this->name;
     }
 }

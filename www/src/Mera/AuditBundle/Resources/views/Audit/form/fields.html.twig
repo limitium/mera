@@ -1,0 +1,13 @@
+{% block form_row %}
+    {% set exclass = attr.exclass|default('')|trim %}
+    <div class="control-group {{ exclass }}{% if errors|length > 0 %} error{% endif %}">
+        {{ form_label(form,null,{ 'label_attr': {'class': 'control-label'} }) }}
+        <div class="controls">
+            {{ form_widget(form) }}
+            {% if errors|length > 0 %}
+                <span class="help-block">{{ form_errors(form) }}</span>
+            {% endif %}
+        </div>
+    </div>
+{% endblock form_row %}
+
