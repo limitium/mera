@@ -1,7 +1,7 @@
-{% extends 'MeraAuditBundle:Audit:form/collection.html.twig' %}
+{% extends 'MeraAuditBundle:Audit:form/fields.html.twig' %}
 
 {% block collapseTitle %}
-    Технические характеристики зданий
+Технические характеристики зданий
 {% endblock %}
 
 {% block collapseId %}buildings{% endblock %}
@@ -9,33 +9,32 @@
 {% form_theme form _self %}
 
 {% block collapseBody %}
-    <blockquote>
-        <p class="lead">Для каждого здания</p>
-    </blockquote>
-    {{ form_widget(form.Buildings) }}
+<blockquote>
+    <p class="lead">Для каждого здания</p>
+</blockquote>
+{{ form_widget(form.Buildings) }}
 {% endblock %}
 
+
 {% block collection_row_inner %}
-    <div class="span3">
-        {{ form_row(fields.name) }}
-        {{ form_row(fields.year) }}
-        {{ form_row(fields.floors) }}
-    </div>
-    <div class="span3">
-        {{ form_row(fields.height_ceilings) }}
-        {{ form_row(fields.height_building) }}
-        {{ form_row(fields.volume_building) }}
-    </div>
-    <div class="span3">
-        {{ form_row(fields.area_heated) }}
-        {{ form_row(fields.area_total) }}
-        {{ form_row(fields.area_glazing) }}
-        {{ form_row(fields.area_basement) }}
-        {{ form_row(fields.area_attic) }}
-    </div>
-    <div class="span3">
-        {{ form_row(fields.perimeter_building) }}
-        {{ form_row(fields.depreciation_actual) }}
-        {{ form_row(fields.depreciation_physical) }}
-    </div>
-{% endblock collection_row_inner %}
+<div class="row">
+    {{ form_row(fields.name,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+    {{ form_row(fields.depreciation_physical,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+    {{ form_row(fields.height_ceilings,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+    {{ form_row(fields.area_glazing,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+
+    {{ form_row(fields.year,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+    {{ form_row(fields.depreciation_actual,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+    {{ form_row(fields.height_building,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+    {{ form_row(fields.area_total,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+
+    {{ form_row(fields.floors,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+    {{ form_row(fields.volume_building,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+    {{ form_row(fields.area_basement,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+    {{ form_row(fields.area_heated,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+
+    {{ form_row(fields.BuildingType,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+    {{ form_row(fields.perimeter_building,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+    {{ form_row(fields.area_attic,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+</div>
+{% endblock collection_row_inner  %}

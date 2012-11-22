@@ -1,4 +1,4 @@
-{% extends 'MeraAuditBundle:Audit:form/collection.html.twig' %}
+{% extends 'MeraAuditBundle:Audit:form/fields.html.twig' %}
 {% block collapseTitle %}
     Производство продукции в натуральном выражении
 {% endblock %}
@@ -12,15 +12,9 @@
 {% endblock %}
 
 {% block collection_row_inner %}
-    <div class="span3">
-        {{ form_row(fields.year) }}
-    </div>
-    <div class="span3">
-        {{ form_row(fields.quantity) }}
-    </div>
-    <div class="span3">
-    </div>
-    <div class="span3">
-        {{ form_row(fields.DimentionType) }}
+    <div class="row">
+        {{ form_row(fields.year,{"attr":{"exclass":"span1", "class":"input-mini" }}) }}
+        {{ form_row(fields.quantity,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        {{ form_row(fields.DimentionType,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
     </div>
 {% endblock collection_row_inner %}

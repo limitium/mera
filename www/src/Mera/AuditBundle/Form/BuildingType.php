@@ -24,7 +24,8 @@ class BuildingType extends AbstractType
             ->add('area_attic',null,array('label'=>'Площадь чердака'))
             ->add('perimeter_building',null,array('label'=>'Периметр здания'))
             ->add('depreciation_actual',null,array('label'=>'Фактический износ'))
-            ->add('depreciation_physical',null,array('label'=>'Физический износ'));
+            ->add('depreciation_physical',null,array('label'=>'Физический износ'))
+            ->add('BuildingType',null,array('label'=>'Тип здания'));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

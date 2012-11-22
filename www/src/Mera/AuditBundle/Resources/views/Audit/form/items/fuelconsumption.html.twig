@@ -1,4 +1,4 @@
-{% extends 'MeraAuditBundle:Audit:form/collection.html.twig' %}
+{% extends 'MeraAuditBundle:Audit:form/fields.html.twig' %}
 {% block collapseTitle %}
     Сведения по балансу моторного топлива и его изменениях за отчетный год
 {% endblock %}
@@ -12,20 +12,15 @@
 {% endblock %}
 
 {% block collection_row_inner %}
-    <div class="span3">
-        {{ form_row(fields.type) }}
-        {{ form_row(fields.quantity) }}
-    </div>
-    <div class="span3">
-        {{ form_row(fields.load_capacity) }}
-        {{ form_row(fields.passengers) }}
-    </div>
-    <div class="span3">
-        {{ form_row(fields.consumption) }}
-        {{ form_row(fields.work_duration) }}
-    </div>
-    <div class="span3">
-        {{ form_row(fields.total_consumed) }}
-        {{ form_row(fields.FuelType) }}
+    <div class="row">
+        {{ form_row(fields.type,{"attr":{"exclass":"span1", "class":"input-mini" }}) }}
+        {{ form_row(fields.work_duration,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        {{ form_row(fields.passengers,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        {{ form_row(fields.consumption,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+
+        {{ form_row(fields.quantity,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        {{ form_row(fields.load_capacity,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        {{ form_row(fields.total_consumed,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        {{ form_row(fields.FuelType,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
     </div>
 {% endblock collection_row_inner %}

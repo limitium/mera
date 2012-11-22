@@ -1,4 +1,4 @@
-{% extends 'MeraAuditBundle:Audit:form/collection.html.twig' %}
+{% extends 'MeraAuditBundle:Audit:form/fields.html.twig' %}
 {% block collapseTitle %}
     Характеристики и протяженность трубопроводов
 {% endblock %}
@@ -12,18 +12,12 @@
 {% endblock %}
 
 {% block collection_row_inner %}
-    <div class="span3">
-        {{ form_row(fields.name) }}
-        {{ form_row(fields.length) }}
-    </div>
-    <div class="span3">
-        {{ form_row(fields.diameter) }}
-        {{ form_row(fields.insulation) }}
-    </div>
-    <div class="span3">
-        {{ form_row(fields.operation_period) }}
-    </div>
-    <div class="span3">
-        {{ form_row(fields.PipelineInstallationType) }}
+    <div class="row">
+        {{ form_row(fields.name,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        {{ form_row(fields.length,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        {{ form_row(fields.diameter,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        {{ form_row(fields.insulation,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        {{ form_row(fields.operation_period,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        {{ form_row(fields.PipelineInstallationType,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
     </div>
 {% endblock collection_row_inner %}

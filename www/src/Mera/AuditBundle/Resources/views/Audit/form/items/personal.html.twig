@@ -1,32 +1,31 @@
-{% extends 'MeraAuditBundle:Audit:form/collection.html.twig' %}
+{% extends 'MeraAuditBundle:Audit:form/fields.html.twig' %}
 {% block collapseTitle %}
-    Сведения о квалификации персонала
+Сведения о квалификации персонала
 {% endblock %}
 {% block collapseId %}personal{% endblock %}
 {% form_theme form _self %}
 {% block collapseBody %}
-    <blockquote>
-        <p class="lead">Какой-то текст</p>
-    </blockquote>
-    {{ form_widget(form.Personals) }}
+<blockquote>
+    <p class="lead">Какой-то текст</p>
+</blockquote>
+{{ form_widget(form.Personals) }}
 {% endblock %}
 
 {% block collection_row_inner %}
-    <div class="span3">
-        {{ form_row(fields.name) }}
-        {{ form_row(fields.position) }}
+<div class="row">
+    {{ form_row(fields.name,{"attr":{"exclass":"span5", "class":"input-xxlarge" }}) }}
+    {{ form_row(fields.position,{"attr":{"exclass":"offset1 span3", "class":"input-large" }}) }}
+    <div class="span12">
+        <div class="row">
+            {{ form_row(fields.school_name,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+            {{ form_row(fields.school_address,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+            {{ form_row(fields.school_license,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+            {{ form_row(fields.CourseType,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+
+            {{ form_row(fields.date_start,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+            {{ form_row(fields.date_end,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+            {{ form_row(fields.certification,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        </div>
     </div>
-    <div class="span3">
-        {{ form_row(fields.school_name) }}
-        {{ form_row(fields.school_address) }}
-    </div>
-    <div class="span3">
-        {{ form_row(fields.school_license) }}
-        {{ form_row(fields.date_start) }}
-    </div>
-    <div class="span3">
-        {{ form_row(fields.date_end) }}
-        {{ form_row(fields.certification) }}
-        {{ form_row(fields.CourseType) }}
-    </div>
+</div>
 {% endblock collection_row_inner %}

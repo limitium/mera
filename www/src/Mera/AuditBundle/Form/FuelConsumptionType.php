@@ -10,6 +10,7 @@ class FuelConsumptionType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        //@todo:change to year
         $builder
             ->add('type',null,array('label'=>'Год'))
             ->add('quantity',null,array('label'=>'Кол-во транспортных средств'))

@@ -1,26 +1,20 @@
-{% extends 'MeraAuditBundle:Audit:form/collection.html.twig' %}
+{% extends 'MeraAuditBundle:Audit:form/fields.html.twig' %}
 {% block collapseTitle %}
-    Оснащенность организации приборами учета потребления
+Оснащенность организации приборами учета потребления
 {% endblock %}
 {% block collapseId %}consumptionmeter{% endblock %}
 
 {% form_theme form _self %}
 
 {% block collapseBody %}
-    {{ form_widget(form.ConsumptionMeters) }}
+{{ form_widget(form.ConsumptionMeters) }}
 {% endblock %}
 
 {% block collection_row_inner %}
-    <div class="span3">
-        {{ form_row(fields.name) }}
-    </div>
-    <div class="span3">
-        {{ form_row(fields.precision_class) }}
-    </div>
-    <div class="span3">
-        {{ form_row(fields.verification_date) }}
-    </div>
-    <div class="span3">
-        {{ form_row(fields.ConsumptionMeterType) }}
-    </div>
+<div class="row">
+    {{ form_row(fields.name,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+    {{ form_row(fields.precision_class,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+    {{ form_row(fields.ConsumptionMeterType,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+    {{ form_row(fields.verification_date,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+</div>
 {% endblock collection_row_inner %}

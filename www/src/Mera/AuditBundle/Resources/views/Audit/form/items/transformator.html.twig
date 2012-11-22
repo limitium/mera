@@ -1,4 +1,4 @@
-{% extends 'MeraAuditBundle:Audit:form/collection.html.twig' %}
+{% extends 'MeraAuditBundle:Audit:form/fields.html.twig' %}
 {% block collapseTitle %}
     Количество и мощность трансформаторов
 {% endblock %}
@@ -12,17 +12,11 @@
 {% endblock %}
 
 {% block collection_row_inner %}
-    <div class="span3">
-        {{ form_row(fields.year) }}
-        {{ form_row(fields.quantity) }}
-    </div>
-    <div class="span3">
-        {{ form_row(fields.individual_capacity) }}
-    </div>
-    <div class="span3">
-        {{ form_row(fields.higher_voltage) }}
-    </div>
-    <div class="span3">
-        {{ form_row(fields.installed_power) }}
+    <div class="row">
+        {{ form_row(fields.year,{"attr":{"exclass":"span1", "class":"input-mini" }}) }}
+        {{ form_row(fields.quantity,{"attr":{"exclass":"span2", "class":"input-medium" }}) }}
+        {{ form_row(fields.higher_voltage,{"attr":{"exclass":"span2", "class":"input-medium" }}) }}
+        {{ form_row(fields.individual_capacity,{"attr":{"exclass":"span2", "class":"input-medium" }}) }}
+        {{ form_row(fields.installed_power,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
     </div>
 {% endblock collection_row_inner %}

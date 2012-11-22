@@ -1,10 +1,10 @@
-{% extends 'MeraAuditBundle:Audit:form/collapseItem.html.twig' %}
+{% extends 'MeraAuditBundle:Audit:form/fields.html.twig' %}
 {% block collapseTitle %}
     Общие сведения по предприятию
 {% endblock %}
 {% block collapseId %}common{% endblock %}
 
-{% form_theme form 'MeraAuditBundle:Audit:form/fields.html.twig' %}
+{% form_theme form _self %}
 
 {% block collapseBody %}
     <div class="row">

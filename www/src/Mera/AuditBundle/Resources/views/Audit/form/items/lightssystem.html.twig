@@ -1,4 +1,4 @@
-{% extends 'MeraAuditBundle:Audit:form/collection.html.twig' %}
+{% extends 'MeraAuditBundle:Audit:form/fields.html.twig' %}
 {% block collapseTitle %}
     Документация по системе освещения
 {% endblock %}
@@ -13,20 +13,15 @@
 {% endblock %}
 
 {% block collection_row_inner %}
-    <div class="span3">
-        {{ form_row(fields.tungsten_quantity) }}
-        {{ form_row(fields.tungsten_power) }}
-    </div>
-    <div class="span3">
-        {{ form_row(fields.fluorescent_quantity) }}
-        {{ form_row(fields.fluorescent_power) }}
-    </div>
-    <div class="span3">
-        {{ form_row(fields.energy_save_quantity) }}
-        {{ form_row(fields.energy_save_power) }}
-    </div>
-    <div class="span3">
-        {{ form_row(fields.work_duration) }}
-        {{ form_row(fields.LightsPlaceType) }}
+    <div class="row">
+        {{ form_row(fields.LightsPlaceType,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        {{ form_row(fields.tungsten_quantity,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        {{ form_row(fields.fluorescent_quantity,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        {{ form_row(fields.energy_save_quantity,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+
+        {{ form_row(fields.work_duration,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        {{ form_row(fields.tungsten_power,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        {{ form_row(fields.fluorescent_power,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        {{ form_row(fields.energy_save_power,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
     </div>
 {% endblock collection_row_inner %}

@@ -1,4 +1,4 @@
-{% extends 'MeraAuditBundle:Audit:form/collection.html.twig' %}
+{% extends 'MeraAuditBundle:Audit:form/fields.html.twig' %}
 {% block collapseTitle %}
     Перечень должностных лиц
 {% endblock %}
@@ -12,18 +12,12 @@
 {% endblock %}
 
 {% block collection_row_inner %}
-    <div class="span3">
-        {{ form_row(fields.name) }}
-        {{ form_row(fields.position) }}
-    </div>
-    <div class="span3">
-        {{ form_row(fields.contact) }}
-        {{ form_row(fields.responsibilities) }}
-    </div>
-    <div class="span3">
-        {{ form_row(fields.document) }}
-    </div>
-    <div class="span3">
-        {{ form_row(fields.date) }}
+    <div class="row">
+        {{ form_row(fields.name,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        {{ form_row(fields.position,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        {{ form_row(fields.contact,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        {{ form_row(fields.responsibilities,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        {{ form_row(fields.document,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        {{ form_row(fields.date,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
     </div>
 {% endblock collection_row_inner %}

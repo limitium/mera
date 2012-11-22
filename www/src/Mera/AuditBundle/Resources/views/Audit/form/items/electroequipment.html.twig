@@ -1,4 +1,4 @@
-{% extends 'MeraAuditBundle:Audit:form/collection.html.twig' %}
+{% extends 'MeraAuditBundle:Audit:form/fields.html.twig' %}
 {% block collapseTitle %}
     Количество и установленная мощность электропотребляющего оборудования
 {% endblock %}
@@ -12,16 +12,10 @@
 {% endblock %}
 
 {% block collection_row_inner %}
-    <div class="span3">
-        {{ form_row(fields.quantity) }}
-    </div>
-    <div class="span3">
-        {{ form_row(fields.power) }}
-    </div>
-    <div class="span3">
-        {{ form_row(fields.work_duration) }}
-    </div>
-    <div class="span3">
-        {{ form_row(fields.ElectroEquipmentType) }}
-    </div>
+<div class="row">
+        {{ form_row(fields.ElectroEquipmentType,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        {{ form_row(fields.quantity,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        {{ form_row(fields.power,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+        {{ form_row(fields.work_duration,{"attr":{"exclass":"span3", "class":"input-large" }}) }}
+</div>
 {% endblock collection_row_inner %}
