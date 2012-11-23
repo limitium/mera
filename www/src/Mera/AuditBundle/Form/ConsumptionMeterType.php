@@ -13,7 +13,7 @@ class ConsumptionMeterType extends AbstractType
         $builder
             ->add('name',null,array('label'=>'Название прибора'))
             ->add('precision_class',null,array('label'=>'Класс точности'))
-            ->add('verification_date',null,array('label'=>'Дата поверки'))
+            ->add('verification_date','date',array('label'=>'Дата поверки','widget'=>'single_text','format'=>'dd.MM.yyyy'))
             ->add('ConsumptionMeterType',null,array('label'=>'Вид потребляемого ресурса'))
         ;
     }

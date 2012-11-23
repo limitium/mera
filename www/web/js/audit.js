@@ -74,6 +74,40 @@ $(document).ready(function () {
         return false;
     });
 
+    $.datepicker.regional['ru'] = {
+        closeText:'Закрыть',
+        prevText:'&#x3c;Пред',
+        nextText:'След&#x3e;',
+        currentText:'Сегодня',
+        monthNames:['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
+            'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+        monthNamesShort:['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн',
+            'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
+        dayNames:['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'],
+        dayNamesShort:['вск', 'пнд', 'втр', 'срд', 'чтв', 'птн', 'сбт'],
+        dayNamesMin:['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+        dateFormat:'dd.mm.yy',
+        firstDay:1,
+        isRTL:false
+    };
+    $.datepicker.setDefaults($.datepicker.regional['ru']);
+    $(".collection").on("click", ".collection-row .btn.calendar", function () {
+        var input = $(this).closest(".input-append").children("input");
+        var picker = $(input).datepicker({
+            dateFormat:"dd.mm.yy",
+            showOn:"button",
+            changeMonth:true,
+            changeYear:true,
+            yearRange: "-60:+05",
+            onClose:function () {
+                picker.datepicker("destroy");
+            }
+        });
+        picker.datepicker("setDate", input.val());
+        picker.datepicker("show");
+        return false;
+    });
+
     $("#audit-save").click(function () {
         $("#submiter").trigger("click");
     });

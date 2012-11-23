@@ -13,6 +13,24 @@
 </div>
 {% endblock form_row %}
 
+{% block date_widget %}
+    {% spaceless %}
+        {% if widget == 'single_text' %}
+            <div class="input-append">
+                {{ block('form_widget_simple') }}
+                <button class="btn calendar" type="button"><i class="icon-calendar"></i></button>
+            </div>
+        {% else %}
+            <div {{ block('widget_container_attributes') }}>
+                {{ date_pattern|replace({
+                '{{ year }}':  form_widget(form.year),
+                '{{ month }}': form_widget(form.month),
+                '{{ day }}':   form_widget(form.day),
+                })|raw }}
+            </div>
+        {% endif %}
+    {% endspaceless %}
+{% endblock date_widget %}
 
 {% block collection_row_inner %}
 default none!

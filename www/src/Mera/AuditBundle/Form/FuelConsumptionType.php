@@ -12,7 +12,7 @@ class FuelConsumptionType extends AbstractType
     {
         //@todo:change to year
         $builder
-            ->add('type',null,array('label'=>'Год'))
+            ->add('type',null,array('label'=>'Тип средства (марка)'))
             ->add('quantity',null,array('label'=>'Кол-во транспортных средств'))
             ->add('load_capacity',null,array('label'=>'Грузоподъемность'))
             ->add('passengers',null,array('label'=>'Кол-во пассажиров'))

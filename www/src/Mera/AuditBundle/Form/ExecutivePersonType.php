@@ -16,7 +16,7 @@ class ExecutivePersonType extends AbstractType
             ->add('contact',null,array('label'=>'Контактная информация'))
             ->add('responsibilities',null,array('label'=>'Основные функции'))
             ->add('document',null,array('label'=>'Документ приказа'))
-            ->add('date',null,array('label'=>'Дата'))
+            ->add('date','date',array('label'=>'Дата','widget'=>'single_text','format'=>'dd.MM.yyyy'))
         ;
     }
 

@@ -16,8 +16,8 @@ class PersonalType extends AbstractType
             ->add('school_name',null,array('label'=>'Наименование образовательного учереждения'))
             ->add('school_address',null,array('label'=>'Адрес'))
             ->add('school_license',null,array('label'=>'Лицензия'))
-            ->add('date_start',null,array('label'=>'Начало'))
-            ->add('date_end',null,array('label'=>'Окончание'))
+            ->add('date_start','date',array('label'=>'Начало','widget'=>'single_text','format'=>'dd.MM.yyyy'))
+            ->add('date_end','date',array('label'=>'Окончание','widget'=>'single_text','format'=>'dd.MM.yyyy'))
             ->add('certification',null,array('label'=>'Сведения об аттестации'))
             ->add('CourseType',null,array('label'=>'Тип курса'))
         ;
