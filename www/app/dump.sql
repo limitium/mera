@@ -2,7 +2,8 @@
 SQLyog Ultimate - MySQL GUI v8.2 
 MySQL - 5.1.40-community : Database - mera
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -39,8 +40,8 @@ CREATE TABLE `Building` (
   PRIMARY KEY (`id`),
   KEY `IDX_181903828DBC56F7` (`common_id`),
   KEY `IDX_18190382F28401B9` (`building_type_id`),
-  CONSTRAINT `FK_18190382F28401B9` FOREIGN KEY (`building_type_id`) REFERENCES `buildingtype` (`id`),
-  CONSTRAINT `FK_181903828DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE
+  CONSTRAINT `FK_18190382F28401B9` FOREIGN KEY (`building_type_id`) REFERENCES `BuildingType` (`id`),
+  CONSTRAINT `FK_181903828DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `Common` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `BuildingType` */
@@ -69,7 +70,7 @@ CREATE TABLE `ChangeLog` (
   `role` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_72FEE242A7014910` (`facility_id`),
-  CONSTRAINT `FK_72FEE242A7014910` FOREIGN KEY (`facility_id`) REFERENCES `facility` (`id`)
+  CONSTRAINT `FK_72FEE242A7014910` FOREIGN KEY (`facility_id`) REFERENCES `Facility` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `Common` */
@@ -100,7 +101,7 @@ CREATE TABLE `Common` (
   `energy_position` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_E2407567A7014910` (`facility_id`),
-  CONSTRAINT `FK_E2407567A7014910` FOREIGN KEY (`facility_id`) REFERENCES `facility` (`id`) ON DELETE CASCADE
+  CONSTRAINT `FK_E2407567A7014910` FOREIGN KEY (`facility_id`) REFERENCES `Facility` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `ConstructElement` */
@@ -117,8 +118,8 @@ CREATE TABLE `ConstructElement` (
   PRIMARY KEY (`id`),
   KEY `IDX_72C4C0751476F3B8` (`construct_element_type_id`),
   KEY `IDX_72C4C0758DBC56F7` (`common_id`),
-  CONSTRAINT `FK_72C4C0758DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `FK_72C4C0751476F3B8` FOREIGN KEY (`construct_element_type_id`) REFERENCES `constructelementtype` (`id`)
+  CONSTRAINT `FK_72C4C0758DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `Common` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `FK_72C4C0751476F3B8` FOREIGN KEY (`construct_element_type_id`) REFERENCES `ConstructElementType` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `ConstructElementType` */
@@ -144,8 +145,8 @@ CREATE TABLE `ConsumedTariff` (
   PRIMARY KEY (`id`),
   KEY `IDX_1BF6458C98EC6B7B` (`resource_type_id`),
   KEY `IDX_1BF6458C8DBC56F7` (`common_id`),
-  CONSTRAINT `FK_1BF6458C8DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `FK_1BF6458C98EC6B7B` FOREIGN KEY (`resource_type_id`) REFERENCES `resourcetype` (`id`)
+  CONSTRAINT `FK_1BF6458C8DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `Common` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `FK_1BF6458C98EC6B7B` FOREIGN KEY (`resource_type_id`) REFERENCES `ResourceType` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `ConsumptionMeter` */
@@ -162,8 +163,8 @@ CREATE TABLE `ConsumptionMeter` (
   PRIMARY KEY (`id`),
   KEY `IDX_182A425BA3CBF41C` (`consumption_meter_type_id`),
   KEY `IDX_182A425B8DBC56F7` (`common_id`),
-  CONSTRAINT `FK_182A425B8DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `FK_182A425BA3CBF41C` FOREIGN KEY (`consumption_meter_type_id`) REFERENCES `consumptionmetertype` (`id`)
+  CONSTRAINT `FK_182A425B8DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `Common` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `FK_182A425BA3CBF41C` FOREIGN KEY (`consumption_meter_type_id`) REFERENCES `ConsumptionMeterType` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `ConsumptionMeterType` */
@@ -190,8 +191,8 @@ CREATE TABLE `ConsumptionResource` (
   PRIMARY KEY (`id`),
   KEY `IDX_CDD8DEA098EC6B7B` (`resource_type_id`),
   KEY `IDX_CDD8DEA08DBC56F7` (`common_id`),
-  CONSTRAINT `FK_CDD8DEA098EC6B7B` FOREIGN KEY (`resource_type_id`) REFERENCES `resourcetype` (`id`),
-  CONSTRAINT `FK_CDD8DEA08DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE
+  CONSTRAINT `FK_CDD8DEA098EC6B7B` FOREIGN KEY (`resource_type_id`) REFERENCES `ResourceType` (`id`),
+  CONSTRAINT `FK_CDD8DEA08DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `Common` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `CourseType` */
@@ -228,8 +229,8 @@ CREATE TABLE `ElectroEquipment` (
   PRIMARY KEY (`id`),
   KEY `IDX_123E96A08DBC56F7` (`common_id`),
   KEY `IDX_123E96A037F08033` (`electro_equipment_type_id`),
-  CONSTRAINT `FK_123E96A037F08033` FOREIGN KEY (`electro_equipment_type_id`) REFERENCES `electroequipmenttype` (`id`),
-  CONSTRAINT `FK_123E96A08DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE
+  CONSTRAINT `FK_123E96A037F08033` FOREIGN KEY (`electro_equipment_type_id`) REFERENCES `ElectroEquipmentType` (`id`),
+  CONSTRAINT `FK_123E96A08DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `Common` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `ElectroEquipmentType` */
@@ -257,7 +258,7 @@ CREATE TABLE `ExecutivePerson` (
   `date` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_A9DDECD8DBC56F7` (`common_id`),
-  CONSTRAINT `FK_A9DDECD8DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE
+  CONSTRAINT `FK_A9DDECD8DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `Common` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `Facility` */
@@ -275,7 +276,7 @@ CREATE TABLE `Facility` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_E92FF6E45E237E06` (`name`),
   UNIQUE KEY `UNIQ_E92FF6E4A76ED395` (`user_id`),
-  CONSTRAINT `FK_E92FF6E4A76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
+  CONSTRAINT `FK_E92FF6E4A76ED395` FOREIGN KEY (`user_id`) REFERENCES `User` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Table structure for table `File` */
@@ -292,7 +293,7 @@ CREATE TABLE `File` (
   `file_type` tinytext COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_2CAD992E8DBC56F7` (`common_id`),
-  CONSTRAINT `FK_2CAD992E8DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE
+  CONSTRAINT `FK_2CAD992E8DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `Common` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `FuelConsumption` */
@@ -313,8 +314,8 @@ CREATE TABLE `FuelConsumption` (
   PRIMARY KEY (`id`),
   KEY `IDX_AE7E2A468DBC56F7` (`common_id`),
   KEY `IDX_AE7E2A466A70FE35` (`fuel_type_id`),
-  CONSTRAINT `FK_AE7E2A466A70FE35` FOREIGN KEY (`fuel_type_id`) REFERENCES `fueltype` (`id`),
-  CONSTRAINT `FK_AE7E2A468DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE
+  CONSTRAINT `FK_AE7E2A466A70FE35` FOREIGN KEY (`fuel_type_id`) REFERENCES `FuelType` (`id`),
+  CONSTRAINT `FK_AE7E2A468DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `Common` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `FuelType` */
@@ -339,7 +340,7 @@ CREATE TABLE `FundsVolume` (
   `non_budget` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_576E7B168DBC56F7` (`common_id`),
-  CONSTRAINT `FK_576E7B168DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE
+  CONSTRAINT `FK_576E7B168DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `Common` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `LightsPlaceType` */
@@ -370,8 +371,8 @@ CREATE TABLE `LightsSystem` (
   PRIMARY KEY (`id`),
   KEY `IDX_3B1C48D48DBC56F7` (`common_id`),
   KEY `IDX_3B1C48D4462566F4` (`lights_place_type_id`),
-  CONSTRAINT `FK_3B1C48D4462566F4` FOREIGN KEY (`lights_place_type_id`) REFERENCES `lightsplacetype` (`id`),
-  CONSTRAINT `FK_3B1C48D48DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE
+  CONSTRAINT `FK_3B1C48D4462566F4` FOREIGN KEY (`lights_place_type_id`) REFERENCES `LightsPlaceType` (`id`),
+  CONSTRAINT `FK_3B1C48D48DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `Common` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `NaturalProduction` */
@@ -387,8 +388,8 @@ CREATE TABLE `NaturalProduction` (
   PRIMARY KEY (`id`),
   KEY `IDX_ECE3253F3DDA71A` (`dimention_type_id`),
   KEY `IDX_ECE3253F8DBC56F7` (`common_id`),
-  CONSTRAINT `FK_ECE3253F8DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `FK_ECE3253F3DDA71A` FOREIGN KEY (`dimention_type_id`) REFERENCES `dimentiontype` (`id`)
+  CONSTRAINT `FK_ECE3253F8DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `Common` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `FK_ECE3253F3DDA71A` FOREIGN KEY (`dimention_type_id`) REFERENCES `DimentionType` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `Personal` */
@@ -410,8 +411,8 @@ CREATE TABLE `Personal` (
   PRIMARY KEY (`id`),
   KEY `IDX_8FC0FD28DBC56F7` (`common_id`),
   KEY `IDX_8FC0FD2CD8F897F` (`course_type_id`),
-  CONSTRAINT `FK_8FC0FD2CD8F897F` FOREIGN KEY (`course_type_id`) REFERENCES `coursetype` (`id`),
-  CONSTRAINT `FK_8FC0FD28DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE
+  CONSTRAINT `FK_8FC0FD2CD8F897F` FOREIGN KEY (`course_type_id`) REFERENCES `CourseType` (`id`),
+  CONSTRAINT `FK_8FC0FD28DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `Common` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `PersonalQuantity` */
@@ -425,7 +426,7 @@ CREATE TABLE `PersonalQuantity` (
   `quantity` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_86D5E74B8DBC56F7` (`common_id`),
-  CONSTRAINT `FK_86D5E74B8DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE
+  CONSTRAINT `FK_86D5E74B8DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `Common` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `Pipeline` */
@@ -444,8 +445,8 @@ CREATE TABLE `Pipeline` (
   PRIMARY KEY (`id`),
   KEY `IDX_848ABB8F6E26B0C6` (`pipeline_installation_type_id`),
   KEY `IDX_848ABB8F8DBC56F7` (`common_id`),
-  CONSTRAINT `FK_848ABB8F8DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `FK_848ABB8F6E26B0C6` FOREIGN KEY (`pipeline_installation_type_id`) REFERENCES `pipelineinstallationtype` (`id`)
+  CONSTRAINT `FK_848ABB8F8DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `Common` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `FK_848ABB8F6E26B0C6` FOREIGN KEY (`pipeline_installation_type_id`) REFERENCES `PipelineInstallationType` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `PipelineInstallationType` */
@@ -482,7 +483,7 @@ CREATE TABLE `Transformator` (
   `installed_power` decimal(10,0) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_59523BB18DBC56F7` (`common_id`),
-  CONSTRAINT `FK_59523BB18DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `common` (`id`) ON DELETE CASCADE
+  CONSTRAINT `FK_59523BB18DBC56F7` FOREIGN KEY (`common_id`) REFERENCES `Common` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `User` */
