@@ -1,67 +1,67 @@
 Mera\AuditBundle\Entity\Building:
-    type: entity
-    fields:
-        id:
-            id: true
-            type: integer
-            generator:
-                strategy: AUTO
-        name:
-            type: string
-            nullable: true
-        year:
-            type: integer
-            nullable: true
-        floors:
-            type: integer
-            nullable: true
-        height_ceilings:
-            type: decimal
-            nullable: true
-        height_building:
-            type: decimal
-            nullable: true
-        volume_building:
-            type: decimal
-            nullable: true
-        area_total:
-            type: decimal
-            nullable: true
-        area_heated:
-            type: decimal
-            nullable: true
-        area_glazing:
-            type: decimal
-            nullable: true
-        area_basement:
-            type: decimal
-            nullable: true
-        area_attic:
-            type: decimal
-            nullable: true
-        perimeter_building:
-            type: decimal
-            nullable: true
-        depreciation_actual:
-            type: decimal
-            nullable: true
-        depreciation_physical:
-            type: decimal
-            nullable: true
-    manyToOne:
-        Common:
-            targetEntity: Mera\AuditBundle\Entity\Common
-            inversedBy: Buildings
-            joinColumns:
-                common_id:
-                    referencedColumnName: id
-                    nullable: false
-                    onDelete: CASCADE
-                    onUpdate: CASCADE
-        BuildingType:
-            targetEntity: Mera\AuditBundle\Entity\BuildingType
-            inversedBy: Buildings
-            joinColumns:
-                building_type_id:
-                    referencedColumnName: id
-                    nullable: false
+  type: entity
+  fields:
+    id:
+      id: true
+      type: integer
+      generator:
+        strategy: AUTO
+    name:
+      type: string
+      nullable: true
+    year:
+      type: integer
+      nullable: true
+    floors:
+      type: integer
+      nullable: true
+    height_ceilings:
+      type: decimal
+      nullable: true
+    height_building:
+      type: decimal
+      nullable: true
+    volume_building:
+      type: decimal
+      nullable: true
+    area_total:
+      type: decimal
+      nullable: true
+    area_heated:
+      type: decimal
+      nullable: true
+    area_glazing:
+      type: decimal
+      nullable: true
+    area_basement:
+      type: decimal
+      nullable: true
+    area_attic:
+      type: decimal
+      nullable: true
+    perimeter_building:
+      type: decimal
+      nullable: true
+    depreciation_actual:
+      type: decimal
+      nullable: true
+    depreciation_physical:
+      type: decimal
+      nullable: true
+  manyToOne:
+    Common:
+      targetEntity: Mera\AuditBundle\Entity\Common
+      inversedBy: Buildings
+      joinColumns:
+        common_id:
+          referencedColumnName: id
+          nullable: false
+          onDelete: CASCADE
+          onUpdate: CASCADE
+    BuildingType:
+      targetEntity: Mera\AuditBundle\Entity\BuildingType
+      inversedBy: Buildings
+      joinColumns:
+        building_type_id:
+          referencedColumnName: id
+          nullable: false

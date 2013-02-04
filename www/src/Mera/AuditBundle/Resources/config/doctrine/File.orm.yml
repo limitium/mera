@@ -1,33 +1,33 @@
 Mera\AuditBundle\Entity\File:
-    type: entity
-    inheritanceType: SINGLE_TABLE
-    fields:
-        id:
-            id: true
-            type: integer
-            generator:
-                strategy: AUTO
-        name:
-            type: string
-            nullable: false
-        hash_name:
-            type: string
-            nullable: false
-        image_type:
-            type: string
-            nullable: true
-        size:
-            type: integer
-            nullable: true
-    discriminatorColumn:
-        name: file_type
-        length: 255
-        type: text
-    discriminatorMap:
-        FloorPlan: Mera\AuditBundle\Entity\FloorPlan
-        HeatingSystem: Mera\AuditBundle\Entity\HeatingSystem
-        VentilationSystem: Mera\AuditBundle\Entity\VentilationSystem
-        EnergySavingProgram: Mera\AuditBundle\Entity\EnergySavingProgram
-        EnergySavingMeasure: Mera\AuditBundle\Entity\EnergySavingMeasure
-        PowerCircuit: Mera\AuditBundle\Entity\PowerCircuit
-        SupplyContract: Mera\AuditBundle\Entity\SupplyContract
+  type: entity
+  inheritanceType: SINGLE_TABLE
+  fields:
+    id:
+      id: true
+      type: integer
+      generator:
+        strategy: AUTO
+    name:
+      type: string
+      nullable: false
+    hash_name:
+      type: string
+      nullable: false
+    image_type:
+      type: string
+      nullable: true
+    size:
+      type: integer
+      nullable: true
+  discriminatorColumn:
+    name: file_type
+    length: 255
+    type: text
+  discriminatorMap:
+    FloorPlan: Mera\AuditBundle\Entity\FloorPlan
+    HeatingSystem: Mera\AuditBundle\Entity\HeatingSystem
+    VentilationSystem: Mera\AuditBundle\Entity\VentilationSystem
+    EnergySavingProgram: Mera\AuditBundle\Entity\EnergySavingProgram
+    EnergySavingMeasure: Mera\AuditBundle\Entity\EnergySavingMeasure
+    PowerCircuit: Mera\AuditBundle\Entity\PowerCircuit
+    SupplyContract: Mera\AuditBundle\Entity\SupplyContract

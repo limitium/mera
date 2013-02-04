@@ -1,33 +1,33 @@
 Mera\AuditBundle\Entity\Transformator:
-    type: entity
-    fields:
-        id:
-            id: true
-            type: integer
-            generator:
-                strategy: AUTO
-        year:
-            type: integer
-            nullable: true
-        quantity:
-            type: integer
-            nullable: true
-        individual_capacity:
-            type: decimal
-            nullable: true
-        higher_voltage:
-            type: decimal
-            nullable: true
-        installed_power:
-            type: decimal
-            nullable: true
-    manyToOne:
-        Common:
-            targetEntity: Mera\AuditBundle\Entity\Common
-            inversedBy: Transformators
-            joinColumns:
-                common_id:
-                    referencedColumnName: id
-                    nullable: false
-                    onDelete: CASCADE
-                    onUpdate: CASCADE
+  type: entity
+  fields:
+    id:
+      id: true
+      type: integer
+      generator:
+        strategy: AUTO
+    year:
+      type: integer
+      nullable: true
+    quantity:
+      type: integer
+      nullable: true
+    individual_capacity:
+      type: decimal
+      nullable: true
+    higher_voltage:
+      type: decimal
+      nullable: true
+    installed_power:
+      type: decimal
+      nullable: true
+  manyToOne:
+    Common:
+      targetEntity: Mera\AuditBundle\Entity\Common
+      inversedBy: Transformators
+      joinColumns:
+        common_id:
+          referencedColumnName: id
+          nullable: false
+          onDelete: CASCADE
+          onUpdate: CASCADE

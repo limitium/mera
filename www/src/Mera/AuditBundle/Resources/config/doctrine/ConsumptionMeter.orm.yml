@@ -1,34 +1,34 @@
 Mera\AuditBundle\Entity\ConsumptionMeter:
-    type: entity
-    fields:
-        id:
-            id: true
-            type: integer
-            generator:
-                strategy: AUTO
-        name:
-            type: string
-            nullable: true
-        precision_class:
-            type: string
-            nullable: true
-        verification_date:
-            type: date
-            nullable: true
-    manyToOne:
-        ConsumptionMeterType:
-            targetEntity: Mera\AuditBundle\Entity\ConsumptionMeterType
-            inversedBy: ConsumptionMeters
-            joinColumns:
-                consumption_meter_type_id:
-                    referencedColumnName: id
-                    nullable: false
-        Common:
-            targetEntity: Mera\AuditBundle\Entity\Common
-            inversedBy: ConsumptionMeters
-            joinColumns:
-                common_id:
-                    referencedColumnName: id
-                    nullable: false
-                    onDelete: CASCADE
-                    onUpdate: CASCADE
+  type: entity
+  fields:
+    id:
+      id: true
+      type: integer
+      generator:
+        strategy: AUTO
+    name:
+      type: string
+      nullable: true
+    precision_class:
+      type: string
+      nullable: true
+    verification_date:
+      type: date
+      nullable: true
+  manyToOne:
+    ConsumptionMeterType:
+      targetEntity: Mera\AuditBundle\Entity\ConsumptionMeterType
+      inversedBy: ConsumptionMeters
+      joinColumns:
+        consumption_meter_type_id:
+          referencedColumnName: id
+          nullable: false
+    Common:
+      targetEntity: Mera\AuditBundle\Entity\Common
+      inversedBy: ConsumptionMeters
+      joinColumns:
+        common_id:
+          referencedColumnName: id
+          nullable: false
+          onDelete: CASCADE
+          onUpdate: CASCADE

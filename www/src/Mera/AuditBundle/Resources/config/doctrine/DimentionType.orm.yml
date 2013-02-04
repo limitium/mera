@@ -1,13 +1,13 @@
 Mera\AuditBundle\Entity\DimentionType:
-    type: entity
-    fields:
-        id:
-            id: true
-            type: integer
-        name:
-            type: string
-            nullable: false
-    oneToMany:
-        NaturalProductions:
-            targetEntity: Mera\AuditBundle\Entity\NaturalProduction
-            mappedBy: DimentionType
+  type: entity
+  fields:
+    id:
+      id: true
+      type: integer
+    name:
+      type: string
+      nullable: false
+  oneToMany:
+    NaturalProductions:
+      targetEntity: Mera\AuditBundle\Entity\NaturalProduction
+      mappedBy: DimentionType

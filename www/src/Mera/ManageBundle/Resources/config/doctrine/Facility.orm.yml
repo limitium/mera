@@ -1,47 +1,46 @@
 Mera\ManageBundle\Entity\Facility:
-    type: entity
-    fields:
-        id:
-            id: true
-            type: integer
-            generator:
-                strategy: AUTO
-        name:
-            type: string
-            unique: true
-            nullable: false
-        created:
-            type: datetime
-            nullable: false
-        updated:
-            type: datetime
-            nullable: true
-        done:
-            type: datetime
-            nullable: true
-        closed:
-            type: datetime
-            nullable: true
-    oneToOne:
-        User:
-            targetEntity: Mera\ManageBundle\Entity\User
-            inversedBy: Facility
-            orphanRemoval: true
-            cascade:
-                - all
-            joinColumns:
-                user_id:
-                    referencedColumnName: id
-                    nullable: false
-                    onDelete: CASCADE
-                    onUpdate: CASCADE
-        Common:
-            targetEntity: Mera\AuditBundle\Entity\Common
-            mappedBy: Facility
-            orphanRemoval: true
-            cascade:
-                - all
-    oneToMany:
-        ChangeLogs:
-            targetEntity: Mera\ManageBundle\Entity\ChangeLog
-            mappedBy: Facility
+  type: entity
+  fields:
+    id:
+      id: true
+      type: integer
+      generator:
+        strategy: AUTO
+    name:
+      type: string
+      unique: true
+      nullable: false
+    created:
+      type: datetime
+      nullable: false
+    updated:
+      type: datetime
+      nullable: true
+    done:
+      type: datetime
+      nullable: true
+    closed:
+      type: datetime
+      nullable: true
+  oneToOne:
+    User:
+      targetEntity: Mera\ManageBundle\Entity\User
+      inversedBy: Facility
+      orphanRemoval: true
+      cascade:
+        - all
+      joinColumns:
+        user_id:
+          referencedColumnName: id
+          onDelete: CASCADE
+          onUpdate: CASCADE
+    Common:
+      targetEntity: Mera\AuditBundle\Entity\Common
+      mappedBy: Facility
+      orphanRemoval: true
+      cascade:
+        - all
+  oneToMany:
+    ChangeLogs:
+      targetEntity: Mera\ManageBundle\Entity\ChangeLog
+      mappedBy: Facility

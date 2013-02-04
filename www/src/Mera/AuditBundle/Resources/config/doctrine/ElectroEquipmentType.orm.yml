@@ -1,15 +1,15 @@
 Mera\AuditBundle\Entity\ElectroEquipmentType:
-    type: entity
-    fields:
-        id:
-            id: true
-            type: integer
-            generator:
-                strategy: AUTO
-        name:
-            type: string
-            nullable: false
-    oneToMany:
-        ElectroEquipments:
-            targetEntity: Mera\AuditBundle\Entity\ElectroEquipment
-            mappedBy: ElectroEquipmentType
+  type: entity
+  fields:
+    id:
+      id: true
+      type: integer
+      generator:
+        strategy: AUTO
+    name:
+      type: string
+      nullable: false
+  oneToMany:
+    ElectroEquipments:
+      targetEntity: Mera\AuditBundle\Entity\ElectroEquipment
+      mappedBy: ElectroEquipmentType

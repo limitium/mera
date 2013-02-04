@@ -1,37 +1,37 @@
 Mera\ManageBundle\Entity\ChangeLog:
-    type: entity
-    fields:
-        id:
-            id: true
-            type: integer
-            generator:
-                strategy: AUTO
-        username:
-            type: string
-            nullable: false
-        first_name:
-            type: string
-            nullable: false
-        last_name:
-            type: string
-            nullable: false
-        role:
-            type: string
-            nullable: true
-        action:
-            type: string
-            nullable: false
-        action_data:
-            type: string
-            nullable: true
-        created:
-            type: datetime
-            nullable: false
-    manyToOne:
-        Facility:
-            targetEntity: Mera\ManageBundle\Entity\Facility
-            inversedBy: ChangeLogs
-            joinColumns:
-                facility_id:
-                    referencedColumnName: id
-                    nullable: false
+  type: entity
+  fields:
+    id:
+      id: true
+      type: integer
+      generator:
+        strategy: AUTO
+    username:
+      type: string
+      nullable: false
+    first_name:
+      type: string
+      nullable: false
+    last_name:
+      type: string
+      nullable: false
+    role:
+      type: string
+      nullable: true
+    action:
+      type: string
+      nullable: false
+    action_data:
+      type: string
+      nullable: true
+    created:
+      type: datetime
+      nullable: false
+  manyToOne:
+    Facility:
+      targetEntity: Mera\ManageBundle\Entity\Facility
+      inversedBy: ChangeLogs
+      joinColumns:
+        facility_id:
+          referencedColumnName: id
+          nullable: false

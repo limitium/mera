@@ -1,19 +1,19 @@
 Mera\ManageBundle\Entity\User:
-    type: entity
-    table: User
-    fields:
-        id:
-            id: true
-            type: integer
-            generator:
-                strategy: AUTO
-        first_name:
-            type: string
-            nullable: true
-        last_name:
-            type: string
-            nullable: true
-    oneToOne:
-        Facility:
-            targetEntity: Mera\ManageBundle\Entity\Facility
-            mappedBy: User
+  type: entity
+  table: User
+  fields:
+    id:
+      id: true
+      type: integer
+      generator:
+        strategy: AUTO
+    first_name:
+      type: string
+      nullable: true
+    last_name:
+      type: string
+      nullable: true
+  oneToOne:
+    Facility:
+      targetEntity: Mera\ManageBundle\Entity\Facility
+      mappedBy: User

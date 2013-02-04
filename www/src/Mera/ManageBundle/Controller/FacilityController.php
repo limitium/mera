@@ -113,20 +113,34 @@ class FacilityController extends Controller
         );
     }
 
-    private function generateObjects($facility)
+    private function generateObjects(Facility $facility)
     {
         $user = $facility->getUser();
-        $user->setUsername($user->getEmail());
-        $user->setEnabled(true);
-        $user->setLocked(false);
-        $user->setExpired(false);
-        $user->setCredentialsExpired(false);
-        $user->setSalt("");
+        $email = $user->getEmail();
+        if ($email) {
+            $this->makeUser($user, $email);
+        } else {
+            $facility->setUser(null);
+        }
 
         $common = new Common();
         $common->setFacility($facility);
 
         $facility->setCommon($common);
+    }
+
+    /**
+     * @param $user
+     * @param $email
+     */
+    private function makeUser($user, $email)
+    {
+        $user->setUsername($email);
+        $user->setEnabled(true);
+        $user->setLocked(false);
+        $user->setExpired(false);
+        $user->setCredentialsExpired(false);
+        $user->setSalt("");
     }
 
     /**
@@ -177,6 +191,13 @@ class FacilityController extends Controller
         $editForm->bind($request);
 
         if ($editForm->isValid()) {
+            $user = $entity->getUser();
+            $email = $user->getEmail();
+            if (!$email) {
+                $entity->setUser(null);
+            } else {
+                $this->makeUser($user, $email);
+            }
             $em->persist($entity);
             $em->flush();
 

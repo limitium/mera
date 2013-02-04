@@ -1,31 +1,31 @@
 Mera\AuditBundle\Entity\NaturalProduction:
-    type: entity
-    fields:
-        id:
-            id: true
-            type: integer
-            generator:
-                strategy: AUTO
-        year:
-            type: integer
-            nullable: true
-        quantity:
-            type: decimal
-            nullable: true
-    manyToOne:
-        DimentionType:
-            targetEntity: Mera\AuditBundle\Entity\DimentionType
-            inversedBy: NaturalProductions
-            joinColumns:
-                dimention_type_id:
-                    referencedColumnName: id
-                    nullable: false
-        Common:
-            targetEntity: Mera\AuditBundle\Entity\Common
-            inversedBy: NaturalProductions
-            joinColumns:
-                common_id:
-                    referencedColumnName: id
-                    nullable: false
-                    onDelete: CASCADE
-                    onUpdate: CASCADE
+  type: entity
+  fields:
+    id:
+      id: true
+      type: integer
+      generator:
+        strategy: AUTO
+    year:
+      type: integer
+      nullable: true
+    quantity:
+      type: decimal
+      nullable: true
+  manyToOne:
+    DimentionType:
+      targetEntity: Mera\AuditBundle\Entity\DimentionType
+      inversedBy: NaturalProductions
+      joinColumns:
+        dimention_type_id:
+          referencedColumnName: id
+          nullable: false
+    Common:
+      targetEntity: Mera\AuditBundle\Entity\Common
+      inversedBy: NaturalProductions
+      joinColumns:
+        common_id:
+          referencedColumnName: id
+          nullable: false
+          onDelete: CASCADE
+          onUpdate: CASCADE

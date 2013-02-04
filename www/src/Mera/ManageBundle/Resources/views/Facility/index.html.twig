@@ -28,14 +28,14 @@
                 <td>
                     {% if entity.updated is null %}
                         <span class="label label-important">Not used</span>
-                        {% elseif entity.done is null %}
+                    {% elseif entity.done is null %}
                         <span class="label label-info">Filling</span>
-                        {% elseif entity.closed is null %}
+                    {% elseif entity.closed is null %}
                         <span class="label label-warning">Checking</span>
                     {% endif %}
                 </td>
                 <td><a href="{{ path('facility_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
-                <td>{{ entity.user.email }}</td>
+                <td>{{ entity.user.email|default("-") }}</td>
                 <td>{{ entity.created|date("d.m.Y") }}</td>
                 <td>
                     {% if entity.updated is not null %}

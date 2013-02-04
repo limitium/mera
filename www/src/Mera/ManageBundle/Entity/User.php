@@ -17,14 +17,13 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @Assert\NotBlank()
+     * @Assert\Blank()
      * @Assert\Email()
      */
     protected $email;
 
     /**
-     * @Assert\NotBlank()
-     * @Assert\MinLength(limit=8)
+     * @Assert\Blank()
      */
     protected $password;
 
@@ -39,10 +38,6 @@ class User extends BaseUser
     }
 
 
-
-
-
-
     /**
      * @param string $salt
      */
@@ -50,6 +45,7 @@ class User extends BaseUser
     {
         $this->salt = $salt;
     }
+
     /**
      * @var string $first_name
      */
@@ -70,14 +66,14 @@ class User extends BaseUser
     public function setFirstName($firstName)
     {
         $this->first_name = $firstName;
-    
+
         return $this;
     }
 
     /**
      * Get first_name
      *
-     * @return string 
+     * @return string
      */
     public function getFirstName()
     {
@@ -93,14 +89,14 @@ class User extends BaseUser
     public function setLastName($lastName)
     {
         $this->last_name = $lastName;
-    
+
         return $this;
     }
 
     /**
      * Get last_name
      *
-     * @return string 
+     * @return string
      */
     public function getLastName()
     {
@@ -122,14 +118,14 @@ class User extends BaseUser
     public function setFacility(\Mera\ManageBundle\Entity\Facility $facility = null)
     {
         $this->Facility = $facility;
-    
+
         return $this;
     }
 
     /**
      * Get Facility
      *
-     * @return Mera\ManageBundle\Entity\Facility 
+     * @return Mera\ManageBundle\Entity\Facility
      */
     public function getFacility()
     {

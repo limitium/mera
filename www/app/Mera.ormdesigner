@@ -598,7 +598,7 @@
     <table name="Facility" visPositionX="255" visPositionY="7" visSizeX="0" visSizeX2="106" visSizeY="0" visSizeY2="115">
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
       <column name="name" required="true" type="string" unique="true"/>
-      <column name="user_id" required="true" type="integer" unique="true"/>
+      <column name="user_id" type="integer" unique="true"/>
       <column name="created" required="true" type="datetime"/>
       <column name="updated" type="datetime"/>
       <column name="done" type="datetime"/>
