@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     $(".accordion").each(function () {
         $(".collapse", this).collapse({
-            parent:this
+            parent: this
         });
     });
 
@@ -64,9 +64,8 @@ $(document).ready(function () {
     $(".collection").on("click", ".collection-row .resize", function () {
         var but = $(this),
             fullRow = but.closest(".collection-row"),
-            row = fullRow.children(".row"),
-            resizeButton = $(".resize", fullRow),
-            icon = resizeButton.children("i");
+            row = $(".row", fullRow),
+            icon = but.children("i");
 
         icon.toggleClass("icon-resize-small");
         icon.toggleClass("icon-resize-full");
@@ -75,31 +74,31 @@ $(document).ready(function () {
     });
 
     $.datepicker.regional['ru'] = {
-        closeText:'Закрыть',
-        prevText:'&#x3c;Пред',
-        nextText:'След&#x3e;',
-        currentText:'Сегодня',
-        monthNames:['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
+        closeText: 'Закрыть',
+        prevText: '&#x3c;Пред',
+        nextText: 'След&#x3e;',
+        currentText: 'Сегодня',
+        monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
             'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
-        monthNamesShort:['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн',
+        monthNamesShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн',
             'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
-        dayNames:['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'],
-        dayNamesShort:['вск', 'пнд', 'втр', 'срд', 'чтв', 'птн', 'сбт'],
-        dayNamesMin:['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
-        dateFormat:'dd.mm.yy',
-        firstDay:1,
-        isRTL:false
+        dayNames: ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'],
+        dayNamesShort: ['вск', 'пнд', 'втр', 'срд', 'чтв', 'птн', 'сбт'],
+        dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+        dateFormat: 'dd.mm.yy',
+        firstDay: 1,
+        isRTL: false
     };
     $.datepicker.setDefaults($.datepicker.regional['ru']);
     $(".collection").on("click", ".collection-row .btn.calendar", function () {
         var input = $(this).closest(".input-append").children("input");
         var picker = $(input).datepicker({
-            dateFormat:"dd.mm.yy",
-            showOn:"button",
-            changeMonth:true,
-            changeYear:true,
+            dateFormat: "dd.mm.yy",
+            showOn: "button",
+            changeMonth: true,
+            changeYear: true,
             yearRange: "-60:+05",
-            onClose:function () {
+            onClose: function () {
                 picker.datepicker("destroy");
             }
         });
