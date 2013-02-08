@@ -1,0 +1,20 @@
+{% extends 'MeraManageBundle::layout.html.twig' %}
+{% block body %}
+    <h2>Редактирование организации</h2>
+    <div class="btn-toolbar">
+        <div class="btn-group">
+            <a class="btn" href="{{ path('organization') }}"><i class="icon-th-list"></i> К
+                списку</a>
+            <a class="btn" href="{{ path('organization_delete', { 'id': entity.id }) }}"><i class="icon-remove""></i>
+                Удалить</a>
+        </div>
+    </div>
+
+    <form action="{{ path('organization_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+        {{ form_widget(edit_form) }}
+        <p>
+            <button class="btn btn-info" type="submit"><i class="icon-ok icon-white"></i> Сохранить</button>
+        </p>
+    </form>
+
+{% endblock %}

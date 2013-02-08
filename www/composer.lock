@@ -343,12 +343,12 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/l3pp4rd/DoctrineExtensions.git",
-                "reference": "b7299a90214255a0b0029b7e5fe6e62a929f3e69"
+                "reference": "d94ce3ae790c6e07d1f366924de2a59205055557"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/b7299a90214255a0b0029b7e5fe6e62a929f3e69",
-                "reference": "b7299a90214255a0b0029b7e5fe6e62a929f3e69",
+                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/d94ce3ae790c6e07d1f366924de2a59205055557",
+                "reference": "d94ce3ae790c6e07d1f366924de2a59205055557",
                 "shasum": ""
             },
             "require": {
@@ -368,7 +368,7 @@
                 "doctrine/mongodb-odm": ">=1.0.0-BETA7",
                 "doctrine/orm": ">=2.2"
             },
-            "time": "2013-01-31 12:40:49",
+            "time": "2013-02-04 20:27:16",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -380,6 +380,7 @@
                     "Gedmo": "lib/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -877,18 +878,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensio/SensioDistributionBundle",
-                "reference": "66545ed7d60342dd1ffdcebd72fe43b11941fef9"
+                "reference": "615f76309dae8c45c72b69578b034713c09767d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensio/SensioDistributionBundle/zipball/66545ed7d60342dd1ffdcebd72fe43b11941fef9",
-                "reference": "66545ed7d60342dd1ffdcebd72fe43b11941fef9",
+                "url": "https://api.github.com/repos/sensio/SensioDistributionBundle/zipball/615f76309dae8c45c72b69578b034713c09767d1",
+                "reference": "615f76309dae8c45c72b69578b034713c09767d1",
                 "shasum": ""
             },
             "require": {
                 "symfony/framework-bundle": "2.1.*"
             },
-            "time": "2013-01-31 08:08:03",
+            "time": "2013-02-04 19:54:42",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -900,6 +901,7 @@
                     "Sensio\\Bundle\\DistributionBundle": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],

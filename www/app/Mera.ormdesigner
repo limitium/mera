@@ -584,7 +584,7 @@
   </module>
 
   <module import-format="Doctrine2Yml" import-path="..\src\Mera\ManageBundle\Resources\config\doctrine\" name="ManageBundle" visBkColor="16317694" visSizeX="0" visSizeX2="404" visSizeY="6" visSizeY2="441">
-    <table name="ChangeLog" visPositionX="246" visPositionY="214" visSizeX="0" visSizeX2="108" visSizeY="0" visSizeY2="115">
+    <table name="ChangeLog" visPositionX="288" visPositionY="295" visSizeX="0" visSizeX2="108" visSizeY="0" visSizeY2="143">
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
       <column name="username" required="true" type="string"/>
       <column name="first_name" required="true" type="string"/>
@@ -595,7 +595,7 @@
       <column name="created" required="true" type="datetime"/>
       <column name="facility_id" required="true" type="integer"/>
     </table>
-    <table name="Facility" visPositionX="255" visPositionY="7" visSizeX="0" visSizeX2="106" visSizeY="0" visSizeY2="115">
+    <table name="Facility" visPositionX="255" visPositionY="6" visSizeX="0" visSizeX2="128" visSizeY="0" visSizeY2="129">
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
       <column name="name" required="true" type="string" unique="true"/>
       <column name="user_id" type="integer" unique="true"/>
@@ -603,14 +603,22 @@
       <column name="updated" type="datetime"/>
       <column name="done" type="datetime"/>
       <column name="closed" type="datetime"/>
+      <column name="organization_id" required="true" type="integer"/>
     </table>
-    <table name="User" visPositionX="57" visPositionY="20" visSizeX="0" visSizeX2="92" visSizeY="0" visSizeY2="45">
+    <table name="User" visPositionX="168" visPositionY="372" visSizeX="0" visSizeX2="105" visSizeY="0" visSizeY2="59">
       <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
       <column name="first_name" type="string"/>
       <column name="last_name" type="string"/>
       <orm-properties>
         <attribute name="table">User</attribute>
       </orm-properties>
+    </table>
+    <table name="Organization" visPositionX="25" visPositionY="21" visSizeX="0" visSizeX2="114" visSizeY="0" visSizeY2="87">
+      <column auto-increment="true" name="id" primary="true" required="true" type="integer"/>
+      <column name="name" required="true" type="string"/>
+      <column name="address" type="string"/>
+      <column name="lead_name" type="string"/>
+      <column name="lead_position" type="string"/>
     </table>
     <foreign-key caption="Facility ChangeLog" from="ChangeLog" inverse-alias="Facility" name="FK_ChangeLog_Facility_id" owning-alias="ChangeLogs" to="Facility">
       <foreign-key-column from="facility_id" to="id"/>
@@ -627,6 +635,9 @@
           </attribute>
         </attribute>
       </orm-properties>
+    </foreign-key>
+    <foreign-key caption="Organization Facility" from="Facility" inverse-alias="Organization" name="FK_Facility_Organization_id" owning-alias="Facilitys" to="Organization">
+      <foreign-key-column from="organization_id" to="id"/>
     </foreign-key>
   </module>
 

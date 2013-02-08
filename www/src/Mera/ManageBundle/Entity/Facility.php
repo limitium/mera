@@ -274,4 +274,32 @@ class Facility
     {
         return $this->ChangeLogs;
     }
+    /**
+     * @var \Mera\ManageBundle\Entity\Organization
+     */
+    private $Organization;
+
+
+    /**
+     * Set Organization
+     *
+     * @param \Mera\ManageBundle\Entity\Organization $organization
+     * @return Facility
+     */
+    public function setOrganization(\Mera\ManageBundle\Entity\Organization $organization)
+    {
+        $this->Organization = $organization;
+    
+        return $this;
+    }
+
+    /**
+     * Get Organization
+     *
+     * @return \Mera\ManageBundle\Entity\Organization 
+     */
+    public function getOrganization()
+    {
+        return $this->Organization;
+    }
 }

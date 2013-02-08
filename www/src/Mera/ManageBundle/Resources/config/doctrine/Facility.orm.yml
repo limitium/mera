@@ -44,3 +44,11 @@ Mera\ManageBundle\Entity\Facility:
     ChangeLogs:
       targetEntity: Mera\ManageBundle\Entity\ChangeLog
       mappedBy: Facility
+  manyToOne:
+    Organization:
+      targetEntity: Mera\ManageBundle\Entity\Organization
+      inversedBy: Facilitys
+      joinColumns:
+        organization_id:
+          referencedColumnName: id
+          nullable: false

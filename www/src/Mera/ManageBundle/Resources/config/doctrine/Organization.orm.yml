@@ -1,0 +1,24 @@
+Mera\ManageBundle\Entity\Organization:
+  type: entity
+  fields:
+    id:
+      id: true
+      type: integer
+      generator:
+        strategy: AUTO
+    name:
+      type: string
+      nullable: false
+    address:
+      type: string
+      nullable: true
+    lead_name:
+      type: string
+      nullable: true
+    lead_position:
+      type: string
+      nullable: true
+  oneToMany:
+    Facilitys:
+      targetEntity: Mera\ManageBundle\Entity\Facility
+      mappedBy: Organization
