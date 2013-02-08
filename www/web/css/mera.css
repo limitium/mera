@@ -1,6 +1,8 @@
-.fileupload{
+.fileupload {
     margin-left: -15px;
-}.add-collection-item {
+}
+
+.add-collection-item {
     margin: 0 0 10px 0;
 }
 
@@ -20,6 +22,11 @@ body {
     padding: 0 20px;
     min-height: 600px;
 }
-.ui-datepicker-trigger{
+
+.ui-datepicker-trigger {
     display: none;
+}
+
+#organization .dl-horizontal {
+    margin-left: 30px;
 }

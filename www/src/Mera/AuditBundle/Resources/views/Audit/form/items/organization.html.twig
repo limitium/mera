@@ -1,0 +1,30 @@
+{% extends 'MeraAuditBundle:Audit:form/fields.html.twig' %}
+{% block collapseTitle %}
+    Общие сведения
+{% endblock %}
+{% block collapseId %}organization{% endblock %}
+
+{% form_theme form _self %}
+
+{% block collapseBody %}
+    <div class="row">
+        <dl class="dl-horizontal">
+            <dt>Органищация:</dt>
+            <dd>{{ common.facility.organization.name}}</dd>
+
+            <dt>Номер договора:</dt>
+            <dd>-</dd>
+            <dt>Дата заключения договора</dt>
+            <dd>-</dd>
+            <dt>ФИО энергоаудитора</dt>
+            <dd>-</dd>
+            <dt>Дата проведения энерргетического обследования</dt>
+            <dd>-</dd>
+            <dt>Дата составления паспорта</dt>
+            <dd>-</dd>
+            <dt>Отчетный год</dt>
+            <dd>-</dd>
+
+        </dl>
+    </div>
+{% endblock %}

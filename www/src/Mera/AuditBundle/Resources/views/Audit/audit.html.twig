@@ -74,6 +74,7 @@
                 <form id="audit-form" action="{{ path('audit_save',{'id':common.id}) }}"
                       method="post" {{ form_enctype(form) }}>
                     <div class="accordion" id="accordion-data">
+                        {% include 'MeraAuditBundle:Audit:form/items/organization.html.twig' %}
                         {% include 'MeraAuditBundle:Audit:form/items/common.html.twig' %}
 
                         {% include 'MeraAuditBundle:Audit:form/items/buildings.html.twig' %}
